@@ -76,6 +76,13 @@ class ConfigController:
         if libcalamares.globalstorage.value("hasInternet"):
             target_env_call(["pacman", "-Syy"])
 
+        # Remove unneeded ucode
+        cpu_ucode = target_env_call(["hwinfo", "--cpu", "|", "grep", "Vendor:", "-m1", "|", "cut", "-d\'\"\'", "-f2"])
+        if cpu_ucode == "AuthenticAMD":
+            self.remove_pkg("intel-ucode", "boot/intel-ucode.img")
+        elif cpu_ucode == "GenuineIntel":
+            self.remove_pkg("amd-ucode", "boot/amd-ucode.img")
+
         # Remove calamares
         self.remove_pkg("calamares", "usr/bin/calamares")
 
