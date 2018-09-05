@@ -1007,7 +1007,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/interactiveterminal/InteractiveTerminalPage.cpp" line="54"/>
         <source>Please install KDE Konsole and try again!</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка встановіть KDE Konsole і спробуйте знову!</translation>
     </message>
     <message>
         <location filename="../src/modules/interactiveterminal/InteractiveTerminalPage.cpp" line="116"/>
@@ -1244,7 +1244,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="151"/>
         <source>Password is too weak</source>
-        <translation type="unfinished"/>
+        <translation>Пароль надто ненадійний</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="158"/>
@@ -1254,12 +1254,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="162"/>
         <source>Memory allocation error</source>
-        <translation type="unfinished"/>
+        <translation>Помилка виділення пам&apos;яті</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="164"/>
         <source>The password is the same as the old one</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль такий же як і старий</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="166"/>
@@ -1274,17 +1274,18 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="170"/>
         <source>The password is too similar to the old one</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль надто схожий на попередній</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="172"/>
         <source>The password contains the user name in some form</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль якимось чином містить ім&apos;я користувача 
+</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="174"/>
         <source>The password contains words from the real name of the user in some form</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль містить слова зі справжнього імені користувача в якійсь із форм</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="176"/>
@@ -1294,12 +1295,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="179"/>
         <source>The password contains less than %1 digits</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль містить менше ніж %1 символ</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="180"/>
         <source>The password contains too few digits</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль містить  замало символів</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="183"/>
@@ -1339,7 +1340,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="196"/>
         <source>The password is too short</source>
-        <translation type="unfinished"/>
+        <translation>Цей пароль занадто короткий</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="198"/>
@@ -1464,12 +1465,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="265"/>
         <source>Fatal failure</source>
-        <translation type="unfinished"/>
+        <translation>Фатальна помилка</translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="267"/>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Невідома помилка</translation>
     </message>
 </context>
 <context>
@@ -1839,7 +1840,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="83"/>
         <source>Saving files for later ...</source>
-        <translation type="unfinished"/>
+        <translation>Збереження файлів на потім ...</translation>
     </message>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="89"/>

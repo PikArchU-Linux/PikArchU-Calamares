@@ -50,7 +50,7 @@
     <message>
         <location filename="../src/libcalamaresui/viewpages/BlankViewStep.cpp" line="69"/>
         <source>Blank Page</source>
-        <translation type="unfinished"/>
+        <translation>空白のページ</translation>
     </message>
 </context>
 <context>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../src/libcalamaresui/ViewManager.cpp" line="179"/>
         <source>Calamares Initialization Failed</source>
-        <translation type="unfinished"/>
+        <translation>Calamares によるインストールに失敗しました。</translation>
     </message>
     <message>
         <location filename="../src/libcalamaresui/ViewManager.cpp" line="180"/>
         <source>%1 can not be installed. Calamares was unable to load all of the configured modules. This is a problem with the way Calamares is being used by the distribution.</source>
-        <translation type="unfinished"/>
+        <translation>%1 はインストールできません。Calamares は全てのモジュールをロードすることをできませんでした。これは、Calamares のこのディストリビューションでの使用法による問題です。</translation>
     </message>
     <message>
         <location filename="../src/libcalamaresui/ViewManager.cpp" line="185"/>
         <source>&lt;br/&gt;The following modules could not be loaded:</source>
-        <translation type="unfinished"/>
+        <translation>&lt;br/&gt;以下のモジュールがロードできませんでした。:</translation>
     </message>
     <message>
         <location filename="../src/libcalamaresui/ViewManager.cpp" line="277"/>
@@ -508,12 +508,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/libcalamares/utils/CommandList.cpp" line="128"/>
         <source>The command runs in the host environment and needs to know the root path, but no rootMountPoint is defined.</source>
-        <translation type="unfinished"/>
+        <translation>コマンドがホスト環境で実行される際、rootのパスの情報が必要になりますが、root のマウントポイントが定義されていません。</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CommandList.cpp" line="139"/>
         <source>The command needs to know the user&apos;s name, but no username is defined.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名が必要ですが、定義されていません。</translation>
     </message>
 </context>
 <context>
@@ -1664,7 +1664,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/PartitionPage.ui" line="107"/>
         <source>Cre&amp;ate</source>
-        <translation type="unfinished"/>
+        <translation>作成（&amp;a）</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionPage.ui" line="114"/>
@@ -1689,12 +1689,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/PartitionPage.cpp" line="195"/>
         <source>Can not create new partition</source>
-        <translation type="unfinished"/>
+        <translation>新しいパーティションを作成できません</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionPage.cpp" line="196"/>
         <source>The partition table on %1 already has %2 primary partitions, and no more can be added. Please remove one primary partition and add an extended partition, instead.</source>
-        <translation type="unfinished"/>
+        <translation>%1 上のパーティションテーブルには既にプライマリパーティション %2 が配置されており、追加することができません。プライマリパーティションを消去して代わりに拡張パーティションを追加してください。</translation>
     </message>
 </context>
 <context>
@@ -1840,17 +1840,17 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="83"/>
         <source>Saving files for later ...</source>
-        <translation type="unfinished"/>
+        <translation>後でファイルを保存する...</translation>
     </message>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="89"/>
         <source>No files configured to save for later.</source>
-        <translation type="unfinished"/>
+        <translation>保存するための設定ファイルがありません。</translation>
     </message>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="145"/>
         <source>Not all of the configured files could be preserved.</source>
-        <translation type="unfinished"/>
+        <translation>設定ファイルは全て保護されるわけではありません。</translation>
     </message>
 </context>
 <context>

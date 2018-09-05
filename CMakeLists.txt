@@ -28,6 +28,9 @@
 # Example usage:
 #
 #   cmake . -DSKIP_MODULES="partition luksbootkeycfg"
+#
+# One special target is "show-version", which can be built
+# to obtain the version number from here.
 
 project( calamares C CXX )
 
@@ -36,13 +39,30 @@ cmake_minimum_required( VERSION 3.2 )
 
 ### OPTIONS
 #
-option( INSTALL_CONFIG "Install configuration files" ON )
+option( INSTALL_CONFIG "Install configuration files" OFF )
 option( INSTALL_POLKIT "Install Polkit configuration" ON )
 option( BUILD_TESTING "Build the testing tree." ON )
 option( WITH_PYTHON "Enable Python modules API (requires Boost.Python)." ON )
 option( WITH_PYTHONQT "Enable next generation Python modules API (experimental, requires PythonQt)." ON )
 option( WITH_KF5Crash "Enable crash reporting with KCrash." ON )
 
+### USE_*
+#
+# By convention, when there are multiple modules that implement similar
+# functionality, and it only makes sense to have **at most one** of them
+# enabled at any time, those modules are named <foo>-<implementation>.
+# For example, services-systemd and services-openrc.
+#
+# Setting up SKIP_MODULES to ignore "the ones you don't want" can be
+# annoying and error-prone (e.g. if a new module shows up). The USE_*
+# modules provide a way to do automatic selection. To pick exactly
+# one of the implementations from group <foo>, set USE_<foo> to the
+# name of the implementation. If USE_<foo> is unset, or empty, then
+# all the implementations are enabled (this just means they are
+# **available** to `settings.conf`, not that they are used).
+#
+# Currently, no USE_<foo> variables exist.
+set( USE_services "" CACHE STRING "Select the services module to use" )
 
 ### Calamares application info
 #
@@ -54,9 +74,8 @@ set( CALAMARES_DESCRIPTION_SUMMARY
 
 set( CALAMARES_VERSION_MAJOR 3 )
 set( CALAMARES_VERSION_MINOR 2 )
-set( CALAMARES_VERSION_PATCH 1 )
+set( CALAMARES_VERSION_PATCH 2 )
 set( CALAMARES_VERSION_RC 0 )
-
 
 ### Transifex (languages) info
 #
@@ -375,6 +394,15 @@ if( NOT BUILD_RELEASE AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/.git/" )
     if( CMAKE_VERSION_SOURCE )
         set( CALAMARES_VERSION ${CALAMARES_VERSION}-${CMAKE_VERSION_SOURCE} )
     endif()
+endif()
+
+# Special target for not-RC (e.g. might-be-release) builds.
+# This is used by the release script to get the version.
+if ( CALAMARES_VERSION_RC EQUAL 0 )
+    add_custom_target(show-version
+        ${CMAKE_COMMAND} -E echo CALAMARES_VERSION=${CALAMARES_VERSION_SHORT}
+        USES_TERMINAL
+    )
 endif()
 
 # enforce using constBegin, constEnd for const-iterators

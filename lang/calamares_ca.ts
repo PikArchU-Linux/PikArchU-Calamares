@@ -579,7 +579,7 @@ L&apos;instal·lador es tancarà i tots els canvis es perdran.</translation>
     <message>
         <location filename="../src/modules/partition/gui/CreatePartitionDialog.cpp" line="72"/>
         <source>En&amp;crypt</source>
-        <translation>&amp;Xifra</translation>
+        <translation>En&amp;cripta</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/CreatePartitionDialog.cpp" line="151"/>
@@ -788,7 +788,7 @@ L&apos;instal·lador es tancarà i tots els canvis es perdran.</translation>
     <message>
         <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="133"/>
         <source>Skip writing LUKS configuration for Dracut: &quot;/&quot; partition is not encrypted</source>
-        <translation>Omet l&apos;escriptura de la configuració de LUKS per a Dracut: la partició &quot;/&quot; no està xifrada</translation>
+        <translation>Omet l&apos;escriptura de la configuració de LUKS per a Dracut: la partició &quot;/&quot; no està encriptada</translation>
     </message>
     <message>
         <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="149"/>
@@ -872,7 +872,7 @@ L&apos;instal·lador es tancarà i tots els canvis es perdran.</translation>
     <message>
         <location filename="../src/modules/partition/gui/EncryptWidget.ui" line="32"/>
         <source>En&amp;crypt system</source>
-        <translation>&amp;Xifra el sistema</translation>
+        <translation>En&amp;cripta el sistema</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/EncryptWidget.ui" line="42"/>
@@ -948,7 +948,7 @@ L&apos;instal·lador es tancarà i tots els canvis es perdran.</translation>
     <message>
         <location filename="../src/modules/finished/FinishedPage.cpp" line="51"/>
         <source>&lt;h1&gt;All done.&lt;/h1&gt;&lt;br/&gt;%1 has been installed on your computer.&lt;br/&gt;You may now restart into your new system, or continue using the %2 Live environment.</source>
-        <translation>&lt;h1&gt;Tot fet.&lt;/h1&gt;&lt;br/&gt;%1 s&apos;ha instal·lat al vostre ordinador.&lt;br/&gt;Ara podeu reiniciar-lo per tal d&apos;accedir al sistema operatiu nou o bé continuar utilitzant l&apos;entorn autònom de %2.</translation>
+        <translation>&lt;h1&gt;Tot fet.&lt;/h1&gt;&lt;br/&gt;%1 s&apos;ha instal·lat a l&apos;ordinador.&lt;br/&gt;Ara podeu reiniciar-lo per tal d&apos;accedir al sistema operatiu nou o bé continuar utilitzant l&apos;entorn autònom de %2.</translation>
     </message>
     <message>
         <location filename="../src/modules/finished/FinishedPage.cpp" line="109"/>
@@ -1786,12 +1786,12 @@ L&apos;instal·lador es tancarà i tots els canvis es perdran.</translation>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="450"/>
         <source>Boot partition not encrypted</source>
-        <translation>Partició d&apos;arrencada sense xifrar</translation>
+        <translation>Partició d&apos;arrencada sense encriptar</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="451"/>
         <source>A separate boot partition was set up together with an encrypted root partition, but the boot partition is not encrypted.&lt;br/&gt;&lt;br/&gt;There are security concerns with this kind of setup, because important system files are kept on an unencrypted partition.&lt;br/&gt;You may continue if you wish, but filesystem unlocking will happen later during system startup.&lt;br/&gt;To encrypt the boot partition, go back and recreate it, selecting &lt;strong&gt;Encrypt&lt;/strong&gt; in the partition creation window.</source>
-        <translation>S&apos;ha establert una partició d&apos;arrencada separada conjuntament amb una partició d&apos;arrel encriptada, però la partició d&apos;arrencada no està encriptada.&lt;br/&gt;&lt;br/&gt;Hi ha aspectes de seguretat amb aquest tipus de configuració, perquè hi ha fitxers del sistema importants en una partició no encriptada.&lt;br/&gt;Podeu continuar, si així ho desitgeu, però el desbloqueig del sistema de fitxers succeirà després, durant l&apos;inici del sistema.&lt;br/&gt;Per encriptar la partició d&apos;arrencada, torneu enrere i torneu-la a crear seleccionant &lt;strong&gt;Encripta&lt;/strong&gt; a la finestra de creació de la partició.</translation>
+        <translation>S&apos;ha establert una partició d&apos;arrencada separada conjuntament amb una partició d&apos;arrel encriptada, però la partició d&apos;arrencada no està encriptada.&lt;br/&gt;&lt;br/&gt;Hi ha assumptes de seguretat amb aquest tipus de configuració, perquè hi ha fitxers del sistema importants en una partició no encriptada.&lt;br/&gt;Podeu continuar, si així ho desitgeu, però el desbloqueig del sistema de fitxers succeirà després, durant l&apos;inici del sistema.&lt;br/&gt;Per encriptar la partició d&apos;arrencada, torneu enrere i torneu-la a crear seleccionant &lt;strong&gt;Encripta&lt;/strong&gt; a la finestra de creació de la partició.</translation>
     </message>
 </context>
 <context>
@@ -1839,7 +1839,7 @@ L&apos;instal·lador es tancarà i tots els canvis es perdran.</translation>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="83"/>
         <source>Saving files for later ...</source>
-        <translation>Desament dels fitxers per a més tard...</translation>
+        <translation>Desament de fitxers per a més tard...</translation>
     </message>
     <message>
         <location filename="../src/modules/preservefiles/PreserveFiles.cpp" line="89"/>
@@ -2292,12 +2292,12 @@ Sortida:
     <message>
         <location filename="../src/modules/users/SetPasswordJob.cpp" line="113"/>
         <source>rootMountPoint is %1</source>
-        <translation>El punt de muntatge d&apos;arrel és %1</translation>
+        <translation>El punt de muntatge de l&apos;arrel és %1</translation>
     </message>
     <message>
         <location filename="../src/modules/users/SetPasswordJob.cpp" line="123"/>
         <source>Cannot disable root account.</source>
-        <translation>No es pot inhabilitar el compte de root.</translation>
+        <translation>No es pot inhabilitar el compte d&apos;arrel.</translation>
     </message>
     <message>
         <location filename="../src/modules/users/SetPasswordJob.cpp" line="124"/>
@@ -2528,7 +2528,7 @@ Sortida:
     <message>
         <location filename="../src/modules/users/UsersPage.cpp" line="345"/>
         <source>Your hostname contains invalid characters. Only letters, numbers and dashes are allowed.</source>
-        <translation>El nom d&apos;amfitrió conté caràcters no vàlids. Només s&apos;admeten lletres, números i guions.</translation>
+        <translation>El nom d&apos;amfitrió conté caràcters no vàlids. Només s&apos;hi admeten lletres, números i guions.</translation>
     </message>
     <message>
         <location filename="../src/modules/users/UsersPage.cpp" line="373"/>
@@ -2585,7 +2585,7 @@ Sortida:
     <message>
         <location filename="../src/modules/welcome/WelcomePage.cpp" line="60"/>
         <source>&lt;h1&gt;Welcome to the Calamares installer for %1.&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;Benvingut a l&apos;instal·lador Calamares per a %1.&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;Us donem la benvinguda a l&apos;instal·lador Calamares per a %1.&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/welcome/WelcomePage.cpp" line="73"/>

@@ -34,10 +34,14 @@
 #include "jobs/ClearTempMountsJob.h"
 #include "jobs/CreatePartitionJob.h"
 #include "jobs/CreatePartitionTableJob.h"
+#include "jobs/CreateVolumeGroupJob.h"
+#include "jobs/DeactivateVolumeGroupJob.h"
 #include "jobs/DeletePartitionJob.h"
 #include "jobs/FillGlobalStorageJob.h"
 #include "jobs/FormatPartitionJob.h"
+#include "jobs/RemoveVolumeGroupJob.h"
 #include "jobs/ResizePartitionJob.h"
+#include "jobs/ResizeVolumeGroupJob.h"
 #include "jobs/SetPartitionFlagsJob.h"
 
 #include "Typedefs.h"
@@ -45,10 +49,13 @@
 
 // KPMcore
 #include <kpmcore/core/device.h>
+#include <kpmcore/core/lvmdevice.h>
 #include <kpmcore/core/partition.h>
 #include <kpmcore/backend/corebackend.h>
 #include <kpmcore/backend/corebackendmanager.h>
 #include <kpmcore/fs/filesystemfactory.h>
+#include <kpmcore/fs/luks.h>
+#include <kpmcore/fs/lvm2_pv.h>
 
 // Qt
 #include <QStandardItemModel>
@@ -57,11 +64,44 @@
 #include <QFutureWatcher>
 #include <QtConcurrent/QtConcurrent>
 
+
+PartitionCoreModule::RefreshHelper::RefreshHelper(PartitionCoreModule* module)
+    : m_module( module )
+{
+}
+
+PartitionCoreModule::RefreshHelper::~RefreshHelper()
+{
+    m_module->refreshAfterModelChange();
+}
+
+class OperationHelper
+{
+public:
+    OperationHelper( PartitionModel* model, PartitionCoreModule* core )
+        : m_coreHelper( core )
+        , m_modelHelper( model )
+    {
+    }
+
+    OperationHelper( const OperationHelper& ) = delete;
+    OperationHelper& operator=( const OperationHelper& ) = delete;
+
+private:
+    // Keep these in order: first the model needs to finish,
+    // then refresh is called. Remember that destructors are
+    // called in *reverse* order of declaration in this class.
+    PartitionCoreModule::RefreshHelper m_coreHelper;
+    PartitionModel::ResetHelper m_modelHelper;
+} ;
+
+
 //- DeviceInfo ---------------------------------------------
 PartitionCoreModule::DeviceInfo::DeviceInfo( Device* _device )
     : device( _device )
     , partitionModel( new PartitionModel )
     , immutableDevice( new Device( *_device ) )
+    , isAvailable( true )
 {}
 
 PartitionCoreModule::DeviceInfo::~DeviceInfo()
@@ -178,6 +218,8 @@ PartitionCoreModule::doInit()
 
     m_bootLoaderModel->init( bootLoaderDevices );
 
+    scanForLVMPVs();
+
     //FIXME: this should be removed in favor of
     //       proper KPM support for EFI
     if ( PartUtils::isEfiSystem() )
@@ -232,13 +274,11 @@ PartitionCoreModule::createPartitionTable( Device* device, PartitionTable::Table
         // keep previous changes
         info->forgetChanges();
 
-        PartitionModel::ResetHelper helper( partitionModelForDevice( device ) );
+        OperationHelper helper( partitionModelForDevice( device ), this );
         CreatePartitionTableJob* job = new CreatePartitionTableJob( device, type );
         job->updatePreview();
         info->jobs << Calamares::job_ptr( job );
     }
-
-    refresh();
 }
 
 void
@@ -249,7 +289,7 @@ PartitionCoreModule::createPartition( Device* device,
     auto deviceInfo = infoForDevice( device );
     Q_ASSERT( deviceInfo );
 
-    PartitionModel::ResetHelper helper( partitionModelForDevice( device ) );
+    OperationHelper helper( partitionModelForDevice( device ), this );
     CreatePartitionJob* job = new CreatePartitionJob( device, partition );
     job->updatePreview();
 
@@ -261,8 +301,77 @@ PartitionCoreModule::createPartition( Device* device,
         deviceInfo->jobs << Calamares::job_ptr( fJob );
         PartitionInfo::setFlags( partition, flags );
     }
+}
 
-    refresh();
+void
+PartitionCoreModule::createVolumeGroup( QString &vgName,
+                                        QVector< const Partition* > pvList,
+                                        qint32 peSize )
+{
+    // Appending '_' character in case of repeated VG name
+    while ( hasVGwithThisName( vgName ) )
+        vgName.append('_');
+
+    CreateVolumeGroupJob* job = new CreateVolumeGroupJob( vgName, pvList, peSize );
+    job->updatePreview();
+
+    LvmDevice* device = new LvmDevice(vgName);
+
+    for ( const Partition* p : pvList )
+        device->physicalVolumes() << p;
+
+    DeviceInfo* deviceInfo = new DeviceInfo( device );
+
+    deviceInfo->partitionModel->init( device, osproberEntries() );
+
+    m_deviceModel->addDevice( device );
+
+    m_deviceInfos << deviceInfo;
+    deviceInfo->jobs << Calamares::job_ptr( job );
+
+    refreshAfterModelChange();
+}
+
+void
+PartitionCoreModule::resizeVolumeGroup( LvmDevice *device, QVector< const Partition* >& pvList )
+{
+    DeviceInfo* deviceInfo = infoForDevice( device );
+    Q_ASSERT( deviceInfo );
+
+    ResizeVolumeGroupJob* job = new ResizeVolumeGroupJob( device, pvList );
+
+    deviceInfo->jobs << Calamares::job_ptr( job );
+
+    refreshAfterModelChange();
+}
+
+void
+PartitionCoreModule::deactivateVolumeGroup( LvmDevice *device )
+{
+    DeviceInfo* deviceInfo = infoForDevice( device );
+    Q_ASSERT( deviceInfo );
+
+    deviceInfo->isAvailable = false;
+
+    DeactivateVolumeGroupJob* job = new DeactivateVolumeGroupJob( device );
+
+    // DeactivateVolumeGroupJob needs to be immediately called
+    job->exec();
+
+    refreshAfterModelChange();
+}
+
+void
+PartitionCoreModule::removeVolumeGroup( LvmDevice *device )
+{
+    DeviceInfo* deviceInfo = infoForDevice( device );
+    Q_ASSERT( deviceInfo );
+
+    RemoveVolumeGroupJob* job = new RemoveVolumeGroupJob( device );
+
+    deviceInfo->jobs << Calamares::job_ptr( job );
+
+    refreshAfterModelChange();
 }
 
 void
@@ -271,7 +380,7 @@ PartitionCoreModule::deletePartition( Device* device, Partition* partition )
     auto deviceInfo = infoForDevice( device );
     Q_ASSERT( deviceInfo );
 
-    PartitionModel::ResetHelper helper( partitionModelForDevice( device ) );
+    OperationHelper helper( partitionModelForDevice( device ), this );
 
     if ( partition->roles().has( PartitionRole::Extended ) )
     {
@@ -339,8 +448,6 @@ PartitionCoreModule::deletePartition( Device* device, Partition* partition )
         job->updatePreview();
         jobs << Calamares::job_ptr( job );
     }
-
-    refresh();
 }
 
 void
@@ -348,12 +455,10 @@ PartitionCoreModule::formatPartition( Device* device, Partition* partition )
 {
     auto deviceInfo = infoForDevice( device );
     Q_ASSERT( deviceInfo );
-    PartitionModel::ResetHelper helper( partitionModelForDevice( device ) );
+    OperationHelper helper( partitionModelForDevice( device ), this );
 
     FormatPartitionJob* job = new FormatPartitionJob( device, partition );
     deviceInfo->jobs << Calamares::job_ptr( job );
-
-    refresh();
 }
 
 void
@@ -364,13 +469,11 @@ PartitionCoreModule::resizePartition( Device* device,
 {
     auto deviceInfo = infoForDevice( device );
     Q_ASSERT( deviceInfo );
-    PartitionModel::ResetHelper helper( partitionModelForDevice( device ) );
+    OperationHelper helper( partitionModelForDevice( device ), this );
 
     ResizePartitionJob* job = new ResizePartitionJob( device, partition, first, last );
     job->updatePreview();
     deviceInfo->jobs << Calamares::job_ptr( job );
-
-    refresh();
 }
 
 void
@@ -380,13 +483,11 @@ PartitionCoreModule::setPartitionFlags( Device* device,
 {
     auto deviceInfo = infoForDevice( device );
     Q_ASSERT( deviceInfo );
-    PartitionModel::ResetHelper( partitionModelForDevice( device ) );
+    OperationHelper( partitionModelForDevice( device ), this );
 
     SetPartFlagsJob* job = new SetPartFlagsJob( device, partition, flags );
     deviceInfo->jobs << Calamares::job_ptr( job );
     PartitionInfo::setFlags( partition, flags );
-
-    refresh();
 }
 
 QList< Calamares::job_ptr >
@@ -435,6 +536,37 @@ PartitionCoreModule::efiSystemPartitions() const
     return m_efiSystemPartitions;
 }
 
+QVector< const Partition* >
+PartitionCoreModule::lvmPVs() const
+{
+    return m_lvmPVs;
+}
+
+bool
+PartitionCoreModule::hasVGwithThisName( const QString& name ) const
+{
+    for ( DeviceInfo* d : m_deviceInfos )
+        if ( dynamic_cast<LvmDevice*>(d->device.data()) &&
+             d->device.data()->name() == name)
+            return true;
+
+    return false;
+}
+
+bool
+PartitionCoreModule::isInVG( const Partition *partition ) const
+{
+    for ( DeviceInfo* d : m_deviceInfos )
+    {
+        LvmDevice* vg = dynamic_cast<LvmDevice*>( d->device.data() );
+
+        if ( vg && vg->physicalVolumes().contains( partition ))
+            return true;
+    }
+
+    return false;
+}
+
 void
 PartitionCoreModule::dumpQueue() const
 {
@@ -462,17 +594,17 @@ PartitionCoreModule::refreshPartition( Device* device, Partition* )
     // the loss of the current selection.
     auto model = partitionModelForDevice( device );
     Q_ASSERT( model );
-    PartitionModel::ResetHelper helper( model );
-
-    refresh();
+    OperationHelper helper( model, this );
 }
 
 void
-PartitionCoreModule::refresh()
+PartitionCoreModule::refreshAfterModelChange()
 {
     updateHasRootMountPoint();
     updateIsDirty();
     m_bootLoaderModel->update();
+
+    scanForLVMPVs();
 
     //FIXME: this should be removed in favor of
     //       proper KPM support for EFI
@@ -526,6 +658,84 @@ PartitionCoreModule::scanForEfiSystemPartitions()
     m_efiSystemPartitions = efiSystemPartitions;
 }
 
+void
+PartitionCoreModule::scanForLVMPVs()
+{
+    m_lvmPVs.clear();
+
+    QList< Device* > physicalDevices;
+    QList< LvmDevice* > vgDevices;
+
+    for ( DeviceInfo* deviceInfo : m_deviceInfos )
+    {
+        if ( deviceInfo->device.data()->type() == Device::Type::Disk_Device)
+            physicalDevices << deviceInfo->device.data();
+        else if ( deviceInfo->device.data()->type() == Device::Type::LVM_Device )
+        {
+            LvmDevice* device = dynamic_cast<LvmDevice*>(deviceInfo->device.data());
+
+            // Restoring physical volume list
+            device->physicalVolumes().clear();
+
+            vgDevices << device;
+        }
+    }
+
+    // Update LVM::pvList
+    LvmDevice::scanSystemLVM( physicalDevices );
+
+#ifdef WITH_KPMCOREGT33
+    for ( auto p : LVM::pvList::list() )
+#else
+    for ( auto p : LVM::pvList )
+#endif
+    {
+        m_lvmPVs << p.partition().data();
+
+        for ( LvmDevice* device : vgDevices )
+            if ( p.vgName() == device->name() )
+            {
+                // Adding scanned VG to PV list
+                device->physicalVolumes() << p.partition();
+                break;
+            }
+    }
+
+    for ( DeviceInfo* d : m_deviceInfos )
+    {
+        for ( auto job : d->jobs )
+        {
+            // Including new LVM PVs
+            CreatePartitionJob* partJob = dynamic_cast<CreatePartitionJob*>( job.data() );
+            if ( partJob )
+            {
+                Partition* p = partJob->partition();
+
+                if ( p->fileSystem().type() == FileSystem::Type::Lvm2_PV )
+                    m_lvmPVs << p;
+                else if ( p->fileSystem().type() == FileSystem::Type::Luks )
+                {
+                    // Encrypted LVM PVs
+                    FileSystem* innerFS = static_cast<const FS::luks*>(&p->fileSystem())->innerFS();
+
+                    if ( innerFS && innerFS->type() == FileSystem::Type::Lvm2_PV )
+                        m_lvmPVs << p;
+                }
+#ifdef WITH_KPMCOREGT33
+                else if ( p->fileSystem().type() == FileSystem::Type::Luks2 )
+                {
+                    // Encrypted LVM PVs
+                    FileSystem* innerFS = static_cast<const FS::luks*>(&p->fileSystem())->innerFS();
+
+                    if ( innerFS && innerFS->type() == FileSystem::Type::Lvm2_PV )
+                        m_lvmPVs << p;
+                }
+#endif
+            }
+        }
+    }
+}
+
 PartitionCoreModule::DeviceInfo*
 PartitionCoreModule::infoForDevice( const Device* device ) const
 {
@@ -575,9 +785,37 @@ PartitionCoreModule::revert()
 void
 PartitionCoreModule::revertAllDevices()
 {
-    foreach ( DeviceInfo* devInfo, m_deviceInfos )
-        revertDevice( devInfo->device.data() );
-    refresh();
+    for ( auto it = m_deviceInfos.begin(); it != m_deviceInfos.end(); )
+    {
+        // In new VGs device info, there will be always a CreateVolumeGroupJob as the first job in jobs list
+        if ( dynamic_cast<LvmDevice*>( ( *it )->device.data() ) )
+        {
+            ( *it )->isAvailable = true;
+
+            if ( !( *it )->jobs.empty() )
+            {
+                CreateVolumeGroupJob* vgJob = dynamic_cast<CreateVolumeGroupJob*>( ( *it )->jobs[0].data() );
+
+                if ( vgJob )
+                {
+                    vgJob->undoPreview();
+
+                    ( *it )->forgetChanges();
+
+                    m_deviceModel->removeDevice( ( *it )->device.data() );
+
+                    it = m_deviceInfos.erase( it );
+
+                    continue;
+                }
+            }
+        }
+
+        revertDevice( ( *it )->device.data() );
+        ++it;
+    }
+
+    refreshAfterModelChange();
 }
 
 
@@ -586,6 +824,7 @@ PartitionCoreModule::revertDevice( Device* dev )
 {
     QMutexLocker locker( &m_revertMutex );
     DeviceInfo* devInfo = infoForDevice( dev );
+
     if ( !devInfo )
         return;
     devInfo->forgetChanges();
@@ -597,12 +836,17 @@ PartitionCoreModule::revertDevice( Device* dev )
     m_deviceModel->swapDevice( dev, newDev );
 
     QList< Device* > devices;
-    foreach ( auto info, m_deviceInfos )
-        devices.append( info->device.data() );
+    for ( auto info : m_deviceInfos )
+    {
+        if ( info->device.data()->type() != Device::Type::Disk_Device )
+            continue;
+        else
+            devices.append( info->device.data() );
+    }
 
     m_bootLoaderModel->init( devices );
 
-    refresh();
+    refreshAfterModelChange();
     emit deviceReverted( newDev );
 }
 
@@ -636,6 +880,16 @@ bool
 PartitionCoreModule::isDirty()
 {
     return m_isDirty;
+}
+
+bool
+PartitionCoreModule::isVGdeactivated( LvmDevice *device )
+{
+    for ( DeviceInfo* deviceInfo : m_deviceInfos )
+        if ( device == deviceInfo->device.data() && !deviceInfo->isAvailable )
+            return true;
+
+    return false;
 }
 
 QList< PartitionCoreModule::SummaryInfo >

@@ -3,13 +3,13 @@
 # Travis CI script for weekly (cron) use:
 #  - use the coverity tool to build and and upload results
 #
-test -n "$COVERITY_SCAN_TOKEN" || exit 1
-test -n "$BUILDDIR" || exit 1
-test -n "$SRCDIR" || exit 1
+test -n "$COVERITY_SCAN_TOKEN" || { echo "! Missing Coverity token" ; exit 1 ; }
+test -n "$BUILDDIR" || { echo "! \$BUILDDIR not set" ; exit 1 ; }
+test -n "$SRCDIR" || { echo "! \$SRCDIR not set" ; exit 1 ; }
 
-test -d $BUILDDIR || exit 1
-test -d $SRCDIR || exit 1
-test -f $SRCDIR/CMakeLists.txt || exit 1
+test -d $BUILDDIR || { echo "! $BUILDDIR not a directory" ; exit 1 ; }
+test -d $SRCDIR || { echo "! $SRCDIR not a directory" ; exit 1 ; }
+test -f $SRCDIR/CMakeLists.txt || { echo "! Missing $SRCDIR/CMakeLists.txt" ; exit 1 ; }
 
 cd $BUILDDIR || exit 1
 
@@ -20,8 +20,8 @@ mkdir "$BUILDDIR/coveritytool"
 tar xvf coverity_tool.tar.gz -C "$BUILDDIR/coveritytool" --strip-components 2
 export PATH="$BUILDDIR/coveritytool/bin:$PATH"
 
-
-cmake -DCMAKE_BUILD_TYPE=Debug -DWEBVIEW_FORCE_WEBKIT=1 -DKDE_INSTALL_USE_QT_SYS_PATHS=ON $SRCDIR || exit 1
+echo "# cmake -DCMAKE_BUILD_TYPE=Debug $CMAKE_ARGS $SRCDIR"
+cmake -DCMAKE_BUILD_TYPE=Debug $CMAKE_ARGS $SRCDIR || exit 1
 cov-build --dir cov-int make -j2
 
 tar caf calamares-ci.tar.xz cov-int
