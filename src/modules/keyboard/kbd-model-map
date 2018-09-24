@@ -14,6 +14,7 @@ mk-utf			mk,us	pc105		-		terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scrol
 trq			tr	pc105		-		terminate:ctrl_alt_bksp
 uk			gb	pc105		-		terminate:ctrl_alt_bksp
 is-latin1		is	pc105		-		terminate:ctrl_alt_bksp
+at			de	pc105		-		terminate:ctrl_alt_bksp
 de			de	pc105		-		terminate:ctrl_alt_bksp
 la-latin1		latam	pc105		-		terminate:ctrl_alt_bksp
 us			us	pc105+inet	-		terminate:ctrl_alt_bksp
