@@ -4,7 +4,7 @@
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
 #   Copyright 2014, Rohan Garg <rohan@kde.org>
-#   Copyright 2015, Philip Müller <philm@manjaro.org>
+#   Copyright 2015 - 2018, Philip Müller <philm@manjaro.org>
 #   Copyright 2017, Alf Gaida <agaida@sidution.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
@@ -156,7 +156,7 @@ def modify_mkinitcpio_conf(partitions, root_mount_point):
     elif (btrfs == "yes"
           and cpu['proc0']['vendor_id'].lower() == "genuineintel"):
         modules.append("crc32c-intel")
-    else:
+    elif not os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
         hooks.append("fsck")
 
     write_mkinitcpio_lines(hooks, modules, files, root_mount_point)
