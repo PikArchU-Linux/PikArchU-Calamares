@@ -3,7 +3,7 @@
 #
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
-#   Copyright 2014-2015, Philip Müller <philm@manjaro.org>
+#   Copyright 2014-2018, Philip Müller <philm@manjaro.org>
 #   Copyright 2015-2017, Teo Mrnjavac <teo@kde.org>
 #   Copyright 2017, Alf Gaida <agaida@siduction.org>
 #   Copyright 2017, Adriaan de Groot <groot@kde.org>
@@ -103,10 +103,15 @@ def modify_grub_default(partitions, root_mount_point, distributor):
 
     kernel_params = ["quiet"]
 
+    if os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
+        grub_params = ["loglevel=3", "vga=current", "rd.systemd.show_status=auto", 
+            "rd.udev.log-priority=3", "vt.global_cursor_default=0"]
+        kernel_params.extend(grub_params)
+
     if cryptdevice_params:
         kernel_params.extend(cryptdevice_params)
 
-    if use_splash:
+    if use_splash and not os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
         kernel_params.append(use_splash)
 
     if swap_uuid:
@@ -153,13 +158,13 @@ def modify_grub_default(partitions, root_mount_point, distributor):
                 line = line.rstrip("'")
                 existing_params = line.split()
 
-                for existing_param in existing_params:
-                    existing_param_name = existing_param.split("=")[0]
+                if not os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
+                    for existing_param in existing_params:
+                        existing_param_name = existing_param.split("=")[0]
 
-                    # the only ones we ever add
-                    if existing_param_name not in [
-                            "quiet", "resume", "splash"]:
-                        kernel_params.append(existing_param)
+                        # the only ones we ever add
+                        if existing_param_name not in ["quiet", "resume", "splash"]:
+                            kernel_params.append(existing_param)
 
                 kernel_cmd = "GRUB_CMDLINE_LINUX_DEFAULT=\"{!s}\"".format(
                     " ".join(kernel_params)
