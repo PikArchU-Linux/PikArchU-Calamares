@@ -98,8 +98,7 @@ class ConfigController:
         self.terminate('gpg-agent')
 
         # Update grub.cfg
-        if exists(join(self.root, "usr/bin/update-grub")) \
-                and libcalamares.globalstorage.value("bootLoader") is not None:
+        if exists(join(self.root, "usr/bin/update-grub")):
             target_env_call(["update-grub"])
 
         # Enable 'menu_auto_hide' when supported in grubenv
