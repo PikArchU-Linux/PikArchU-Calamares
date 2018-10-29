@@ -2,6 +2,7 @@
  *
  *   Copyright 2015-2016, Teo Mrnjavac <teo@kde.org>
  *   Copyright 2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2018, Philip Müller <philm@manjaro.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -163,6 +164,7 @@ lookForFstabEntries( const QString& partitionPath )
 {
     FstabEntryList fstabEntries;
     QTemporaryDir mountsDir;
+    mountsDir.setAutoRemove(false); // Avoid data cleanup - https://github.com/calamares/calamares/issues/1044
 
     int exit = QProcess::execute( "mount", { partitionPath, mountsDir.path() } );
     if ( !exit ) // if all is well
