@@ -70,7 +70,6 @@ public:
 private:
     QString m_devicePath;
     QTemporaryDir m_mountPointDir;
-    m_mountPointDir.setAutoRemove(false); // Avoid data cleanup - https://github.com/calamares/calamares/issues/1044
     bool m_mounted;
 };
 
