@@ -20,6 +20,7 @@
 #   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
 
 import libcalamares
+import subprocess
 
 from shutil import copy2
 from distutils.dir_util import copy_tree
@@ -77,7 +78,7 @@ class ConfigController:
             target_env_call(["pacman", "-Syy"])
 
         # Remove unneeded ucode
-        cpu_ucode = target_env_call(["hwinfo", "--cpu", "|", "grep", "Vendor:", "-m1", "|", "cut", "-d\'\"\'", "-f2"])
+        cpu_ucode = subprocess.getoutput("hwinfo --cpu | grep Vendor: -m1 | cut -d\'\"\' -f2")
         if cpu_ucode == "AuthenticAMD":
             self.remove_pkg("intel-ucode", "boot/intel-ucode.img")
         elif cpu_ucode == "GenuineIntel":
