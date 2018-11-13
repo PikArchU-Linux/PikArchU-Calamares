@@ -204,7 +204,8 @@ doAutopartition( PartitionCoreModule* core, Device* dev, const QString& luksPass
             PartitionRole( PartitionRole::Primary ),
             FileSystem::typeForName( defaultFsType ),
             firstFreeSector,
-            lastSectorForRoot
+            lastSectorForRoot,
+            PartitionTable::FlagNone
         );
     }
     else
@@ -216,20 +217,17 @@ doAutopartition( PartitionCoreModule* core, Device* dev, const QString& luksPass
             FileSystem::typeForName( defaultFsType ),
             firstFreeSector,
             lastSectorForRoot,
-            luksPassphrase
+            luksPassphrase,
+            PartitionTable::FlagNone
        );
     }
     PartitionInfo::setFormat( rootPartition, true );
     PartitionInfo::setMountPoint( rootPartition, "/" );
-    if( isEfi )
-    {
-        core->createPartition( dev, rootPartition );
-    }
-    else
-    {
-        // Set FlagBoot for some legacy BIOSes, otherwise may not boot.
-        core->createPartition( dev, rootPartition, PartitionTable::FlagBoot );
-    }
+    // Some buggy (legacy) BIOSes test if the bootflag of at least one partition is set.
+    // Otherwise they ignore the device in boot-order, so add it here.
+    core->createPartition( dev, rootPartition,
+                           rootPartition->activeFlags() | ( isEfi ? PartitionTable::FlagNone : PartitionTable::FlagBoot )
+                         );
 
     if ( shouldCreateSwap )
     {
@@ -242,7 +240,8 @@ doAutopartition( PartitionCoreModule* core, Device* dev, const QString& luksPass
                 PartitionRole( PartitionRole::Primary ),
                 FileSystem::LinuxSwap,
                 lastSectorForRoot + 1,
-                dev->totalLogical() - 1
+                dev->totalLogical() - 1,
+                PartitionTable::FlagNone
             );
         }
         else
@@ -254,7 +253,8 @@ doAutopartition( PartitionCoreModule* core, Device* dev, const QString& luksPass
                 FileSystem::LinuxSwap,
                 lastSectorForRoot + 1,
                 dev->totalLogical() - 1,
-                luksPassphrase
+                luksPassphrase,
+                PartitionTable::FlagNone
             );
         }
         PartitionInfo::setFormat( swapPartition, true );
@@ -304,7 +304,8 @@ doReplacePartition( PartitionCoreModule* core,
             newRoles,
             FileSystem::typeForName( defaultFsType ),
             partition->firstSector(),
-            partition->lastSector()
+            partition->lastSector(),
+            PartitionTable::FlagNone
         );
     }
     else
@@ -316,7 +317,8 @@ doReplacePartition( PartitionCoreModule* core,
             FileSystem::typeForName( defaultFsType ),
             partition->firstSector(),
             partition->lastSector(),
-            luksPassphrase
+            luksPassphrase,
+            PartitionTable::FlagNone
         );
     }
     PartitionInfo::setMountPoint( newPartition, "/" );
