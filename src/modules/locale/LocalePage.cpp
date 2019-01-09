@@ -387,12 +387,7 @@ std::pair< QString, QString > LocalePage::prettyLocaleStatus( const LocaleConfig
 {
     using CalamaresUtils::LocaleLabel;
 
-<<<<<<< HEAD
-    LocaleLabel lang( lc.lang, LocaleLabel::LabelFormat::AlwaysWithCountry );
-=======
     LocaleLabel lang( lc.language(), LocaleLabel::LabelFormat::AlwaysWithCountry );
->>>>>>> 44211ee19a30eb062508bba565da274c53b16a71
-    LocaleLabel num( lc.lc_numeric, LocaleLabel::LabelFormat::AlwaysWithCountry );
 
     return std::make_pair< QString, QString >(
         tr( "The system language will be set to %1." ).arg( lang.label() ),
