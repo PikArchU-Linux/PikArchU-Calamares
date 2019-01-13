@@ -20,8 +20,6 @@
 
 #include "jobs/CreatePartitionTableJob.h"
 
-#include "core/PartitionIterator.h"
-
 #include "utils/Logger.h"
 
 // KPMcore
@@ -67,14 +65,6 @@ CreatePartitionTableJob::prettyStatusMessage() const
 }
 
 
-static inline QDebug&
-operator <<( QDebug& s, PartitionIterator& it )
-{
-    s << ( ( *it ) ? ( *it )->deviceNode() : QString( "<null device>" ) );
-    return s;
-}
-
-
 Calamares::JobResult
 CreatePartitionTableJob::exec()
 {
@@ -83,28 +73,21 @@ CreatePartitionTableJob::exec()
 
     PartitionTable* table = m_device->partitionTable();
     cDebug() << "Creating new partition table of type" << table->typeName()
-             << ", uncommitted yet:";
+             << ", uncommitted yet:\n" << table;
 
-    if ( Logger::logLevelEnabled( Logger::LOGDEBUG ) )
-    {
-        for ( auto it = PartitionIterator::begin( table );
-            it != PartitionIterator::end( table ); ++it )
-            cDebug() << *it;
+    QProcess lsblk;
+    lsblk.setProgram( "lsblk" );
+    lsblk.setProcessChannelMode( QProcess::MergedChannels );
+    lsblk.start();
+    lsblk.waitForFinished();
+    cDebug() << "lsblk:\n" << lsblk.readAllStandardOutput();
 
-        QProcess lsblk;
-        lsblk.setProgram( "lsblk" );
-        lsblk.setProcessChannelMode( QProcess::MergedChannels );
-        lsblk.start();
-        lsblk.waitForFinished();
-        cDebug() << "lsblk:\n" << lsblk.readAllStandardOutput();
-
-        QProcess mount;
-        mount.setProgram( "mount" );
-        mount.setProcessChannelMode( QProcess::MergedChannels );
-        mount.start();
-        mount.waitForFinished();
-        cDebug() << "mount:\n" << mount.readAllStandardOutput();
-    }
+    QProcess mount;
+    mount.setProgram( "mount" );
+    mount.setProcessChannelMode( QProcess::MergedChannels );
+    mount.start();
+    mount.waitForFinished();
+    cDebug() << "mount:\n" << mount.readAllStandardOutput();
 
     CreatePartitionTableOperation op(*m_device, table);
     op.setStatus(Operation::StatusRunning);

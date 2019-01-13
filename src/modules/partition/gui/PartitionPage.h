@@ -2,7 +2,6 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2018, Adriaan de Groot <groot@kde.org>
- *   Copyright 2019, Collabora Ltd
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -46,9 +45,6 @@ public:
     ~PartitionPage();
 
     void onRevertClicked();
-
-    int selectedDeviceIndex();
-    void selectDeviceByIndex( int index );
 
 private:
     QScopedPointer< Ui_PartitionPage > m_ui;

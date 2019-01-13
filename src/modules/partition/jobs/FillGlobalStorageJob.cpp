@@ -56,12 +56,9 @@ findPartitionUuids( QList < Device* > devices )
             QString path = p->partitionPath();
             QString uuid = p->fileSystem().readUUID( p->partitionPath() );
             hash.insert( path, uuid );
-            cDebug() << ".. added path=" << path << "UUID=" << uuid;
         }
     }
-
-    if ( hash.isEmpty() )
-        cDebug() << ".. no UUIDs found.";
+    cDebug() << hash;
     return hash;
 }
 
@@ -93,16 +90,10 @@ mapForPartition( Partition* partition, const QString& uuid )
          dynamic_cast< FS::luks& >( partition->fileSystem() ).innerFS() )
         map[ "fs" ] = dynamic_cast< FS::luks& >( partition->fileSystem() ).innerFS()->name();
     map[ "uuid" ] = uuid;
-
-    // Debugging for inside the loop in createPartitionList(),
-    // so indent a bit
-    Logger::CLog deb = cDebug();
-    using TR = Logger::DebugRow<const char *const, const QString&>;
-    deb << "  .. mapping for" << partition->partitionPath() << partition->deviceNode()
-        << TR( "mtpoint:", PartitionInfo::mountPoint( partition ) )
-        << TR( "fs:", map[ "fs" ].toString() )
-        << TR( "fsname", map[ "fsName" ].toString() )
-        << TR( "uuid", uuid );
+    cDebug() << partition->partitionPath()
+             << "mtpoint:" << PartitionInfo::mountPoint( partition )
+             << "fs:" << map[ "fs" ] << '(' << map[ "fsName" ] << ')'
+             << uuid;
 
     if ( partition->roles().has( PartitionRole::Luks ) )
     {
@@ -113,7 +104,7 @@ mapForPartition( Partition* partition, const QString& uuid )
             map[ "luksMapperName" ] = luksFs->mapperName().split( "/" ).last();
             map[ "luksUuid" ] = getLuksUuid( partition->partitionPath() );
             map[ "luksPassphrase" ] = luksFs->passphrase();
-            deb << TR( "luksMapperName:", map[ "luksMapperName" ].toString() );
+            cDebug() << "luksMapperName:" << map[ "luksMapperName" ];
         }
     }
 
@@ -224,11 +215,9 @@ FillGlobalStorageJob::createPartitionList() const
     cDebug() << "Writing to GlobalStorage[\"partitions\"]";
     for ( auto device : m_devices )
     {
-        cDebug() << ".. partitions on" << device->deviceNode();
         for ( auto it = PartitionIterator::begin( device );
               it != PartitionIterator::end( device ); ++it )
         {
-            // Debug-logging is done when creating the map
             lst << mapForPartition( *it, hash.value( ( *it )->partitionPath() ) );
         }
     }

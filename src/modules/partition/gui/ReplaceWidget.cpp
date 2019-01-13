@@ -85,8 +85,6 @@ ReplaceWidget::reset()
 void
 ReplaceWidget::applyChanges()
 {
-    auto gs = Calamares::JobQueue::instance()->globalStorage();
-
     PartitionModel* model = qobject_cast< PartitionModel* >( m_ui->partitionTreeView->model() );
     if ( model )
     {
@@ -95,9 +93,7 @@ ReplaceWidget::applyChanges()
         {
             Device* dev = model->device();
 
-            PartitionActions::doReplacePartition(
-                m_core, dev, partition,
-                { gs->value( "defaultFileSystemType" ).toString(), QString() } );
+            PartitionActions::doReplacePartition( m_core, dev, partition );
 
             if ( m_isEfi )
             {
@@ -106,13 +102,17 @@ ReplaceWidget::applyChanges()
                 {
                     PartitionInfo::setMountPoint(
                             efiSystemPartitions.first(),
-                            gs->value( "efiSystemPartition" ).toString() );
+                            Calamares::JobQueue::instance()->
+                                globalStorage()->
+                                    value( "efiSystemPartition" ).toString() );
                 }
                 else if ( efiSystemPartitions.count() > 1 )
                 {
                     PartitionInfo::setMountPoint(
                             efiSystemPartitions.at( m_ui->bootComboBox->currentIndex() ),
-                            gs->value( "efiSystemPartition" ).toString() );
+                            Calamares::JobQueue::instance()->
+                                globalStorage()->
+                                    value( "efiSystemPartition" ).toString() );
                 }
             }
 

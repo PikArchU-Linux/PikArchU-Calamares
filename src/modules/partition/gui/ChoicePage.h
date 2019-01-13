@@ -2,7 +2,6 @@
  *
  *   Copyright 2014-2016, Teo Mrnjavac <teo@kde.org>
  *   Copyright 2018, Adriaan de Groot <groot@kde.org>
- *   Copyright 2019, Collabora Ltd
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -54,7 +53,7 @@ class ChoicePage : public QWidget, private Ui::ChoicePage
 {
     Q_OBJECT
 public:
-    enum InstallChoice
+    enum Choice
     {
         NoChoice,
         Alongside,
@@ -85,7 +84,7 @@ public:
      * currently selected partitioning mode (with a PrettyRadioButton).
      * @return the enum Choice value.
      */
-    InstallChoice currentChoice() const;
+    Choice currentChoice() const;
 
     /**
      * @brief onLeave runs when control passes from this page to another one.
@@ -96,10 +95,7 @@ public:
      * @brief applyActionChoice reacts to a choice of partitioning mode.
      * @param choice the partitioning action choice.
      */
-    void applyActionChoice( ChoicePage::InstallChoice choice );
-
-    int lastSelectedDeviceIndex();
-    void setLastSelectedDeviceIndex( int index );
+    void applyActionChoice( ChoicePage::Choice choice );
 
 signals:
     void nextStatusChanged( bool );
@@ -125,21 +121,18 @@ private:
     void continueApplyDeviceChoice();  // .. called after scan
 
     void updateDeviceStatePreview();
-    void updateActionChoicePreview( ChoicePage::InstallChoice choice );
+    void updateActionChoicePreview( ChoicePage::Choice choice );
     void setupActions();
     OsproberEntryList getOsproberEntriesForDevice( Device* device ) const;
     void doAlongsideApply();
     void setupEfiSystemPartitionSelector();
-
-    // Translations support
-    void updateSwapChoicesTr( QComboBox* box );
 
     bool m_nextEnabled;
     PartitionCoreModule* m_core;
 
     QMutex m_previewsMutex;
 
-    InstallChoice m_choice;
+    Choice m_choice;
 
     bool m_isEfi;
     QComboBox* m_drivesCombo;
@@ -149,9 +142,6 @@ private:
     PrettyRadioButton* m_eraseButton;
     PrettyRadioButton* m_replaceButton;
     PrettyRadioButton* m_somethingElseButton;
-    QComboBox* m_eraseSwapChoices;
-    QComboBox* m_replaceSwapChoices;
-    QComboBox* m_alongsideSwapChoices;
 
     DeviceInfoWidget* m_deviceInfoWidget;
 
