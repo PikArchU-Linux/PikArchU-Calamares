@@ -2,6 +2,7 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2017, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2018, Philip Müller <philm@manjaro.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -358,7 +359,15 @@ PartitionJobTests::testResizePartition()
 
         Partition* freePartition = firstFreePartition( m_device->partitionTable() );
         QVERIFY( freePartition );
-        Partition* partition = KPMHelpers::createNewPartition( freePartition->parent(), *m_device, PartitionRole( PartitionRole::Primary ), FileSystem::Ext4, oldFirst, oldLast );
+        Partition* partition = KPMHelpers::createNewPartition(
+            freePartition->parent(),
+            *m_device,
+            PartitionRole( PartitionRole::Primary ),
+            FileSystem::Ext4,
+            oldFirst,
+            oldLast,
+            PartitionTable::FlagNone
+        );
         CreatePartitionJob* job = new CreatePartitionJob( m_device.data(), partition );
         job->updatePreview();
         m_queue.enqueue( job_ptr( job ) );

@@ -48,6 +48,9 @@
 
 #include <kpmcore/core/device.h>
 #include <kpmcore/core/partition.h>
+#ifdef WITH_KPMCOREGT33
+#include <kpmcore/core/softwareraid.h>
+#endif
 
 #include <QBoxLayout>
 #include <QButtonGroup>
@@ -632,7 +635,8 @@ ChoicePage::doAlongsideApply()
                     candidate->roles(),
                     FileSystem::typeForName( m_defaultFsType ),
                     newLastSector + 2, // *
-                    oldLastSector
+                    oldLastSector,
+                    PartitionTable::FlagNone
                 );
             }
             else
@@ -644,7 +648,8 @@ ChoicePage::doAlongsideApply()
                     FileSystem::typeForName( m_defaultFsType ),
                     newLastSector + 2, // *
                     oldLastSector,
-                    luksPassphrase
+                    luksPassphrase,
+                    PartitionTable::FlagNone
                 );
             }
             PartitionInfo::setMountPoint( newPartition, "/" );
@@ -732,7 +737,9 @@ ChoicePage::doReplaceSelectedPartition( const QModelIndex& current )
                     FileSystem::typeForName( m_defaultFsType ),
                     selectedPartition->firstSector(),
                     selectedPartition->lastSector(),
-                    m_encryptWidget->passphrase() );
+                    m_encryptWidget->passphrase(),
+                    PartitionTable::FlagNone
+                );
             }
             else
             {
@@ -742,7 +749,9 @@ ChoicePage::doReplaceSelectedPartition( const QModelIndex& current )
                     newRoles,
                     FileSystem::typeForName( m_defaultFsType ),
                     selectedPartition->firstSector(),
-                    selectedPartition->lastSector() );
+                    selectedPartition->lastSector(),
+                    PartitionTable::FlagNone
+                );
             }
 
             PartitionInfo::setMountPoint( newPartition, "/" );
@@ -1158,6 +1167,13 @@ force_uncheck(QButtonGroup* grp, PrettyRadioButton* button)
     grp->setExclusive( true );
 }
 
+static inline QDebug&
+operator <<( QDebug& s, PartitionIterator& it )
+{
+    s << ( ( *it ) ? ( *it )->deviceNode() : QString( "<null device>" ) );
+    return s;
+}
+
 /**
  * @brief ChoicePage::setupActions happens every time a new Device* is selected in the
  *      device picker. Sets up the text and visibility of the partitioning actions based
@@ -1171,6 +1187,9 @@ ChoicePage::setupActions()
     OsproberEntryList osproberEntriesForCurrentDevice =
             getOsproberEntriesForDevice( currentDevice );
 
+    cDebug() << "Setting up actions for" << currentDevice->deviceNode()
+        << "with" << osproberEntriesForCurrentDevice.count() << "entries.";
+
     if ( currentDevice->partitionTable() )
         m_deviceInfoWidget->setPartitionTableType( currentDevice->partitionTable()->type() );
     else
@@ -1182,16 +1201,35 @@ ChoicePage::setupActions()
     bool atLeastOneCanBeResized = false;
     bool atLeastOneCanBeReplaced = false;
     bool atLeastOneIsMounted = false;  // Suppress 'erase' if so
+    bool isInactiveRAID = false;
+
+#ifdef WITH_KPMCOREGT33
+    if ( currentDevice->type() == Device::Type::SoftwareRAID_Device &&
+         static_cast< SoftwareRAID* >(currentDevice)->status() == SoftwareRAID::Status::Inactive )
+    {
+        cDebug() << ".. part of an inactive RAID device";
+        isInactiveRAID = true;
+    }
+#endif
 
     for ( auto it = PartitionIterator::begin( currentDevice );
           it != PartitionIterator::end( currentDevice ); ++it )
     {
         if ( PartUtils::canBeResized( *it ) )
+        {
+            cDebug() << ".. contains resizable" << it;
             atLeastOneCanBeResized = true;
+        }
         if ( PartUtils::canBeReplaced( *it ) )
+        {
+            cDebug() << ".. contains replacable" << it;
             atLeastOneCanBeReplaced = true;
+        }
         if ( (*it)->isMounted() )
+        {
+            cDebug() << ".. contains mounted" << it;
             atLeastOneIsMounted = true;
+        }
     }
 
     if ( osproberEntriesForCurrentDevice.count() == 0 )
@@ -1305,10 +1343,15 @@ ChoicePage::setupActions()
     else
         force_uncheck( m_grp, m_alongsideButton );
 
-    if ( !atLeastOneIsMounted )
+    if ( !atLeastOneIsMounted && !isInactiveRAID )
         m_eraseButton->show();  // None mounted
     else
+    {
+        cDebug() << "Erase button suppressed"
+            << "mount?" << atLeastOneIsMounted
+            << "raid?" << isInactiveRAID;
         force_uncheck( m_grp, m_eraseButton );
+    }
 
     bool isEfi = PartUtils::isEfiSystem();
     bool efiSystemPartitionFound = !m_core->efiSystemPartitions().isEmpty();
