@@ -5,6 +5,7 @@
  *   Copyright 2018, Adriaan de Groot <groot@kde.org>
  *   Copyright 2018, Andrius Štikonas <andrius@stikonas.eu>
  *   Copyright 2018, Caio Jordão Carvalho <caiojcarvalho@gmail.com>
+ *   Copyright 2019, Collabora Ltd
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -164,9 +165,13 @@ PartitionPage::updateButtons()
 
     if ( m_ui->deviceComboBox->currentIndex() >= 0 )
     {
+        Device* device = nullptr;
         QModelIndex deviceIndex = m_core->deviceModel()->index( m_ui->deviceComboBox->currentIndex(), 0 );
-        auto device = m_core->deviceModel()->deviceForIndex( deviceIndex );
-        if ( device->type() != Device::Type::LVM_Device )
+        if ( deviceIndex.isValid() )
+            device = m_core->deviceModel()->deviceForIndex( deviceIndex );
+        if ( !device )
+            cWarning() << "Device for updateButtons is nullptr";
+        else if ( device->type() != Device::Type::LVM_Device )
         {
             createTable = true;
 
@@ -576,7 +581,7 @@ void
 PartitionPage::onPartitionModelReset()
 {
     m_ui->partitionTreeView->expandAll();
-    updateButtons();
+    // updateButtons();
     updateBootLoaderIndex();
 }
 
@@ -608,4 +613,16 @@ PartitionPage::getCurrentUsedMountpoints()
     }
 
     return mountPoints;
+}
+
+int
+PartitionPage::selectedDeviceIndex()
+{
+    return m_ui->deviceComboBox->currentIndex();
+}
+
+void
+PartitionPage::selectDeviceByIndex ( int index )
+{
+        m_ui->deviceComboBox->setCurrentIndex( index );
 }

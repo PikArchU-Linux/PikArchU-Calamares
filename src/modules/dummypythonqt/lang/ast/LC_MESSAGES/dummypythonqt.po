@@ -31,16 +31,16 @@ msgstr "Una QLabel nueva."
 
 #: src/modules/dummypythonqt/main.py:97
 msgid "Dummy PythonQt ViewStep"
-msgstr "ViewStep maniquín de PythonQT"
+msgstr "ViewStep maniquín en PythonQT"
 
 #: src/modules/dummypythonqt/main.py:183
 msgid "The Dummy PythonQt Job"
-msgstr "El trabayu maniquín de PythonQt"
+msgstr "El trabayu maniquín en PythonQt"
 
 #: src/modules/dummypythonqt/main.py:186
 msgid "This is the Dummy PythonQt Job. The dummy job says: {}"
-msgstr "Esti ye'l trabayu maniquín de PythonQt. El trabayu maniquín diz: {}"
+msgstr "Esti ye'l trabayu maniquín en PythonQt. El trabayu maniquín diz: {}"
 
 #: src/modules/dummypythonqt/main.py:190
 msgid "A status message for Dummy PythonQt Job."
-msgstr "Un mensaxe d'estáu pal trabayu maniquín de PythonQt."
+msgstr "Un mensaxe d'estáu pal trabayu maniquín en PythonQt."

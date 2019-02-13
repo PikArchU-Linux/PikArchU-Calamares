@@ -43,6 +43,7 @@
 #include "jobs/ResizePartitionJob.h"
 #include "jobs/ResizeVolumeGroupJob.h"
 #include "jobs/SetPartitionFlagsJob.h"
+#include "utils/CalamaresUtils.h"
 
 #include "Typedefs.h"
 #include "utils/Logger.h"
@@ -761,6 +762,84 @@ PartitionCoreModule::setBootLoaderInstallPath( const QString& path )
 }
 
 void
+PartitionCoreModule::initLayout()
+{
+    m_partLayout = new PartitionLayout();
+
+    m_partLayout->addEntry( QString("/"), QString("100%") );
+}
+
+void
+PartitionCoreModule::initLayout( const QVariantList& config )
+{
+    QString sizeString;
+    QString minSizeString;
+
+    m_partLayout = new PartitionLayout();
+
+    for ( const auto& r : config )
+    {
+        QVariantMap pentry = r.toMap();
+
+        if ( pentry.contains("size") && CalamaresUtils::getString( pentry, "size" ).isEmpty() )
+            sizeString.setNum( CalamaresUtils::getInteger( pentry, "size", 0 ) );
+        else
+            sizeString = CalamaresUtils::getString( pentry, "size" );
+
+        if ( pentry.contains("minSize") && CalamaresUtils::getString( pentry, "minSize" ).isEmpty() )
+            minSizeString.setNum( CalamaresUtils::getInteger( pentry, "minSize", 0 ) );
+        else
+            minSizeString = CalamaresUtils::getString( pentry, "minSize" );
+
+        m_partLayout->addEntry( CalamaresUtils::getString( pentry, "name" ),
+                                CalamaresUtils::getString( pentry, "mountPoint" ),
+                                CalamaresUtils::getString( pentry, "filesystem" ),
+                                sizeString,
+                                minSizeString
+                              );
+    }
+}
+
+void
+PartitionCoreModule::layoutApply( Device *dev,
+                                  qint64 firstSector,
+                                  qint64 lastSector,
+                                  QString luksPassphrase,
+                                  PartitionNode* parent,
+                                  const PartitionRole& role )
+{
+    bool isEfi = PartUtils::isEfiSystem();
+    QList< Partition* > partList = m_partLayout->execute( dev, firstSector, lastSector,
+                                                          luksPassphrase, parent, role
+                                                        );
+
+    foreach ( Partition *part, partList )
+    {
+        if ( part->mountPoint() == "/" )
+        {
+            createPartition( dev, part,
+                             part->activeFlags() | ( isEfi ? PartitionTable::FlagNone : PartitionTable::FlagBoot )
+                           );
+        }
+        else
+        {
+            createPartition( dev, part );
+        }
+    }
+}
+
+void
+PartitionCoreModule::layoutApply( Device *dev,
+                                  qint64 firstSector,
+                                  qint64 lastSector,
+                                  QString luksPassphrase )
+{
+    layoutApply( dev, firstSector, lastSector, luksPassphrase, dev->partitionTable(),
+                 PartitionRole( PartitionRole::Primary )
+               );
+}
+
+void
 PartitionCoreModule::revert()
 {
     QMutexLocker locker( &m_revertMutex );
@@ -801,7 +880,7 @@ PartitionCoreModule::revertAllDevices()
             }
         }
 
-        revertDevice( ( *it )->device.data() );
+        revertDevice( ( *it )->device.data(), false );
         ++it;
     }
 
@@ -810,7 +889,7 @@ PartitionCoreModule::revertAllDevices()
 
 
 void
-PartitionCoreModule::revertDevice( Device* dev )
+PartitionCoreModule::revertDevice( Device* dev, bool individualRevert )
 {
     QMutexLocker locker( &m_revertMutex );
     DeviceInfo* devInfo = infoForDevice( dev );
@@ -836,7 +915,8 @@ PartitionCoreModule::revertDevice( Device* dev )
 
     m_bootLoaderModel->init( devices );
 
-    refreshAfterModelChange();
+    if ( individualRevert )
+        refreshAfterModelChange();
     emit deviceReverted( newDev );
 }
 
@@ -852,7 +932,7 @@ PartitionCoreModule::asyncRevertDevice( Device* dev, std::function< void() > cal
         watcher->deleteLater();
     } );
 
-    QFuture< void > future = QtConcurrent::run( this, &PartitionCoreModule::revertDevice, dev );
+    QFuture< void > future = QtConcurrent::run( this, &PartitionCoreModule::revertDevice, dev, true );
     watcher->setFuture( future );
 }
 
