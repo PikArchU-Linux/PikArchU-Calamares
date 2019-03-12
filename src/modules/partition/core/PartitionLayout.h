@@ -20,10 +20,13 @@
 #ifndef PARTITIONLAYOUT_H
 #define PARTITIONLAYOUT_H
 
+#include "core/PartUtils.h"
+
 #include "Typedefs.h"
 
 // KPMcore
 #include <kpmcore/core/partitiontable.h>
+#include <kpmcore/fs/filesystem.h>
 
 // Qt
 #include <QList>
@@ -35,24 +38,15 @@ class PartitionLayout
 {
 public:
 
-    enum SizeUnit
-    {
-        Percent = 0,
-        Byte,
-        KiB,
-        MiB,
-        GiB
-    };
-
     struct PartitionEntry
     {
         QString partLabel;
         QString partMountPoint;
-        int partFileSystem = 0;
+        FileSystem::Type partFileSystem = FileSystem::Unknown;
         double partSize = 0.0L;
-        SizeUnit partSizeUnit = Percent;
+        PartUtils::SizeUnit partSizeUnit = PartUtils::SizeUnit::Percent;
         double partMinSize = 0.0L;
-        SizeUnit partMinSizeUnit = Percent;
+        PartUtils::SizeUnit partMinSizeUnit = PartUtils::SizeUnit::Percent;
 
         /// @brief All-zeroes PartitionEntry
         PartitionEntry() {};
@@ -76,7 +70,8 @@ public:
     QList< Partition* > execute( Device *dev, qint64 firstSector, qint64 lastSector, QString luksPassphrase, PartitionNode* parent, const PartitionRole& role );
 
 private:
-    QList< PartitionEntry > partLayout;
+    FileSystem::Type m_defaultFsType;
+    QList< PartitionEntry > m_partLayout;
 };
 
 #endif /* PARTITIONLAYOUT_H */

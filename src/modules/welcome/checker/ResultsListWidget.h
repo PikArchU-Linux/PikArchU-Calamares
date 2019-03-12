@@ -1,7 +1,7 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
  *   Copyright 2014-2015, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2017, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,22 +17,28 @@
  *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CHECKITEMWIDGET_H
-#define CHECKITEMWIDGET_H
+#ifndef CHECKER_RESULTSLISTWIDGET_H
+#define CHECKER_RESULTSLISTWIDGET_H
 
-#include <QLabel>
+#include "modulesystem/Requirement.h"
 
-class CheckItemWidget : public QWidget
+#include <QBoxLayout>
+#include <QWidget>
+
+class ResultsListWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CheckItemWidget( bool checked, bool required,
-                              QWidget* parent = nullptr );
+    explicit ResultsListWidget( QWidget* parent = nullptr );
 
-    void setText( const QString& text );
+    void init( const Calamares::RequirementsList& checkEntries );
+
 private:
-    QLabel* m_textLabel;
-    QLabel* m_iconLabel;
+    void showDetailsDialog( const Calamares::RequirementsList& checkEntries );
+
+    QBoxLayout* m_mainLayout;
+    QBoxLayout* m_entriesLayout;
+    int m_paddingSize;
 };
 
-#endif // CHECKITEMWIDGET_H
+#endif // CHECKER_RESULTSLISTWIDGET_H

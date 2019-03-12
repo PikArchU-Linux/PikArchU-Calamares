@@ -3,7 +3,7 @@
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2014-2017, Teo Mrnjavac <teo@kde.org>
  *   Copyright 2018, Adriaan de Groot <groot@kde.org>
- *   Copyright 2019, Collabora Ltd
+ *   Copyright 2019, Collabora Ltd <arnaud.ferraris@collabora.com>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -59,6 +59,8 @@
 #include <QTimer>
 #include <QtConcurrent/QtConcurrent>
 #include <QFutureWatcher>
+
+#include <unistd.h>  // For sleep(3)
 
 PartitionViewStep::PartitionViewStep( QObject* parent )
     : Calamares::ViewStep( parent )
@@ -213,8 +215,8 @@ PartitionViewStep::createSummaryWidget() const
         else // multiple disk previews!
         {
             diskInfoLabel->setText( tr( "Disk <strong>%1</strong> (%2)" )
-                                        .arg( info.deviceNode )
-                                        .arg( info.deviceName ) );
+                                    .arg( info.deviceNode )
+                                    .arg( info.deviceName ) );
         }
         formLayout->addRow( diskInfoLabel );
 
@@ -223,9 +225,9 @@ PartitionViewStep::createSummaryWidget() const
         QVBoxLayout* field;
 
         PartitionBarsView::NestedPartitionsMode mode = Calamares::JobQueue::instance()->globalStorage()->
-                                                       value( "drawNestedPartitions" ).toBool() ?
-                                                           PartitionBarsView::DrawNestedPartitions :
-                                                           PartitionBarsView::NoNestedPartitions;
+                value( "drawNestedPartitions" ).toBool() ?
+                PartitionBarsView::DrawNestedPartitions :
+                PartitionBarsView::NoNestedPartitions;
         preview = new PartitionBarsView;
         preview->setNestedPartitionsMode( mode );
         previewLabels = new PartitionLabelsView;
@@ -263,7 +265,7 @@ PartitionViewStep::createSummaryWidget() const
     foreach ( const Calamares::job_ptr& job, jobs() )
     {
         if ( !job->prettyDescription().isEmpty() )
-        jobsLines.append( job->prettyDescription() );
+            jobsLines.append( job->prettyDescription() );
     }
     if ( !jobsLines.isEmpty() )
     {
@@ -292,25 +294,8 @@ PartitionViewStep::next()
             if ( m_core->isDirty() )
                 m_manualPartitionPage->onRevertClicked();
         }
-        else if ( m_choicePage->currentChoice() == ChoicePage::Erase )
-        {
-            emit done();
-            return;
-        }
-        else if ( m_choicePage->currentChoice() == ChoicePage::Alongside )
-        {
-            emit done();
-            return;
-        }
-        else if ( m_choicePage->currentChoice() == ChoicePage::Replace )
-        {
-            emit done();
-            return;
-        }
         cDebug() << "Choice applied: " << m_choicePage->currentChoice();
-        return;
     }
-    emit done();
 }
 
 
@@ -360,8 +345,8 @@ PartitionViewStep::isAtEnd() const
     if ( m_choicePage == m_widget->currentWidget() )
     {
         if ( m_choicePage->currentChoice() == ChoicePage::Erase ||
-             m_choicePage->currentChoice() == ChoicePage::Replace ||
-             m_choicePage->currentChoice() == ChoicePage::Alongside )
+                m_choicePage->currentChoice() == ChoicePage::Replace ||
+                m_choicePage->currentChoice() == ChoicePage::Alongside )
             return true;
         return false;
     }
@@ -374,7 +359,7 @@ PartitionViewStep::onActivate()
 {
     // if we're coming back to PVS from the next VS
     if ( m_widget->currentWidget() == m_choicePage &&
-         m_choicePage->currentChoice() == ChoicePage::Alongside )
+            m_choicePage->currentChoice() == ChoicePage::Alongside )
     {
         m_choicePage->applyActionChoice( ChoicePage::Alongside );
 //        m_choicePage->reset();
@@ -397,7 +382,7 @@ PartitionViewStep::onLeave()
         if ( PartUtils::isEfiSystem() )
         {
             QString espMountPoint = Calamares::JobQueue::instance()->globalStorage()->
-                                        value( "efiSystemPartition").toString();
+                                    value( "efiSystemPartition" ).toString();
             Partition* esp = m_core->findPartitionByMountPoint( espMountPoint );
 
             QString message;
@@ -452,7 +437,7 @@ PartitionViewStep::onLeave()
             // If the root partition is encrypted, and there's a separate boot
             // partition which is not encrypted
             if ( root_p->fileSystem().type() == FileSystem::Luks &&
-                 boot_p->fileSystem().type() != FileSystem::Luks )
+                    boot_p->fileSystem().type() != FileSystem::Luks )
             {
                 message = tr( "Boot partition not encrypted" );
                 description = tr( "A separate boot partition was set up together with "
@@ -493,55 +478,6 @@ nameToChoice( QString name, bool& ok )
     return names.find( name, ok );
 }
 
-/** @brief translate @p defaultFS into a recognized name
- *
- * Makes several attempts to translate the string into a
- * name that KPMCore will recognize.
- */
-static QString
-findFS( QString defaultFS )
-{
-    QStringList fsLanguage { QLatin1Literal( "C" ) };  // Required language list to turn off localization
-    if ( defaultFS.isEmpty() )
-    {
-        cWarning() << "Partition-module setting *defaultFileSystemType* is missing, using ext4";
-        defaultFS = QStringLiteral( "ext4" );
-    }
-    if ( FileSystem::typeForName( defaultFS, fsLanguage ) != FileSystem::Unknown )
-    {
-        cDebug() << "Partition-module setting *defaultFileSystemType*" << defaultFS;
-        return defaultFS;
-    }
-
-    // Second pass: try case-insensitive
-    const auto fstypes = FileSystem::types();
-    for ( FileSystem::Type t : fstypes )
-    {
-        if ( 0 == QString::compare( defaultFS, FileSystem::nameForType( t, fsLanguage ), Qt::CaseInsensitive ) )
-        {
-            defaultFS = FileSystem::nameForType( t, fsLanguage );
-            cWarning() << "Partition-module setting *defaultFileSystemType* changed" << defaultFS;
-            return defaultFS;
-        }
-    }
-
-    cWarning() << "Partition-module setting *defaultFileSystemType* is bad (" << defaultFS << ") using ext4.";
-    defaultFS = QStringLiteral( "ext4" );
-#ifdef DEBUG_FILESYSTEMS
-    // This bit is for distro's debugging their settings, and shows
-    // all the strings that KPMCore is matching against for FS type.
-    {
-        Logger::CDebug d;
-        using TR = Logger::DebugRow< int, QString >;
-        const auto fstypes = FileSystem::types();
-        d << "Available types (" << fstypes.count() << ')';
-        for ( FileSystem::Type t : fstypes )
-            d << TR( static_cast<int>( t ), FileSystem::nameForType( t, fsLanguage ) );
-    }
-#endif
-    return defaultFS;
-}
-
 void
 PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )
 {
@@ -552,6 +488,17 @@ PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )
     if ( efiSP.isEmpty() )
         efiSP = QStringLiteral( "/boot/efi" );
     gs->insert( "efiSystemPartition", efiSP );
+
+    // Set up firmwareType global storage entry. This is used, e.g. by the bootloader module.
+    QString firmwareType( PartUtils::isEfiSystem() ? QStringLiteral( "efi" ) : QStringLiteral( "bios" ) );
+    cDebug() << "Setting firmwareType to" << firmwareType;
+    gs->insert( "firmwareType", firmwareType );
+
+    // Read and parse key efiSystemPartitionSize
+    if ( configurationMap.contains( "efiSystemPartitionSize" ) )
+    {
+        gs->insert( "efiSystemPartitionSize", CalamaresUtils::getString( configurationMap, "efiSystemPartitionSize" ) );
+    }
 
     // SWAP SETTINGS
     //
@@ -630,23 +577,38 @@ PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )
     gs->insert( "alwaysShowPartitionLabels", CalamaresUtils::getBool( configurationMap, "alwaysShowPartitionLabels", true ) );
     gs->insert( "enableLuksAutomatedPartitioning", CalamaresUtils::getBool( configurationMap, "enableLuksAutomatedPartitioning", true ) );
     gs->insert( "allowManualPartitioning", CalamaresUtils::getBool( configurationMap, "allowManualPartitioning", true ) );
-    gs->insert( "defaultFileSystemType", findFS( CalamaresUtils::getString( configurationMap, "defaultFileSystemType" ) ) );
+
+    // The defaultFileSystemType setting needs a bit more processing,
+    // as we want to cover various cases (such as different cases)
+    QString fsName = CalamaresUtils::getString( configurationMap, "defaultFileSystemType" );
+    FileSystem::Type fsType;
+    if ( fsName.isEmpty() )
+            cWarning() << "Partition-module setting *defaultFileSystemType* is missing, will use ext4";
+    QString fsRealName = PartUtils::findFS( fsName, &fsType );
+    if ( fsRealName == fsName )
+        cDebug() << "Partition-module setting *defaultFileSystemType*" << fsRealName;
+    else if ( fsType != FileSystem::Unknown )
+        cWarning() << "Partition-module setting *defaultFileSystemType* changed" << fsRealName;
+    else
+        cWarning() << "Partition-module setting *defaultFileSystemType* is bad (" << fsRealName << ") using ext4.";
+    gs->insert( "defaultFileSystemType", fsRealName );
 
 
     // Now that we have the config, we load the PartitionCoreModule in the background
     // because it could take a while. Then when it's done, we can set up the widgets
     // and remove the spinner.
-    QFutureWatcher< void >* watcher = new QFutureWatcher< void >();
-    connect( watcher, &QFutureWatcher< void >::finished,
-             this, [ this, watcher, choices ]
+    m_future = new QFutureWatcher< void >();
+    connect( m_future, &QFutureWatcher< void >::finished,
+             this, [ this ]
     {
         continueLoading();
-        watcher->deleteLater();
+        this->m_future->deleteLater();
+        this->m_future = nullptr;
     } );
 
     QFuture< void > future =
-            QtConcurrent::run( this, &PartitionViewStep::initPartitionCoreModule );
-    watcher->setFuture( future );
+        QtConcurrent::run( this, &PartitionViewStep::initPartitionCoreModule );
+    m_future->setFuture( future );
 
     if ( configurationMap.contains( "partitionLayout" ) )
     {
@@ -663,6 +625,25 @@ QList< Calamares::job_ptr >
 PartitionViewStep::jobs() const
 {
     return m_core->jobs();
+}
+
+Calamares::RequirementsList
+PartitionViewStep::checkRequirements()
+{
+    if ( m_future )
+        m_future->waitForFinished();
+
+    Calamares::RequirementsList l;
+    l.append(
+    {
+        QLatin1Literal( "partitions" ),
+        []{ return tr( "has at least one disk device available." ); },
+        []{ return tr( "There are no partitons to install on." ); },
+        m_core->deviceModel()->rowCount() > 0,  // satisfied
+        true    // required
+    } );
+
+    return l;
 }
 
 

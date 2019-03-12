@@ -882,11 +882,6 @@ ChoicePage::updateDeviceStatePreview()
     PartitionModel* model = new PartitionModel( m_beforePartitionBarsView );
     model->init( deviceBefore, m_core->osproberEntries() );
 
-    // The QObject parents tree is meaningful for memory management here,
-    // see qDeleteAll above.
-    deviceBefore->setParent( model );  // Can't reparent across threads
-    model->setParent( m_beforePartitionBarsView );
-
     m_beforePartitionBarsView->setModel( model );
     m_beforePartitionLabelsView->setModel( model );
 
@@ -1248,7 +1243,7 @@ ChoicePage::setupActions()
         }
         if ( PartUtils::canBeReplaced( *it ) )
         {
-            cDebug() << ".. contains replacable" << it;
+            cDebug() << ".. contains replaceable" << it;
             atLeastOneCanBeReplaced = true;
         }
         if ( (*it)->isMounted() )

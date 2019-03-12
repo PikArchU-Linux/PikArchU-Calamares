@@ -75,8 +75,8 @@ set( CALAMARES_DESCRIPTION_SUMMARY
 
 set( CALAMARES_VERSION_MAJOR 3 )
 set( CALAMARES_VERSION_MINOR 2 )
-set( CALAMARES_VERSION_PATCH 4 )
-set( CALAMARES_VERSION_RC 0 )
+set( CALAMARES_VERSION_PATCH 5 )
+set( CALAMARES_VERSION_RC 1 )
 
 
 ### Transifex (languages) info
@@ -240,7 +240,7 @@ include( CMakeColors )
 
 ### DEPENDENCIES
 #
-find_package( Qt5 ${QT_VERSION} CONFIG REQUIRED Core Gui Widgets LinguistTools Svg Quick QuickWidgets )
+find_package( Qt5 ${QT_VERSION} CONFIG REQUIRED Concurrent Core Gui Widgets LinguistTools Svg Quick QuickWidgets )
 find_package( YAMLCPP ${YAMLCPP_VERSION} REQUIRED )
 if( INSTALL_POLKIT )
     find_package( PolkitQt5-1 REQUIRED )
