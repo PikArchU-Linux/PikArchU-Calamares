@@ -20,9 +20,7 @@
 #include "ContextualProcessJob.h"
 
 #include "utils/CommandList.h"
-#include "utils/YamlUtils.h"
-
-#include <yaml-cpp/yaml.h>
+#include "utils/Yaml.h"
 
 #include <QtTest/QtTest>
 

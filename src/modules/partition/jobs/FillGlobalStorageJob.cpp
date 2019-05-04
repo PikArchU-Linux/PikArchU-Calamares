@@ -2,7 +2,7 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2015-2016, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2017, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2017, 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -45,7 +45,6 @@ typedef QHash<QString, QString> UuidForPartitionHash;
 static UuidForPartitionHash
 findPartitionUuids( QList < Device* > devices )
 {
-    cDebug() << "Gathering UUIDs for partitions that exist now.";
     UuidForPartitionHash hash;
     foreach ( Device* device, devices )
     {
@@ -56,12 +55,11 @@ findPartitionUuids( QList < Device* > devices )
             QString path = p->partitionPath();
             QString uuid = p->fileSystem().readUUID( p->partitionPath() );
             hash.insert( path, uuid );
-            cDebug() << ".. added path=" << path << "UUID=" << uuid;
         }
     }
 
     if ( hash.isEmpty() )
-        cDebug() << ".. no UUIDs found.";
+        cDebug() << "No UUIDs found for existing partitions.";
     return hash;
 }
 
@@ -98,7 +96,7 @@ mapForPartition( Partition* partition, const QString& uuid )
     // so indent a bit
     Logger::CDebug deb;
     using TR = Logger::DebugRow<const char *const, const QString&>;
-    deb << "  .. mapping for" << partition->partitionPath() << partition->deviceNode()
+    deb << Logger::SubEntry << "mapping for" << partition->partitionPath() << partition->deviceNode()
         << TR( "mtpoint:", PartitionInfo::mountPoint( partition ) )
         << TR( "fs:", map[ "fs" ].toString() )
         << TR( "fsname", map[ "fsName" ].toString() )
@@ -147,7 +145,6 @@ FillGlobalStorageJob::prettyDescription() const
             QString path = partitionMap.value( "device" ).toString();
             QString mountPoint = partitionMap.value( "mountPoint" ).toString();
             QString fsType = partitionMap.value( "fs" ).toString();
-            qDebug() << partitionMap.value( "uuid" ) << path << mountPoint << fsType;
             if ( mountPoint.isEmpty() || fsType.isEmpty() )
                 continue;
             if ( path.isEmpty() )
@@ -224,7 +221,7 @@ FillGlobalStorageJob::createPartitionList() const
     cDebug() << "Writing to GlobalStorage[\"partitions\"]";
     for ( auto device : m_devices )
     {
-        cDebug() << ".. partitions on" << device->deviceNode();
+        cDebug() << Logger::SubEntry << "partitions on" << device->deviceNode();
         for ( auto it = PartitionIterator::begin( device );
               it != PartitionIterator::end( device ); ++it )
         {

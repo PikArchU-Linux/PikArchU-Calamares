@@ -24,6 +24,9 @@
 #
 #   SKIP_MODULES    : a space or semicolon-separated list of directory names
 #                     under src/modules that should not be built.
+#   USE_<foo>       : fills in SKIP_MODULES for modules called <foo>-<something>
+#   BUILD_<foo>     : choose additional things to build
+#   DEBUG_<foo>     : special developer flags for debugging
 #
 # Example usage:
 #
@@ -32,10 +35,12 @@
 # One special target is "show-version", which can be built
 # to obtain the version number from here.
 
-project( calamares C CXX )
+cmake_minimum_required( VERSION 3.2 FATAL_ERROR )
+project( CALAMARES
+    VERSION 3.2.7.1
+    LANGUAGES C CXX )
 
-cmake_minimum_required( VERSION 3.2 )
-
+set( CALAMARES_VERSION_RC 0 )  # Set to 0 during release cycle, 1 during development
 
 ### OPTIONS
 #
@@ -62,7 +67,8 @@ option( WITH_KF5Crash "Enable crash reporting with KCrash." ON )
 # all the implementations are enabled (this just means they are
 # **available** to `settings.conf`, not that they are used).
 #
-# Currently, no USE_<foo> variables exist.
+# Currently, only USE_services is in use (to pick only one of the two
+# modules, systemd or openrc).
 set( USE_services "" CACHE STRING "Select the services module to use" )
 
 ### Calamares application info
@@ -72,12 +78,6 @@ set( CALAMARES_ORGANIZATION_DOMAIN "github.com/calamares" )
 set( CALAMARES_APPLICATION_NAME  "Calamares" )
 set( CALAMARES_DESCRIPTION_SUMMARY
     "The distribution-independent installer framework" )
-
-set( CALAMARES_VERSION_MAJOR 3 )
-set( CALAMARES_VERSION_MINOR 2 )
-set( CALAMARES_VERSION_PATCH 4.1 )
-set( CALAMARES_VERSION_RC 0 )
-
 
 ### Transifex (languages) info
 #
@@ -189,6 +189,7 @@ if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
         -Wno-exit-time-destructors
         -Wno-missing-prototypes
         -Wno-documentation-unknown-command
+        -Wno-unknown-warning-option
     )
         string( APPEND CMAKE_CXX_FLAGS " ${CLANG_WARNINGS}" )
     endforeach()
@@ -208,6 +209,8 @@ if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
     set( CMAKE_TOOLCHAIN_PREFIX "llvm-" )
 
     set( CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined" )
+
+    set( CALAMARES_AUTOMOC_OPTIONS "-butils/moc-warnings.h" )
 else()
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--no-undefined" )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--fatal-warnings -Wnon-virtual-dtor -Woverloaded-virtual -Werror=return-type" )
@@ -267,6 +270,7 @@ if( ECM_FOUND )
         find_package( Qt5 COMPONENTS Test REQUIRED )
         include( ECMAddTests )
     endif()
+    include(KDEInstallDirs)
 endif()
 
 find_package( KF5 COMPONENTS CoreAddons Crash )
@@ -509,6 +513,7 @@ install(
         "CMakeModules/CalamaresAddLibrary.cmake"
         "CMakeModules/CalamaresAddBrandingSubdirectory.cmake"
         "CMakeModules/CalamaresAddTranslations.cmake"
+        "CMakeModules/CalamaresAutomoc.cmake"
         "CMakeModules/CMakeColors.cmake"
     DESTINATION
         "${CMAKE_INSTALL_CMAKEDIR}"
@@ -574,3 +579,4 @@ get_directory_property( SKIPPED_MODULES
     DEFINITION LIST_SKIPPED_MODULES
 )
 calamares_explain_skipped_modules( ${SKIPPED_MODULES} )
+

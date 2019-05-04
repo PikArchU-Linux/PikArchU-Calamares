@@ -1,7 +1,7 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
  *   Copyright 2014-2017, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2017-2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2017-2019, Adriaan de Groot <groot@kde.org>
  *   Copyright 2019, Collabora Ltd <arnaud.ferraris@collabora.com>
  *
  *   Calamares is free software: you can redistribute it and/or modify
@@ -102,9 +102,14 @@ doAutopartition( PartitionCoreModule* core, Device* dev, Choices::AutoPartitionO
     if ( isEfi )
     {
         if ( gs->contains( "efiSystemPartitionSize" ) )
-            uefisys_part_sizeB = PartUtils::parseSizeString( gs->value( "efiSystemPartitionSize" ).toString(), dev->capacity() );
+        {
+            PartUtils::PartSize part_size = PartUtils::PartSize( gs->value( "efiSystemPartitionSize" ).toString() );
+            uefisys_part_sizeB = part_size.toBytes( dev->capacity() );
+        }
         else
+        {
             uefisys_part_sizeB = 300_MiB;
+        }
     }
 
     // Since sectors count from 0, if the space is 2048 sectors in size,
@@ -129,11 +134,11 @@ doAutopartition( PartitionCoreModule* core, Device* dev, Choices::AutoPartitionO
             FileSystem::Fat32,
             firstFreeSector,
             lastSector,
-            PartitionTable::FlagNone
+            KPM_PARTITION_FLAG(None)
         );
         PartitionInfo::setFormat( efiPartition, true );
         PartitionInfo::setMountPoint( efiPartition, o.efiPartitionMountPoint );
-        core->createPartition( dev, efiPartition, PartitionTable::FlagEsp );
+        core->createPartition( dev, efiPartition, KPM_PARTITION_FLAG_ESP );
         firstFreeSector = lastSector + 1;
     }
     else
@@ -178,7 +183,7 @@ doAutopartition( PartitionCoreModule* core, Device* dev, Choices::AutoPartitionO
                 FileSystem::LinuxSwap,
                 lastSectorForRoot + 1,
                 dev->totalLogical() - 1,
-                PartitionTable::FlagNone
+                KPM_PARTITION_FLAG(None)
             );
         }
         else
@@ -191,7 +196,7 @@ doAutopartition( PartitionCoreModule* core, Device* dev, Choices::AutoPartitionO
                 lastSectorForRoot + 1,
                 dev->totalLogical() - 1,
                 o.luksPassphrase,
-                PartitionTable::FlagNone
+                KPM_PARTITION_FLAG(None)
             );
         }
         PartitionInfo::setFormat( swapPartition, true );

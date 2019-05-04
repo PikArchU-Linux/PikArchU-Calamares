@@ -23,7 +23,7 @@
  */
 
 #include "utils/Logger.h"
-#include "utils/YamlUtils.h"
+#include "utils/Yaml.h"
 #include "modulesystem/Module.h"
 
 #include "GlobalStorage.h"
@@ -80,9 +80,9 @@ handle_args( QCoreApplication& a )
     if ( parser.isSet( debugLevelOption ) )
     {
         bool ok = true;
-        int l = parser.value( debugLevelOption ).toInt( &ok );
+        unsigned int l = parser.value( debugLevelOption ).toUInt( &ok );
         unsigned int dlevel = 0;
-        if ( !ok || ( l < 0 ) )
+        if ( !ok )
             dlevel = Logger::LOGVERBOSE;
         else
             dlevel = l;
@@ -94,20 +94,20 @@ handle_args( QCoreApplication& a )
     {
         cError() << "Missing <module> path.\n";
         parser.showHelp();
-        return ModuleConfig();  // NOTREACHED
     }
-    if ( args.size() > 2 )
+    else if ( args.size() > 2 )
     {
         cError() << "More than one <module> path.\n";
         parser.showHelp();
-        return ModuleConfig();  // NOTREACHED
     }
+    else
+    {
+        QString jobSettings( parser.value( jobOption ) );
+        if ( jobSettings.isEmpty() && ( args.size() == 2 ) )
+            jobSettings = args.at(1);
 
-    QString jobSettings( parser.value( jobOption ) );
-    if ( jobSettings.isEmpty() && ( args.size() == 2 ) )
-        jobSettings = args.at(1);
-
-    return ModuleConfig{ args.first(), jobSettings, parser.value( globalOption ), parser.value( langOption ) };
+        return ModuleConfig{ args.first(), jobSettings, parser.value( globalOption ), parser.value( langOption ) };
+    }
 }
 
 
@@ -207,7 +207,7 @@ main( int argc, char* argv[] )
         return 1;
     }
 
-    using TR = Logger::DebugRow<const char*, const QString&>;
+    using TR = Logger::DebugRow<const char*, const QString>;
 
     cDebug() << "Module metadata"
         << TR( "name", m->name() )
@@ -216,6 +216,7 @@ main( int argc, char* argv[] )
 
     cDebug() << "Job outputs:";
     Calamares::JobList jobList = m->jobs();
+    unsigned int failure_count = 0;
     unsigned int count = 1;
     for ( const auto& p : jobList )
     {
@@ -223,13 +224,14 @@ main( int argc, char* argv[] )
         Calamares::JobResult r = p->exec();
         if ( !r )
         {
-            using TR = Logger::DebugRow<QString, QString>;
-            cDebug() << count << ".. failed"
+            cError() << "Job #" << count << "failed"
                 << TR( "summary", r.message() )
                 << TR( "details", r.details() );
+            if ( r.errorCode() > 0 )
+                ++failure_count;
         }
         ++count;
     }
 
-    return 0;
+    return failure_count ? 1 : 0;
 }

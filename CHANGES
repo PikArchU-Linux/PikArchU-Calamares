@@ -3,7 +3,76 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
-# 3.2.5 (unreleased) #
+# 3.2.8 (unreleased) #
+
+This is a **source-incompatible** release of Calamares. Include files
+have been shuffled around, so third-party C++ modules will need
+adjustment to the changed names.
+
+This release contains contributions from (alphabetically by first name):
+
+## Core ##
+
+ - *libcalamares* (accidentally) linked with Qt's GUI libraries when
+   PythonQt was found. This led to the odd situation where the non-GUI
+   Calamares library depends on a bunch of GUI libraries.
+ - *libcalamares* The `utils/` subdirectory has been hugely refactored,
+   with functionality split out into separate files. C++ modules will
+   need to have their `#include` names updated. Basically, users of
+   `utils/CalamaresUtils.h` will need to include the header file for
+   the functionality that is actually used.
+
+## Modules ##
+
+ - *oemid* is a new module for configuring OEM phase-0 (image pre-mastering,
+   or pre-deployment) things. It has limited functionality at the moment,
+   writing only a single batch-identifier file.
+ - All Python modules now bail out gracefully on (at least some) bad
+   configurations, rather than raising an exception. The pre-release
+   scripts now test for exceptions to avoid shipping modules with
+   ImportError or SyntaxError results.
+
+
+# 3.2.7 (2019-04-27) #
+
+This is a **hotfix** release for regressions introduced in the
+Python modules. The *localecfg* module was unusable because of
+a missing `import`.
+
+
+# 3.2.6 (2019-04-25) #
+
+This release contains contributions from (alphabetically by first name):
+ - Arnaud Ferraris
+ - Dominic Hayes (feren)
+ - Raul Rodrigo Segura (raurodse)
+
+## Core ##
+
+ * Under-the-hood code cleanups in lots of parts of the core. Calamares now
+   builds without warnings when Clang 8 is used.
+ * A new *disable-cancel-during-exec* setting provides more fine-grained
+   control than *disable-cancel*, which hides the button entirely.
+   #1122 (Thanks to Dominic, FerenOS)
+ * A branding module can now also cause a stylesheet to be loaded, which
+   will be applied to the widgets inside Calamares. #961 (Thanks to Raul)
+
+## Modules ##
+
+ * All of the Python-based modules now have translations enabled. #991
+ * *Displaymanager* module has improved support for LightDM configuration.
+   #1123 (Thanks to Dominic, FerenOS)
+ * *License* module can now display local files inline, and scrolls to
+   allow longer lists of licenses and to support long license texts
+   displayed inline. #1124 #1125 #1052
+ * *Partition* module has additional checks for validity partition layouts.
+   #1127 (Thanks to Arnaud)
+ * *Welcome* module has improved usability: a standard icon
+   alongside the *Language* label, for improved recognition,
+   and improved language-list display and sorting. #1107
+
+
+# 3.2.5 (2019-04-15) #
 
 This release contains contributions from (alphabetically by first name):
  - Arnaud Ferraris
@@ -17,20 +86,31 @@ This release contains contributions from (alphabetically by first name):
    requirements checks in the welcome module (RAM, disk space, ..).
    The checks have been made asynchronous, so that responsiveness during
    requirements-checking is improved and the user has better feedback.
+ * Support for building an AppImage of Calamares has been added to the
+   `ci/` directory. There are use-cases where a containerized build and
+   configuration make sense rather than having Calamares installed in the
+   host system. (Thanks to the AppImage team, Alexis)
+ * OEM mode (phase-1) now correctly refers to Calamares as a "Setup Program"
+   rather than an installer. #1100 (Thanks to Arnaud)
 
 ## Modules ##
 
  * *Bootloader* module: a serious bug introduced in 3.2.4 which prevents
    succesful boot after installation on EFI machines, has been repaired.
-   (Thanks to Gabriel)
+   (Thanks to Gabriel) #1104
+ * *Displaymanager* module: it is no longer a fatal error to not have any
+   display-managers. #1095
  * *Partition* module: it is now possible to build without libparted. Since
    KPMCore may not need this library anymore, it is a dependency that will
-   be dropped as soon as it is feasible. Add `-DCMAKE_DISABLE_FIND_PACKAGE_LIBPARTED=ON`
-   to the CMake flags to do so.
+   be dropped as soon as it is feasible. Add this to the CMake flags:
+   `-DCMAKE_DISABLE_FIND_PACKAGE_LIBPARTED=ON`
+ * *Partition* module: the location that is selected for the bootloader,
+   no longer changes when a new partition is created. #1098
  * Python modules: several modules have had translations added. This is
    usually only visible when the module runs as part of the *exec* step,
-   when the module's *pretty name* is displayed. In addition, error
+   when the module's *pretty name* is displayed. In addition, some error
    messages are now translated.
+ * *UnpackFS* module: improved progress reporting and tests. #565
 
 
 # 3.2.4 (2019-02-12) #
@@ -39,7 +119,7 @@ This release contains contributions from (alphabetically by first name):
  - Alf Gaida
  - aliveafter1000
  - Arnaud Ferraris
- - Caio Carvalho
+ - Caio Jordão Carvalho
  - Collabora LTD
  - Gabriel Craciunescu
  - Kevin Kofler
@@ -125,7 +205,7 @@ There are no core changes in this release.
 This release contains contributions from (alphabetically by first name):
  - Andrius Štikonas
  - artoo@cromnix.org
- - Caio Carvalho
+ - Caio Jordão Carvalho
  - Harald Sitter
  - Philip Müller
  - Simon Quigley
@@ -225,7 +305,7 @@ This release contains contributions from (alphabetically by first name):
 This release contains contributions from (alphabetically by first name):
  - Alf Gaida
  - AlmAck
- - Caio Carvalho
+ - Caio Jordão Carvalho
  - Frede H
 
 ## Modules ##

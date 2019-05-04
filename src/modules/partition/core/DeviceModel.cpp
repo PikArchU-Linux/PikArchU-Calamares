@@ -2,6 +2,7 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2014, Teo Mrnjavac <teo@kde.org>
+ *   Copyright 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -35,6 +36,15 @@
 // STL
 #include <algorithm>
 
+static void
+sortDevices( DeviceModel::DeviceList& l )
+{
+   std::sort( l.begin(), l.end(), []( const Device* dev1, const Device* dev2 )
+    {
+        return dev1->deviceNode() < dev2->deviceNode();
+    } );
+}
+
 DeviceModel::DeviceModel( QObject* parent )
     : QAbstractListModel( parent )
 {
@@ -45,14 +55,11 @@ DeviceModel::~DeviceModel()
 }
 
 void
-DeviceModel::init( const QList< Device* >& devices )
+DeviceModel::init( const DeviceList& devices )
 {
     beginResetModel();
     m_devices = devices;
-    std::sort( m_devices.begin(), m_devices.end(), []( const Device* dev1, const Device* dev2 )
-    {
-        return dev1->deviceNode() < dev2->deviceNode();
-    } );
+    sortDevices( m_devices );
     endResetModel();
 }
 
@@ -80,15 +87,23 @@ DeviceModel::data( const QModelIndex& index, int role ) const
         else
         {
             if ( device->logicalSize() >= 0 && device->totalLogical() >= 0 )
+            {
+                //: device[name] - size[number] (device-node[name])
                 return tr( "%1 - %2 (%3)" )
                        .arg( device->name() )
                        .arg( KFormat().formatByteSize( device->capacity() ) )
                        .arg( device->deviceNode() );
-            // Newly LVM VGs don't have capacity property yet (i.e. always has 1B capacity), so don't show it for a while
+            }
             else
+            {
+                // Newly LVM VGs don't have capacity property yet (i.e.
+                // always has 1B capacity), so don't show it for a while.
+                //
+                //: device[name] - (device-node[name])
                 return tr( "%1 - (%2)" )
                         .arg( device->name() )
                         .arg( device->deviceNode() );
+            }
          }
     case Qt::DecorationRole:
         return CalamaresUtils::defaultPixmap( CalamaresUtils::PartitionDisk,
@@ -130,13 +145,8 @@ void
 DeviceModel::addDevice( Device *device )
 {
     beginResetModel();
-
     m_devices << device;
-    std::sort( m_devices.begin(), m_devices.end(), []( const Device* dev1, const Device* dev2 )
-    {
-        return dev1->deviceNode() < dev2->deviceNode();
-    } );
-
+    sortDevices( m_devices );
     endResetModel();
 }
 
@@ -144,12 +154,7 @@ void
 DeviceModel::removeDevice( Device *device )
 {
     beginResetModel();
-
     m_devices.removeAll( device );
-    std::sort( m_devices.begin(), m_devices.end(), []( const Device* dev1, const Device* dev2 )
-    {
-        return dev1->deviceNode() < dev2->deviceNode();
-    } );
-
+    sortDevices( m_devices );
     endResetModel();
 }

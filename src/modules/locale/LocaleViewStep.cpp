@@ -31,18 +31,16 @@
 #include "timezonewidget/localeglobal.h"
 #include "widgets/WaitingWidget.h"
 
-#include "utils/CalamaresUtils.h"
 #include "utils/CalamaresUtilsGui.h"
 #include "utils/Logger.h"
-#include "utils/YamlUtils.h"
+#include "utils/Variant.h"
+#include "utils/Yaml.h"
 
 #include <QBoxLayout>
 #include <QLabel>
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QtConcurrent/QtConcurrentRun>
-
-#include <yaml-cpp/yaml.h>
 
 
 CALAMARES_PLUGIN_FACTORY_DEFINITION( LocaleViewStepFactory, registerPlugin<LocaleViewStep>(); )

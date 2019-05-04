@@ -2,7 +2,7 @@
  *
  *   Copyright 2014,      Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2015-2016, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2018-2019 Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ isPartitionFreeSpace( Partition* partition )
 bool
 isPartitionNew( Partition* partition )
 {
-    return partition->state() == Partition::StateNew;
+    return partition->state() == KPM_PARTITION_STATE(New);
 }
 
 
@@ -127,11 +127,11 @@ createNewPartition( PartitionNode* parent,
                role,
                fs, fs->firstSector(), fs->lastSector(),
                QString() /* path */,
-               PartitionTable::FlagNone /* availableFlags */,
+               KPM_PARTITION_FLAG(None) /* availableFlags */,
                QString() /* mountPoint */,
                false /* mounted */,
                flags /* activeFlags */,
-               Partition::StateNew
+               KPM_PARTITION_STATE(New)
            );
 }
 
@@ -169,11 +169,11 @@ createNewEncryptedPartition( PartitionNode* parent,
                                   PartitionRole( newRoles ),
                                   fs, fs->firstSector(), fs->lastSector(),
                                   QString() /* path */,
-                                  PartitionTable::FlagNone /* availableFlags */,
+                                  KPM_PARTITION_FLAG(None) /* availableFlags */,
                                   QString() /* mountPoint */,
                                   false /* mounted */,
                                   flags /* activeFlags */,
-                                  Partition::StateNew );
+                                  KPM_PARTITION_STATE(New) );
     return p;
 }
 

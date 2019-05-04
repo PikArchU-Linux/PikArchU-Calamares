@@ -1,7 +1,7 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
- *   Copyright 2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2018-2019, Adriaan de Groot <groot@kde.org>
  *   Copyright 2019, Collabora Ltd
  *
  *   Calamares is free software: you can redistribute it and/or modify
@@ -57,6 +57,8 @@ private slots:
     void updateBootLoaderInstallPath();
     /// @brief Explicitly selected boot loader path
     void updateSelectedBootLoaderIndex();
+    /// @brief After boot loader model changes, try to preserve previously set value
+    void restoreSelectedBootLoader();
 
 private:
     QScopedPointer< Ui_PartitionPage > m_ui;

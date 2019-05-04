@@ -5,6 +5,7 @@
 #
 #   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
 #   Copyright 2017, Alf Gaida <agaida@siduction.org>
+#   Copyright 2019, Adriaan de Groot <groot@kde.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -23,6 +24,16 @@ import tempfile
 import subprocess
 
 import libcalamares
+
+import gettext
+_ = gettext.translation("calamares-python",
+                        localedir=libcalamares.utils.gettext_path(),
+                        languages=libcalamares.utils.gettext_languages(),
+                        fallback=True).gettext
+
+
+def pretty_name():
+    return _("Mounting partitions.")
 
 
 def mount_partitions(root_mount_point, partitions):
@@ -122,8 +133,14 @@ def run():
 
     :return:
     """
-    root_mount_point = tempfile.mkdtemp(prefix="calamares-root-")
     partitions = libcalamares.globalstorage.value("partitions")
+
+    if not partitions:
+        libcalamares.utils.warning("partitions is empty, {!s}".format(partitions))
+        return (_("Configuration Error"),
+                _("No partitions are defined for <pre>{!s}</pre> to use." ).format("mount"))
+
+    root_mount_point = tempfile.mkdtemp(prefix="calamares-root-")
 
     # Guard against missing keys (generally a sign that the config file is bad)
     extra_mounts = libcalamares.job.configuration.get("extraMounts") or []

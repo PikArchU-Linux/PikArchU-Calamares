@@ -1,8 +1,10 @@
 # When debugging the timezone widget, add this debugging definition
 # to have a debugging-friendly timezone widget, debug logging,
 # and no intrusive timezone-setting while clicking around.
-#
-# add_definitions( -DDEBUG_TIMEZONES )
+option( DEBUG_TIMEZONES "Debug-friendly timezone widget." OFF )
+if( DEBUG_TIMEZONES )
+    add_definitions( -DDEBUG_TIMEZONES )
+endif()
 
 include_directories( ${PROJECT_BINARY_DIR}/src/libcalamaresui )
 
@@ -52,7 +54,7 @@ if( ECM_FOUND AND BUILD_TESTING )
             ${geoip_libs}
             ${YAMLCPP_LIBRARY}
     )
-    set_target_properties( geoiptest PROPERTIES AUTOMOC TRUE )
+    calamares_automoc( geoiptest )
 
     ecm_add_test(
             Tests.cpp
@@ -63,10 +65,11 @@ if( ECM_FOUND AND BUILD_TESTING )
             calamares
             Qt5::Test
     )
-    set_target_properties( localetest PROPERTIES AUTOMOC TRUE )
+    calamares_automoc( localetest )
 endif()
 
 if( BUILD_TESTING )
     add_executable( test_geoip test_geoip.cpp ${geoip_src} )
     target_link_libraries( test_geoip calamaresui Qt5::Network ${geoip_libs} ${YAMLCPP_LIBRARY} )
+    calamares_automoc( test_geoip )
 endif()

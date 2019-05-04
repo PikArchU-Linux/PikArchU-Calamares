@@ -19,13 +19,11 @@
 
 #include "GeoIPJSON.h"
 
-#include "utils/CalamaresUtils.h"
 #include "utils/Logger.h"
-#include "utils/YamlUtils.h"
+#include "utils/Variant.h"
+#include "utils/Yaml.h"
 
 #include <QByteArray>
-
-#include <yaml-cpp/yaml.h>
 
 GeoIPJSON::GeoIPJSON(const QString& attribute)
     : GeoIP( attribute.isEmpty() ? QStringLiteral( "time_zone" ) : attribute )

@@ -92,7 +92,7 @@ BOOST_PYTHON_MODULE( libcalamares )
     bp::object utilsModule( bp::handle<>( bp::borrowed( PyImport_AddModule( "libcalamares.utils" ) ) ) );
     bp::scope().attr( "utils" ) = utilsModule;
     bp::scope utilsScope = utilsModule;
-    Q_UNUSED( utilsScope );
+    Q_UNUSED( utilsScope )
 
     bp::def(
         "debug",
@@ -373,8 +373,10 @@ PythonJob::exec()
         }
         bp::handle_exception();
         PyErr_Clear();
-        return JobResult::error( tr( "Boost.Python error in job \"%1\"." ).arg( prettyName() ),
-                                 msg );
+        return JobResult::internalError(
+                    tr( "Boost.Python error in job \"%1\"." ).arg( prettyName() ),
+                    msg,
+                    JobResult::PythonUncaughtException );
     }
 }
 

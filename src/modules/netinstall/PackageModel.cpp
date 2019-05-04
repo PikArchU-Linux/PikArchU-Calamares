@@ -19,7 +19,7 @@
 
 #include "PackageModel.h"
 
-#include "utils/YamlUtils.h"
+#include "utils/Yaml.h"
 
 PackageModel::PackageModel( const YAML::Node& data, QObject* parent ) :
     QAbstractItemModel( parent ),
@@ -127,7 +127,7 @@ bool
 PackageModel::setHeaderData( int section, Qt::Orientation orientation,
                              const QVariant& value, int role )
 {
-    Q_UNUSED( role );
+    Q_UNUSED( role )
 
     if ( orientation == Qt::Horizontal )
     {

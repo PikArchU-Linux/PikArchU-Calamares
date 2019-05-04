@@ -4,6 +4,7 @@
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
 #   Copyright 2014, Philip Müller <philm@manjaro.org>
+#   Copyright 2019, Adriaan de Groot <groot@kde.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -21,18 +22,29 @@
 import libcalamares
 from libcalamares.utils import check_target_env_call
 
+import gettext
+_ = gettext.translation("calamares-python",
+                        localedir=libcalamares.utils.gettext_path(),
+                        languages=libcalamares.utils.gettext_languages(),
+                        fallback=True).gettext
 
-def run_mkinitcpio():
-    """ Runs mkinitcpio with given kernel profile """
-    kernel = libcalamares.job.configuration['kernel']
-    check_target_env_call(['mkinitcpio', '-p', kernel])
 
+def pretty_name():
+    return _("Creating initramfs with mkinitcpio.")
 
 def run():
     """ Calls routine to create kernel initramfs image.
 
     :return:
     """
-    run_mkinitcpio()
+    from subprocess import CalledProcessError
+
+    kernel = libcalamares.job.configuration['kernel']
+    try:
+        check_target_env_call(['mkinitcpio', '-p', kernel])
+    except CalledProcessError as e:
+        libcalamares.utils.warning(str(e))
+        return ( _( "Process Failed" ),
+                 _( "Process <pre>mkinitcpio</pre> failed with error code {!s}. The command was <pre>{!s}</pre>." ).format( e.returncode, e.cmd ) )
 
     return None

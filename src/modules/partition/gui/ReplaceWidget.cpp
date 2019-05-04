@@ -2,6 +2,7 @@
  *
  *   Copyright 2014-2015, Teo Mrnjavac <teo@kde.org>
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
+ *   Copyright 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -154,7 +155,7 @@ ReplaceWidget::onPartitionSelected()
 
         Partition* partition = model->partitionForIndex( m_ui->partitionTreeView->currentIndex() );
         if ( !partition ||
-             partition->state() != Partition::StateNone )
+             partition->state() != KPM_PARTITION_STATE(None) )
         {
             updateStatus( CalamaresUtils::Fail,
                           tr( "The selected item does not appear to be a valid partition." ) );

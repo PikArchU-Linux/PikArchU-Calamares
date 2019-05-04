@@ -2,7 +2,7 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2014-2017, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2018-2019, Adriaan de Groot <groot@kde.org>
  *   Copyright 2019, Collabora Ltd <arnaud.ferraris@collabora.com>
  *
  *   Calamares is free software: you can redistribute it and/or modify
@@ -33,16 +33,19 @@
 #include "gui/PartitionBarsView.h"
 #include "gui/PartitionLabelsView.h"
 
+#include "Branding.h"
 #include "CalamaresVersion.h"
+#include "GlobalStorage.h"
+#include "Job.h"
+#include "JobQueue.h"
+
 #include "utils/CalamaresUtilsGui.h"
 #include "utils/Logger.h"
 #include "utils/NamedEnum.h"
 #include "utils/Retranslator.h"
+#include "utils/Variant.h"
 #include "widgets/WaitingWidget.h"
-#include "GlobalStorage.h"
-#include "JobQueue.h"
-#include "Job.h"
-#include "Branding.h"
+
 
 #include <kpmcore/core/device.h>
 #include <kpmcore/core/partition.h>
@@ -59,8 +62,6 @@
 #include <QTimer>
 #include <QtConcurrent/QtConcurrent>
 #include <QFutureWatcher>
-
-#include <unistd.h>  // For sleep(3)
 
 PartitionViewStep::PartitionViewStep( QObject* parent )
     : Calamares::ViewStep( parent )
@@ -92,15 +93,16 @@ void
 PartitionViewStep::continueLoading()
 {
     Q_ASSERT( !m_choicePage );
-    Q_ASSERT( !m_manualPartitionPage );
-
-    m_manualPartitionPage = new PartitionPage( m_core );
     m_choicePage = new ChoicePage( m_swapChoices );
-
     m_choicePage->init( m_core );
-
     m_widget->addWidget( m_choicePage );
-    m_widget->addWidget( m_manualPartitionPage );
+
+    // Instantiate the manual partitioning page as needed.
+    //
+    Q_ASSERT( !m_manualPartitionPage );
+    // m_manualPartitionPage = new PartitionPage( m_core );
+    // m_widget->addWidget( m_manualPartitionPage );
+
     m_widget->removeWidget( m_waitingWidget );
     m_waitingWidget->deleteLater();
     m_waitingWidget = nullptr;
@@ -289,6 +291,12 @@ PartitionViewStep::next()
     {
         if ( m_choicePage->currentChoice() == ChoicePage::Manual )
         {
+            if ( !m_manualPartitionPage )
+            {
+                m_manualPartitionPage = new PartitionPage( m_core );
+                m_widget->addWidget( m_manualPartitionPage );
+            }
+
             m_widget->setCurrentWidget( m_manualPartitionPage );
             m_manualPartitionPage->selectDeviceByIndex( m_choicePage->lastSelectedDeviceIndex() );
             if ( m_core->isDirty() )
@@ -306,6 +314,12 @@ PartitionViewStep::back()
     {
         m_widget->setCurrentWidget( m_choicePage );
         m_choicePage->setLastSelectedDeviceIndex( m_manualPartitionPage->selectedDeviceIndex() );
+
+        if ( m_manualPartitionPage )
+        {
+            m_manualPartitionPage->deleteLater();
+            m_manualPartitionPage = nullptr;
+        }
     }
 }
 
@@ -313,10 +327,10 @@ PartitionViewStep::back()
 bool
 PartitionViewStep::isNextEnabled() const
 {
-    if ( m_choicePage && m_choicePage == m_widget->currentWidget() )
+    if ( m_choicePage && m_widget->currentWidget() == m_choicePage )
         return m_choicePage->isNextEnabled();
 
-    if ( m_manualPartitionPage && m_manualPartitionPage == m_widget->currentWidget() )
+    if ( m_manualPartitionPage && m_widget->currentWidget() == m_manualPartitionPage )
         return m_core->hasRootMountPoint();
 
     return false;
@@ -333,7 +347,7 @@ PartitionViewStep::isBackEnabled() const
 bool
 PartitionViewStep::isAtBeginning() const
 {
-    if ( m_widget->currentWidget() == m_manualPartitionPage )
+    if ( m_widget->currentWidget() != m_choicePage )
         return false;
     return true;
 }
@@ -342,7 +356,7 @@ PartitionViewStep::isAtBeginning() const
 bool
 PartitionViewStep::isAtEnd() const
 {
-    if ( m_choicePage == m_widget->currentWidget() )
+    if ( m_widget->currentWidget() == m_choicePage )
     {
         if ( m_choicePage->currentChoice() == ChoicePage::Erase ||
                 m_choicePage->currentChoice() == ChoicePage::Replace ||
@@ -461,22 +475,6 @@ PartitionViewStep::onLeave()
     }
 }
 
-
-static PartitionActions::Choices::SwapChoice
-nameToChoice( QString name, bool& ok )
-{
-    using namespace PartitionActions::Choices;
-
-    static const NamedEnumTable<SwapChoice> names {
-        { QStringLiteral( "none" ), SwapChoice::NoSwap },
-        { QStringLiteral( "small" ), SwapChoice::SmallSwap },
-        { QStringLiteral( "suspend" ), SwapChoice::FullSwap },
-        { QStringLiteral( "reuse" ), SwapChoice::ReuseSwap },
-        { QStringLiteral( "file" ), SwapChoice::SwapFile }
-    };
-
-    return names.find( name, ok );
-}
 
 void
 PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )

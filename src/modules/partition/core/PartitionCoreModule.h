@@ -2,6 +2,7 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2014-2016, Teo Mrnjavac <teo@kde.org>
+ *   Copyright 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -20,6 +21,7 @@
 #ifndef PARTITIONCOREMODULE_H
 #define PARTITIONCOREMODULE_H
 
+#include "core/KPMHelpers.h"
 #include "core/PartitionLayout.h"
 #include "core/PartitionModel.h"
 #include "Typedefs.h"
@@ -136,7 +138,7 @@ public:
      * applied to the newly-created partition.
      */
     void createPartition( Device* device, Partition* partition,
-                          PartitionTable::Flags flags = PartitionTable::FlagNone );
+                          PartitionTable::Flags flags = KPM_PARTITION_FLAG(None) );
 
     void createVolumeGroup( QString &vgName, QVector< const Partition* > pvList, qint32 peSize );
 

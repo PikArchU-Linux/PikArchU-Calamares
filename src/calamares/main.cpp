@@ -22,7 +22,7 @@
 
 #include "CalamaresConfig.h"
 #include "kdsingleapplicationguard/kdsingleapplicationguard.h"
-#include "utils/CalamaresUtils.h"
+#include "utils/Dirs.h"
 #include "utils/Logger.h"
 #include "CalamaresConfig.h"
 
@@ -114,6 +114,7 @@ main( int argc, char* argv[] )
     }
     else
     {
+        // Here we have not yet set-up the logger system, so qDebug() is ok
         auto instancelist = guard.instances();
         qDebug() << "Calamares is already running, shutting down.";
         if ( instancelist.count() > 0 )

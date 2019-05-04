@@ -1,8 +1,8 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
- *   Copyright 2017, Adriaan de Groot <groot@kde.org>
  *   Copyright 2018, Philip Müller <philm@manjaro.org>
+ *   Copyright 2017, 2019 Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -229,11 +229,11 @@ PartitionJobTests::newCreatePartitionJob( Partition* freeSpacePartition, Partiti
         role,
         fs, firstSector, lastSector,
         QString() /* path */,
-        PartitionTable::FlagNone /* availableFlags */,
+        KPM_PARTITION_FLAG(None) /* availableFlags */,
         QString() /* mountPoint */,
         false /* mounted */,
-        PartitionTable::FlagNone /* activeFlags */,
-        Partition::StateNew
+        KPM_PARTITION_FLAG(None) /* activeFlags */,
+        KPM_PARTITION_STATE(New)
     );
     return new CreatePartitionJob( m_device.data(), partition );
 }
@@ -367,7 +367,7 @@ PartitionJobTests::testResizePartition()
             FileSystem::Ext4,
             oldFirst,
             oldLast,
-            PartitionTable::FlagNone
+            KPM_PARTITION_FLAG(None)
         );
         CreatePartitionJob* job = new CreatePartitionJob( m_device.data(), partition );
         job->updatePreview();

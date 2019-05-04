@@ -16,11 +16,9 @@
  *   You should have received a copy of the GNU General Public License
  *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "YamlUtils.h"
+#include "Yaml.h"
 
 #include "utils/Logger.h"
-
-#include <yaml-cpp/yaml.h>
 
 #include <QByteArray>
 #include <QFile>
@@ -107,6 +105,14 @@ yamlMapToVariant( const YAML::Node& mapNode )
                    yamlToVariant( it->second ) );
     }
     return vm;
+}
+
+QStringList
+yamlToStringList(const YAML::Node& listNode)
+{
+    QStringList l;
+    listNode >> l;
+    return l;
 }
 
 

@@ -4,6 +4,7 @@
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
 #   Copyright 2017, Ghiunhan Mamut <venerix@redcorelinux.org>
+#   Copyright 2019, Adriaan de Groot <groot@kde.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -18,8 +19,20 @@
 #   You should have received a copy of the GNU General Public License
 #   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
 
-import libcalamares
 import os.path
+
+import libcalamares
+
+import gettext
+_ = gettext.translation("calamares-python",
+                        localedir=libcalamares.utils.gettext_path(),
+                        languages=libcalamares.utils.gettext_languages(),
+                        fallback=True).gettext
+
+
+def pretty_name():
+    return _("Configuring OpenRC dmcrypt service.")
+
 
 def write_dmcrypt_conf(partitions, root_mount_point, dmcrypt_conf_path):
     crypto_target = ""
@@ -59,6 +72,15 @@ def run():
     root_mount_point = libcalamares.globalstorage.value("rootMountPoint")
     dmcrypt_conf_path = libcalamares.job.configuration["configFilePath"]
     partitions = libcalamares.globalstorage.value("partitions")
+
+    if not partitions:
+        libcalamares.utils.warning("partitions is empty, {!s}".format(partitions))
+        return (_("Configuration Error"),
+                _("No partitions are defined for <pre>{!s}</pre> to use." ).format("openrcdmcryptcfg"))
+    if not root_mount_point:
+        libcalamares.utils.warning("rootMountPoint is empty, {!s}".format(root_mount_point))
+        return (_("Configuration Error"),
+                _("No root mount point is given for <pre>{!s}</pre> to use." ).format("openrcdmcryptcfg"))
 
     dmcrypt_conf_path = dmcrypt_conf_path.lstrip('/')
 

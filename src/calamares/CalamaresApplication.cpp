@@ -28,7 +28,9 @@
 #include "modulesystem/ModuleManager.h"
 #include "utils/CalamaresUtilsGui.h"
 #include "utils/CalamaresUtilsSystem.h"
+#include "utils/Dirs.h"
 #include "utils/Logger.h"
+#include "utils/Retranslator.h"
 #include "JobQueue.h"
 #include "Branding.h"
 #include "Settings.h"
@@ -55,16 +57,10 @@ CalamaresApplication::CalamaresApplication( int& argc, char* argv[] )
     setApplicationName( QStringLiteral( CALAMARES_APPLICATION_NAME ) );
     setApplicationVersion( QStringLiteral( CALAMARES_VERSION ) );
 
-    cDebug() << "Calamares version:" << CALAMARES_VERSION;
-
     CalamaresUtils::installTranslator( QLocale::system(), QString(), this );
 
     QFont f = font();
-
-    cDebug() << "Default font size" << f.pointSize() << ';' << f.pixelSize() << "px";
     CalamaresUtils::setDefaultFontSize( f.pointSize() );
-
-    cDebug() << "Available languages:" << QString( CALAMARES_TRANSLATION_LANGUAGES ).split( ';' );
 }
 
 
@@ -72,6 +68,8 @@ void
 CalamaresApplication::init()
 {
     Logger::setupLogfile();
+    cDebug() << "Calamares version:" << CALAMARES_VERSION;
+    cDebug() << "        languages:" << QString( CALAMARES_TRANSLATION_LANGUAGES ).replace( ";", ", " );
 
     setQuitOnLastWindowClosed( false );
 
@@ -263,7 +261,12 @@ CalamaresApplication::initSettings()
         ::exit( EXIT_FAILURE );
     }
 
-    new Calamares::Settings( settingsFile.absoluteFilePath(), isDebug(), this );
+    auto* settings = new Calamares::Settings( settingsFile.absoluteFilePath(), isDebug(), this );  // Creates singleton
+    if ( settings->modulesSequence().count() < 1 )
+    {
+        cError() << "FATAL: no sequence set.";
+        ::exit( EXIT_FAILURE );
+    }
 }
 
 

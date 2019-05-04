@@ -23,9 +23,7 @@
 #include "Settings.h"
 
 #include "utils/Logger.h"
-#include "utils/YamlUtils.h"
-
-#include <yaml-cpp/yaml.h>
+#include "utils/Yaml.h"
 
 #include <QtTest/QtTest>
 

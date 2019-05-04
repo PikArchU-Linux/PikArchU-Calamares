@@ -17,8 +17,8 @@
  *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef YAMLUTILS_H
-#define YAMLUTILS_H
+#ifndef UTILS_YAML_H
+#define UTILS_YAML_H
 
 #include <QStringList>
 #include <QVariant>
@@ -26,12 +26,23 @@
 class QByteArray;
 class QFileInfo;
 
-namespace YAML
-{
-class Node;
-class Exception;
-}
+// The yaml-cpp headers are not C++11 warning-proof, especially
+// with picky compilers like Clang 8. Since we use Clang for the
+// find-all-the-warnings case, switch those warnings off for
+// the we-can't-change-them system headers.
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+#pragma clang diagnostic ignored "-Wshadow"
+#endif
 
+#include <yaml-cpp/yaml.h>
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+
+/// @brief Appends all te elements of @p node to the string list @p v
 void operator>>( const YAML::Node& node, QStringList& v );
 
 namespace CalamaresUtils
@@ -51,6 +62,9 @@ QVariant yamlScalarToVariant( const YAML::Node& scalarNode );
 QVariant yamlSequenceToVariant( const YAML::Node& sequenceNode );
 QVariant yamlMapToVariant( const YAML::Node& mapNode );
 
+/// @brief Returns all the elements of @p listNode in a StringList
+QStringList yamlToStringList( const YAML::Node& listNode );
+
 /// @brief Save a @p map to @p filename as YAML
 bool saveYaml( const QString& filename, const QVariantMap& map );
 
@@ -63,6 +77,6 @@ void explainYamlException( const YAML::Exception& e, const QByteArray& data, con
 void explainYamlException( const YAML::Exception& e, const QByteArray& data, const QString& label );
 void explainYamlException( const YAML::Exception& e, const QByteArray& data );
 
-} //ns
+}  // namespace
 
-#endif // YAMLUTILS_H
+#endif

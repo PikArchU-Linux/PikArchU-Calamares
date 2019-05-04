@@ -2,7 +2,7 @@
  *
  *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2015-2016, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2018-2019, Adriaan de Groot <groot@kde.org>
  *   Copyright 2018, Andrius Štikonas <andrius@stikonas.eu>
  *   Copyright 2018, Caio Jordão Carvalho <caiojcarvalho@gmail.com>
  *   Copyright 2019, Collabora Ltd
@@ -49,7 +49,7 @@
 // KPMcore
 #include <kpmcore/core/device.h>
 #include <kpmcore/core/partition.h>
-#ifdef WITH_KPMCOREGT33
+#ifdef WITH_KPMCORE4API
 #include <kpmcore/core/softwareraid.h>
 #endif
 #include <kpmcore/ops/deactivatevolumegroupoperation.h>
@@ -79,6 +79,7 @@ PartitionPage::PartitionPage( PartitionCoreModule* core, QWidget* parent )
                     value( "alwaysShowPartitionLabels" ).toBool() );
     m_ui->deviceComboBox->setModel( m_core->deviceModel() );
     m_ui->bootLoaderComboBox->setModel( m_core->bootLoaderModel() );
+    connect( m_core->bootLoaderModel(), &QAbstractItemModel::modelReset, this, &PartitionPage::restoreSelectedBootLoader );
     PartitionBarsView::NestedPartitionsMode mode = Calamares::JobQueue::instance()->globalStorage()->
                                                    value( "drawNestedPartitions" ).toBool() ?
                                                        PartitionBarsView::DrawNestedPartitions :
@@ -161,7 +162,7 @@ PartitionPage::updateButtons()
         {
             createTable = true;
 
-#ifdef WITH_KPMCOREGT33
+#ifdef WITH_KPMCORE4API
             if ( device->type() == Device::Type::SoftwareRAID_Device &&
                  static_cast< SoftwareRAID* >(device)->status() == SoftwareRAID::Status::Inactive )
             {
@@ -206,6 +207,11 @@ PartitionPage::onNewPartitionTableClicked()
     Ui_CreatePartitionTableDialog ui;
     ui.setupUi( dlg.data() );
     QString areYouSure = tr( "Are you sure you want to create a new partition table on %1?" ).arg( device->name() );
+    if ( PartUtils::isEfiSystem() )
+        ui.gptRadioButton->setChecked( true );
+    else
+        ui.mbrRadioButton->setChecked( true );
+
     ui.areYouSureLabel->setText( areYouSure );
     if ( dlg->exec() == QDialog::Accepted )
     {
@@ -504,6 +510,48 @@ PartitionPage::updateSelectedBootLoaderIndex()
     m_lastSelectedBootLoaderIndex = m_ui->bootLoaderComboBox->currentIndex();
     cDebug() << "Selected bootloader index" << m_lastSelectedBootLoaderIndex;
 }
+
+int
+findBootloader( const QAbstractItemModel* model, const QString& path )
+{
+    for ( int i = 0; i < model->rowCount(); ++i)
+    {
+        const auto index = model->index( i, 0, QModelIndex() );
+        if ( !index.isValid() )
+            continue;
+        QVariant var = model->data( index, BootLoaderModel::BootLoaderPathRole );
+        if ( var.isValid() && var.toString() == path )
+            return i;
+    }
+
+    return -1;
+}
+
+void
+PartitionPage::restoreSelectedBootLoader()
+{
+    const auto* model = m_ui->bootLoaderComboBox->model();
+    if ( model->rowCount() < 1 )
+    {
+        cDebug() << "No items in BootLoaderModel";
+        return;
+    }
+
+    int r = -1;
+    if ( m_core->bootLoaderInstallPath().isEmpty() )
+    {
+        m_ui->bootLoaderComboBox->setCurrentIndex( 0 );
+    }
+    else if ( (r = findBootloader( model, m_core->bootLoaderInstallPath() )) >= 0 )
+    {
+        m_ui->bootLoaderComboBox->setCurrentIndex( r );
+    }
+    else
+    {
+        m_ui->bootLoaderComboBox->setCurrentIndex( 0 );
+    }
+}
+
 
 void
 PartitionPage::updateFromCurrentDevice()

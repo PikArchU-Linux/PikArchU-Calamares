@@ -2,6 +2,7 @@
  *
  *   Copyright 2014,      Aurélien Gâteau <agateau@kde.org>
  *   Copyright 2015-2016, Teo Mrnjavac <teo@kde.org>
+ *   Copyright 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -32,6 +33,16 @@ class Device;
 class Partition;
 class PartitionNode;
 class PartitionRole;
+
+#ifdef WITH_KPMCORE331API
+#define KPM_PARTITION_FLAG(x) PartitionTable::Flag::x
+#define KPM_PARTITION_STATE(x) Partition::State::x
+#define KPM_PARTITION_FLAG_ESP PartitionTable::Flag::Boot
+#else
+#define KPM_PARTITION_FLAG(x) PartitionTable::Flag##x
+#define KPM_PARTITION_STATE(x) Partition::State##x
+#define KPM_PARTITION_FLAG_ESP PartitionTable::FlagEsp
+#endif
 
 /**
  * Helper functions to manipulate partitions

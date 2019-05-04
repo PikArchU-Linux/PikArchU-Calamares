@@ -36,8 +36,8 @@
  * } ;
  */
 
-#ifndef LIBCALAMARES_NAMEDSUFFIX_H
-#define LIBCALAMARES_NAMEDSUFFIX_H
+#ifndef UTILS_NAMEDSUFFIX_H
+#define UTILS_NAMEDSUFFIX_H
 
 #include "NamedEnum.h"
 
@@ -72,7 +72,7 @@ public:
     NamedSuffix( const NamedEnumTable<T>& table, const QString& s )
         : NamedSuffix()
     {
-        for( const auto suffix : table.table )
+        for( const auto& suffix : table.table )
             if ( s.endsWith( suffix.first ) )
             {
                 m_value = s.left( s.length() - suffix.first.length() ).toInt();
@@ -103,6 +103,5 @@ protected:
     int m_value;
     unit_t m_unit;
 };
-
 
 #endif
