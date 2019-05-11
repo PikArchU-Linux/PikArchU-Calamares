@@ -37,7 +37,11 @@
 
 cmake_minimum_required( VERSION 3.2 FATAL_ERROR )
 project( CALAMARES
+<<<<<<< HEAD
     VERSION 3.2.7.1
+=======
+    VERSION 3.2.9
+>>>>>>> development
     LANGUAGES C CXX )
 
 set( CALAMARES_VERSION_RC 0 )  # Set to 0 during release cycle, 1 during development
@@ -116,7 +120,7 @@ set( _tx_bad be eo fa fr_CH gu kk kn lo mk ne_NP ur uz )
 ### Required versions
 #
 # See DEPENDENCIES section below.
-set( QT_VERSION 5.10.0 )
+set( QT_VERSION 5.9.0 )
 set( YAMLCPP_VERSION 0.5.1 )
 set( ECM_VERSION 5.18 )
 set( PYTHONLIBS_VERSION 3.3 )
