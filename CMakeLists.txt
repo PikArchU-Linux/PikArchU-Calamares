@@ -108,12 +108,12 @@ set( CALAMARES_DESCRIPTION_SUMMARY
 #       checks for new languages and misspelled ones are done (that is,
 #       copy these four lines to four backup lines, add "p", and then update
 #       the original four lines with the current translations).
-set( _tx_complete ast ca cs_CZ da de fr hr ja lt pl pt_BR pt_PT
-    tr_TR zh_TW )
-set( _tx_good bg en_GB es es_MX et gl he hi hu id it_IT ro ru sk sq
-    zh_CN )
-set( _tx_ok ar el es_PR eu fi_FI is ko mr nb nl sl sr
-    sr@latin sv th uk )
+set( _tx_complete ca cs_CZ da de fr he hr hu ko lt pt_BR sq tr_TR
+    zh_TW )
+set( _tx_good ast en_GB es es_MX et gl id it_IT ja nl pl pt_PT ro
+    ru sk zh_CN )
+set( _tx_ok ar bg el es_PR eu fi_FI hi is mr nb sl sr sr@latin sv
+    th uk )
 set( _tx_bad be eo fa fr_CH gu kk kn lo mk ne_NP ur uz )
 
 
@@ -197,6 +197,7 @@ if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
     )
         string( APPEND CMAKE_CXX_FLAGS " ${CLANG_WARNINGS}" )
     endforeach()
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNOTREACHED='//'" )
 
     # Third-party code where we don't care so much about compiler warnings
     # (because it's uncomfortable to patch) get different flags; use
@@ -207,7 +208,7 @@ if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
 
     set( CMAKE_CXX_FLAGS_DEBUG          "-g ${CMAKE_CXX_FLAGS_DEBUG}" )
     set( CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG" )
-    set( CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG" )
+    set( CMAKE_CXX_FLAGS_RELEASE        "-O3 -DNDEBUG" )
     set( CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g" )
 
     set( CMAKE_TOOLCHAIN_PREFIX "llvm-" )
@@ -215,12 +216,15 @@ if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
     set( CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined" )
 
     set( CALAMARES_AUTOMOC_OPTIONS "-butils/moc-warnings.h" )
+    set( CALAMARES_AUTOUIC_OPTIONS --include utils/moc-warnings.h )
 else()
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--no-undefined" )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--fatal-warnings -Wnon-virtual-dtor -Woverloaded-virtual -Werror=return-type" )
 
     set( SUPPRESS_3RDPARTY_WARNINGS "" )
     set( SUPPRESS_BOOST_WARNINGS "" )
+
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNOTREACHED='__builtin_unreachable();'" )
 endif()
 
 # Use mark_thirdparty_code() to reduce warnings from the compiler

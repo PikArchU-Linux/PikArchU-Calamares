@@ -3,13 +3,29 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
-# 3.2.9 (unreleased) #
+# 3.2.9 (2019-06-03) #
 
 This release contains contributions from (alphabetically by first name):
+ - Kevin Kofler
 
 ## Core ##
 
+No user- or deployer-visible changes. Bugfixing as usual, see the
+milestone for details.
+
 ## Modules ##
+
+ - *branding* now supports os-release variables in the *strings* section,
+   which allows re-using (at runtime) information set in /etc/os-release .
+   This requires KDE Frameworks 5.58. #1150
+ - *branding* allows the use of FreeDesktop.org icon names for the
+   *productLogo* and *productIcon* keys. If a file is named there, then
+   the file is used, and otherwise the icon is looked up in the current
+   theme. #1160
+ - *packages* On Arch, with the `pacman` package manager, avoid a hang
+   during system update. #1154
+ - *welcome* allows a custom image path or icon name to be set for the
+   language-selection drop-down (instead of the international standard one).
 
 
 # 3.2.8 (2019-05-10) #

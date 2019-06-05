@@ -1,7 +1,7 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
  *   Copyright 2014-2015, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2017-2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2017-2019, Adriaan de Groot <groot@kde.org>
  *   Copyright 2018, Raul Rodrigo Segura (raurodse)
  *
  *   Calamares is free software: you can redistribute it and/or modify
@@ -29,8 +29,16 @@
 
 #include <QDir>
 #include <QFile>
+#include <QIcon>
 #include <QPixmap>
 #include <QVariantMap>
+
+#include <functional>
+
+#ifdef WITH_KOSRelease
+#include <KMacroExpander>
+#include <KOSRelease>
+#endif
 
 namespace Calamares
 {
@@ -87,6 +95,32 @@ Branding::WindowDimension::suffixes()
     return names;
 }
 
+/** @brief Load the @p map with strings from @p doc
+ *
+ * Each key-value pair from the sub-map in @p doc identified by @p key
+ * is inserted into the @p map, but the value is first transformed by
+ * the @p transform function, which may change strings.
+ */
+static void
+loadStrings( QMap<QString, QString>& map, const YAML::Node& doc, const std::string& key, const std::function< QString(const QString&) >& transform )
+{
+    if ( !doc[ key ].IsMap() )
+        throw YAML::Exception( YAML::Mark(), std::string("Branding configuration is not a map: ") + key );
+
+    const auto& config = CalamaresUtils::yamlMapToVariant( doc[ key ] ).toMap();
+
+    map.clear();
+    for ( auto it = config.constBegin(); it != config.constEnd(); ++it )
+        map.insert( it.key(), transform( it.value().toString() ) );
+}
+
+/** @brief Load the @p map with strings from @p config
+ *
+ * If os-release is supported (with KF5 CoreAddons >= 5.58) then
+ * special substitutions can be done as well. See the branding
+ * documentation for details.
+ */
+
 Branding::Branding( const QString& brandingFilePath,
                     QObject* parent )
     : QObject( parent )
@@ -95,15 +129,15 @@ Branding::Branding( const QString& brandingFilePath,
     , m_welcomeExpandingLogo( true )
 {
     cDebug() << "Using Calamares branding file at" << brandingFilePath;
+
+    QDir componentDir( componentDirectory() );
+    if ( !componentDir.exists() )
+        bail( "Bad component directory path." );
+
     QFile file( brandingFilePath );
     if ( file.exists() && file.open( QFile::ReadOnly | QFile::Text ) )
     {
         QByteArray ba = file.readAll();
-
-        QFileInfo fi ( m_descriptorPath );
-        QDir componentDir = fi.absoluteDir();
-        if ( !componentDir.exists() )
-            bail( "Bad component directory path." );
 
         try
         {
@@ -112,37 +146,63 @@ Branding::Branding( const QString& brandingFilePath,
 
             m_componentName = QString::fromStdString( doc[ "componentName" ]
                                                       .as< std::string >() );
-            if ( m_componentName != QFileInfo( m_descriptorPath ).absoluteDir().dirName() )
+            if ( m_componentName != componentDir.dirName() )
                 bail( "The branding component name should match the name of the "
                       "component directory." );
 
             initSimpleSettings( doc );
 
-            if ( !doc[ "strings" ].IsMap() )
-                bail( "Syntax error in strings map." );
+#ifdef WITH_KOSRelease
+            // Copy the os-release information into a QHash for use by KMacroExpander.
+            KOSRelease relInfo;
 
-            QVariantMap strings =
-                CalamaresUtils::yamlMapToVariant( doc[ "strings" ] ).toMap();
-            m_strings.clear();
-            for ( auto it = strings.constBegin(); it != strings.constEnd(); ++it )
-                m_strings.insert( it.key(), it.value().toString() );
+            QHash< QString, QString > relMap{
+                std::initializer_list< std::pair< QString, QString > > {
+                { QStringLiteral( "NAME" ), relInfo.name() },
+                { QStringLiteral( "VERSION" ), relInfo.version() },
+                { QStringLiteral( "ID" ), relInfo.id() },
+                { QStringLiteral( "ID_LIKE" ), relInfo.idLike().join( ' ' ) },
+                { QStringLiteral( "VERSION_CODENAME" ), relInfo.versionCodename() },
+                { QStringLiteral( "VERSION_ID" ), relInfo.versionId() },
+                { QStringLiteral( "PRETTY_NAME" ), relInfo.prettyName() },
+                { QStringLiteral( "HOME_URL" ), relInfo.homeUrl() },
+                { QStringLiteral( "DOCUMENTATION_URL" ), relInfo.documentationUrl() },
+                { QStringLiteral( "SUPPORT_URL" ), relInfo.supportUrl() },
+                { QStringLiteral( "BUG_REPORT_URL" ), relInfo.bugReportUrl() },
+                { QStringLiteral( "PRIVACY_POLICY_URL" ), relInfo.privacyPolicyUrl() },
+                { QStringLiteral( "BUILD_ID" ), relInfo.buildId() },
+                { QStringLiteral( "VARIANT" ), relInfo.variant() },
+                { QStringLiteral( "VARIANT_ID" ), relInfo.variantId() },
+                { QStringLiteral( "LOGO" ), relInfo.logo() }
+            } };
+            auto expand = [&]( const QString& s ) -> QString { return KMacroExpander::expandMacros( s, relMap, QLatin1Char( '@' ) ); };
+#else
+            auto expand = []( const QString& s ) -> QString { return s; };
+#endif
 
-            if ( !doc[ "images" ].IsMap() )
-                bail( "Syntax error in images map." );
 
-            QVariantMap images =
-                CalamaresUtils::yamlMapToVariant( doc[ "images" ] ).toMap();
-            m_images.clear();
-            for ( auto it = images.constBegin(); it != images.constEnd(); ++it )
-            {
-                QString pathString = it.value().toString();
-                QFileInfo imageFi( componentDir.absoluteFilePath( pathString ) );
-                if ( !imageFi.exists() )
-                    bail( QString( "Image file %1 does not exist." )
-                            .arg( imageFi.absoluteFilePath() ) );
-
-                m_images.insert( it.key(), imageFi.absoluteFilePath() );
-            }
+            // Massage the strings, images and style sections.
+            loadStrings( m_strings, doc, "strings", expand );
+            loadStrings( m_images, doc, "images",
+                [&]( const QString& s ) -> QString
+                {
+                    // See also image()
+                    const QString imageName( expand( s ) );
+                    QFileInfo imageFi( componentDir.absoluteFilePath( imageName ) );
+                    if ( !imageFi.exists() )
+                    {
+                        const auto icon = QIcon::fromTheme( imageName );
+                        // Not found, bail out with the filename used
+                        if ( icon.isNull() )
+                            bail( QString( "Image file %1 does not exist." ).arg( imageFi.absoluteFilePath() ) );
+                        return imageName;  // Not turned into a path
+                    }
+                    return  imageFi.absoluteFilePath();
+                }
+                );
+            loadStrings( m_style, doc, "style",
+                []( const QString& s ) -> QString { return s; }
+                );
 
             if ( doc[ "slideshow" ].IsSequence() )
             {
@@ -174,20 +234,11 @@ Branding::Branding( const QString& brandingFilePath,
             }
             else
                 bail( "Syntax error in slideshow sequence." );
-
-            if ( !doc[ "style" ].IsMap() )
-                bail( "Syntax error in style map." );
-
-            QVariantMap style =
-                CalamaresUtils::yamlMapToVariant( doc[ "style" ] ).toMap();
-            m_style.clear();
-            for ( auto it = style.constBegin(); it != style.constEnd(); ++it )
-                m_style.insert( it.key(), it.value().toString() );
-
         }
         catch ( YAML::Exception& e )
         {
             CalamaresUtils::explainYamlException( e, ba, file.fileName() );
+            bail( e.what() );
         }
 
         QDir translationsDir( componentDir.filePath( "lang" ) );
@@ -197,16 +248,6 @@ Branding::Branding( const QString& brandingFilePath,
         m_translationsPathPrefix.append( QString( "%1calamares-%2" )
                                             .arg( QDir::separator() )
                                             .arg( m_componentName ) );
-
-        QFileInfo importQSSPath( componentDir.filePath( "stylesheet.qss" ) );
-        if ( importQSSPath.exists() && importQSSPath.isReadable() )
-        {
-            QFile stylesheetFile( importQSSPath.filePath() );
-            stylesheetFile.open( QFile::ReadOnly );
-            m_stylesheet = stylesheetFile.readAll();
-        }
-        else
-            cWarning() << "the branding component" << componentDir.absolutePath() << "does not ship stylesheet.qss.";
     }
     else
     {
@@ -257,17 +298,54 @@ Branding::imagePath( Branding::ImageEntry imageEntry ) const
 QPixmap
 Branding::image( Branding::ImageEntry imageEntry, const QSize& size ) const
 {
-    QPixmap pixmap =
-        ImageRegistry::instance()->pixmap( imagePath( imageEntry ), size );
-
-    if ( pixmap.isNull() )
+    const auto path = imagePath( imageEntry );
+    if ( path.contains( '/' ) )
     {
-        Q_ASSERT( false );
-        return QPixmap();
+        QPixmap pixmap = ImageRegistry::instance()->pixmap( path, size );
+
+        Q_ASSERT( !pixmap.isNull() );
+        return pixmap;
     }
-    return pixmap;
+    else
+    {
+        auto icon = QIcon::fromTheme(path);
+
+        Q_ASSERT( !icon.isNull() );
+        return icon.pixmap( size );
+    }
 }
 
+QPixmap
+Branding::image(const QString& imageName, const QSize& size) const
+{
+    QDir componentDir( componentDirectory() );
+    QFileInfo imageFi( componentDir.absoluteFilePath( imageName ) );
+    if ( !imageFi.exists() )
+    {
+        const auto icon = QIcon::fromTheme( imageName );
+        // Not found, bail out with the filename used
+        if ( icon.isNull() )
+            return QPixmap();
+        return icon.pixmap( size );
+    }
+    return ImageRegistry::instance()->pixmap( imageFi.absoluteFilePath(), size );
+}
+
+QString
+Branding::stylesheet() const
+{
+    QFileInfo fi( m_descriptorPath );
+    QFileInfo importQSSPath( fi.absoluteDir().filePath( "stylesheet.qss" ) );
+    if ( importQSSPath.exists() && importQSSPath.isReadable() )
+    {
+        QFile stylesheetFile( importQSSPath.filePath() );
+        stylesheetFile.open( QFile::ReadOnly );
+        return stylesheetFile.readAll();
+    }
+    else
+        cWarning() << "The branding component" << fi.absoluteDir().absolutePath() << "does not ship stylesheet.qss.";
+    return QString();
+}
 
 void
 Branding::setGlobals( GlobalStorage* globalStorage ) const

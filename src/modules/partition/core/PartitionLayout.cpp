@@ -86,10 +86,10 @@ PartitionLayout::addEntry( PartitionLayout::PartitionEntry entry )
 }
 
 PartitionLayout::PartitionEntry::PartitionEntry( const QString& size, const QString& min, const QString& max )
+    : partSize( size )
+    , partMinSize( min )
+    , partMaxSize( max )
 {
-    partSize = Calamares::PartitionSize( size );
-    partMinSize = Calamares::PartitionSize( min );
-    partMaxSize = Calamares::PartitionSize( max );
 }
 
 bool
@@ -150,7 +150,7 @@ PartitionLayout::execute( Device *dev, qint64 firstSector,
                           const PartitionRole& role )
 {
     QList< Partition* > partList;
-    qint64 size, minSize, maxSize, end;
+    qint64 minSize, maxSize, end;
     qint64 totalSize = lastSector - firstSector + 1;
     qint64 availableSize = totalSize;
 
@@ -161,6 +161,7 @@ PartitionLayout::execute( Device *dev, qint64 firstSector,
     {
         Partition *currentPartition = nullptr;
 
+        qint64 size = -1;
         // Calculate partition size
         if ( part.partSize.isValid() )
         {
