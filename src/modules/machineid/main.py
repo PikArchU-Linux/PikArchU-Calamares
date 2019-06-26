@@ -4,7 +4,7 @@
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
 #   Copyright 2014, Kevin Kofler <kevin.kofler@chello.at>
-#   Copyright 2016, Philip Müller <philm@manjaro.org>
+#   Copyright 2019, Philip Müller <philm@manjaro.org>
 #   Copyright 2017, Alf Gaida <agaida@siduction.org>
 #   Copyright 2019, Adriaan de Groot <groot@kde.org>
 #
@@ -65,7 +65,7 @@ def run():
 
     if enable_dbus:
         if enable_symlink and os.path.exists(target_systemd_machineid_file):
-            check_target_env_call(["ln", "-s", "/etc/machine-id",
+            check_target_env_call(["ln", "-sf", "/etc/machine-id",
                                    "/var/lib/dbus/machine-id"])
         else:
             check_target_env_call(["dbus-uuidgen", "--ensure"])
