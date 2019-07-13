@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-10 19:18-0400\n"
+"POT-Creation-Date: 2019-06-18 15:54+0200\n"
 "PO-Revision-Date: 2017-08-09 10:34+0000\n"
 "Last-Translator: Takefumi Nagata, 2019\n"
 "Language-Team: Japanese (https://www.transifex.com/calamares/teams/20061/ja/)\n"
@@ -25,11 +25,11 @@ msgstr ""
 
 #: src/modules/grubcfg/main.py:37
 msgid "Configure GRUB."
-msgstr ""
+msgstr "GRUBを設定にします。"
 
 #: src/modules/mount/main.py:38
 msgid "Mounting partitions."
-msgstr ""
+msgstr "パーティションのマウント。"
 
 #: src/modules/mount/main.py:150 src/modules/initcpiocfg/main.py:187
 #: src/modules/initcpiocfg/main.py:191
@@ -42,7 +42,7 @@ msgstr ""
 #: src/modules/fstab/main.py:316 src/modules/localecfg/main.py:144
 #: src/modules/networkcfg/main.py:48
 msgid "Configuration Error"
-msgstr ""
+msgstr "コンフィグレーションエラー"
 
 #: src/modules/mount/main.py:151 src/modules/initcpiocfg/main.py:188
 #: src/modules/luksopenswaphookcfg/main.py:96 src/modules/rawfs/main.py:172
@@ -199,7 +199,7 @@ msgstr "ディスプレイマネージャの設定が不完全です"
 
 #: src/modules/initcpiocfg/main.py:36
 msgid "Configuring mkinitcpio."
-msgstr ""
+msgstr "mkinitcpioを設定中"
 
 #: src/modules/initcpiocfg/main.py:192
 #: src/modules/luksopenswaphookcfg/main.py:100
@@ -207,25 +207,26 @@ msgstr ""
 #: src/modules/openrcdmcryptcfg/main.py:83 src/modules/fstab/main.py:317
 #: src/modules/localecfg/main.py:145 src/modules/networkcfg/main.py:49
 msgid "No root mount point is given for <pre>{!s}</pre> to use."
-msgstr ""
+msgstr " <pre>{!s}</pre> を使用するのにルートマウントポイントが与えられていません。"
 
 #: src/modules/initcpio/main.py:33
 msgid "Creating initramfs with mkinitcpio."
-msgstr ""
+msgstr "mkinitcpioとinitramfsを作成中"
 
 #: src/modules/initcpio/main.py:47
 msgid "Process Failed"
-msgstr ""
+msgstr "プロセスを失敗しました"
 
 #: src/modules/initcpio/main.py:48
 msgid ""
 "Process <pre>mkinitcpio</pre> failed with error code {!s}. The command was "
 "<pre>{!s}</pre>."
 msgstr ""
+"<pre>mkinitcpio</pre> プロセスがエラーコード {!s} により失敗しました。 コマンドは <pre>{!s}</pre>でした。"
 
 #: src/modules/luksopenswaphookcfg/main.py:35
 msgid "Configuring encrypted swap."
-msgstr ""
+msgstr "暗号化したswapを設定中"
 
 #: src/modules/rawfs/main.py:35
 msgid "Installing data."
@@ -305,59 +306,59 @@ msgstr[0] " %(num)d パッケージの削除中。"
 
 #: src/modules/bootloader/main.py:51
 msgid "Install bootloader."
-msgstr ""
+msgstr "ブートローダーをインストール"
 
 #: src/modules/removeuser/main.py:34
 msgid "Remove live user from target system"
-msgstr ""
+msgstr "ターゲットシステムからliveユーザーを消去"
 
 #: src/modules/initramfs/main.py:35
 msgid "Creating initramfs."
-msgstr ""
+msgstr "initramfsを作成中"
 
 #: src/modules/initramfs/main.py:49
 msgid "Failed to run update-initramfs on the target"
-msgstr ""
+msgstr "ターゲット上の initramfs のアップデートに失敗"
 
 #: src/modules/initramfs/main.py:50 src/modules/dracut/main.py:59
 msgid "The exit code was {}"
-msgstr ""
+msgstr "停止コードは {} でした"
 
 #: src/modules/hwclock/main.py:35
 msgid "Setting hardware clock."
-msgstr ""
+msgstr "ハードウェアクロックの設定"
 
 #: src/modules/dracut/main.py:36
 msgid "Creating initramfs with dracut."
-msgstr ""
+msgstr "dracutとinitramfsを作成中"
 
 #: src/modules/dracut/main.py:58
 msgid "Failed to run dracut on the target"
-msgstr ""
+msgstr "ターゲット上で dracut の実行に失敗"
 
 #: src/modules/initramfscfg/main.py:41
 msgid "Configuring initramfs."
-msgstr ""
+msgstr "initramfsを設定中"
 
 #: src/modules/openrcdmcryptcfg/main.py:34
 msgid "Configuring OpenRC dmcrypt service."
-msgstr ""
+msgstr "OpenRC dmcryptサービスを設定中"
 
 #: src/modules/luksbootkeyfile/main.py:35
 msgid "Configuring LUKS key file."
-msgstr ""
+msgstr "LUKSキーファイルを設定中"
 
 #: src/modules/luksbootkeyfile/main.py:74
 msgid "Encrypted rootfs setup error"
-msgstr ""
+msgstr "暗号化したrootfsセットアップエラー"
 
 #: src/modules/luksbootkeyfile/main.py:75
 msgid "Rootfs partition {!s} is LUKS but no passphrase found."
-msgstr ""
+msgstr "Rootfs のパーティションは {!s}  LUKS ですが、パスフレーズが見つかりません。"
 
 #: src/modules/fstab/main.py:38
 msgid "Writing fstab."
-msgstr ""
+msgstr "fstabを書き込み中"
 
 #: src/modules/dummypython/main.py:44
 msgid "Dummy python job."
@@ -369,8 +370,8 @@ msgstr "Dummy python step {}"
 
 #: src/modules/localecfg/main.py:39
 msgid "Configuring locales."
-msgstr ""
+msgstr "ローカルを設定中"
 
 #: src/modules/networkcfg/main.py:37
 msgid "Saving network configuration."
-msgstr ""
+msgstr "ネットワーク設定を保存中"

@@ -3,9 +3,43 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
-# 3.2.10 (unreleased) #
+# 3.2.11 (unreleased) #
 
 This release contains contributions from (alphabetically by first name):
+ - No other contributors this time around.
+
+This is a security release with no functional changes (except for
+improved security) relative to 3.2.10. The Calamares team would like
+to acknowledge the help of the following people in reporting and
+understanding the issues (alphabetically by first name):
+ - Kevin Kofler
+ - Seth Arnold
+ - Simon Quigley
+ - Thomas Ward
+Both CVE's have been resolved.
+
+## Core ##
+
+No core changes.
+
+## Modules ##
+
+ - *initramfs* could create an initramfs with insecure permissions.
+   Since the keyfile is included in the initramfs, an attacker could
+   read the file from the initramfs. #1190 CVE-2019-13178
+ - *luksbootkeyfile* created a key file where a window of opportunity
+   existed where the key file could have too-lax file permissions.
+   #1191 CVE-2019-13179
+
+
+# 3.2.10 (2019-06-28) #
+
+This release contains contributions from (alphabetically by first name):
+ - No other contributors this time around.
+
+Distributions are **advised** to check the slideshow they use for the
+installation step; changes in loading and translation mechanisms may
+require changes in the slideshow.
 
 ## Core ##
 
@@ -17,10 +51,25 @@ This release contains contributions from (alphabetically by first name):
  - A crash when no *finished* page (or rather, no page at all) is
    configured after the last *exec* section of the sequence has been
    solved. The *finished* page can be left out (but then you don't get
-   the restart-now functionality).
+   the restart-now functionality). #1168
+ - The *slideshow* which is run during installation now has API versions.
+   API version 1 (the default) runs as before, where the slideshow is loaded
+   when the installation starts. API version 2 loads the slideshow on
+   Calamares startup, thus improving responsiveness. Documentation
+   in `src/branding/README.md`. #1152
+ - The example slideshow now uses API version 2.
 
 ## Modules ##
 
+ - *initramfs* has been changed from a Python module to a C++ module.
+   Packaging will need to adjust now it installs a .so instead of a .py.
+   The module itself functions as before. It does have a new configuration
+   option, to change the version passed as to the `-k` option of
+   update-initramfs. #1180
+ - *partition* Now has its own setting for *requiredStorage*, duplicating
+   the same setting in the *welcome* module. This is useful for
+   configurations where no *welcome* module is used, but a minimum
+   size must be checked anyway. #1169
 
 
 # 3.2.9 (2019-06-03) #

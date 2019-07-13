@@ -18,23 +18,24 @@
 
 #include "Tests.h"
 
-#include "utils/CalamaresUtilsSystem.h"
-#include "utils/Logger.h"
-#include "utils/Yaml.h"
+#include "CalamaresUtilsSystem.h"
+#include "Logger.h"
+#include "UMask.h"
+#include "Yaml.h"
 
 #include <QTemporaryFile>
 
 #include <QtTest/QtTest>
 
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 QTEST_GUILESS_MAIN( LibCalamaresTests )
 
-LibCalamaresTests::LibCalamaresTests()
-{
-}
+LibCalamaresTests::LibCalamaresTests() {}
 
-LibCalamaresTests::~LibCalamaresTests()
-{
-}
+LibCalamaresTests::~LibCalamaresTests() {}
 
 void
 LibCalamaresTests::initTestCase()
@@ -46,9 +47,9 @@ LibCalamaresTests::testDebugLevels()
 {
     Logger::setupLogLevel( Logger::LOG_DISABLE );
 
-    QCOMPARE( Logger::logLevel(), static_cast<unsigned int>( Logger::LOG_DISABLE ) );
+    QCOMPARE( Logger::logLevel(), static_cast< unsigned int >( Logger::LOG_DISABLE ) );
 
-    for ( unsigned int level = 0; level <= Logger::LOGVERBOSE ; ++level )
+    for ( unsigned int level = 0; level <= Logger::LOGVERBOSE; ++level )
     {
         Logger::setupLogLevel( level );
         QCOMPARE( Logger::logLevel(), level );
@@ -67,7 +68,9 @@ LibCalamaresTests::testLoadSaveYaml()
     QFile f( "settings.conf" );
     // Find the nearest settings.conf to read
     for ( unsigned int up = 0; !f.exists() && ( up < 4 ); ++up )
+    {
         f.setFileName( QString( "../" ) + f.fileName() );
+    }
     cDebug() << QDir().absolutePath() << f.fileName() << f.exists();
     QVERIFY( f.exists() );
 
@@ -75,7 +78,7 @@ LibCalamaresTests::testLoadSaveYaml()
     CalamaresUtils::saveYaml( "out.yaml", map );
 
     auto other_map = CalamaresUtils::loadYaml( "out.yaml" );
-    CalamaresUtils::saveYaml(" out2.yaml", other_map );
+    CalamaresUtils::saveYaml( " out2.yaml", other_map );
     QCOMPARE( map, other_map );
 
     QFile::remove( "out.yaml" );
@@ -121,10 +124,7 @@ void
 LibCalamaresTests::testCommands()
 {
     using CalamaresUtils::System;
-    auto r = System::runCommand(
-        System::RunLocation::RunInHost,
-        { "/bin/ls", "/tmp" }
-        );
+    auto r = System::runCommand( System::RunLocation::RunInHost, { "/bin/ls", "/tmp" } );
 
     QVERIFY( r.getExitCode() == 0 );
 
@@ -136,25 +136,41 @@ LibCalamaresTests::testCommands()
     QVERIFY( !r.getOutput().contains( tfn.fileName() ) );
 
     // Run ls again, now that the file exists
-    r = System::runCommand(
-        System::RunLocation::RunInHost,
-        { "/bin/ls", "/tmp" }
-        );
+    r = System::runCommand( System::RunLocation::RunInHost, { "/bin/ls", "/tmp" } );
     QVERIFY( r.getOutput().contains( tfn.fileName() ) );
 
     // .. and without a working directory set, assume builddir != /tmp
-    r = System::runCommand(
-        System::RunLocation::RunInHost,
-        { "/bin/ls" }
-        );
+    r = System::runCommand( System::RunLocation::RunInHost, { "/bin/ls" } );
     QVERIFY( !r.getOutput().contains( tfn.fileName() ) );
 
-    r = System::runCommand(
-        System::RunLocation::RunInHost,
-        { "/bin/ls" },
-        "/tmp"
-        );
+    r = System::runCommand( System::RunLocation::RunInHost, { "/bin/ls" }, "/tmp" );
     QVERIFY( r.getOutput().contains( tfn.fileName() ) );
+}
 
+void
+LibCalamaresTests::testUmask()
+{
+    struct stat mystat;
 
+    QTemporaryFile ft;
+    QVERIFY( ft.open() );
+
+    mode_t m = CalamaresUtils::setUMask( 022 );
+    QCOMPARE( CalamaresUtils::setUMask( m ), m );
+
+    for ( int i = 0; i <= 0777 /* octal! */; ++i )
+    {
+        QByteArray name = ( ft.fileName() + QChar( '.' ) + QString::number( i, 8 ) ).toLatin1();
+        CalamaresUtils::UMask um( i );
+        int fd = creat( name, 0777 );
+        QVERIFY( fd >= 0 );
+        close( fd );
+        QFileInfo fi( name );
+        QVERIFY( fi.exists() );
+        QCOMPARE( stat( name, &mystat ), 0 );
+        QCOMPARE( mystat.st_mode & 0777, 0777 & ~i );
+        QCOMPARE( unlink( name ), 0 );
+    }
+    QCOMPARE( CalamaresUtils::setUMask( 022 ), m );
+    QCOMPARE( CalamaresUtils::setUMask( m ), 022 );
 }

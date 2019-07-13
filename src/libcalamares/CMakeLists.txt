@@ -46,6 +46,7 @@ set( libSources
     utils/PluginFactory.cpp
     utils/Retranslator.cpp
     utils/String.cpp
+    utils/UMask.cpp
     utils/Variant.cpp
     utils/Yaml.cpp
 )
@@ -146,7 +147,7 @@ install( FILES ${utilsHeaders}                      DESTINATION include/libcalam
 #
 if ( ECM_FOUND AND BUILD_TESTING )
     ecm_add_test(
-            Tests.cpp
+            utils/Tests.cpp
         TEST_NAME
             libcalamarestest
         LINK_LIBRARIES
@@ -167,16 +168,26 @@ if ( ECM_FOUND AND BUILD_TESTING )
             ${YAMLCPP_LIBRARY}
     )
     calamares_automoc( geoiptest )
-    
+
     ecm_add_test(
             partition/Tests.cpp
         TEST_NAME
             libcalamarespartitiontest
         LINK_LIBRARIES
-            calamares  
+            calamares
             Qt5::Test
     )
     calamares_automoc( libcalamarespartitiontest )
+
+    ecm_add_test(
+            locale/Tests.cpp
+        TEST_NAME
+            libcalamareslocaletest
+        LINK_LIBRARIES
+            calamares
+            Qt5::Test
+    )
+    calamares_automoc( libcalamareslocaletest )
 endif()
 
 if( BUILD_TESTING )

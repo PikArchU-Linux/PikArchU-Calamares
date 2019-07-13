@@ -1,6 +1,6 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
- *   Copyright 2018, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2019, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -21,21 +21,19 @@
 
 #include <QObject>
 
-class LibCalamaresTests : public QObject
+class InitramfsTests : public QObject
 {
     Q_OBJECT
 public:
-    LibCalamaresTests();
-    ~LibCalamaresTests() override;
+    InitramfsTests();
+    ~InitramfsTests() override;
 
 private Q_SLOTS:
     void initTestCase();
-    void testDebugLevels();
-
-    void testLoadSaveYaml();  // Just settings.conf
-    void testLoadSaveYamlExtended();  // Do a find() in the src dir
-
-    void testCommands();
+    void cleanup();
+    
+    void testCreateHostFile();
+    void testCreateTargetFile();
 };
 
 #endif

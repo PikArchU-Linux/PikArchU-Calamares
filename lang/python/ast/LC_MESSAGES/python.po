@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-10 19:18-0400\n"
+"POT-Creation-Date: 2019-06-18 15:54+0200\n"
 "PO-Revision-Date: 2017-08-09 10:34+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>, 2019\n"
 "Language-Team: Asturian (https://www.transifex.com/calamares/teams/20061/ast/)\n"
@@ -323,7 +323,7 @@ msgstr ""
 
 #: src/modules/initramfs/main.py:49
 msgid "Failed to run update-initramfs on the target"
-msgstr ""
+msgstr "Fallu al executar update-initramfs nel destín"
 
 #: src/modules/initramfs/main.py:50 src/modules/dracut/main.py:59
 msgid "The exit code was {}"
@@ -339,7 +339,7 @@ msgstr ""
 
 #: src/modules/dracut/main.py:58
 msgid "Failed to run dracut on the target"
-msgstr ""
+msgstr "Fallu al executar dracut nel destín"
 
 #: src/modules/initramfscfg/main.py:41
 msgid "Configuring initramfs."
