@@ -32,7 +32,7 @@ if( ECM_FOUND AND BUILD_TESTING )
     ecm_add_test(
             Tests.cpp
         TEST_NAME
-            packagechoosertest
+            officechoosertest
         LINK_LIBRARIES
             ${CALAMARES_LIBRARIES}
             calamares_viewmodule_officechooser
@@ -41,5 +41,5 @@ if( ECM_FOUND AND BUILD_TESTING )
             Qt5::Gui
             ${_extra_libraries}
     )
-    calamares_automoc( packagechoosertest)
+    calamares_automoc( officechoosertest)
 endif()
