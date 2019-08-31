@@ -66,7 +66,7 @@ class ConfigController:
         subprocess.call(["umount", "-l", join(self.root, mp)])
 
     def mount(self, mp):
-        subprocess.call(["mount", "-Br", "/" + mp, join(self.root, mp)])
+        subprocess.call(["mount", "-B", "/" + mp, join(self.root, mp)])
 
     def run(self):
         self.init_keyring()
@@ -116,12 +116,12 @@ class ConfigController:
         if not office_package:
             libcalamares.utils.warning("no office suite selected, {!s}".format(office_package))
         else:
-            # For PoC we added the Office Packages to mhwd-live overlay in 18.1-rc7
-            cmd = ["pacman", "-S", office_package, "--noconfirm", "--config", "/opt/pacman-mhwd.conf" ]
-            self.mount("opt")
+            # For PoC we added the Office Packages to mhwd-live overlay in 18.1.0
+            cmd = ["pacman", "-S", office_package, "--noconfirm", "--config", "/opt/mhwd/pacman-mhwd.conf" ]
+            self.mount("opt/mhwd")
             self.mount("etc/resolv.conf")
             target_env_call(cmd)
-            self.umount("opt")
+            self.umount("opt/mhwd")
             self.umount("etc/resolv.conf")
 
         return None
