@@ -103,6 +103,7 @@ def file_copy(source, dest, progress_cb):
     if not source.endswith("/"):
         source += "/"
 
+    num_files_total_local = 0
     num_files_copied = 0  # Gets updated through rsync output
 
     args = ['rsync', '-aHAXr']
@@ -207,7 +208,7 @@ class UnpackOperation:
                 imgbasename = os.path.splitext(
                     os.path.basename(entry.source))[0]
                 imgmountdir = os.path.join(source_mount_path, imgbasename)
-                os.mkdir(imgmountdir)
+                os.makedirs(imgmountdir, exist_ok=True)
 
                 self.mount_image(entry, imgmountdir)
 

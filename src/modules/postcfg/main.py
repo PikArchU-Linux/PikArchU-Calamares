@@ -3,7 +3,7 @@
 #
 # === This file is part of Calamares - <http://github.com/calamares> ===
 #
-#   Copyright 2014 - 2018, Philip Müller <philm@manjaro.org>
+#   Copyright 2014 - 2019, Philip Müller <philm@manjaro.org>
 #   Copyright 2016, Artoo <artoo@manjaro.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
@@ -62,6 +62,12 @@ class ConfigController:
         if exists(join(self.root, path)):
             target_env_call(['pacman', '-R', '--noconfirm', pkg])
 
+    def umount(self, mp):
+        subprocess.call(["umount", "-l", join(self.root, mp)])
+
+    def mount(self, mp):
+        subprocess.call(["mount", "-Br", "/" + mp, join(self.root, mp)])
+
     def run(self):
         self.init_keyring()
         self.populate_keyring()
@@ -104,6 +110,19 @@ class ConfigController:
         # Enable 'menu_auto_hide' when supported in grubenv
         if exists(join(self.root, "usr/bin/grub-set-bootflag")):
             target_env_call(["grub-editenv", "-", "set", "menu_auto_hide=1", "boot_success=1"])
+
+        # Install Office Suite if selected (WIP)
+        office_package = libcalamares.globalstorage.value("packagechooser_officechooser")
+        if not office_package:
+            libcalamares.utils.warning("no office suite selected, {!s}".format(office_package))
+        else:
+            # For PoC we added the Office Packages to mhwd-live overlay in 18.1-rc7
+            cmd = ["pacman", "-S", office_package, "--noconfirm", "--config", "/opt/pacman-mhwd.conf" ]
+            self.mount("opt")
+            self.mount("etc/resolv.conf")
+            target_env_call(cmd)
+            self.umount("opt")
+            self.umount("etc/resolv.conf")
 
         return None
 

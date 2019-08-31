@@ -25,7 +25,8 @@
 #include <QObject>
 #include <QSharedPointer>
 
-namespace Calamares {
+namespace Calamares
+{
 
 class DLLEXPORT JobResult
 {
@@ -43,7 +44,7 @@ public:
         GenericError = -1,
         PythonUncaughtException = 1,
         InvalidConfiguration = 2
-    } ;
+    };
 
     JobResult( const JobResult& rhs ) = delete;
     JobResult( JobResult&& rhs );
@@ -83,6 +84,7 @@ public:
     explicit Job( QObject* parent = nullptr );
     virtual ~Job();
 
+    virtual qreal getJobWeight() const;
     virtual QString prettyName() const = 0;
     virtual QString prettyDescription() const;
     virtual QString prettyStatusMessage() const;
@@ -101,6 +103,6 @@ private:
 using job_ptr = QSharedPointer< Job >;
 using JobList = QList< job_ptr >;
 
-} // namespace Calamares
+}  // namespace Calamares
 
-#endif // CALAMARES_JOB_H
+#endif  // CALAMARES_JOB_H

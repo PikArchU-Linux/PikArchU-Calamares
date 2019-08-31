@@ -3,7 +3,7 @@
 #
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
-#   Copyright 2014-2018, Philip Müller <philm@manjaro.org>
+#   Copyright 2014-2019, Philip Müller <philm@manjaro.org>
 #   Copyright 2015-2017, Teo Mrnjavac <teo@kde.org>
 #   Copyright 2017, Alf Gaida <agaida@siduction.org>
 #   Copyright 2017, 2019, Adriaan de Groot <groot@kde.org>
@@ -62,6 +62,8 @@ def modify_grub_default(partitions, root_mount_point, distributor):
     have_plymouth = plymouth_bin == 0
     have_dracut = dracut_bin == 0
 
+    enable_apparmor = "apparmor=1"
+    set_security = ""
     use_splash = ""
     swap_uuid = ""
     swap_outer_uuid = ""
@@ -113,6 +115,11 @@ def modify_grub_default(partitions, root_mount_point, distributor):
     if use_splash and not os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
         kernel_params.append(use_splash)
 
+    if os.path.exists(os.path.join(root_mount_point, "usr/lib/libapparmor.so")):
+        set_security = "security=apparmor"
+        kernel_params.append(enable_apparmor)
+        kernel_params.append(set_security)
+
     if swap_uuid:
         kernel_params.append("resume=UUID={!s}".format(swap_uuid))
 
@@ -157,13 +164,13 @@ def modify_grub_default(partitions, root_mount_point, distributor):
                 line = line.rstrip("'")
                 existing_params = line.split()
 
-                if not os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
-                    for existing_param in existing_params:
-                        existing_param_name = existing_param.split("=")[0]
+                for existing_param in existing_params:
+                    existing_param_name = existing_param.split("=")[0]
 
-                        # the only ones we ever add
-                        if existing_param_name not in ["quiet", "resume", "splash"]:
-                            kernel_params.append(existing_param)
+                    # the only ones we ever add
+                    if existing_param_name not in [
+                            "quiet", "resume", "splash"]:
+                        kernel_params.append(existing_param)
 
                 kernel_cmd = "GRUB_CMDLINE_LINUX_DEFAULT=\"{!s}\"".format(
                     " ".join(kernel_params)
