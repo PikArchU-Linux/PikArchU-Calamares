@@ -83,7 +83,7 @@ class MhwdController:
         if self.local:
             self.mkdir("opt/mhwd")
             self.mount("opt/mhwd")
-            self.mount("var/lib/mhwd")
+            self.mount("var/lib/mhwd/db")
             cmd.extend(["--pmconfig", self.repo])
 
         self.mount("etc/resolv.conf")
@@ -92,7 +92,7 @@ class MhwdController:
         if self.local:
             self.umount("opt/mhwd")
             self.rmdir("opt/mhwd")
-            self.umount("var/lib/mhwd")
+            self.umount("var/lib/mhwd/db")
         self.umount("etc/resolv.conf")
 
     def run(self):
