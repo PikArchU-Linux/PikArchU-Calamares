@@ -72,7 +72,7 @@ class ConfigController:
         subprocess.call(["rm", "-Rf", join(self.root, dir)])
 
     def mkdir(self, dir):
-        subprocess.call(["mkdir", "-p", "/" + mp, join(self.root, dir)])
+        subprocess.call(["mkdir", "-p", join(self.root, dir)])
 
     def run(self):
         self.init_keyring()

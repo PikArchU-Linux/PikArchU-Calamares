@@ -76,7 +76,7 @@ class MhwdController:
         subprocess.call(["rm", "-Rf", join(self.root, dir)])
 
     def mkdir(self, dir):
-        subprocess.call(["mkdir", "-p", "/" + mp, join(self.root, dir)])
+        subprocess.call(["mkdir", "-p", join(self.root, dir)])
 
     def configure(self, name, id):
         cmd = ["mhwd", "-a", str(name), str(self.driver), str(id).zfill(4)]
