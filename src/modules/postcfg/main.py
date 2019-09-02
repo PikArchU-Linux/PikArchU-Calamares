@@ -68,6 +68,12 @@ class ConfigController:
     def mount(self, mp):
         subprocess.call(["mount", "-B", "/" + mp, join(self.root, mp)])
 
+    def rmdir(self, dir):
+        subprocess.call(["rm", "-Rf", join(self.root, dir)])
+
+    def mkdir(self, dir):
+        subprocess.call(["mkdir", "-p", "/" + mp, join(self.root, dir)])
+
     def run(self):
         self.init_keyring()
         self.populate_keyring()
@@ -118,10 +124,12 @@ class ConfigController:
         else:
             # For PoC we added the Office Packages to mhwd-live overlay in 18.1.0
             cmd = ["pacman", "-S", office_package, "--noconfirm", "--config", "/opt/mhwd/pacman-mhwd.conf" ]
+            self.mkdir("opt/mhwd")
             self.mount("opt/mhwd")
             self.mount("etc/resolv.conf")
             target_env_call(cmd)
             self.umount("opt/mhwd")
+            self.rmdir("opt/mhwd")
             self.umount("etc/resolv.conf")
 
         return None
