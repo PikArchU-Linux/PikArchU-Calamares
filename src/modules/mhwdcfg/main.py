@@ -4,7 +4,7 @@
 # === This file is part of Calamares - <http://github.com/calamares> ===
 #
 #   Copyright 2016, Artoo <artoo@manjaro.org>
-#   Copyright 2016-2017, Philip Müller <philm@manjaro.org>
+#   Copyright 2016-2019, Philip Müller <philm@manjaro.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -73,10 +73,10 @@ class MhwdController:
         call(["mount", "-B", "/" + mp, join(self.root, mp)])
 
     def rmdir(self, dir):
-        subprocess.call(["rm", "-Rf", join(self.root, dir)])
+        call(["rm", "-Rf", join(self.root, dir)])
 
     def mkdir(self, dir):
-        subprocess.call(["mkdir", "-p", join(self.root, dir)])
+        call(["mkdir", "-p", join(self.root, dir)])
 
     def configure(self, name, id):
         cmd = ["mhwd", "-a", str(name), str(self.driver), str(id).zfill(4)]
