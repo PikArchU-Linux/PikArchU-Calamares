@@ -112,7 +112,7 @@ class ConfigController:
             target_env_call(["grub-editenv", "-", "set", "menu_auto_hide=1", "boot_success=1"])
 
         # Install Office Suite if selected (WIP)
-        office_package = libcalamares.globalstorage.value("packagechooser_officechooser")
+        office_package = libcalamares.globalstorage.value("packagechooser_packagechooser")
         if not office_package:
             libcalamares.utils.warning("no office suite selected, {!s}".format(office_package))
         else:
