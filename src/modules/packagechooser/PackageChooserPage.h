@@ -37,6 +37,8 @@ public:
 
     void setModel( QAbstractItemModel* model );
 
+    /// @brief Sets the introductory (no-package-selected) texts
+    void setIntroduction( const PackageItem& item );
     /// @brief Is anything selected?
     bool hasSelection() const;
     /** @brief Get the list of selected ids
