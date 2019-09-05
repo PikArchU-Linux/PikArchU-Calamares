@@ -20,6 +20,7 @@
 
 #include "ui_page_package.h"
 
+#include "utils/CalamaresUtilsGui.h"
 #include "utils/Logger.h"
 #include "utils/Retranslator.h"
 
@@ -50,6 +51,9 @@ PackageChooserPage::PackageChooserPage( PackageChooserMode mode, QWidget* parent
     case PackageChooserMode::RequiredMultiple:
         ui->products->setSelectionMode( QAbstractItemView::ExtendedSelection );
     }
+
+    ui->products->setMinimumWidth( 10 * CalamaresUtils::defaultFontHeight() );
+
 }
 
 /** @brief size the given @p pixmap to @p size
@@ -168,4 +172,5 @@ PackageChooserPage::setIntroduction( const PackageItem& item )
 {
     m_introduction.name = item.name;
     m_introduction.description = item.description;
+    m_introduction.screenshot = item.screenshot;
 }
