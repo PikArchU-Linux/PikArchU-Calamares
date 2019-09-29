@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-30 13:38+0200\n"
+"POT-Creation-Date: 2019-09-15 21:54+0200\n"
 "PO-Revision-Date: 2017-08-09 10:34+0000\n"
 "Last-Translator: Zmicer Turok <nashtlumach@gmail.com>, 2019\n"
 "Language-Team: Belarusian (https://www.transifex.com/calamares/teams/20061/be/)\n"
@@ -77,7 +77,7 @@ msgstr "Немагчыма выключыць мэту systemd <code>{name!s}."
 
 #: src/modules/services-systemd/main.py:80
 msgid "Cannot mask systemd unit <code>{name!s}</code>."
-msgstr "Немагчыма замаскаваць юніт systemd <code>{name!s}</code>. "
+msgstr "Немагчыма замаскаваць адзінку systemd <code>{name!s}</code>. "
 
 #: src/modules/services-systemd/main.py:82
 msgid ""
@@ -85,7 +85,7 @@ msgid ""
 "<code>{suffix!s}</code> for unit {name!s}."
 msgstr ""
 "Невядомыя systemd загады <code>{command!s}</code> і <code>{suffix!s}</code> "
-"для юніта {name!s}."
+"для адзінкі {name!s}."
 
 #: src/modules/umount/main.py:40
 msgid "Unmount file systems."
