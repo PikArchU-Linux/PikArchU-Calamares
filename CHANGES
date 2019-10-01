@@ -3,13 +3,23 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
-
-# 3.2.14 (unreleased) #
+# 3.2.15 (unreleased) #
 
 This release contains contributions from (alphabetically by first name):
+
+## Core ##
+
+## Modules ##
+
+
+# 3.2.14 (2019-09-30) #
+
+This release contains contributions from (alphabetically by first name):
+ - Andrius Štikonas
  - Harald Sitter
 
 ## Core ##
+ - No changes to core functionality
 
 ## Modules ##
 
@@ -18,6 +28,11 @@ This release contains contributions from (alphabetically by first name):
  - *packagechooser* module can now be custom-labeled in the overall
    progress (left-hand column). #1228
  - *displaymanager* module now recognizes KDE Plasma 5.17.
+ - *displaymanager* module now can handle Wayland sessions and can detect
+   sessions from their .desktop files. #1247 #1248
+ - *unpackfs* now has special handling for *sourcefs* setting "file"
+   (so you can copy single files or directories that are on the source
+   system, directly to the target). #1188 #1181
 
 
 # 3.2.13 (2019-08-30) #
