@@ -3,6 +3,64 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
+# 3.2.18 (unreleased) #
+
+This release contains contributions from (alphabetically by first name):
+ - No other contributors this time around.
+
+## Core ##
+ - No changes to core functionality.
+
+## Modules ##
+ - No changes to modules.
+
+
+# 3.2.17 (2019-11-28) #
+
+This release contains contributions from (alphabetically by first name):
+ - Bill Auger
+
+## Core ##
+ - A translation "string freeze" is now enforced by the release scripts.
+
+## Modules ##
+ - A new module, *hostinfo*, places information about the host into
+   Global Storage. This can support contextualprocess modules that
+   need that information.
+ - The password-checks in the *users* module are now ordered consistently.
+   A new check *nonempty* can be used to explicitly check for a non-empty
+   password. This was previously hard-coded. If you have no other
+   password-requirements set (e.g. minimum-length) and rely on
+   Calamares to filter out empty passwords, add this check.
+ - The *grubcfg* module has a new configuration setting *keepDistributor*
+   which prevents replacing the `GRUB_DISTRIBUTION` line when writing
+   the new configuration. #1201
+ - *packagechooser* documentation has been updated.
+ - *welcome* module now works better with dark themes.
+ - The *license* module could get into a confused state, now fixed. #1271
+
+
+# 3.2.16 (2019-11-01) #
+
+This release contains contributions from (alphabetically by first name):
+ - Bill Auger
+
+## Core ##
+ - Some obscure build scenarios which would lead to bogus module-is-
+   misconfigured messages on startup have been resolved.
+
+## Modules ##
+ - The explanatory messages on the *users* page have moved to tooltips,
+   and placeholder text has been added to the fields. #1202
+ - The bad-password messages in the *users* page have been improved. #1261
+ - Password-checking in the *users* module has been substantially
+   changed. A new key *allowWeakPasswords* can be used to introduce
+   an additional checkbox to the page, which can then be used to
+   switch off strict password checking. (Thanks to Bill Auger)
+ - The icons used in password warnings on the *users* page have been
+   changed to the colorful status icons (rather than the thin red X).
+
+
 # 3.2.15 (2019-10-11) #
 
 This release contains contributions from (alphabetically by first name):

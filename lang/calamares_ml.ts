@@ -135,7 +135,7 @@
     <message>
         <location filename="../src/libcalamares/JobExample.cpp" line="40"/>
         <source>Programmed job failure was explicitly requested.</source>
-        <translation type="unfinished"/>
+        <translation>പ്രോഗ്രാം ചെയ്യപ്പെട്ട ജോലിയുടെ പരാജയം പ്രത്യേകമായി ആവശ്യപ്പെട്ടിരുന്നു.</translation>
     </message>
 </context>
 <context>
@@ -226,173 +226,176 @@
 <context>
     <name>Calamares::ViewManager</name>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="422"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="93"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="407"/>
         <source>&amp;Back</source>
         <translation>പുറകോട്ട് (&amp;B)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="417"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="95"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="402"/>
         <source>&amp;Next</source>
         <translation>അടുത്തത് (&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="442"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="97"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="427"/>
         <source>&amp;Cancel</source>
         <translation>റദ്ദാക്കുക (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="406"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="391"/>
         <source>Cancel setup without changing the system.</source>
         <translation>സിസ്റ്റത്തിന് മാറ്റമൊന്നും വരുത്താതെ സജ്ജീകരണപ്രക്രിയ റദ്ദാക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="407"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="392"/>
         <source>Cancel installation without changing the system.</source>
         <translation>സിസ്റ്റത്തിന് മാറ്റമൊന്നും വരുത്താതെ ഇൻസ്റ്റളേഷൻ റദ്ദാക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="211"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="196"/>
         <source>Setup Failed</source>
         <translation>സജ്ജീകരണപ്രക്രിയ പരാജയപ്പെട്ടു</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="212"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="197"/>
         <source>Would you like to paste the install log to the web?</source>
         <translation>ഇൻസ്റ്റാൾ ലോഗ് വെബിലേക്ക് പകർത്തണോ?</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="250"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="235"/>
         <source>Install Log Paste URL</source>
         <translation>ഇൻസ്റ്റാൾ ലോഗ് പകർപ്പിന്റെ വിലാസം</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="253"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="238"/>
         <source>The upload was unsuccessful. No web-paste was done.</source>
         <translation>അപ്‌ലോഡ് പരാജയമായിരുന്നു. വെബിലേക്ക് പകർത്തിയില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="269"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="254"/>
         <source>Calamares Initialization Failed</source>
         <translation>കലാമാരേസ് സമാരംഭിക്കൽ പരാജയപ്പെട്ടു</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="270"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="255"/>
         <source>%1 can not be installed. Calamares was unable to load all of the configured modules. This is a problem with the way Calamares is being used by the distribution.</source>
         <translation>%1 ഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയില്ല. ക്രമീകരിച്ച എല്ലാ മൊഡ്യൂളുകളും ലോഡുചെയ്യാൻ കാലാമറെസിന് കഴിഞ്ഞില്ല. വിതരണത്തിൽ കാലാമറെസ് ഉപയോഗിക്കുന്ന രീതിയിലുള്ള ഒരു പ്രശ്നമാണിത്.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="276"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="261"/>
         <source>&lt;br/&gt;The following modules could not be loaded:</source>
         <translation>&lt;br/&gt;താഴെ പറയുന്ന മൊഡ്യൂളുകൾ ലഭ്യമാക്കാനായില്ല:</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="337"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="322"/>
         <source>Continue with installation?</source>
         <translation>ഇൻസ്റ്റളേഷൻ തുടരണോ?</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="339"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="324"/>
         <source>The %1 setup program is about to make changes to your disk in order to set up %2.&lt;br/&gt;&lt;strong&gt;You will not be able to undo these changes.&lt;/strong&gt;</source>
         <translation>%2 സജ്ജീകരിക്കുന്നതിന് %1 സജ്ജീകരണ പ്രോഗ്രാം നിങ്ങളുടെ ഡിസ്കിൽ മാറ്റങ്ങൾ വരുത്താൻ പോകുന്നു.&lt;br/&gt;&lt;strong&gt;നിങ്ങൾക്ക് ഈ മാറ്റങ്ങൾ പഴയപടിയാക്കാൻ കഴിയില്ല&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="345"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="330"/>
         <source>&amp;Set up now</source>
         <translation>ഉടൻ സജ്ജീകരിക്കുക (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="401"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="386"/>
         <source>&amp;Set up</source>
         <translation>സജ്ജീകരിക്കുക (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="401"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="386"/>
         <source>&amp;Install</source>
         <translation>ഇൻസ്റ്റാൾ (&amp;I)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="403"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="388"/>
         <source>Setup is complete. Close the setup program.</source>
         <translation>സജ്ജീകരണം പൂർത്തിയായി. പ്രയോഗം അടയ്ക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="502"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="487"/>
         <source>Cancel setup?</source>
         <translation>സജ്ജീകരണം റദ്ദാക്കണോ?</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="502"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="487"/>
         <source>Cancel installation?</source>
         <translation>ഇൻസ്റ്റളേഷൻ റദ്ദാക്കണോ?</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="503"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="488"/>
         <source>Do you really want to cancel the current setup process?
 The setup program will quit and all changes will be lost.</source>
         <translation>നിലവിലുള്ള സജ്ജീകരണപ്രക്രിയ റദ്ദാക്കണോ?
 സജ്ജീകരണപ്രയോഗം നിൽക്കുകയും എല്ലാ മാറ്റങ്ങളും നഷ്ടപ്പെടുകയും ചെയ്യും.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="505"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="490"/>
         <source>Do you really want to cancel the current install process?
 The installer will quit and all changes will be lost.</source>
         <translation>നിലവിലുള്ള ഇൻസ്റ്റാൾ പ്രക്രിയ റദ്ദാക്കണോ?
 ഇൻസ്റ്റാളർ നിൽക്കുകയും എല്ലാ മാറ്റങ്ങളും നഷ്ടപ്പെടുകയും ചെയ്യും.</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="232"/>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="509"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="217"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="494"/>
         <source>&amp;Yes</source>
         <translation>വേണം (&amp;Y)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="233"/>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="510"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="218"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="495"/>
         <source>&amp;No</source>
         <translation>വേണ്ട (&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="239"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="224"/>
         <source>&amp;Close</source>
         <translation>അടയ്ക്കുക (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="337"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="322"/>
         <source>Continue with setup?</source>
         <translation>സജ്ജീകരണപ്രക്രിയ തുടരണോ?</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="342"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="327"/>
         <source>The %1 installer is about to make changes to your disk in order to install %2.&lt;br/&gt;&lt;strong&gt;You will not be able to undo these changes.&lt;/strong&gt;</source>
         <translation>%2 ഇൻസ്റ്റാളുചെയ്യുന്നതിന് %1 ഇൻസ്റ്റാളർ നിങ്ങളുടെ ഡിസ്കിൽ മാറ്റങ്ങൾ വരുത്താൻ പോകുന്നു.&lt;br/&gt;&lt;strong&gt;നിങ്ങൾക്ക് ഈ മാറ്റങ്ങൾ പഴയപടിയാക്കാൻ കഴിയില്ല.&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="345"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="330"/>
         <source>&amp;Install now</source>
         <translation>ഉടൻ ഇൻസ്റ്റാൾ ചെയ്യുക (&amp;I)</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="352"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="337"/>
         <source>Go &amp;back</source>
         <translation>പുറകോട്ടു പോകുക </translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="427"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="412"/>
         <source>&amp;Done</source>
         <translation>ചെയ്‌തു</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="404"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="389"/>
         <source>The installation is complete. Close the installer.</source>
         <translation>ഇൻസ്റ്റളേഷൻ പൂർത്തിയായി. ഇൻസ്റ്റാളർ അടയ്ക്കുക</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="225"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="210"/>
         <source>Error</source>
         <translation>പിശക്</translation>
     </message>
     <message>
-        <location filename="../src/libcalamaresui/ViewManager.cpp" line="211"/>
+        <location filename="../src/libcalamaresui/ViewManager.cpp" line="196"/>
         <source>Installation Failed</source>
         <translation>ഇൻസ്റ്റളേഷൻ പരാജയപ്പെട്ടു</translation>
     </message>
@@ -648,12 +651,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/libcalamares/utils/CommandList.cpp" line="151"/>
         <source>The command runs in the host environment and needs to know the root path, but no rootMountPoint is defined.</source>
-        <translation type="unfinished"/>
+        <translation>കമാൻഡ് ഹോസ്റ്റ് എൻവയോൺമെന്റിൽ പ്രവർത്തിക്കുന്നു, റൂട്ട് പാത്ത് അറിയേണ്ടതുണ്ട്, പക്ഷേ rootMountPoint നിർവചിച്ചിട്ടില്ല.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CommandList.cpp" line="164"/>
         <source>The command needs to know the user&apos;s name, but no username is defined.</source>
-        <translation type="unfinished"/>
+        <translation>കമാൻഡിന് ഉപയോക്താവിന്റെ പേര് അറിയേണ്ടതുണ്ട്,എന്നാൽ ഉപയോക്തൃനാമമൊന്നും നിർവചിച്ചിട്ടില്ല.</translation>
     </message>
 </context>
 <context>
@@ -661,7 +664,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/contextualprocess/ContextualProcessJob.cpp" line="123"/>
         <source>Contextual Processes Job</source>
-        <translation type="unfinished"/>
+        <translation>സാന്ദർഭിക പ്രക്രിയകൾ ജോലി</translation>
     </message>
 </context>
 <context>
@@ -839,17 +842,17 @@ The installer will quit and all changes will be lost.</source>
         <translation>സുഡോവേഴ്സ് ഡയറക്ടറിയിലേക്ക് എഴുതാൻ സാധിക്കില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CreateUserJob.cpp" line="85"/>
+        <location filename="../src/modules/users/CreateUserJob.cpp" line="87"/>
         <source>Cannot create sudoers file for writing.</source>
         <translation>എഴുതുന്നതിനായി സുഡോവേഴ്സ് ഫയൽ നിർമ്മിക്കാനായില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CreateUserJob.cpp" line="93"/>
+        <location filename="../src/modules/users/CreateUserJob.cpp" line="96"/>
         <source>Cannot chmod sudoers file.</source>
         <translation>സുഡോവേഴ്സ് ഫയൽ chmod ചെയ്യാൻ സാധിച്ചില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CreateUserJob.cpp" line="99"/>
+        <location filename="../src/modules/users/CreateUserJob.cpp" line="103"/>
         <source>Cannot open groups file for reading.</source>
         <translation>ഗ്രൂപ്സ് ഫയൽ വായിക്കാനായി തുറക്കാൻ സാധിച്ചില്ല.</translation>
     </message>
@@ -932,7 +935,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/DeviceInfoWidget.cpp" line="151"/>
         <source>The type of &lt;strong&gt;partition table&lt;/strong&gt; on the selected storage device.&lt;br&gt;&lt;br&gt;The only way to change the partition table type is to erase and recreate the partition table from scratch, which destroys all data on the storage device.&lt;br&gt;This installer will keep the current partition table unless you explicitly choose otherwise.&lt;br&gt;If unsure, on modern systems GPT is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>തിരഞ്ഞെടുത്ത സ്റ്റോറേജ് ഉപകരണത്തിലെ &lt;strong&gt;പാർട്ടീഷൻ ടേബിളിന്റെ&lt;/strong&gt;തരം.&lt;br&gt;&lt;br&gt;പാർട്ടീഷൻ ടേബിൾ തരം മാറ്റാനുള്ള ഒരേയൊരു മാർഗ്ഗം പാർട്ടീഷൻ ടേബിൾ ആദ്യം മുതൽ മായ്ച്ചുകളയുക എന്നതാണ്,ഇത് സംഭരണ ഉപകരണത്തിലെ എല്ലാ ഡാറ്റയും നശിപ്പിക്കുന്നു.&lt;br&gt;നിങ്ങൾ വ്യക്തമായി തിരഞ്ഞെടുത്തിട്ടില്ലെങ്കിൽ ഈ ഇൻസ്റ്റാളർ നിലവിലെ പാർട്ടീഷൻ ടേബിൾ സൂക്ഷിക്കും.&lt;br&gt;ഉറപ്പില്ലെങ്കിൽ, ആധുനിക സിസ്റ്റങ്ങളിൽ ജിപിടിയാണ് ശുപാർശ ചെയ്യുന്നത്.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/DeviceInfoWidget.cpp" line="108"/>
@@ -942,7 +945,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/DeviceInfoWidget.cpp" line="115"/>
         <source>This is a &lt;strong&gt;loop&lt;/strong&gt; device.&lt;br&gt;&lt;br&gt;It is a pseudo-device with no partition table that makes a file accessible as a block device. This kind of setup usually only contains a single filesystem.</source>
-        <translation type="unfinished"/>
+        <translation>ഇതൊരു &lt;strong&gt;ലൂപ്പ്&lt;/strong&gt; ഉപകരണമാണ്.&lt;br&gt;&lt;br&gt;ഒരു ഫയലിന്റെ ഒരു ബ്ലോക്ക് ഉപകരണമാക്കി ലഭ്യമാക്കുന്ന പാർട്ടീഷൻ ടേബിളില്ലാത്ത ഒരു കൃത്രിമ-ഉപകരണമാണിത്. ഇത്തരത്തിലുള്ള ക്രമീകരണത്തിൽ സാധാരണ ഒരൊറ്റ ഫയൽ സിസ്റ്റം മാത്രമേ കാണൂ.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/DeviceInfoWidget.cpp" line="122"/>
@@ -1288,6 +1291,14 @@ The installer will quit and all changes will be lost.</source>
     </message>
 </context>
 <context>
+    <name>HostInfoJob</name>
+    <message>
+        <location filename="../src/modules/hostinfo/HostInfoJob.cpp" line="51"/>
+        <source>Collecting information about your machine.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>IDJob</name>
     <message>
         <location filename="../src/modules/oemid/IDJob.cpp" line="38"/>
@@ -1344,7 +1355,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/interactiveterminal/InteractiveTerminalPage.cpp" line="116"/>
         <source>Executing script: &amp;nbsp;&lt;code&gt;%1&lt;/code&gt;</source>
-        <translation type="unfinished"/>
+        <translation>സ്ക്രിപ്റ്റ് നിർവ്വഹിക്കുന്നു:&amp;nbsp;&lt;code&gt;%1&lt;/code&gt;</translation>
     </message>
 </context>
 <context>
@@ -1386,7 +1397,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/locale/LCLocaleDialog.cpp" line="39"/>
         <source>The system locale setting affects the language and character set for some command line user interface elements.&lt;br/&gt;The current setting is &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>സിസ്റ്റം ലൊക്കേൽ ഭാഷയും, കമാൻഡ് ലൈൻ സമ്പർക്കമുഖഘടകങ്ങളുടെ അക്ഷരക്കൂട്ടങ്ങളേയും സ്വാധീനിക്കും. &lt;br/&gt;നിലവിലുള്ള ക്രമീകരണം &lt;strong&gt;%1&lt;/strong&gt; ആണ്.</translation>
     </message>
     <message>
         <location filename="../src/modules/locale/LCLocaleDialog.cpp" line="63"/>
@@ -1414,22 +1425,22 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/license/LicensePage.cpp" line="151"/>
         <source>&lt;h1&gt;License Agreement&lt;/h1&gt;This setup procedure will install proprietary software that is subject to licensing terms.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;h1&gt;ലൈസൻസ് ഉടമ്പടി&lt;/h1&gt;ഈ സജ്ജീകരണ നടപടിക്രമം ലൈസൻസിംഗ് നിബന്ധനകൾക്ക് വിധേയമായ കുത്തക സോഫ്റ്റ്വെയർ ഇൻസ്റ്റാൾ ചെയ്യും.</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicensePage.cpp" line="154"/>
         <source>Please review the End User License Agreements (EULAs) above.&lt;br/&gt;If you do not agree with the terms, the setup procedure cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>മുകളിലുള്ള അന്തിമ ഉപയോക്തൃ ലൈസൻസ് കരാറുകൾ (EULAs) അവലോകനം ചെയ്യുക.&lt;br/&gt;നിങ്ങൾ നിബന്ധനകളോട് യോജിക്കുന്നില്ലെങ്കിൽ, സജ്ജീകരണ നടപടിക്രമം തുടരാനാവില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicensePage.cpp" line="158"/>
         <source>&lt;h1&gt;License Agreement&lt;/h1&gt;This setup procedure can install proprietary software that is subject to licensing terms in order to provide additional features and enhance the user experience.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;h1&gt;ലൈസൻസ് ഉടമ്പടി&lt;/h1&gt;അധിക സവിശേഷതകൾ നൽകുന്നതിനും ഉപയോക്തൃ അനുഭവം മെച്ചപ്പെടുത്തുന്നതിനും ഈ സജ്ജീകരണ നടപടിക്രമത്തിന് ലൈസൻസിംഗ് നിബന്ധനകൾക്ക് വിധേയമായ കുത്തക സോഫ്റ്റ്വെയർ ഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയും.</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicensePage.cpp" line="163"/>
         <source>Please review the End User License Agreements (EULAs) above.&lt;br/&gt;If you do not agree with the terms, proprietary software will not be installed, and open source alternatives will be used instead.</source>
-        <translation type="unfinished"/>
+        <translation>മുകളിലുള്ള അന്തിമ ഉപയോക്തൃ ലൈസൻസ് കരാറുകൾ (EULAs) അവലോകനം ചെയ്യുക.&lt;br/&gt;നിങ്ങൾ നിബന്ധനകളോട് യോജിക്കുന്നില്ലെങ്കിൽ, പ്രൊപ്രൈറ്ററി സോഫ്റ്റ്വെയർ ഇൻസ്റ്റാൾ ചെയ്യില്ല, പകരം ഓപ്പൺ സോഴ്‌സ് ഇതരമാർഗങ്ങൾ ഉപയോഗിക്കും.</translation>
     </message>
 </context>
 <context>
@@ -1452,27 +1463,27 @@ The installer will quit and all changes will be lost.</source>
         <location filename="../src/modules/license/LicenseWidget.cpp" line="130"/>
         <source>&lt;strong&gt;%1 graphics driver&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</source>
         <extracomment>%1 is usually a vendor name, example: Nvidia graphics driver</extracomment>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1 ഗ്രാഫിക്സ് ഡ്രൈവർ&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicenseWidget.cpp" line="136"/>
         <source>&lt;strong&gt;%1 browser plugin&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1 ബ്രൌസർ പ്ലഗിൻ&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicenseWidget.cpp" line="142"/>
         <source>&lt;strong&gt;%1 codec&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1 കോഡെക് &lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicenseWidget.cpp" line="148"/>
         <source>&lt;strong&gt;%1 package&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1 പാക്കേജ് &lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicenseWidget.cpp" line="154"/>
         <source>&lt;strong&gt;%1&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt;&lt;br/&gt;&lt;font color=&quot;Grey&quot;&gt;by %2&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/license/LicenseWidget.cpp" line="192"/>
@@ -1584,6 +1595,24 @@ The installer will quit and all changes will be lost.</source>
     </message>
 </context>
 <context>
+    <name>MachineIdJob</name>
+    <message>
+        <location filename="../src/modules/machineid/MachineIdJob.cpp" line="46"/>
+        <source>Generate machine-id.</source>
+        <translation>മെഷീൻ-ഐഡ് നിർമ്മിക്കുക</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/machineid/MachineIdJob.cpp" line="62"/>
+        <source>Configuration Error</source>
+        <translation>ക്രമീകരണത്തിൽ പിഴവ്</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/machineid/MachineIdJob.cpp" line="63"/>
+        <source>No root mount point is set for MachineId.</source>
+        <translation>മെഷീൻ ഐഡിയ്ക്ക് റൂട്ട് മൗണ്ട് പോയിന്റൊന്നും ക്രമീകരിച്ചിട്ടില്ല</translation>
+    </message>
+</context>
+<context>
     <name>NetInstallPage</name>
     <message>
         <location filename="../src/modules/netinstall/NetInstallPage.cpp" line="61"/>
@@ -1624,7 +1653,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/oemid/OEMPage.ui" line="28"/>
         <source>Ba&amp;tch:</source>
-        <translation type="unfinished"/>
+        <translation>കൂട്ടം (&amp;t):</translation>
     </message>
     <message>
         <location filename="../src/modules/oemid/OEMPage.ui" line="38"/>
@@ -1634,7 +1663,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/oemid/OEMPage.ui" line="48"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h1&gt;OEM Configuration&lt;/h1&gt;&lt;p&gt;Calamares will use OEM settings while configuring the target system.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h1&gt;OEM ക്രമീകരണം&lt;/h1&gt;&lt;p&gt;കലാമരേസ് ലക്ഷ്യ സിസ്റ്റം ക്രമീകരിക്കുമ്പോൾ OEM ക്രമീകരണങ്ങൾ ഉപയോഗിക്കും.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -1647,250 +1676,255 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/oemid/OEMViewStep.cpp" line="126"/>
         <source>Set the OEM Batch Identifier to &lt;code&gt;%1&lt;/code&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>OEM ബാച്ച് ഐഡന്റിഫയർ &lt;code&gt;%1&lt;/code&gt; ആയി ക്രമീകരിക്കുക.</translation>
     </message>
 </context>
 <context>
     <name>PWQ</name>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="63"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="57"/>
         <source>Password is too short</source>
         <translation>രഹസ്യവാക്ക് വളരെ ചെറുതാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="85"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="73"/>
         <source>Password is too long</source>
         <translation>രഹസ്യവാക്ക് വളരെ വലുതാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="169"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="149"/>
         <source>Password is too weak</source>
         <translation>രഹസ്യവാക്ക് വളരെ ദുർബലമാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="176"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="157"/>
         <source>Memory allocation error when setting &apos;%1&apos;</source>
         <translation>&apos;%1&apos; ക്രമീക്കരിക്കുന്നതിൽ മെമ്മറി പങ്കുവയ്ക്കൽ പിഴവ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="180"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="162"/>
         <source>Memory allocation error</source>
         <translation>മെമ്മറി വിന്യസിക്കുന്നതിൽ പിഴവ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="182"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="164"/>
         <source>The password is the same as the old one</source>
         <translation>രഹസ്യവാക്ക് പഴയയതുതന്നെ ആണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="184"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="166"/>
         <source>The password is a palindrome</source>
         <translation> രഹസ്യവാക്ക് ഒരു അനുലോമവിലോമപദമാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="186"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="168"/>
         <source>The password differs with case changes only</source>
         <translation>പാസ്‌വേഡ് അക്ഷരങ്ങളുടെ കേസ് മാറ്റങ്ങളിൽ മാത്രം വ്യത്യാസപ്പെട്ടിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="188"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="170"/>
         <source>The password is too similar to the old one</source>
         <translation>രഹസ്യവാക്ക് പഴയതിനോട് വളരെ സമാനമാണ് </translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="190"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="172"/>
         <source>The password contains the user name in some form</source>
         <translation>രഹസ്യവാക്ക് ഏതെങ്കിലും രൂപത്തിൽ ഉപയോക്തൃനാമം അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="192"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="174"/>
         <source>The password contains words from the real name of the user in some form</source>
         <translation>രഹസ്യവാക്കിൽഏതെങ്കിലും രൂപത്തിൽ ഉപയോക്താവിന്റെ യഥാർത്ഥ പേരിൽ നിന്നുള്ള വാക്കുകൾ അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="194"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="177"/>
         <source>The password contains forbidden words in some form</source>
         <translation>രഹസ്യവാക്കിൽ ഏതെങ്കിലും രൂപത്തിൽ വിലക്കപ്പെട്ട വാക്കുകൾ അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="197"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="181"/>
         <source>The password contains less than %1 digits</source>
         <translation>രഹസ്യവാക്ക് %1 അക്കത്തിൽ കുറവാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="198"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="184"/>
         <source>The password contains too few digits</source>
         <translation>രഹസ്യവാക്കിൽ വളരെ കുറച്ച് അക്കങ്ങൾ അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="201"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="188"/>
         <source>The password contains less than %1 uppercase letters</source>
         <translation>രഹസ്യവാക്കിൽ %1 വലിയക്ഷരങ്ങൾ അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="202"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="191"/>
         <source>The password contains too few uppercase letters</source>
         <translation>രഹസ്യവാക്കിൽ വളരെ കുറച്ചു വലിയക്ഷരങ്ങൾ മാത്രമേ അടങ്ങിയിട്ടുള്ളു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="205"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="195"/>
         <source>The password contains less than %1 lowercase letters</source>
         <translation>രഹസ്യവാക്കിൽ %1 -ൽ താഴെ ചെറിയ അക്ഷരങ്ങൾ അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="206"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="198"/>
         <source>The password contains too few lowercase letters</source>
         <translation>രഹസ്യവാക്കിൽ വളരെ കുറച്ചു ചെറിയക്ഷരങ്ങൾ മാത്രമേ അടങ്ങിയിട്ടുള്ളു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="209"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="202"/>
         <source>The password contains less than %1 non-alphanumeric characters</source>
         <translation>രഹസ്യവാക്കിൽ ആൽഫാന്യൂമെറിക് ഇതര പ്രതീകങ്ങൾ %1 -ൽ കുറവാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="210"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="206"/>
         <source>The password contains too few non-alphanumeric characters</source>
         <translation> രഹസ്യവാക്കിൽ ആൽഫാന്യൂമെറിക് ഇതര പ്രതീകങ്ങൾ വളരെ കുറവാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="213"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="210"/>
         <source>The password is shorter than %1 characters</source>
         <translation>പാസ്‌വേഡ് %1 പ്രതീകങ്ങളേക്കാൾ ചെറുതാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="214"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="213"/>
         <source>The password is too short</source>
         <translation>രഹസ്യവാക്ക് വളരെ ചെറുതാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="216"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="215"/>
         <source>The password is just rotated old one</source>
         <translation>രഹസ്യവാക്ക് പഴയതുതന്നെ തിരിച്ചിട്ടതാണ് </translation>
     </message>
     <message>
         <location filename="../src/modules/users/CheckPWQuality.cpp" line="219"/>
         <source>The password contains less than %1 character classes</source>
-        <translation type="unfinished"/>
+        <translation>പാസ്‌വേഡിൽ പ്രതീക ക്ലാസുകൾ %1 ൽ കുറവാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="220"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="222"/>
         <source>The password does not contain enough character classes</source>
         <translation>രഹസ്യവാക്കിൽ ആവശ്യത്തിനു അക്ഷരങ്ങൾ ഇല്ല</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="223"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="226"/>
         <source>The password contains more than %1 same characters consecutively</source>
         <translation>രഹസ്സ്യവാക്കിൽ അടുത്തടുത്തായി ഒരേ പ്രതീകം %1 കൂടുതൽ തവണ അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="224"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="230"/>
         <source>The password contains too many same characters consecutively</source>
         <translation>രഹസ്സ്യവാക്കിൽ അടുത്തടുത്തായി ഒരേ പ്രതീകം ഒരുപാട് തവണ അടങ്ങിയിരിക്കുന്നു.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="227"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="234"/>
         <source>The password contains more than %1 characters of the same class consecutively</source>
         <translation>രഹസ്യവാക്കിൽ %1 തവണ ഒരേ തരം അക്ഷരം ആവർത്തിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="228"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="238"/>
         <source>The password contains too many characters of the same class consecutively</source>
         <translation>രഹസ്യവാക്കിൽ ഒരുപാട് തവണ ഒരേ തരം അക്ഷരം ആവർത്തിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="231"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="243"/>
         <source>The password contains monotonic sequence longer than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>പാസ്‌വേഡിൽ %1 പ്രതീകങ്ങളേക്കാൾ ദൈർഘ്യമുള്ള മോണോടോണിക് ശ്രേണി അടങ്ങിയിരിക്കുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="232"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="247"/>
         <source>The password contains too long of a monotonic character sequence</source>
-        <translation type="unfinished"/>
+        <translation>പാസ്‌വേഡിൽ വളരെ ദൈർഘ്യമുള്ള ഒരു മോണോടോണിക് പ്രതീക ശ്രേണിയുണ്ട്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="234"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="250"/>
         <source>No password supplied</source>
         <translation>രഹസ്യവാക്ക് ഒന്നും നല്‍കിയിട്ടില്ല</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="236"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="252"/>
         <source>Cannot obtain random numbers from the RNG device</source>
         <translation>RNG ഉപകരണത്തിൽ നിന്ന് ആകസ്‌മിക സംഖ്യകൾ എടുക്കാൻ പറ്റുന്നില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="238"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="254"/>
         <source>Password generation failed - required entropy too low for settings</source>
         <translation>രഹസ്യവാക്ക് സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു - ആവശ്യത്തിനു entropy ഇല്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="243"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="260"/>
         <source>The password fails the dictionary check - %1</source>
         <translation>രഹസ്യവാക്ക് നിഘണ്ടു പരിശോധനയിൽ പരാജയപ്പെടുന്നു - %1</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="245"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="263"/>
         <source>The password fails the dictionary check</source>
         <translation>രഹസ്യവാക്ക് നിഘണ്ടു പരിശോധനയിൽ പരാജയപ്പെടുന്നു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="249"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="267"/>
         <source>Unknown setting - %1</source>
         <translation>അജ്ഞാതമായ ക്രമീകരണം - %1</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="253"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="271"/>
         <source>Unknown setting</source>
         <translation>അപരിചിതമായ സജ്ജീകരണം</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="257"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="275"/>
         <source>Bad integer value of setting - %1</source>
-        <translation type="unfinished"/>
+        <translation>ക്രമീകരണത്തിന്റെ ശരിയല്ലാത്ത സംഖ്യാമൂല്യം - %1</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="261"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="280"/>
         <source>Bad integer value</source>
         <translation>തെറ്റായ സംഖ്യ</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="265"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="284"/>
         <source>Setting %1 is not of integer type</source>
         <translation>%1 സജ്ജീകരണം സംഖ്യയല്ല</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="269"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="289"/>
         <source>Setting is not of integer type</source>
         <translation>സജ്ജീകരണം സംഖ്യയല്ല</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="273"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="293"/>
         <source>Setting %1 is not of string type</source>
         <translation>%1 സജ്ജീകരണം ഒരു വാക്കല്ലാ</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="277"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="298"/>
         <source>Setting is not of string type</source>
         <translation>സജ്ജീകരണം ഒരു വാക്കല്ലാ</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="279"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="300"/>
         <source>Opening the configuration file failed</source>
         <translation>ക്രമീകരണ ഫയൽ തുറക്കുന്നതിൽ പരാജയപ്പെട്ടു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="281"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="302"/>
         <source>The configuration file is malformed</source>
         <translation>ക്രമീകരണ ഫയൽ പാഴാണു</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="283"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="304"/>
         <source>Fatal failure</source>
         <translation>അപകടകരമായ പിഴവ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/CheckPWQuality.cpp" line="285"/>
+        <location filename="../src/modules/users/CheckPWQuality.cpp" line="306"/>
         <source>Unknown error</source>
         <translation>അപരിചിതമായ പിശക്</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/UsersPage.cpp" line="526"/>
+        <source>Password is empty</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1965,49 +1999,88 @@ The installer will quit and all changes will be lost.</source>
         <translation>നിങ്ങളുടെ പേരെന്താണ് ?</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="117"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="120"/>
         <source>What name do you want to use to log in?</source>
         <translation>ലോഗിൻ ചെയ്യാൻ നിങ്ങൾ ഏത് നാമം ഉപയോഗിക്കാനാണു ആഗ്രഹിക്കുന്നത്?</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="335"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="321"/>
         <source>Choose a password to keep your account safe.</source>
         <translation>നിങ്ങളുടെ അക്കൗണ്ട് സുരക്ഷിതമായി സൂക്ഷിക്കാൻ ഒരു രഹസ്യവാക്ക് തിരഞ്ഞെടുക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="440"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="345"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="370"/>
         <source>&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.&lt;/small&gt;</source>
         <translation>&lt;small&gt;ഒരേ പാസ്‌വേഡ് രണ്ടുതവണ നൽകുക, അതുവഴി ടൈപ്പിംഗ് പിശകുകൾ പരിശോധിക്കാൻ കഴിയും.ഒരു നല്ല പാസ്‌വേഡിൽ അക്ഷരങ്ങൾ, അക്കങ്ങൾ, ചിഹ്നനം എന്നിവയുടെ മിശ്രിതം അടങ്ങിയിരിക്കും, കുറഞ്ഞത് എട്ട് പ്രതീകങ്ങളെങ്കിലും നീളമുണ്ടായിരിക്കണം, കൃത്യമായ ഇടവേളകളിൽ അവ മാറ്റണം.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="226"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="219"/>
         <source>What is the name of this computer?</source>
         <translation>ഈ കമ്പ്യൂട്ടറിന്റെ നാമം എന്താണ് ?</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="309"/>
-        <source>&lt;small&gt;This name will be used if you make the computer visible to others on a network.&lt;/small&gt;</source>
-        <translation type="unfinished"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="51"/>
+        <source>Your Full Name</source>
+        <translation>താങ്കളുടെ മുഴുവൻ പേരു്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="466"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="144"/>
+        <source>login</source>
+        <translation>ലോഗിൻ</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="243"/>
+        <source>&lt;small&gt;This name will be used if you make the computer visible to others on a network.&lt;/small&gt;</source>
+        <translation>&lt;small&gt;നിങ്ങൾ ഒരു നെറ്റ്‌വർക്കിൽ കമ്പ്യൂട്ടർ മറ്റുള്ളവർക്ക് ദൃശ്യമാക്കുകയാണെങ്കിൽ ഈ പേര് ഉപയോഗിക്കും.&lt;/small&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="246"/>
+        <source>Computer Name</source>
+        <translation>കമ്പ്യൂട്ടറിന്റെ പേര്</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="351"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="521"/>
+        <source>Password</source>
+        <translation>രഹസ്യവാക്ക്</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="376"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="546"/>
+        <source>Repeat Password</source>
+        <translation>രഹസ്യവാക്ക് വീണ്ടും</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="451"/>
+        <source>When this box is checked, password-strength checking is done and you will not be able to use a weak password.</source>
+        <translation>ഈ കള്ളി തിരഞ്ഞെടുക്കുമ്പോൾ, രഹസ്യവാക്കിന്റെ ബലപരിശോധന നടപ്പിലാക്കുകയും, ആയതിനാൽ താങ്കൾക്ക് ദുർബലമായ ഒരു രഹസ്യവാക്ക് ഉപയോഗിക്കാൻ സാധിക്കാതെ വരുകയും ചെയ്യും.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="454"/>
+        <source>Require strong passwords.</source>
+        <translation>ശക്തമായ രഹസ്യവാക്കുകൾ ആവശ്യപ്പെടുക</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/page_usersetup.ui" line="461"/>
         <source>Log in automatically without asking for the password.</source>
         <translation>രഹസ്യവാക്കില്ലാതെ യാന്ത്രികമായി ലോഗിൻ ചെയ്യുക.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="473"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="468"/>
         <source>Use the same password for the administrator account.</source>
         <translation>അഡ്മിനിസ്ട്രേറ്റർ അക്കൗണ്ടിനും ഇതേ രഹസ്യവാക്ക് ഉപയോഗിക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="496"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="491"/>
         <source>Choose a password for the administrator account.</source>
         <translation>അഡ്മിനിസ്ട്രേറ്റർ അക്കണ്ടിനായി ഒരു രഹസ്യവാക്ക് തിരഞ്ഞെടുക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/page_usersetup.ui" line="601"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="515"/>
+        <location filename="../src/modules/users/page_usersetup.ui" line="540"/>
         <source>&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/small&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;small&gt;ഒരേ പാസ്‌വേഡ് രണ്ടുതവണ നൽകുക, അതുവഴി ടൈപ്പിംഗ് പിശകുകൾ പരിശോധിക്കാൻ കഴിയും.&lt;/small&gt;</translation>
     </message>
 </context>
 <context>
@@ -2164,7 +2237,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/PartitionPage.cpp" line="239"/>
         <source>The partition table on %1 already has %2 primary partitions, and no more can be added. Please remove one primary partition and add an extended partition, instead.</source>
-        <translation type="unfinished"/>
+        <translation>%1 ലെ പാർട്ടീഷൻ പട്ടികയിൽ ഇതിനകം %2 പ്രാഥമിക പാർട്ടീഷനുകൾ ഉണ്ട്,ഇനി ഒന്നും ചേർക്കാൻ കഴിയില്ല. പകരം ഒരു പ്രാഥമിക പാർട്ടീഷൻ നീക്കംചെയ്‌ത് എക്സ്ടെൻഡഡ്‌ പാർട്ടീഷൻ ചേർക്കുക.</translation>
     </message>
 </context>
 <context>
@@ -2182,7 +2255,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="167"/>
         <source>Install %1 &lt;strong&gt;alongside&lt;/strong&gt; another operating system.</source>
-        <translation type="unfinished"/>
+        <translation>മറ്റൊരു ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിനൊപ്പം %1 ഇൻസ്റ്റാൾ ചെയ്യുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="171"/>
@@ -2197,12 +2270,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="180"/>
         <source>&lt;strong&gt;Manual&lt;/strong&gt; partitioning.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;സ്വമേധയാ&lt;/strong&gt; ഉള്ള പാർട്ടീഷനിങ്.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="193"/>
         <source>Install %1 &lt;strong&gt;alongside&lt;/strong&gt; another operating system on disk &lt;strong&gt;%2&lt;/strong&gt; (%3).</source>
-        <translation type="unfinished"/>
+        <translation>%2 (%3) ഡിസ്കിൽ മറ്റൊരു ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിനൊപ്പം %1 ഇൻസ്റ്റാൾ ചെയ്യുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="199"/>
@@ -2262,7 +2335,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="466"/>
         <source>A separate boot partition was set up together with an encrypted root partition, but the boot partition is not encrypted.&lt;br/&gt;&lt;br/&gt;There are security concerns with this kind of setup, because important system files are kept on an unencrypted partition.&lt;br/&gt;You may continue if you wish, but filesystem unlocking will happen later during system startup.&lt;br/&gt;To encrypt the boot partition, go back and recreate it, selecting &lt;strong&gt;Encrypt&lt;/strong&gt; in the partition creation window.</source>
-        <translation type="unfinished"/>
+        <translation>എൻക്രിപ്റ്റ് ചെയ്ത ഒരു റൂട്ട് പാർട്ടീഷനോടൊപ്പം ഒരു വേർപെടുത്തിയ ബൂട്ട് പാർട്ടീഷനും ക്രമീകരിക്കപ്പെട്ടിരുന്നു, എന്നാൽ ബൂട്ട് പാർട്ടീഷൻ എൻക്രിപ്റ്റ് ചെയ്യപ്പെട്ടതല്ല.&lt;br/&gt;&lt;br/&gt;ഇത്തരം സജ്ജീകരണത്തിന്റെ സുരക്ഷ ഉത്കണ്ഠാജനകമാണ്, എന്തെന്നാൽ പ്രധാനപ്പെട്ട സിസ്റ്റം ഫയലുകൾ ഒരു എൻക്രിപ്റ്റ് ചെയ്യപ്പെടാത്ത പാർട്ടീഷനിലാണ് സൂക്ഷിച്ചിട്ടുള്ളത്.&lt;br/&gt; താങ്കൾക്ക് വേണമെങ്കിൽ തുടരാം, പക്ഷേ ഫയൽ സിസ്റ്റം തുറക്കൽ സിസ്റ്റം ആരംഭപ്രക്രിയയിൽ വൈകിയേ സംഭവിക്കൂ.&lt;br/&gt;ബൂട്ട് പാർട്ടീഷൻ എൻക്രിപ്റ്റ് ചെയ്യാനായി, തിരിച്ചു പോയി പാർട്ടീഷൻ നിർമ്മാണ ജാലകത്തിൽ &lt;strong&gt;എൻക്രിപ്റ്റ്&lt;/strong&gt; തിരഞ്ഞെടുത്തുകൊണ്ട് അത് വീണ്ടും നിർമ്മിക്കുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="650"/>
@@ -2280,13 +2353,13 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="41"/>
         <source>Plasma Look-and-Feel Job</source>
-        <translation type="unfinished"/>
+        <translation>പ്ലാസ്മ കെട്ടും മട്ടും ജോലി</translation>
     </message>
     <message>
         <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="73"/>
         <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="74"/>
         <source>Could not select KDE Plasma Look-and-Feel package</source>
-        <translation type="unfinished"/>
+        <translation>കെഡിഇ പ്ലാസ്മ കെട്ടും മട്ടും പാക്കേജ് തിരഞ്ഞെടുക്കാനായില്ല</translation>
     </message>
 </context>
 <context>
@@ -2299,12 +2372,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="70"/>
         <source>Please choose a look-and-feel for the KDE Plasma Desktop. You can also skip this step and configure the look-and-feel once the system is set up. Clicking on a look-and-feel selection will give you a live preview of that look-and-feel.</source>
-        <translation type="unfinished"/>
+        <translation>കെ‌ഡി‌ഇ പ്ലാസ്മ ഡെസ്‌ക്‌ടോപ്പിനായി ഒരു കെട്ടും മട്ടും തിരഞ്ഞെടുക്കുക.നിങ്ങൾക്ക് ഈ ഘട്ടം ഇപ്പോൾ ഒഴിവാക്കി സിസ്റ്റം ഇൻസ്റ്റാൾ ചെയ്തതിനു ശേഷവും കെട്ടും മട്ടും ക്രമീരകരിക്കാൻ കഴിയും.ഒരു കെട്ടും മട്ടും തിരഞ്ഞെടുക്കലിൽ ക്ലിക്കുചെയ്യുന്നത് ആ കെട്ടും മട്ടിന്റെയും തത്സമയ പ്രിവ്യൂ നൽകും.</translation>
     </message>
     <message>
         <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="76"/>
         <source>Please choose a look-and-feel for the KDE Plasma Desktop. You can also skip this step and configure the look-and-feel once the system is installed. Clicking on a look-and-feel selection will give you a live preview of that look-and-feel.</source>
-        <translation type="unfinished"/>
+        <translation>കെ‌ഡി‌ഇ പ്ലാസ്മ ഡെസ്‌ക്‌ടോപ്പിനായി ഒരു കെട്ടും മട്ടും തിരഞ്ഞെടുക്കുക.നിങ്ങൾക്ക് ഈ ഘട്ടം ഇപ്പോൾ ഒഴിവാക്കി സിസ്റ്റം ഇൻസ്റ്റാൾ ചെയ്തതിനു ശേഷവും കെട്ടും മട്ടും ക്രമീരകരിക്കാൻ കഴിയും </translation>
     </message>
 </context>
 <context>
@@ -2312,7 +2385,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
         <location filename="../src/modules/plasmalnf/PlasmaLnfViewStep.cpp" line="68"/>
         <source>Look-and-Feel</source>
-        <translation type="unfinished"/>
+        <translation>കെട്ടും മട്ടും</translation>
     </message>
 </context>
 <context>
@@ -2354,7 +2427,7 @@ Output:
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="412"/>
         <source>External command crashed.</source>
-        <translation type="unfinished"/>
+        <translation>ബാഹ്യമായ ആജ്ഞ തകർന്നു.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="413"/>
@@ -2364,12 +2437,12 @@ Output:
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="418"/>
         <source>External command failed to start.</source>
-        <translation type="unfinished"/>
+        <translation>ബാഹ്യമായ ആജ്ഞ ആരംഭിക്കുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="419"/>
         <source>Command &lt;i&gt;%1&lt;/i&gt; failed to start.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;i&gt;%1&lt;/i&gt;ആജ്ഞ ആരംഭിക്കുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="423"/>
@@ -2379,27 +2452,27 @@ Output:
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="424"/>
         <source>Bad parameters for process job call.</source>
-        <translation type="unfinished"/>
+        <translation>പ്രക്രിയ ജോലി വിളിയ്ക്ക് ശരിയല്ലാത്ത പരാമീറ്ററുകൾ.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="428"/>
         <source>External command failed to finish.</source>
-        <translation type="unfinished"/>
+        <translation>ബാഹ്യമായ ആജ്ഞ പൂർത്തിയാവുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="429"/>
         <source>Command &lt;i&gt;%1&lt;/i&gt; failed to finish in %2 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>ആജ്ഞ &lt;i&gt;%1&lt;/i&gt; %2 സെക്കൻഡുകൾക്കുള്ളിൽ പൂർത്തിയാവുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="436"/>
         <source>External command finished with errors.</source>
-        <translation type="unfinished"/>
+        <translation>ബാഹ്യമായ ആജ്ഞ പിഴവുകളോട് കൂടീ പൂർത്തിയായി.</translation>
     </message>
     <message>
         <location filename="../src/libcalamares/utils/CalamaresUtilsSystem.cpp" line="437"/>
         <source>Command &lt;i&gt;%1&lt;/i&gt; finished with exit code %2.</source>
-        <translation type="unfinished"/>
+        <translation>ആജ്ഞ &lt;i&gt;%1&lt;/i&gt; എക്സിറ്റ് കോഡ് %2ഓട് കൂടി പൂർത്തിയായി.</translation>
     </message>
 </context>
 <context>
@@ -2423,7 +2496,7 @@ Output:
     <message>
         <location filename="../src/modules/partition/core/KPMHelpers.cpp" line="209"/>
         <source>extended</source>
-        <translation type="unfinished"/>
+        <translation>വിസ്തൃതമായത്</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/core/KPMHelpers.cpp" line="211"/>
@@ -2465,6 +2538,30 @@ Output:
         <location filename="../src/modules/packagechooser/PackageModel.cpp" line="87"/>
         <source>No description provided.</source>
         <translation>വിവരണമൊന്നും നൽകിയിട്ടില്ല.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/machineid/Workers.cpp" line="55"/>
+        <location filename="../src/modules/machineid/Workers.cpp" line="63"/>
+        <location filename="../src/modules/machineid/Workers.cpp" line="67"/>
+        <location filename="../src/modules/machineid/Workers.cpp" line="117"/>
+        <location filename="../src/modules/machineid/Workers.cpp" line="132"/>
+        <source>File not found</source>
+        <translation>ഫയൽ കണ്ടെത്താനായില്ല</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/machineid/Workers.cpp" line="56"/>
+        <source>Path &lt;pre&gt;%1&lt;/pre&gt; must be an absolute path.</source>
+        <translation>&lt;pre&gt;%1&lt;/pre&gt; പാഥ് ഒരു പൂർണ്ണമായ പാഥ് ആയിരിക്കണം.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/machineid/Workers.cpp" line="118"/>
+        <source>Could not create new random file &lt;pre&gt;%1&lt;/pre&gt;.</source>
+        <translation>റാൻഡം ഫയൽ &lt;pre&gt;%1&lt;/pre&gt; നിർമ്മിക്കാനായില്ല.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/machineid/Workers.cpp" line="133"/>
+        <source>Could not read random file &lt;pre&gt;%1&lt;/pre&gt;.</source>
+        <translation>റാൻഡം ഫയൽ &lt;pre&gt;%1&lt;/pre&gt; വായിക്കാനായില്ല.</translation>
     </message>
 </context>
 <context>
@@ -2566,7 +2663,7 @@ Output:
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="59"/>
         <source>Resize Filesystem Job</source>
-        <translation type="unfinished"/>
+        <translation>ഫയൽ സിസ്റ്റത്തിന്റെ വലുപ്പം മാറ്റുന്ന ജോലി</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="172"/>
@@ -2576,19 +2673,19 @@ Output:
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="173"/>
         <source>The file-system resize job has an invalid configuration and will not run.</source>
-        <translation type="unfinished"/>
+        <translation>ഫയൽ സിസ്റ്റം വലുപ്പം മാറ്റുന്ന ജോലിയിൽ അസാധുവായ ക്രമീകരണം ഉണ്ട്, അത് പ്രവർത്തിക്കില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="187"/>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="197"/>
         <source>KPMCore not Available</source>
-        <translation type="unfinished"/>
+        <translation>KPMCore ലഭ്യമല്ല</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="188"/>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="198"/>
         <source>Calamares cannot start KPMCore for the file-system resize job.</source>
-        <translation type="unfinished"/>
+        <translation>ഫയൽ സിസ്റ്റം വലുപ്പം മാറ്റുന്നതിനുള്ള ജോലിക്കായി കാലാമറസിന് KPMCore ആരംഭിക്കാൻ കഴിയില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="206"/>
@@ -2597,39 +2694,39 @@ Output:
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="237"/>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="254"/>
         <source>Resize Failed</source>
-        <translation type="unfinished"/>
+        <translation>വലുപ്പം മാറ്റുന്നത് പരാജയപ്പെട്ടു</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="207"/>
         <source>The filesystem %1 could not be found in this system, and cannot be resized.</source>
-        <translation type="unfinished"/>
+        <translation>ഫയൽ സിസ്റ്റം %1 ഈ സിസ്റ്റത്തിൽ കണ്ടെത്താനായില്ല, അതിനാൽ അതിന്റെ വലുപ്പം മാറ്റാനാവില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="208"/>
         <source>The device %1 could not be found in this system, and cannot be resized.</source>
-        <translation type="unfinished"/>
+        <translation>ഉപകരണം %1 ഈ സിസ്റ്റത്തിൽ കണ്ടെത്താനായില്ല, അതിനാൽ അതിന്റെ വലുപ്പം മാറ്റാനാവില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="216"/>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="229"/>
         <source>The filesystem %1 cannot be resized.</source>
-        <translation type="unfinished"/>
+        <translation>%1 എന്ന ഫയൽസിസ്റ്റത്തിന്റെ വലുപ്പം മാറ്റാൻ കഴിയില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="217"/>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="230"/>
         <source>The device %1 cannot be resized.</source>
-        <translation type="unfinished"/>
+        <translation>%1 ഉപകരണത്തിന്റെ വലുപ്പം മാറ്റാൻ കഴിയില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="238"/>
         <source>The filesystem %1 must be resized, but cannot.</source>
-        <translation type="unfinished"/>
+        <translation>%1 എന്ന ഫയൽസിസ്റ്റത്തിന്റെ വലുപ്പം മാറ്റണം, പക്ഷേ കഴിയില്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="239"/>
         <source>The device %1 must be resized, but cannot</source>
-        <translation type="unfinished"/>
+        <translation>%1 ഉപകരണത്തിന്റെ വലുപ്പം മാറ്റണം, പക്ഷേ കഴിയില്ല</translation>
     </message>
 </context>
 <context>
@@ -2637,22 +2734,22 @@ Output:
     <message>
         <location filename="../src/modules/partition/jobs/ResizePartitionJob.cpp" line="48"/>
         <source>Resize partition %1.</source>
-        <translation type="unfinished"/>
+        <translation>%1 പാർട്ടീഷന്റെ വലുപ്പം മാറ്റുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/ResizePartitionJob.cpp" line="55"/>
         <source>Resize &lt;strong&gt;%2MiB&lt;/strong&gt; partition &lt;strong&gt;%1&lt;/strong&gt; to &lt;strong&gt;%3MiB&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt; എന്ന &lt;strong&gt;%2MiB&lt;/strong&gt; പാർട്ടീഷന്റെ വലുപ്പം &lt;strong&gt;%3Mib&lt;/strong&gt;യിലേക്ക് മാറ്റുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/ResizePartitionJob.cpp" line="66"/>
         <source>Resizing %2MiB partition %1 to %3MiB.</source>
-        <translation type="unfinished"/>
+        <translation>%1 എന്ന %2MiB പാർട്ടീഷന്റെ വലുപ്പം %3Mibയിലേക്ക് മാറ്റുന്നു.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/ResizePartitionJob.cpp" line="85"/>
         <source>The installer failed to resize partition %1 on disk &apos;%2&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%2&apos; ഡിസ്കിലുള്ള %1 പാർട്ടീഷന്റെ വലുപ്പം മാറ്റുന്നതിൽ ഇൻസ്റ്റാളർ പരാജയപ്പെട്ടു</translation>
     </message>
 </context>
 <context>
@@ -2669,17 +2766,17 @@ Output:
         <location filename="../src/modules/partition/jobs/ResizeVolumeGroupJob.cpp" line="37"/>
         <location filename="../src/modules/partition/jobs/ResizeVolumeGroupJob.cpp" line="55"/>
         <source>Resize volume group named %1 from %2 to %3.</source>
-        <translation type="unfinished"/>
+        <translation>%1 എന്ന് പേരുള്ള വോള്യം ഗ്രൂപ്പിന്റെ വലുപ്പം %2ൽ നിന്നും %3ലേക്ക് മാറ്റുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/ResizeVolumeGroupJob.cpp" line="46"/>
         <source>Resize volume group named &lt;strong&gt;%1&lt;/strong&gt; from &lt;strong&gt;%2&lt;/strong&gt; to &lt;strong&gt;%3&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt; എന്ന് പേരുള്ള വോള്യം ഗ്രൂപ്പിന്റെ വലുപ്പം &lt;strong&gt;%2&lt;/strong&gt;ൽ നിന്നും &lt;strong&gt;%3&lt;/strong&gt;ലേക്ക് മാറ്റുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/ResizeVolumeGroupJob.cpp" line="70"/>
         <source>The installer failed to resize a volume group named &apos;%1&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; എന്ന് പേരുള്ള ഒരു വോള്യം ഗ്രൂപ്പിന്റെ വലുപ്പം മാറ്റുന്നതിൽ ഇൻസ്റ്റാളർ പരാജയപ്പെട്ടു.</translation>
     </message>
 </context>
 <context>
@@ -2712,7 +2809,7 @@ Output:
     <message>
         <location filename="../src/modules/welcome/checker/ResultsListWidget.cpp" line="181"/>
         <source>For best results, please ensure that this computer:</source>
-        <translation type="unfinished"/>
+        <translation>മികച്ച ഫലങ്ങൾക്കായി ഈ കമ്പ്യൂട്ടർ താഴെപ്പറയുന്നവ നിറവേറ്റുന്നു എന്നുറപ്പുവരുത്തുക:</translation>
     </message>
     <message>
         <location filename="../src/modules/welcome/checker/ResultsListWidget.cpp" line="209"/>
@@ -2736,31 +2833,31 @@ Output:
 <context>
     <name>SetHostNameJob</name>
     <message>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="38"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="39"/>
         <source>Set hostname %1</source>
         <translation>%1 ഹോസ്റ്റ്‌നെയിം ക്രമീകരിക്കുക</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="45"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="46"/>
         <source>Set hostname &lt;strong&gt;%1&lt;/strong&gt;.</source>
         <translation>&lt;strong&gt;%1&lt;/strong&gt; ഹോസ്റ്റ്‌നെയിം ക്രമീകരിക്കുക.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="52"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="53"/>
         <source>Setting hostname %1.</source>
         <translation>%1 ഹോസ്റ്റ്‌നെയിം ക്രമീകരിക്കുന്നു.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="62"/>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="69"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="64"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="71"/>
         <source>Internal Error</source>
         <translation>ആന്തരികമായ പിഴവ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="76"/>
-        <location filename="../src/modules/users/SetHostNameJob.cpp" line="87"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="78"/>
+        <location filename="../src/modules/users/SetHostNameJob.cpp" line="89"/>
         <source>Cannot write hostname to target system</source>
-        <translation type="unfinished"/>
+        <translation>ടാർഗെറ്റ് സിസ്റ്റത്തിലേക്ക് ഹോസ്റ്റ്നാമം എഴുതാൻ കഴിയില്ല</translation>
     </message>
 </context>
 <context>
@@ -2768,12 +2865,12 @@ Output:
     <message>
         <location filename="../src/modules/keyboard/SetKeyboardLayoutJob.cpp" line="59"/>
         <source>Set keyboard model to %1, layout to %2-%3</source>
-        <translation type="unfinished"/>
+        <translation>കീബോർഡ് മാതൃക %1 ആയി ക്രമീകരിക്കുക, രൂപരേഖ %2-%3</translation>
     </message>
     <message>
         <location filename="../src/modules/keyboard/SetKeyboardLayoutJob.cpp" line="321"/>
         <source>Failed to write keyboard configuration for the virtual console.</source>
-        <translation type="unfinished"/>
+        <translation>വിർച്വൽ കൺസോളിനായുള്ള കീബോർഡ് ക്രമീകരണം എഴുതുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
     <message>
         <location filename="../src/modules/keyboard/SetKeyboardLayoutJob.cpp" line="322"/>
@@ -2785,12 +2882,12 @@ Output:
     <message>
         <location filename="../src/modules/keyboard/SetKeyboardLayoutJob.cpp" line="325"/>
         <source>Failed to write keyboard configuration for X11.</source>
-        <translation type="unfinished"/>
+        <translation>X11 നായി കീബോർഡ് കോൺഫിഗറേഷൻ എഴുതുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
     <message>
         <location filename="../src/modules/keyboard/SetKeyboardLayoutJob.cpp" line="331"/>
         <source>Failed to write keyboard configuration to existing /etc/default directory.</source>
-        <translation type="unfinished"/>
+        <translation>നിലവിലുള്ള  /etc/default ഡയറക്ടറിയിലേക്ക് കീബോർഡ് കോൺഫിഗറേഷൻ എഴുതുന്നതിൽ പരാജയപ്പെട്ടു.</translation>
     </message>
 </context>
 <context>
@@ -2823,17 +2920,17 @@ Output:
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="85"/>
         <source>Flag %1MiB &lt;strong&gt;%2&lt;/strong&gt; partition as &lt;strong&gt;%3&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>%1MiB &lt;strong&gt;%2&lt;/strong&gt; പാർട്ടീഷൻ &lt;strong&gt;%3&lt;/strong&gt; ആയി ഫ്ലാഗ് ചെയ്യുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="107"/>
         <source>Clearing flags on %1MiB &lt;strong&gt;%2&lt;/strong&gt; partition.</source>
-        <translation type="unfinished"/>
+        <translation>ഫ്ലാഗുകൾ %1MiB &lt;strong&gt;%2&lt;/strong&gt; പാർട്ടീഷനിൽ നിർമ്മിക്കുന്നു.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="121"/>
         <source>Setting flags &lt;strong&gt;%3&lt;/strong&gt; on %1MiB &lt;strong&gt;%2&lt;/strong&gt; partition.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%3&lt;/strong&gt; ഫ്ലാഗുകൾ %1MiB &lt;strong&gt;%2&lt;/strong&gt; പാർട്ടീഷനിൽ ക്രമീകരിക്കുന്നു.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="75"/>
@@ -2843,12 +2940,12 @@ Output:
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="79"/>
         <source>Flag partition &lt;strong&gt;%1&lt;/strong&gt; as &lt;strong&gt;%2&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt; പാർട്ടീഷനെ &lt;strong&gt;%2&lt;/strong&gt; ആയി ഫ്ലാഗ് ചെയ്യുക</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="91"/>
         <source>Flag new partition as &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>പുതിയ പാർട്ടീഷൻ &lt;strong&gt;%1 &lt;/strong&gt;ആയി ഫ്ലാഗുചെയ്യുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="103"/>
@@ -2863,12 +2960,12 @@ Output:
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="115"/>
         <source>Setting flags &lt;strong&gt;%2&lt;/strong&gt; on partition &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%2&lt;/strong&gt; ഫ്ലാഗുകൾ &lt;strong&gt;%1&lt;/strong&gt; പാർട്ടീഷനിൽ ക്രമീകരിക്കുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="127"/>
         <source>Setting flags &lt;strong&gt;%1&lt;/strong&gt; on new partition.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt; ഫ്ലാഗുകൾ പുതിയ പാർട്ടീഷനിൽ ക്രമീകരിക്കുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="144"/>
@@ -2891,32 +2988,32 @@ Output:
     <message>
         <location filename="../src/modules/users/SetPasswordJob.cpp" line="112"/>
         <source>Bad destination system path.</source>
-        <translation type="unfinished"/>
+        <translation>ലക്ഷ്യത്തിന്റെ സിസ്റ്റം പാത്ത് തെറ്റാണ്.</translation>
     </message>
     <message>
         <location filename="../src/modules/users/SetPasswordJob.cpp" line="113"/>
         <source>rootMountPoint is %1</source>
-        <translation type="unfinished"/>
+        <translation>rootMountPoint %1 ആണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetPasswordJob.cpp" line="123"/>
+        <location filename="../src/modules/users/SetPasswordJob.cpp" line="119"/>
         <source>Cannot disable root account.</source>
         <translation>റൂട്ട് അക്കൗണ്ട് നിഷ്ക്രിയമാക്കാനായില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetPasswordJob.cpp" line="124"/>
+        <location filename="../src/modules/users/SetPasswordJob.cpp" line="120"/>
         <source>passwd terminated with error code %1.</source>
-        <translation type="unfinished"/>
+        <translation>passwd പിഴവ് കോഡ്‌ %1 ഓട് കൂടീ അവസാനിച്ചു.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetPasswordJob.cpp" line="139"/>
+        <location filename="../src/modules/users/SetPasswordJob.cpp" line="128"/>
         <source>Cannot set password for user %1.</source>
         <translation>ഉപയോക്താവ് %1നായി രഹസ്യവാക്ക് ക്രമീകരിക്കാനായില്ല.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/SetPasswordJob.cpp" line="141"/>
+        <location filename="../src/modules/users/SetPasswordJob.cpp" line="129"/>
         <source>usermod terminated with error code %1.</source>
-        <translation type="unfinished"/>
+        <translation>usermod പിഴവ് കോഡ്‌ %1 ഓട് കൂടീ അവസാനിച്ചു.</translation>
     </message>
 </context>
 <context>
@@ -2924,17 +3021,17 @@ Output:
     <message>
         <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="43"/>
         <source>Set timezone to %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>%1%2 എന്നതിലേക്ക് സമയപദ്ധതി ക്രമീകരിക്കുക</translation>
     </message>
     <message>
         <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="71"/>
         <source>Cannot access selected timezone path.</source>
-        <translation type="unfinished"/>
+        <translation>തിരഞ്ഞെടുത്ത സമയപദ്ധതി പാത്ത് ലഭ്യമല്ല.</translation>
     </message>
     <message>
         <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="72"/>
         <source>Bad path: %1</source>
-        <translation type="unfinished"/>
+        <translation>മോശമായ പാത്ത്: %1</translation>
     </message>
     <message>
         <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="80"/>
@@ -2944,7 +3041,7 @@ Output:
     <message>
         <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="81"/>
         <source>Link creation failed, target: %1; link name: %2</source>
-        <translation type="unfinished"/>
+        <translation>കണ്ണി ഉണ്ടാക്കൽ പരാജയപ്പെട്ടു, ലക്ഷ്യം: %1, കണ്ണിയുടെ പേര്: %2</translation>
     </message>
     <message>
         <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="86"/>
@@ -2962,7 +3059,7 @@ Output:
     <message>
         <location filename="../src/modules/shellprocess/ShellProcessJob.cpp" line="50"/>
         <source>Shell Processes Job</source>
-        <translation type="unfinished"/>
+        <translation>ഷെൽ പ്രക്രിയകൾ ജോലി</translation>
     </message>
 </context>
 <context>
@@ -2971,7 +3068,7 @@ Output:
         <location filename="../src/qml/calamares/slideshow/SlideCounter.qml" line="36"/>
         <source>%L1 / %L2</source>
         <extracomment>slide counter, %1 of %2 (numeric)</extracomment>
-        <translation type="unfinished"/>
+        <translation>%L1 / %L2</translation>
     </message>
 </context>
 <context>
@@ -2984,7 +3081,7 @@ Output:
     <message>
         <location filename="../src/modules/summary/SummaryPage.cpp" line="60"/>
         <source>This is an overview of what will happen once you start the install procedure.</source>
-        <translation type="unfinished"/>
+        <translation>നിങ്ങൾ ഇൻസ്റ്റാൾ നടപടിക്രമങ്ങൾ ആരംഭിച്ചുകഴിഞ്ഞാൽ എന്ത് സംഭവിക്കും എന്നതിന്റെ ഒരു അവലോകനമാണിത്.</translation>
     </message>
 </context>
 <context>
@@ -3010,12 +3107,12 @@ Output:
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="71"/>
         <source>Internal error in install-tracking.</source>
-        <translation type="unfinished"/>
+        <translation>ഇൻസ്റ്റാൾ-പിന്തുടരുന്നതിൽ ആന്തരികമായ പിഴവ്.</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="72"/>
         <source>HTTP request timed out.</source>
-        <translation type="unfinished"/>
+        <translation>HTTP അപേക്ഷയുടെ സമയപരിധി കഴിഞ്ഞു.</translation>
     </message>
 </context>
 <context>
@@ -3023,28 +3120,28 @@ Output:
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="80"/>
         <source>Machine feedback</source>
-        <translation type="unfinished"/>
+        <translation>ഉപകരണത്തിൽ നിന്നുള്ള പ്രതികരണം</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="92"/>
         <source>Configuring machine feedback.</source>
-        <translation type="unfinished"/>
+        <translation>ഉപകരണത്തിൽ നിന്നുള്ള പ്രതികരണം ക്രമീകരിക്കുന്നു.</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="117"/>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="123"/>
         <source>Error in machine feedback configuration.</source>
-        <translation type="unfinished"/>
+        <translation>ഉപകരണത്തിൽ നിന്നുള്ള പ്രതികരണത്തിന്റെ ക്രമീകരണത്തിൽ പിഴവ്.</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="118"/>
         <source>Could not configure machine feedback correctly, script error %1.</source>
-        <translation type="unfinished"/>
+        <translation>ഉപകരണത്തിൽ നിന്നുള്ള പ്രതികരണം ശരിയായി ക്രമീകരിക്കാനായില്ല. സ്ക്രിപ്റ്റ് പിഴവ് %1.</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingJobs.cpp" line="124"/>
         <source>Could not configure machine feedback correctly, Calamares error %1.</source>
-        <translation type="unfinished"/>
+        <translation>ഉപകരണത്തിൽ നിന്നുള്ള പ്രതികരണം ശരിയായി ക്രമീകരിക്കാനായില്ല. കലാമാരേസ് പിഴവ് %1.</translation>
     </message>
 </context>
 <context>
@@ -3057,22 +3154,22 @@ Output:
     <message>
         <location filename="../src/modules/tracking/page_trackingstep.ui" line="24"/>
         <source>Placeholder</source>
-        <translation type="unfinished"/>
+        <translation>പ്ലേസ്‌ഹോൾഡർ</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/page_trackingstep.ui" line="72"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By selecting this, you will send &lt;span style=&quot; font-weight:600;&quot;&gt;no information at all&lt;/span&gt; about your installation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ഇത് തിരഞ്ഞെടുക്കുന്നതിലൂടെ, നിങ്ങളുടെ ഇൻസ്റ്റാളേഷനെക്കുറിച്ച് &lt;span style=&quot; font-weight:600;&quot;&gt;ഒരു വിവരവും നിങ്ങൾ അയയ്‌ക്കില്ല.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/page_trackingstep.ui" line="271"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;placeholder&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;Click here for more information about user feedback&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;placeholder&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;ഉപയോക്തൃ ഫീഡ്‌ബാക്കിനെക്കുറിച്ചുള്ള കൂടുതൽ വിവരങ്ങൾക്ക് ഇവിടെ ക്ലിക്കുചെയ്യുക&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingPage.cpp" line="44"/>
         <source>Install tracking helps %1 to see how many users they have, what hardware they install %1 to and (with the last two options below), get continuous information about preferred applications. To see what will be sent, please click the help icon next to each area.</source>
-        <translation type="unfinished"/>
+        <translation>എത്ര ഉപയോക്താക്കളുണ്ട് ,ഏത് ഹാർഡ്‌വെയറിലാണ് %1 ഇൻസ്റ്റാൾ ചെയ്യുന്നത് (ചുവടെയുള്ള അവസാന രണ്ടു ഓപ്ഷനുകൾക്കൊപ്പം) കൂടാതെ നിങ്ങൾ മുന്ഗണന നൽകുന്ന പ്രയോഗങ്ങളെക്കുറിച്ചുള്ള വിവരങ്ങൾ നേടുന്നതിന് %1 ഇൻസ്റ്റാൾ ട്രാക്കിംഗ് സഹായിക്കുന്നു.എന്താണ് അയയ്‌ക്കുന്നതെന്ന് കാണാൻ, ഓരോ ഭാഗത്തിനും അടുത്തുള്ള സഹായ ഐക്കണിൽ ക്ലിക്കുചെയ്യുക.</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingPage.cpp" line="49"/>
@@ -3082,7 +3179,7 @@ Output:
     <message>
         <location filename="../src/modules/tracking/TrackingPage.cpp" line="51"/>
         <source>By selecting this you will &lt;b&gt;periodically&lt;/b&gt; send information about your installation, hardware and applications, to %1.</source>
-        <translation type="unfinished"/>
+        <translation>ഇത് തിരഞ്ഞെടുക്കുന്നതിലൂടെ താങ്കൾ &lt;b&gt;ഇടയ്ക്കിടെ&lt;/b&gt;താങ്കളുടെ ഇൻസ്റ്റളേഷനെയും ഹാർഡ്‌വെയറിനെയും പ്രയോഗങ്ങളേയും പറ്റിയുള്ള വിവരങ്ങൾ %1ന് അയച്ചുകൊടുക്കും.</translation>
     </message>
     <message>
         <location filename="../src/modules/tracking/TrackingPage.cpp" line="54"/>
@@ -3101,43 +3198,47 @@ Output:
 <context>
     <name>UsersPage</name>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="120"/>
+        <location filename="../src/modules/users/UsersPage.cpp" line="137"/>
         <source>&lt;small&gt;If more than one person will use this computer, you can create multiple accounts after setup.&lt;/small&gt;</source>
         <translation>&lt;small&gt;ഒന്നിലധികം ആളുകൾ ഈ കമ്പ്യൂട്ടർ ഉപയോഗിക്കുമെങ്കിൽ, താങ്കൾക്ക് സജ്ജീകരണത്തിന് ശേഷം നിരവധി അക്കൗണ്ടുകൾ സൃഷ്ടിക്കാം.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="126"/>
+        <location filename="../src/modules/users/UsersPage.cpp" line="143"/>
         <source>&lt;small&gt;If more than one person will use this computer, you can create multiple accounts after installation.&lt;/small&gt;</source>
         <translation>&lt;small&gt;ഒന്നിലധികം ആളുകൾ ഈ കമ്പ്യൂട്ടർ ഉപയോഗിക്കുമെങ്കിൽ, താങ്കൾക്ക് ഇൻസ്റ്റളേഷന് ശേഷം നിരവധി അക്കൗണ്ടുകൾ സൃഷ്ടിക്കാം.&lt;/small&gt;</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="317"/>
+        <location filename="../src/modules/users/UsersPage.cpp" line="340"/>
         <source>Your username is too long.</source>
         <translation>നിങ്ങളുടെ ഉപയോക്തൃനാമം വളരെ വലുതാണ്.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="323"/>
-        <source>Your username contains invalid characters. Only lowercase letters and numbers are allowed.</source>
-        <translation>നിങ്ങളുടെ ഉപയോക്തൃനാമത്തിൽ അസാധുവായ പ്രതീകങ്ങൾ അടങ്ങിയിരിക്കുന്നു.ചെറിയ അക്ഷരങ്ങളും അക്കങ്ങളും മാത്രമേ അനുവദിക്കൂ.</translation>
+        <location filename="../src/modules/users/UsersPage.cpp" line="347"/>
+        <source>Your username must start with a lowercase letter or underscore.</source>
+        <translation>താങ്കളുടെ ഉപയോക്തൃനാമം ഒരു ചെറിയ അക്ഷരമോ അണ്ടർസ്കോറോ ഉപയോഗിച്ച് വേണം തുടങ്ങാൻ.</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="361"/>
+        <location filename="../src/modules/users/UsersPage.cpp" line="354"/>
+        <source>Only lowercase letters, numbers, underscore and hyphen are allowed.</source>
+        <translation>ചെറിയ അക്ഷരങ്ങൾ, അക്കങ്ങൾ, അണ്ടർസ്കോർ, ഹൈഫൺ എന്നിവയേ അനുവദിച്ചിട്ടുള്ളൂ.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/UsersPage.cpp" line="402"/>
+        <source>Only letters, numbers, underscore and hyphen are allowed.</source>
+        <translation>അക്ഷരങ്ങൾ, അക്കങ്ങൾ, അണ്ടർസ്കോർ, ഹൈഫൺ എന്നിവയേ അനുവദിച്ചിട്ടുള്ളൂ.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/users/UsersPage.cpp" line="390"/>
         <source>Your hostname is too short.</source>
         <translation> നിങ്ങളുടെ ഹോസ്റ്റ്നാമം വളരെ ചെറുതാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="367"/>
+        <location filename="../src/modules/users/UsersPage.cpp" line="395"/>
         <source>Your hostname is too long.</source>
         <translation>നിങ്ങളുടെ ഹോസ്റ്റ്നാമം ദൈർഘ്യമേറിയതാണ്</translation>
     </message>
     <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="373"/>
-        <source>Your hostname contains invalid characters. Only letters, numbers and dashes are allowed.</source>
-        <translation>നിങ്ങളുടെ ഹോസ്റ്റ്നാമത്തിൽ അസാധുവായ പ്രതീകങ്ങൾ അടങ്ങിയിരിക്കുന്നു.അക്ഷരങ്ങൾ, അക്കങ്ങൾ, ഡാഷുകൾ എന്നിവ മാത്രമേ അനുവദിക്കൂ.</translation>
-    </message>
-    <message>
-        <location filename="../src/modules/users/UsersPage.cpp" line="401"/>
-        <location filename="../src/modules/users/UsersPage.cpp" line="445"/>
+        <location filename="../src/modules/users/UsersPage.cpp" line="419"/>
         <source>Your passwords do not match!</source>
         <translation>നിങ്ങളുടെ പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല!</translation>
     </message>
@@ -3145,7 +3246,7 @@ Output:
 <context>
     <name>UsersViewStep</name>
     <message>
-        <location filename="../src/modules/users/UsersViewStep.cpp" line="54"/>
+        <location filename="../src/modules/users/UsersViewStep.cpp" line="55"/>
         <source>Users</source>
         <translation>ഉപയോക്താക്കൾ</translation>
     </message>
@@ -3173,7 +3274,7 @@ Output:
     <message>
         <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="20"/>
         <source>List of Physical Volumes</source>
-        <translation type="unfinished"/>
+        <translation>ഫിസിക്കൽ വോള്യങ്ങളുടെ പട്ടിക</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="30"/>
@@ -3188,7 +3289,7 @@ Output:
     <message>
         <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="56"/>
         <source>Physical Extent Size:</source>
-        <translation type="unfinished"/>
+        <translation>ഫിസിക്കൽ എക്സ്റ്റന്റ് വലുപ്പം:</translation>
     </message>
     <message>
         <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="66"/>
@@ -3213,7 +3314,7 @@ Output:
     <message>
         <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="142"/>
         <source>Quantity of LVs:</source>
-        <translation type="unfinished"/>
+        <translation>LVകളുടെ അളവ്:</translation>
     </message>
 </context>
 <context>
@@ -3307,7 +3408,7 @@ Output:
     <message>
         <location filename="../src/modules/welcome/WelcomePage.cpp" line="269"/>
         <source>&lt;h1&gt;%1&lt;/h1&gt;&lt;br/&gt;&lt;strong&gt;%2&lt;br/&gt;for %3&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Copyright 2014-2017 Teo Mrnjavac &amp;lt;teo@kde.org&amp;gt;&lt;br/&gt;Copyright 2017-2019 Adriaan de Groot &amp;lt;groot@kde.org&amp;gt;&lt;br/&gt;Thanks to &lt;a href=&quot;https://calamares.io/team/&quot;&gt;the Calamares team&lt;/a&gt; and the &lt;a href=&quot;https://www.transifex.com/calamares/calamares/&quot;&gt;Calamares translators team&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;https://calamares.io/&quot;&gt;Calamares&lt;/a&gt; development is sponsored by &lt;br/&gt;&lt;a href=&quot;http://www.blue-systems.com/&quot;&gt;Blue Systems&lt;/a&gt; - Liberating Software.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;h1&gt;%1&lt;/h1&gt;&lt;br/&gt;&lt;strong&gt;%2&lt;br/&gt;%3 ന്&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;പകർപ്പവകാശം 2015-2017 Teo Mrnjavac &amp;lt;teo@kde.org&amp;gt;&lt;br/&gt;പകർപ്പവകാശം 2018-2019 Adriaan de Groot &amp;lt;groot@kde.org&amp;gt;&lt;br/&gt;&lt;a href=&quot;https://calamares.io/team/&quot;&gt;കലാമരേസ് ടീമിനും&lt;/a&gt;&lt;a href=&quot;https://www.transifex.com/calamares/calamares/&quot;&gt;കലാമരേസ് പരിഭാഷാ ടീമിനും&lt;/a&gt; നന്ദി.&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;https://calamares.io/&quot;&gt;കലാമരേസ്&lt;/a&gt;വികസനം &lt;br/&gt;&lt;a href=&quot;http://www.blue-systems.com/&quot;&gt;Blue Systems&lt;/a&gt;- Liberating Software സ്പോൺസർ ചെയ്യുന്നതാണ്.</translation>
     </message>
     <message>
         <location filename="../src/modules/welcome/WelcomePage.cpp" line="259"/>

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 21:54+0200\n"
+"POT-Creation-Date: 2019-11-08 15:08+0100\n"
 "PO-Revision-Date: 2017-08-09 10:34+0000\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2019\n"
 "Language-Team: Japanese (https://www.transifex.com/calamares/teams/20061/ja/)\n"
@@ -92,116 +92,116 @@ msgstr ""
 
 #: src/modules/umount/main.py:40
 msgid "Unmount file systems."
-msgstr "ファイルシステムをアンマウントする。"
+msgstr "ファイルシステムをアンマウント。"
 
 #: src/modules/unpackfs/main.py:41
 msgid "Filling up filesystems."
-msgstr "ファイルシステムを埋める。"
+msgstr "ファイルシステムに書き込んでいます。"
 
-#: src/modules/unpackfs/main.py:160
+#: src/modules/unpackfs/main.py:180
 msgid "rsync failed with error code {}."
 msgstr "エラーコード {} によりrsyncを失敗。"
 
-#: src/modules/unpackfs/main.py:221 src/modules/unpackfs/main.py:239
+#: src/modules/unpackfs/main.py:241 src/modules/unpackfs/main.py:264
 msgid "Failed to unpack image \"{}\""
 msgstr "イメージ  \"{}\" の展開に失敗"
 
-#: src/modules/unpackfs/main.py:222
+#: src/modules/unpackfs/main.py:242
 msgid ""
 "Failed to find unsquashfs, make sure you have the squashfs-tools package "
 "installed"
 msgstr "unsquashfs が見つかりませんでした。 squashfs-toolsがインストールされているか、確認してください。"
 
-#: src/modules/unpackfs/main.py:321
+#: src/modules/unpackfs/main.py:366
 msgid "No mount point for root partition"
 msgstr "ルートパーティションのためのマウントポイントがありません"
 
-#: src/modules/unpackfs/main.py:322
+#: src/modules/unpackfs/main.py:367
 msgid "globalstorage does not contain a \"rootMountPoint\" key, doing nothing"
 msgstr "globalstorage に \"rootMountPoint\" キーが含まれていません。何もしません。"
 
-#: src/modules/unpackfs/main.py:327
+#: src/modules/unpackfs/main.py:372
 msgid "Bad mount point for root partition"
 msgstr "ルートパーティションのためのマウントポイントが不正です"
 
-#: src/modules/unpackfs/main.py:328
+#: src/modules/unpackfs/main.py:373
 msgid "rootMountPoint is \"{}\", which does not exist, doing nothing"
 msgstr "ルートマウントポイントは \"{}\" ですが、存在しません。何もできません。"
 
-#: src/modules/unpackfs/main.py:341 src/modules/unpackfs/main.py:348
-#: src/modules/unpackfs/main.py:353
+#: src/modules/unpackfs/main.py:385 src/modules/unpackfs/main.py:389
+#: src/modules/unpackfs/main.py:403
 msgid "Bad unsquash configuration"
 msgstr "unsquash の設定が不正です"
 
-#: src/modules/unpackfs/main.py:342
+#: src/modules/unpackfs/main.py:386
 msgid "The filesystem for \"{}\" ({}) is not supported"
 msgstr "ファイルシステム \"{}\" ({}) はサポートされていません"
 
-#: src/modules/unpackfs/main.py:349
+#: src/modules/unpackfs/main.py:390
 msgid "The source filesystem \"{}\" does not exist"
 msgstr "ソースファイルシステム  \"{}\" は存在しません"
 
-#: src/modules/unpackfs/main.py:354
+#: src/modules/unpackfs/main.py:404
 msgid "The destination \"{}\" in the target system is not a directory"
 msgstr "ターゲットシステムの宛先 \"{}\" はディレクトリではありません"
 
-#: src/modules/displaymanager/main.py:401
+#: src/modules/displaymanager/main.py:515
 msgid "Cannot write KDM configuration file"
 msgstr "KDMの設定ファイルに書き込みができません"
 
-#: src/modules/displaymanager/main.py:402
+#: src/modules/displaymanager/main.py:516
 msgid "KDM config file {!s} does not exist"
 msgstr "KDM 設定ファイル {!s} が存在しません"
 
-#: src/modules/displaymanager/main.py:463
+#: src/modules/displaymanager/main.py:577
 msgid "Cannot write LXDM configuration file"
 msgstr "LXDMの設定ファイルに書き込みができません"
 
-#: src/modules/displaymanager/main.py:464
+#: src/modules/displaymanager/main.py:578
 msgid "LXDM config file {!s} does not exist"
 msgstr "LXDM 設定ファイル {!s} が存在しません"
 
-#: src/modules/displaymanager/main.py:547
+#: src/modules/displaymanager/main.py:661
 msgid "Cannot write LightDM configuration file"
 msgstr "LightDMの設定ファイルに書き込みができません"
 
-#: src/modules/displaymanager/main.py:548
+#: src/modules/displaymanager/main.py:662
 msgid "LightDM config file {!s} does not exist"
 msgstr "LightDM 設定ファイル {!s} が存在しません"
 
-#: src/modules/displaymanager/main.py:622
+#: src/modules/displaymanager/main.py:736
 msgid "Cannot configure LightDM"
 msgstr "LightDMの設定ができません"
 
-#: src/modules/displaymanager/main.py:623
+#: src/modules/displaymanager/main.py:737
 msgid "No LightDM greeter installed."
 msgstr "LightDM greeter がインストールされていません。"
 
-#: src/modules/displaymanager/main.py:654
+#: src/modules/displaymanager/main.py:768
 msgid "Cannot write SLIM configuration file"
 msgstr "SLIMの設定ファイルに書き込みができません"
 
-#: src/modules/displaymanager/main.py:655
+#: src/modules/displaymanager/main.py:769
 msgid "SLIM config file {!s} does not exist"
 msgstr "SLIM 設定ファイル {!s} が存在しません"
 
-#: src/modules/displaymanager/main.py:770
+#: src/modules/displaymanager/main.py:895
 msgid "No display managers selected for the displaymanager module."
 msgstr "ディスプレイマネージャが選択されていません。"
 
-#: src/modules/displaymanager/main.py:771
+#: src/modules/displaymanager/main.py:896
 msgid ""
 "The displaymanagers list is empty or undefined in bothglobalstorage and "
 "displaymanager.conf."
 msgstr "ディスプレイマネージャのリストが bothglobalstorage 及び displaymanager.conf 内で空白か未定義です。"
 
-#: src/modules/displaymanager/main.py:851
+#: src/modules/displaymanager/main.py:978
 msgid "Display manager configuration was incomplete"
 msgstr "ディスプレイマネージャの設定が不完全です"
 
 #: src/modules/initcpiocfg/main.py:36
 msgid "Configuring mkinitcpio."
-msgstr "mkinitcpioを設定中"
+msgstr "mkinitcpioを設定しています。"
 
 #: src/modules/initcpiocfg/main.py:192
 #: src/modules/luksopenswaphookcfg/main.py:100
@@ -213,7 +213,7 @@ msgstr " <pre>{!s}</pre> を使用するのにルートマウントポイント�
 
 #: src/modules/luksopenswaphookcfg/main.py:35
 msgid "Configuring encrypted swap."
-msgstr "暗号化したswapを設定中"
+msgstr "暗号化したswapを設定しています。"
 
 #: src/modules/rawfs/main.py:35
 msgid "Installing data."
@@ -274,7 +274,7 @@ msgstr "machine-id の生成"
 #: src/modules/packages/main.py:62
 #, python-format
 msgid "Processing packages (%(count)d / %(total)d)"
-msgstr "パッケージの処理中 (%(count)d / %(total)d)"
+msgstr "パッケージを処理しています (%(count)d / %(total)d)"
 
 #: src/modules/packages/main.py:64 src/modules/packages/main.py:74
 msgid "Install packages."
@@ -284,13 +284,13 @@ msgstr "パッケージのインストール"
 #, python-format
 msgid "Installing one package."
 msgid_plural "Installing %(num)d packages."
-msgstr[0] " %(num)d パッケージのインストール中。"
+msgstr[0] " %(num)d パッケージをインストールしています。"
 
 #: src/modules/packages/main.py:70
 #, python-format
 msgid "Removing one package."
 msgid_plural "Removing %(num)d packages."
-msgstr[0] " %(num)d パッケージの削除中。"
+msgstr[0] " %(num)d パッケージを削除しています。"
 
 #: src/modules/bootloader/main.py:51
 msgid "Install bootloader."
@@ -306,7 +306,7 @@ msgstr "ハードウェアクロックの設定"
 
 #: src/modules/dracut/main.py:36
 msgid "Creating initramfs with dracut."
-msgstr "dracutとinitramfsを作成中"
+msgstr "dracutとinitramfsを作成しています。"
 
 #: src/modules/dracut/main.py:58
 msgid "Failed to run dracut on the target"
@@ -318,15 +318,15 @@ msgstr "停止コードは {} でした"
 
 #: src/modules/initramfscfg/main.py:41
 msgid "Configuring initramfs."
-msgstr "initramfsを設定中"
+msgstr "initramfsを設定しています。"
 
 #: src/modules/openrcdmcryptcfg/main.py:34
 msgid "Configuring OpenRC dmcrypt service."
-msgstr "OpenRC dmcryptサービスを設定中"
+msgstr "OpenRC dmcryptサービスを設定しています。"
 
 #: src/modules/fstab/main.py:38
 msgid "Writing fstab."
-msgstr "fstabを書き込み中"
+msgstr "fstabを書き込んでいます。"
 
 #: src/modules/dummypython/main.py:44
 msgid "Dummy python job."
@@ -338,8 +338,8 @@ msgstr "Dummy python step {}"
 
 #: src/modules/localecfg/main.py:39
 msgid "Configuring locales."
-msgstr "ローカルを設定中"
+msgstr "ロケールを設定しています。"
 
 #: src/modules/networkcfg/main.py:37
 msgid "Saving network configuration."
-msgstr "ネットワーク設定を保存中"
+msgstr "ネットワーク設定を保存しています。"
