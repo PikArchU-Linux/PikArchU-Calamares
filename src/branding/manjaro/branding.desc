@@ -27,7 +27,13 @@ windowExpanding:    noexpand
 # This setting is ignored if "fullscreen" is selected for
 # *windowExpanding*, above. If not set, use constants defined
 # in CalamaresUtilsGui, 800x520.
-windowSize: 800px,520px
+windowSize: 820px,540px
+
+# Placement of Calamares window. Either "center" or "free".
+# Whether "center" actually works does depend on the window
+# manager in use (and only makes sense if you're not using
+# *windowExpanding* set to "fullscreen").
+windowPlacement: center
 
 # These are strings shown to the user in the user interface.
 # There is no provision for translating them -- since they
