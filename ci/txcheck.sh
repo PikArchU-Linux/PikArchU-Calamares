@@ -1,5 +1,18 @@
 #! /bin/sh
 
+### LICENSE
+# === This file is part of Calamares - <https://github.com/calamares> ===
+#
+#   SPDX-License-Identifier: BSD-2-Clause
+#   SPDX-FileCopyrightText: 2019-2020 Adriaan de Groot <groot@kde.org>
+#
+#   This file is Free Software: you can redistribute it and/or modify
+#   it under the terms of the 2-clause BSD License.
+#
+### END LICENSE
+
+### USAGE
+#
 # Does the translation tag (from a previous txpush) exist?
 # This assumes that the release host has also locally done
 # a translations push, which works for the current development
@@ -7,6 +20,13 @@
 # the typical txpush log messages instead of the tag.
 #
 # Use --cleanup as an argument to clean things up.
+#
+# Normal use:
+#   $ sh ci/txcheck.sh
+# If there are differences, fix them and then clean up:
+#   $ sh ci/txcheck.sh --cleanup
+#
+### END USAGE
 
 # The files that are translated; should match the contents of .tx/config
 TX_FILE_LIST="lang/calamares_en.ts lang/python.pot src/modules/dummypythonqt/lang/dummypythonqt.pot calamares.desktop"
@@ -17,15 +37,18 @@ TX_FILE_LIST="lang/calamares_en.ts lang/python.pot src/modules/dummypythonqt/lan
 # normally used much later in the script.
 tx_cleanup()
 {
-    # Cleanup artifacs of checking
-    git worktree remove --force build-txcheck-head
-    git worktree remove --force build-txcheck-prev
-    git branch -D build-txcheck-head > /dev/null 2>&1
+	# Cleanup artifacs of checking
+	git worktree remove --force build-txcheck-head
+	git worktree remove --force build-txcheck-prev
+	git branch -D build-txcheck-head > /dev/null 2>&1
 }
 
 if test "x$1" = "x--cleanup" ; then
-    tx_cleanup
-    exit 0
+	tx_cleanup
+	exit 0
+fi
+if test "x$1" = "x--help" ; then
+	sed -e '1,/USAGE/d' -e '/END.USAGE/,$d' < "$0"
 fi
 test -z "$1" || { echo "! Usage: txcheck.sh [--cleanup]" ; exit 1 ; }
 
@@ -36,22 +59,22 @@ test -z "$1" || { echo "! Usage: txcheck.sh [--cleanup]" ; exit 1 ; }
 XMLLINT=""
 for _xmllint in xmllint
 do
-  $_xmllint --version > /dev/null 2>&1 && XMLLINT=$_xmllint
-  test -n "$XMLLINT" && break
+	$_xmllint --version > /dev/null 2>&1 && XMLLINT=$_xmllint
+	test -n "$XMLLINT" && break
 done
 
 # Distinguish GNU date from BSD date
 if date +%s -d "1 week ago" > /dev/null 2>&1 ; then
-    last_week() { date +%s -d "1 week ago" ; }
+	last_week() { date +%s -d "1 week ago" ; }
 else
-    last_week() { date -v1w +%s; }
+	last_week() { date -v1w +%s; }
 fi
 
 # Distinguish GNU SHA executables from BSD ones
 if which sha256sum > /dev/null 2>&1 ; then
-    SHA256=sha256sum
+	SHA256=sha256sum
 else
-    SHA256=sha256
+	SHA256=sha256
 fi
 
 ### CHECK WORKING DIRECTORY
@@ -67,6 +90,8 @@ fi
 if test `git describe` = `git describe --dirty` ; then
 	:
 else
+	# Don't want any local changes, since those won't be
+	# reflected in the worktrees and we might miss a string change.
 	echo "! There are local changes."
 	exit 1
 fi
@@ -75,13 +100,20 @@ DATE_PREV=$( git log -1 translation --date=unix | sed -e '/^Date:/s+.*:++p' -e d
 DATE_HEAD=$( last_week )
 test "$DATE_PREV" -le "$DATE_HEAD" || { echo "! Translation tag has not aged enough." ; git log -1 translation ; exit 1 ; }
 
-# Tag is good, do real work of checking strings: collect names of relevant files
+# Tag is good, check that necessary files exist. The list of
+# files is hard-coded, but should match what is in the Transifex config.
 test -f ".tx/config" || { echo "! No Transifex configuration is present." ; exit 1 ; }
 for f in $TX_FILE_LIST ; do
 	test -f $f || { echo "! Translation file '$f' does not exist." ; exit 1 ; }
 done
 
-# The state of translations
+### COMPARE TRANSLATIONS
+#
+#
+
+# The state of translations; assume that sha256 is enough
+# to distinguish changed translations when we cat all the
+# string sources together.
 tx_sum()
 {
 	CURDIR=`pwd`

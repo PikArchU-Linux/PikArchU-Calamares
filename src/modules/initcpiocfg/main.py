@@ -4,7 +4,7 @@
 # === This file is part of Calamares - <https://github.com/calamares> ===
 #
 #   Copyright 2014, Rohan Garg <rohan@kde.org>
-#   Copyright 2015,2019, Philip Müller <philm@manjaro.org>
+#   Copyright 2015,2019,2020, Philip Müller <philm@manjaro.org>
 #   Copyright 2017, Alf Gaida <agaida@sidution.org>
 #   Copyright 2019, Adriaan de Groot <groot@kde.org>
 #
@@ -135,6 +135,13 @@ def modify_mkinitcpio_conf(partitions, root_mount_point):
     # It is important that the plymouth hook comes before any encrypt hook
     if detect_plymouth():
         hooks.append("plymouth")
+
+    # Detect bootsplash theme and enable hook
+    bootsplash_folder = os.path.join(root_mount_point, "usr/lib/firmware/bootsplash-themes")
+    if os.path.exists(bootsplash_folder):
+         bootsplash_themes = os.listdir(bootsplash_folder)
+         for bootsplash_theme in bootsplash_themes:
+             hooks.append("bootsplash-{!s}".format(bootsplash_theme))
 
     for partition in partitions:
         if partition["fs"] == "linuxswap":
