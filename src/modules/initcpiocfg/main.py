@@ -144,6 +144,10 @@ def modify_mkinitcpio_conf(partitions, root_mount_point):
              hooks.append("bootsplash-{!s}".format(bootsplash_theme))
 
     for partition in partitions:
+        if partition["fs"] == "linuxswap" and not partition.get("claimed", None):
+            # Skip foreign swap
+            continue
+
         if partition["fs"] == "linuxswap":
             swap_uuid = partition["uuid"]
             if "luksMapperName" in partition:
