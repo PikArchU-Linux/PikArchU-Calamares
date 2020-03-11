@@ -1,6 +1,6 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
  *
- *   Copyright 2019, Adriaan de Groot <groot@kde.org>
+ *   Copyright 2020, Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -16,25 +16,23 @@
  *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MACHINEIDJOB_H
-#define MACHINEIDJOB_H
+#ifndef REMOVEUSERJOB_H
+#define REMOVEUSERJOB_H
+
+#include "CppJob.h"
+#include "DllMacro.h"
+#include "utils/PluginFactory.h"
 
 #include <QObject>
 #include <QVariantMap>
 
-#include "CppJob.h"
-
-#include "utils/PluginFactory.h"
-
-#include "DllMacro.h"
-
-class PLUGINDLLEXPORT MachineIdJob : public Calamares::CppJob
+class PLUGINDLLEXPORT RemoveUserJob : public Calamares::CppJob
 {
     Q_OBJECT
 
 public:
-    explicit MachineIdJob( QObject* parent = nullptr );
-    virtual ~MachineIdJob() override;
+    explicit RemoveUserJob( QObject* parent = nullptr );
+    virtual ~RemoveUserJob() override;
 
     QString prettyName() const override;
 
@@ -43,15 +41,9 @@ public:
     void setConfigurationMap( const QVariantMap& configurationMap ) override;
 
 private:
-    bool m_systemd = false;  ///< write systemd's files
-
-    bool m_dbus = false;  ///< write dbus files
-    bool m_dbus_symlink = false;  ///< .. or just symlink to systemd
-
-    bool m_entropy = false;  ///< write an entropy file
-    bool m_entropy_copy = false;  ///< copy from host system
+    QString m_username;
 };
 
-CALAMARES_PLUGIN_FACTORY_DECLARATION( MachineIdJobFactory )
+CALAMARES_PLUGIN_FACTORY_DECLARATION( RemoveUserJobFactory )
 
-#endif  // MACHINEIDJOB_H
+#endif  // REMOVEUSERJOB_H

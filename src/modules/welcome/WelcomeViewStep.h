@@ -19,14 +19,11 @@
 #ifndef WELCOMEPAGEPLUGIN_H
 #define WELCOMEPAGEPLUGIN_H
 
+#include "DllMacro.h"
+#include "utils/PluginFactory.h"
+#include "viewpages/ViewStep.h"
+
 #include <QObject>
-
-#include <modulesystem/Requirement.h>
-#include <utils/PluginFactory.h>
-#include <viewpages/ViewStep.h>
-
-#include <DllMacro.h>
-
 #include <QVariantMap>
 
 class WelcomePage;

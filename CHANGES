@@ -3,6 +3,20 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
+# 3.2.21 (unreleased) #
+
+This release contains contributions from (alphabetically by first name):
+ - No external contributors yet
+
+## Core ##
+ - Python job modules (such as *unpackfs* or *packages*) can now provide
+   a `pretty_status_message()` function, like the existing `pretty_name()`
+   function, that is used to update the status during install. #1330
+
+## Modules ##
+ - *packages* now reports more details in the installation progress-bar.
+
+
 # 3.2.20 (2020-02-27) #
 
 This release contains contributions from (alphabetically by first name):
