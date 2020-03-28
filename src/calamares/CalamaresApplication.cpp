@@ -21,7 +21,6 @@
 #include "CalamaresConfig.h"
 #include "CalamaresVersion.h"
 #include "CalamaresWindow.h"
-#include "progresstree/ProgressTreeModel.h"
 #include "progresstree/ProgressTreeView.h"
 
 #include "Branding.h"
@@ -84,7 +83,7 @@ CalamaresApplication::init()
     initQmlPath();
     initBranding();
 
-    CalamaresUtils::installTranslator( QLocale::system(), QString(), this );
+    CalamaresUtils::installTranslator( QLocale::system(), QString() );
 
     setQuitOnLastWindowClosed( false );
     setWindowIcon( QIcon( Calamares::Branding::instance()->imagePath( Calamares::Branding::ProductIcon ) ) );
@@ -339,8 +338,8 @@ CalamaresApplication::initViewSteps()
         m_mainwindow->show();
     }
 
-    ProgressTreeModel* m = new ProgressTreeModel( nullptr );
-    ProgressTreeView::instance()->setModel( m );
+    // ProgressTreeModel* m = new ProgressTreeModel( nullptr );
+    // ProgressTreeView::instance()->setModel( m );
     cDebug() << "STARTUP: Window now visible and ProgressTreeView populated";
 
     const auto steps = Calamares::ViewManager::instance()->viewSteps();

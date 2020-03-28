@@ -16,10 +16,12 @@
  *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef WELCOMEPAGEPLUGIN_H
-#define WELCOMEPAGEPLUGIN_H
+#ifndef WELCOMEVIEWSTEP_H
+#define WELCOMEVIEWSTEP_H
+
 
 #include "DllMacro.h"
+#include "modulesystem/Requirement.h"
 #include "utils/PluginFactory.h"
 #include "viewpages/ViewStep.h"
 
@@ -28,6 +30,7 @@
 
 class WelcomePage;
 class GeneralRequirements;
+class Config;
 
 namespace CalamaresUtils
 {
@@ -72,8 +75,9 @@ public:
 private:
     WelcomePage* m_widget;
     GeneralRequirements* m_requirementsChecker;
+    Config* m_conf;
 };
 
 CALAMARES_PLUGIN_FACTORY_DECLARATION( WelcomeViewStepFactory )
 
-#endif  // WELCOMEPAGEPLUGIN_H
+#endif  // WELCOMEVIEWSTEP_H
