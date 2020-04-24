@@ -51,7 +51,45 @@ WelcomePage::WelcomePage( Config* conf, QWidget* parent )
     , m_languages( nullptr )
     , m_conf( conf )
 {
+    using Branding = Calamares::Branding;
 
+    const int defaultFontHeight = CalamaresUtils::defaultFontHeight();
+    ui->setupUi( this );
+    ui->aboutButton->setIcon( CalamaresUtils::defaultPixmap(
+        CalamaresUtils::Information,
+        CalamaresUtils::Original,
+        2 * QSize( defaultFontHeight, defaultFontHeight ) ) );
+
+    // insert system-check widget below welcome text
+    const int welcome_text_idx = ui->verticalLayout->indexOf( ui->mainText );
+    ui->verticalLayout->insertWidget( welcome_text_idx + 1, m_checkingWidget );
+
+    // insert optional logo banner image above welcome text
+    QString bannerPath = Branding::instance()->imagePath( Branding::ProductBanner );
+    if ( !bannerPath.isEmpty() )
+    {
+        // If the name is not empty, the file exists -- Branding checks that at startup
+        QPixmap bannerPixmap = QPixmap( bannerPath );
+        if ( !bannerPixmap.isNull() )
+        {
+            QLabel* bannerLabel = new QLabel;
+            bannerLabel->setPixmap( bannerPixmap );
+            bannerLabel->setMinimumHeight( 64 );
+            bannerLabel->setAlignment( Qt::AlignCenter );
+            ui->aboveTextSpacer->changeSize( 20, defaultFontHeight );  // Shrink it down
+            ui->aboveTextSpacer->invalidate();
+            ui->verticalLayout->insertSpacing( welcome_text_idx, defaultFontHeight );
+            ui->verticalLayout->insertWidget( welcome_text_idx, bannerLabel );
+        }
+    }
+
+    initLanguages();
+
+    cDebug() << "Welcome string" << Calamares::Branding::instance()->welcomeStyleCalamares()
+             << *Calamares::Branding::VersionedName;
+    CALAMARES_RETRANSLATE_SLOT( &WelcomePage::retranslate )
+
+    connect( ui->aboutButton, &QPushButton::clicked, this, &WelcomePage::showAboutBox );
     connect( Calamares::ModuleManager::instance(),
              &Calamares::ModuleManager::requirementsComplete,
              m_checkingWidget,
@@ -60,28 +98,6 @@ WelcomePage::WelcomePage( Config* conf, QWidget* parent )
              &Calamares::ModuleManager::requirementsProgress,
              m_checkingWidget,
              &CheckerContainer::requirementsProgress );
-    ui->setupUi( this );
-
-    ui->verticalLayout->insertSpacing( 1, CalamaresUtils::defaultFontHeight() * 2 );
-    initLanguages();
-
-    ui->mainText->setAlignment( Qt::AlignCenter );
-    ui->mainText->setWordWrap( true );
-    ui->mainText->setOpenExternalLinks( true );
-
-    cDebug() << "Welcome string" << Calamares::Branding::instance()->welcomeStyleCalamares()
-             << *Calamares::Branding::VersionedName;
-
-    CALAMARES_RETRANSLATE_SLOT( &WelcomePage::retranslate )
-
-    ui->aboutButton->setIcon( CalamaresUtils::defaultPixmap(
-        CalamaresUtils::Information,
-        CalamaresUtils::Original,
-        2 * QSize( CalamaresUtils::defaultFontHeight(), CalamaresUtils::defaultFontHeight() ) ) );
-    connect( ui->aboutButton, &QPushButton::clicked, this, &WelcomePage::showAboutBox );
-
-    int welcome_text_idx = ui->verticalLayout->indexOf( ui->mainText );
-    ui->verticalLayout->insertWidget( welcome_text_idx + 1, m_checkingWidget );
 }
 
 void
