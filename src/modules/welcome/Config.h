@@ -50,6 +50,8 @@ class Config : public QObject
 public:
     Config( QObject* parent = nullptr );
 
+    void setConfigurationMap( const QVariantMap& );
+
     Calamares::RequirementsModel& requirementsModel() const;
 
     void setCountryCode( const QString& countryCode );
@@ -59,19 +61,19 @@ public:
 
     void setIsNextEnabled( bool isNextEnabled );
 
-    void setLocaleIndex( int index );
     int localeIndex() const { return m_localeIndex; }
+    void setLocaleIndex( int index );
 
-    QString supportUrl() const;
+    QString supportUrl() const { return m_supportUrl; }
     void setSupportUrl( const QString& url );
 
-    QString knownIssuesUrl() const;
+    QString knownIssuesUrl() const { return m_knownIssuesUrl; }
     void setKnownIssuesUrl( const QString& url );
 
-    QString releaseNotesUrl() const;
+    QString releaseNotesUrl() const { return m_releaseNotesUrl; }
     void setReleaseNotesUrl( const QString& url );
 
-    QString donateUrl() const;
+    QString donateUrl() const { return m_donateUrl; }
     void setDonateUrl( const QString& url );
 
     QString genericWelcomeMessage() const;
