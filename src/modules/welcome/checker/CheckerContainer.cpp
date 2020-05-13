@@ -55,6 +55,17 @@ CheckerContainer::~CheckerContainer()
 void
 CheckerContainer::requirementsComplete( bool ok )
 {
+    if ( !ok )
+    {
+        cDebug() << "Requirements not satisfied" << m_model.count() << "entries:";
+        for ( int i = 0; i < m_model.count(); ++i )
+        {
+            auto index = m_model.index( i );
+            cDebug() << Logger::SubEntry << i << m_model.data( index, Calamares::RequirementsModel::Name ).toString()
+                     << "set?" << m_model.data( index, Calamares::RequirementsModel::Satisfied ).toBool() << "req?"
+                     << m_model.data( index, Calamares::RequirementsModel::Mandatory ).toBool();
+        }
+    }
 
     layout()->removeWidget( m_waitingWidget );
     m_waitingWidget->deleteLater();

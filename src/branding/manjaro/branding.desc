@@ -49,10 +49,10 @@ windowPlacement: center
 strings:
     productName:         Manjaro Linux
     shortProductName:    Manjaro
-    version:             19.0
-    shortVersion:        19.0
-    versionedName:       Manjaro Linux 19.0 "Kyria"
-    shortVersionedName:  Manjaro 19.0
+    version:             20.0
+    shortVersion:        20.0
+    versionedName:       Manjaro Linux 20.0 "Lysia"
+    shortVersionedName:  Manjaro 20.0
     bootloaderEntryName: Manjaro
 
 # These images are loaded from the branding module directory.

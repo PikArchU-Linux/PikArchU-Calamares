@@ -32,16 +32,14 @@ CALAMARES_PLUGIN_FACTORY_DEFINITION( WelcomeViewStepFactory, registerPlugin< Wel
 
 WelcomeViewStep::WelcomeViewStep( QObject* parent )
     : Calamares::ViewStep( parent )
-    , m_requirementsChecker( new GeneralRequirements( this ) )
     , m_conf( new Config( this ) )
+    , m_widget( new WelcomePage( m_conf ) )
+    , m_requirementsChecker( new GeneralRequirements( this ) )
 {
     connect( Calamares::ModuleManager::instance(),
              &Calamares::ModuleManager::requirementsComplete,
              this,
              &WelcomeViewStep::nextStatusChanged );
-
-    // the instance of the qqc2 or qwidgets page
-    m_widget = new WelcomePage( m_conf );
     connect( m_conf, &Config::localeIndexChanged, m_widget, &WelcomePage::externallySelectedLanguage );
 }
 
@@ -111,12 +109,12 @@ WelcomeViewStep::setConfigurationMap( const QVariantMap& configurationMap )
          && configurationMap.value( "requirements" ).type() == QVariant::Map )
     {
         m_requirementsChecker->setConfigurationMap( configurationMap.value( "requirements" ).toMap() );
-
-        m_conf->requirementsModel().setRequirementsList( checkRequirements() );
     }
     else
+    {
         cWarning() << "no valid requirements map found in welcome "
                       "module configuration.";
+    }
 
     //here init the qml or qwidgets needed bits
     m_widget->init();
