@@ -98,6 +98,7 @@ class ConfigController:
 
         # Remove calamares
         self.remove_pkg("calamares", "usr/bin/calamares")
+        self.remove_pkg("calamares-git", "usr/bin/calamares")
 
         # Copy skel to root
         self.copy_folder('etc/skel', 'root')
