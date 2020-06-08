@@ -1,7 +1,6 @@
-/* === This file is part of Calamares - <https://github.com/calamares> ===
- * 
- *   SPDX-FileCopyrightText: 2014 Teo Mrnjavac <teo@kde.org>
- *   SPDX-FileCopyrightText: 2019 Adriaan de Groot <groot@kde.org>
+/* === This file is part of Calamares - <http://github.com/calamares> ===
+ *
+ *   SPDX-FileCopyrightText: 2020 Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -18,24 +17,31 @@
  *
  *   SPDX-License-Identifier: GPL-3.0-or-later
  *   License-Filename: LICENSE
- *
  */
 
-#ifndef MODULESYSTEM_ACTIONS_H
-#define MODULESYSTEM_ACTIONS_H
+#include "GeoIPFixed.h"
 
-namespace Calamares
+namespace CalamaresUtils
 {
-namespace ModuleSystem
+namespace GeoIP
 {
 
-enum class Action : char
+GeoIPFixed::GeoIPFixed( const QString& attribute )
+    : Interface( attribute.isEmpty() ? QStringLiteral( "Europe/Amsterdam" ) : attribute )
 {
-    Show,
-    Exec
-};
+}
 
-}  // namespace ModuleSystem
-}  // namespace Calamares
+QString
+GeoIPFixed::rawReply( const QByteArray& )
+{
+    return m_element;
+}
 
-#endif
+GeoIP::RegionZonePair
+GeoIPFixed::processReply( const QByteArray& data )
+{
+    return splitTZString( rawReply( data ) );
+}
+
+}  // namespace GeoIP
+}  // namespace CalamaresUtils

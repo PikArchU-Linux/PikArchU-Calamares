@@ -1,6 +1,6 @@
-/* === This file is part of Calamares - <https://github.com/calamares> ===
- * 
- *   SPDX-FileCopyrightText: 2018-2019 Adriaan de Groot <groot@kde.org>
+/* === This file is part of Calamares - <http://github.com/calamares> ===
+ *
+ *   SPDX-FileCopyrightText: 2020 Adriaan de Groot <groot@kde.org>
  *
  *   Calamares is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,11 +17,10 @@
  *
  *   SPDX-License-Identifier: GPL-3.0-or-later
  *   License-Filename: LICENSE
- *
  */
 
-#ifndef GEOIP_GEOIPJSON_H
-#define GEOIP_GEOIPJSON_H
+#ifndef GEOIP_GEOIPFIXED_H
+#define GEOIP_GEOIPFIXED_H
 
 #include "Interface.h"
 
@@ -29,24 +28,23 @@ namespace CalamaresUtils
 {
 namespace GeoIP
 {
-/** @brief GeoIP lookup for services that return JSON.
+/** @brief GeoIP with a fixed return value
  *
- * This is the original implementation of GeoIP lookup,
- * (e.g. using the FreeGeoIP.net service), or similar.
- *
- * The data is assumed to be in JSON format with a time_zone attribute.
+ * The data is ignored entirely and the attribute value is returned unchanged.
+ * Note that you still need to provide a usable URL for a successful GeoIP
+ * lookup -- the URL's data is just ignored.
  *
  * @note This class is an implementation detail.
  */
-class GeoIPJSON : public Interface
+class GeoIPFixed : public Interface
 {
 public:
-    /** @brief Configure the attribute name which is selected.
+    /** @brief Configure the value to return from rawReply()
      *
-     * If an empty string is passed in (not a valid attribute name),
-     * then "time_zone" is used.
+     * An empty string, which would not be a valid zone name, is
+     * translated to "Europe/Amsterdam".
      */
-    explicit GeoIPJSON( const QString& attribute = QString() );
+    explicit GeoIPFixed( const QString& value = QString() );
 
     virtual RegionZonePair processReply( const QByteArray& ) override;
     virtual QString rawReply( const QByteArray& ) override;
