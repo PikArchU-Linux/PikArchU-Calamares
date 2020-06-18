@@ -16,7 +16,7 @@
     <message>
       <location filename="../src/modules/partition/gui/BootInfoWidget.cpp" line="93"/>
       <source>This system was started with a &lt;strong&gt;BIOS&lt;/strong&gt; boot environment.&lt;br&gt;&lt;br&gt;To configure startup from a BIOS environment, this installer must install a boot loader, like &lt;strong&gt;GRUB&lt;/strong&gt;, either at the beginning of a partition or on the &lt;strong&gt;Master Boot Record&lt;/strong&gt; near the beginning of the partition table (preferred). This is automatic, unless you choose manual partitioning, in which case you must set it up on your own.</source>
-      <translation>यह सिस्टम &lt;strong&gt;BIOS&lt;/strong&gt;बूट वातावरण के साथ शुरू किया गया।&lt;br&gt;&lt;br&gt;BIOS वातावरण से स्टार्टअप विन्यस्त करने के लिए इंस्टॉलर को &lt;strong&gt;GRUB&lt;/strong&gt; जैसे बूट लोडर को, या तो विभाजन की शुरुआत में या फिर &lt;strong&gt;मास्टर बूट रिकॉर्ड&lt;/strong&gt; पर विभाजन तालिका की शुरुआत में इंस्टॉल (सुझाया जाता है) करना होगा। यह स्वत: होता है, परंतु अगर आप मैनुअल विभाजन करना चुनते है; तो आपको इसे खुद ही बनाना होगा।</translation>
+      <translation>यह सिस्टम &lt;strong&gt;BIOS&lt;/strong&gt;बूट वातावरण के साथ शुरू किया गया।&lt;br&gt;&lt;br&gt;BIOS वातावरण से स्टार्टअप विन्यस्त करने के लिए इंस्टॉलर को &lt;strong&gt;GRUB&lt;/strong&gt; जैसे बूट लोडर को, या तो विभाजन की शुरुआत में या फिर &lt;strong&gt;Master Boot Record&lt;/strong&gt; पर विभाजन तालिका की शुरुआत में इंस्टॉल (सुझाया जाता है) करना होगा। यह स्वत: होता है, परंतु अगर आप मैनुअल विभाजन करना चुनते है; तो आपको इसे खुद ही बनाना होगा।</translation>
     </message>
   </context>
   <context>
@@ -65,7 +65,7 @@
     <message>
       <location filename="../src/calamares/DebugWindow.ui" line="24"/>
       <source>GlobalStorage</source>
-      <translation>ग्लोबल स्टोरेज</translation>
+      <translation>GlobalStorage</translation>
     </message>
     <message>
       <location filename="../src/calamares/DebugWindow.ui" line="34"/>
@@ -80,7 +80,7 @@
     <message>
       <location filename="../src/calamares/DebugWindow.ui" line="57"/>
       <source>Type:</source>
-      <translation>प्रकार :</translation>
+      <translation>प्रकार</translation>
     </message>
     <message>
       <location filename="../src/calamares/DebugWindow.ui" line="64"/>
@@ -111,7 +111,7 @@
     <message>
       <location filename="../src/calamares/DebugWindow.cpp" line="231"/>
       <source>Debug information</source>
-      <translation>डीबग जानकारी</translation>
+      <translation>डीबग संबंधी जानकारी</translation>
     </message>
   </context>
   <context>
@@ -145,7 +145,7 @@
     <message>
       <location filename="../src/libcalamares/JobQueue.cpp" line="114"/>
       <source>Done</source>
-      <translation>पूर्ण हुआ</translation>
+      <translation>पूर्ण</translation>
     </message>
   </context>
   <context>
@@ -161,7 +161,7 @@
     <message>
       <location filename="../src/libcalamares/ProcessJob.cpp" line="52"/>
       <source>Run command '%1' in target system.</source>
-      <translation>लक्षित सिस्टम में कमांड '%1' चलाएँ।</translation>
+      <translation>लक्षित सिस्टम पर कमांड '%1' चलाएँ।</translation>
     </message>
     <message>
       <location filename="../src/libcalamares/ProcessJob.cpp" line="52"/>
@@ -189,17 +189,17 @@
     <message>
       <location filename="../src/libcalamares/PythonJob.cpp" line="240"/>
       <source>Working directory %1 for python job %2 is not readable.</source>
-      <translation>पाइथन कार्य %2 के लिए कार्यरत डायरेक्टरी %1 रीड करने योग्य नहीं है।</translation>
+      <translation>पाइथन कार्य %2 हेतु कार्यरत डायरेक्टरी %1 रीड योग्य नहीं है।</translation>
     </message>
     <message>
       <location filename="../src/libcalamares/PythonJob.cpp" line="246"/>
       <source>Bad main script file</source>
-      <translation>ख़राब मुख्य स्क्रिप्ट फ़ाइल</translation>
+      <translation>गलत मुख्य स्क्रिप्ट फ़ाइल</translation>
     </message>
     <message>
       <location filename="../src/libcalamares/PythonJob.cpp" line="247"/>
       <source>Main script file %1 for python job %2 is not readable.</source>
-      <translation>पाइथन कार्य %2 हेतु मुख्य स्क्रिप्ट फ़ाइल %1 रीड करने योग्य नहीं है।</translation>
+      <translation>पाइथन कार्य %2 हेतु मुख्य स्क्रिप्ट फ़ाइल %1 रीड योग्य नहीं है।</translation>
     </message>
     <message>
       <location filename="../src/libcalamares/PythonJob.cpp" line="315"/>
@@ -212,17 +212,17 @@
     <message>
       <location filename="../src/libcalamaresui/viewpages/QmlViewStep.cpp" line="76"/>
       <source>Loading ...</source>
-      <translation type="unfinished"/>
+      <translation>लोड हो रहा है ...</translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/viewpages/QmlViewStep.cpp" line="97"/>
       <source>QML Step &lt;i&gt;%1&lt;/i&gt;.</source>
-      <translation type="unfinished"/>
+      <translation>QML चरण &lt;i&gt;%1&lt;/i&gt;।</translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/viewpages/QmlViewStep.cpp" line="261"/>
       <source>Loading failed.</source>
-      <translation type="unfinished"/>
+      <translation>लोड करना विफल रहा।</translation>
     </message>
   </context>
   <context>
@@ -259,12 +259,12 @@
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="153"/>
       <source>Installation Failed</source>
-      <translation>इंस्टॉल विफल रहा</translation>
+      <translation>इंस्टॉल विफल रहा।</translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="154"/>
       <source>Would you like to paste the install log to the web?</source>
-      <translation type="unfinished"/>
+      <translation>क्या आप इंस्टॉल प्रक्रिया की लॉग फ़ाइल इंटरनेट पर पेस्ट करना चाहेंगे ? </translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="167"/>
@@ -291,12 +291,12 @@
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="192"/>
       <source>Install Log Paste URL</source>
-      <translation type="unfinished"/>
+      <translation>इंस्टॉल प्रक्रिया की लॉग फ़ाइल पेस्ट करें</translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="195"/>
       <source>The upload was unsuccessful. No web-paste was done.</source>
-      <translation>अपलोड असफल रहा। कोई वेब-पेस्ट नही किया गया। </translation>
+      <translation>अपलोड विफल रहा। इंटरनेट पर पेस्ट नहीं हो सका।</translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="211"/>
@@ -331,7 +331,7 @@
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="333"/>
       <source>The %1 installer is about to make changes to your disk in order to install %2.&lt;br/&gt;&lt;strong&gt;You will not be able to undo these changes.&lt;/strong&gt;</source>
-      <translation>%2 इंस्टॉल करने हेतु %1 इंस्टॉलर आपकी डिस्क में बदलाव करने वाला है।&lt;br/&gt;&lt;strong&gt;आप इन बदलावों को पूर्ववत नहीं कर पाएंगे।&lt;/strong&gt;</translation>
+      <translation>%2 इंस्टॉल करने के लिए %1 इंस्टॉलर आपकी डिस्क में बदलाव करने वाला है।&lt;br/&gt;&lt;strong&gt;आप इन बदलावों को पूर्ववत नहीं कर पाएंगे।&lt;/strong&gt;</translation>
     </message>
     <message>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="336"/>
@@ -428,7 +428,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/libcalamares/PythonHelper.cpp" line="297"/>
       <source>Unknown exception type</source>
-      <translation>अपवाद का प्रकार अज्ञात</translation>
+      <translation>अपवाद का प्रकार अज्ञात है</translation>
     </message>
     <message>
       <location filename="../src/libcalamares/PythonHelper.cpp" line="315"/>
@@ -443,7 +443,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/libcalamares/PythonHelper.cpp" line="366"/>
       <source>Unfetchable Python error.</source>
-      <translation>पहुँच से बाहर पाइथन त्रुटि।</translation>
+      <translation>अप्राप्य पाइथन त्रुटि।</translation>
     </message>
   </context>
   <context>
@@ -452,7 +452,8 @@ The installer will quit and all changes will be lost.</source>
       <location filename="../src/libcalamaresui/utils/Paste.cpp" line="34"/>
       <source>Install log posted to:
 %1</source>
-      <translation type="unfinished"/>
+      <translation>इंस्टॉल प्रक्रिया की लॉग फ़ाइल, यहाँ पेस्ट की गई :
+%1</translation>
     </message>
   </context>
   <context>
@@ -460,7 +461,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/calamares/CalamaresWindow.cpp" line="106"/>
       <source>Show debug information</source>
-      <translation>डीबग जानकारी दिखाएँ</translation>
+      <translation>डीबग संबंधी जानकारी दिखाएँ</translation>
     </message>
     <message>
       <location filename="../src/calamares/CalamaresWindow.cpp" line="172"/>
@@ -519,12 +520,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="158"/>
       <source>After:</source>
-      <translation>बाद में :</translation>
+      <translation>बाद में:</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="334"/>
       <source>&lt;strong&gt;Manual partitioning&lt;/strong&gt;&lt;br/&gt;You can create or resize partitions yourself. Having a GPT partition table and &lt;strong&gt;fat32 512Mb /boot partition is a must for UEFI installs&lt;/strong&gt;, either use an existing without formatting or create one.</source>
-      <translation type="unfinished"/>
+      <translation>&lt;strong&gt;मैनुअल विभाजन&lt;/strong&gt;&lt;br/&gt;आप स्वयं भी विभाजन बना व उनका आकार बदल सकते है। UEFI इंस्टॉल के लिए GPT विभाजन तालिका और &lt;strong&gt;fat32 512Mb का /boot विभाजन होना जरूरी है&lt;/strong&gt;, या तो पहले से मौजूद को ही बिना फॉर्मेट किए इस्तेमाल करें या फिर नया बनाएँ।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="833"/>
@@ -534,7 +535,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="958"/>
       <source>&lt;strong&gt;Select a partition to shrink, then drag the bottom bar to resize&lt;/strong&gt;</source>
-      <translation>&lt;strong&gt;छोटा करने हेतु विभाजन चुनें, फिर नीचे bar से उसका आकर सेट करें&lt;/strong&gt;</translation>
+      <translation>&lt;strong&gt;छोटा करने के लिए विभाजन चुनें, फिर नीचे bar से उसका आकर सेट करें&lt;/strong&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="973"/>
@@ -544,12 +545,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1030"/>
       <source>Boot loader location:</source>
-      <translation>बूट लोडर का स्थान :</translation>
+      <translation>बूट लोडर का स्थान:</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1079"/>
       <source>&lt;strong&gt;Select a partition to install on&lt;/strong&gt;</source>
-      <translation>&lt;strong&gt;इंस्टॉल हेतु विभाजन चुनें&lt;/strong&gt;</translation>
+      <translation>&lt;strong&gt;इंस्टॉल के लिए विभाजन चुनें&lt;/strong&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1135"/>
@@ -651,7 +652,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/jobs/ClearMountsJob.cpp" line="232"/>
       <source>Cleared all mounts for %1</source>
-      <translation>%1 हेतु सभी माउंट हटा दिए गए</translation>
+      <translation>%1 के लिए सभी माउंट हटा दिए गए</translation>
     </message>
   </context>
   <context>
@@ -726,7 +727,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/netinstall/Config.cpp" line="47"/>
       <source>Network Installation. (Disabled: Incorrect configuration)</source>
-      <translation type="unfinished"/>
+      <translation>नेटवर्क इंस्टॉल। (निष्क्रिय : गलत विन्यास)</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/Config.cpp" line="49"/>
@@ -736,7 +737,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/netinstall/Config.cpp" line="51"/>
       <source>Network Installation. (Disabled: internal error)</source>
-      <translation type="unfinished"/>
+      <translation>नेटवर्क इंस्टॉल। (निष्क्रिय : आंतरिक त्रुटि)</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/Config.cpp" line="53"/>
@@ -746,27 +747,27 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="54"/>
       <source>This computer does not satisfy the minimum requirements for setting up %1.&lt;br/&gt;Setup cannot continue. &lt;a href="#details"&gt;Details...&lt;/a&gt;</source>
-      <translation>यह कंप्यूटर %1 को सेटअप करने की न्यूनतम आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;सेटअप जारी नहीं रखा जा सकता।&lt;a href="#details"&gt;विवरण...&lt;/a&gt;</translation>
+      <translation>यह कंप्यूटर %1 सेटअप करने की न्यूनतम आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;सेटअप जारी नहीं रखा जा सकता।&lt;a href="#details"&gt;विवरण...&lt;/a&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="58"/>
       <source>This computer does not satisfy the minimum requirements for installing %1.&lt;br/&gt;Installation cannot continue. &lt;a href="#details"&gt;Details...&lt;/a&gt;</source>
-      <translation>यह कंप्यूटर %1 को इंस्टॉल करने की न्यूनतम आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;इंस्टॉल जारी नहीं रखा जा सकता।&lt;a href="#details"&gt;विवरण...&lt;/a&gt;</translation>
+      <translation>यह कंप्यूटर %1 इंस्टॉल करने की न्यूनतम आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;इंस्टॉल जारी नहीं रखा जा सकता।&lt;a href="#details"&gt;विवरण...&lt;/a&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="65"/>
       <source>This computer does not satisfy some of the recommended requirements for setting up %1.&lt;br/&gt;Setup can continue, but some features might be disabled.</source>
-      <translation>यह कंप्यूटर %1 को सेटअप करने हेतु सुझाई गई आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;सेटअप जारी रखा जा सकता है, लेकिन कुछ विशेषताएँ को निष्क्रिय किया जा सकता हैं।</translation>
+      <translation>यह कंप्यूटर %1 सेटअप करने हेतु सुझाई गई आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;सेटअप जारी रखा जा सकता है, लेकिन कुछ विशेषताएँ निष्क्रिय कर दी जाएँगी।</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="69"/>
       <source>This computer does not satisfy some of the recommended requirements for installing %1.&lt;br/&gt;Installation can continue, but some features might be disabled.</source>
-      <translation>यह कंप्यूटर %1 को इंस्टॉल करने हेतु सुझाई गई आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;इंस्टॉल जारी रखा जा सकता है, लेकिन कुछ विशेषताएँ को निष्क्रिय किया जा सकता हैं।</translation>
+      <translation>यह कंप्यूटर %1 इंस्टॉल करने हेतु सुझाई गई आवश्यकताओं को पूरा नहीं करता।&lt;br/&gt;इंस्टॉल जारी रखा जा सकता है, लेकिन कुछ विशेषताएँ निष्क्रिय कर दी जाएँगी।</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="79"/>
       <source>This program will ask you some questions and set up %2 on your computer.</source>
-      <translation>यह प्रोग्राम एक प्रश्नावली के आधार पर आपके कंप्यूटर पर %2 को सेट करेगा।</translation>
+      <translation>यह प्रोग्राम प्रश्नावली के माध्यम से आपके कंप्यूटर पर %2 को सेट करेगा।</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="230"/>
@@ -781,7 +782,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="236"/>
       <source>&lt;h1&gt;Welcome to the Calamares installer for %1.&lt;/h1&gt;</source>
-      <translation>&lt;h1&gt;%1 के लिए Calamares इंस्टॉलर में आपका स्वागत है।&lt;/h1&gt;</translation>
+      <translation>&lt;h1&gt;%1 हेतु Calamares इंस्टॉलर में आपका स्वागत है।&lt;/h1&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/Config.cpp" line="237"/>
@@ -992,7 +993,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/CreateVolumeGroupDialog.cpp" line="37"/>
       <source>Create Volume Group</source>
-      <translation>वॉल्यूम समूह बनाएँ</translation>
+      <translation>वॉल्यूम समूह बनाएं</translation>
     </message>
   </context>
   <context>
@@ -1397,7 +1398,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/welcome/checker/GeneralRequirements.cpp" line="164"/>
       <source>is running the installer as an administrator (root)</source>
-      <translation type="unfinished"/>
+      <translation>इंस्टॉलर को प्रबंधक(रुट) के अंतर्गत चला रहा है</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/checker/GeneralRequirements.cpp" line="167"/>
@@ -1412,7 +1413,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/welcome/checker/GeneralRequirements.cpp" line="176"/>
       <source>has a screen large enough to show the whole installer</source>
-      <translation type="unfinished"/>
+      <translation>स्क्रीन का माप इंस्टॉलर को पूर्णतया प्रदर्शित करने में सक्षम हो</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/checker/GeneralRequirements.cpp" line="179"/>
@@ -1563,7 +1564,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/license/LicensePage.ui" line="22"/>
       <source>&lt;h1&gt;License Agreement&lt;/h1&gt;</source>
-      <translation type="unfinished"/>
+      <translation>&lt;h1&gt;लाइसेंस अनुबंध&lt;/h1&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicensePage.cpp" line="149"/>
@@ -1573,27 +1574,27 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/license/LicensePage.cpp" line="151"/>
       <source>Please review the End User License Agreements (EULAs).</source>
-      <translation type="unfinished"/>
+      <translation>कृपया लक्षित उपयोक्ता लाइसेंस अनुबंधों (EULAs) की समीक्षा करें।</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicensePage.cpp" line="156"/>
       <source>This setup procedure will install proprietary software that is subject to licensing terms.</source>
-      <translation type="unfinished"/>
+      <translation>यह सेटअप प्रक्रिया लाइसेंस शर्तों के अधीन अमुक्त सॉफ्टवेयर को इंस्टॉल करेगी।</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicensePage.cpp" line="159"/>
       <source>If you do not agree with the terms, the setup procedure cannot continue.</source>
-      <translation type="unfinished"/>
+      <translation>यदि आप शर्तों से असहमत है, तो सेटअप प्रक्रिया जारी नहीं रखी जा सकती।</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicensePage.cpp" line="164"/>
       <source>This setup procedure can install proprietary software that is subject to licensing terms in order to provide additional features and enhance the user experience.</source>
-      <translation type="unfinished"/>
+      <translation>यह सेटअप प्रक्रिया अतिरिक्त सुविधाएँ प्रदान करने व उपयोक्ता अनुभव में वृद्धि हेतु लाइसेंस शर्तों के अधीन अमुक्त सॉफ्टवेयर को इंस्टॉल कर सकती है।</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicensePage.cpp" line="169"/>
       <source>If you do not agree with the terms, proprietary software will not be installed, and open source alternatives will be used instead.</source>
-      <translation type="unfinished"/>
+      <translation>यदि आप शर्तों से असहमत है, तो अमुक्त सॉफ्टवेयर इंस्टाल नहीं किया जाएगा व उनके मुक्त विकल्प उपयोग किए जाएँगे।</translation>
     </message>
   </context>
   <context>
@@ -1609,7 +1610,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/license/LicenseWidget.cpp" line="96"/>
       <source>URL: %1</source>
-      <translation type="unfinished"/>
+      <translation>यूआरएल : %1</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicenseWidget.cpp" line="117"/>
@@ -1646,7 +1647,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/license/LicenseWidget.cpp" line="171"/>
       <source>File: %1</source>
-      <translation type="unfinished"/>
+      <translation>फ़ाइल : %1</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicenseWidget.cpp" line="194"/>
@@ -1656,12 +1657,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/license/LicenseWidget.cpp" line="194"/>
       <source>Show the license text</source>
-      <translation type="unfinished"/>
+      <translation>लाइसेंस लेख दिखाएँ</translation>
     </message>
     <message>
       <location filename="../src/modules/license/LicenseWidget.cpp" line="198"/>
       <source>Open license agreement in browser.</source>
-      <translation type="unfinished"/>
+      <translation>लाइसेंस अनुबंध को ब्राउज़र में खोलें।</translation>
     </message>
   </context>
   <context>
@@ -1719,35 +1720,35 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="39"/>
       <source>Configuring LUKS key file.</source>
-      <translation>LUKS कुंजी फाइल विन्यस्त करना।</translation>
+      <translation>LUKS कुंजी फ़ाइल विन्यस्त करना।</translation>
     </message>
     <message>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="156"/>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="164"/>
       <source>No partitions are defined.</source>
-      <translation>कोई विभाजन परिभाषित नहीं हैं।</translation>
+      <translation>कोई विभाजन परिभाषित नहीं है।</translation>
     </message>
     <message>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="192"/>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="199"/>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="207"/>
       <source>Encrypted rootfs setup error</source>
-      <translation>एन्क्रिप्टेड rootfs सेटअप में त्रुटि</translation>
+      <translation>एन्क्रिप्टेड रुट फ़ाइल सिस्टम सेटअप करने में त्रुटि</translation>
     </message>
     <message>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="193"/>
       <source>Root partition %1 is LUKS but no passphrase has been set.</source>
-      <translation>रूट विभाजन %1 LUKS है, लेकिन कोई कूटशब्द सेट नहीं किया गया है।</translation>
+      <translation>रुट विभाजन %1, LUKS है परंतु कोई कूटशब्द सेट नहीं है।</translation>
     </message>
     <message>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="200"/>
       <source>Could not create LUKS key file for root partition %1.</source>
-      <translation>रूट विभाजन %1 हेतु LUKS कुंजी फाइल बनाने में विफल।</translation>
+      <translation>रुट विभाजन %1 हेतु LUKS कुंजी फ़ाइल बनाई नहीं जा सकी।</translation>
     </message>
     <message>
       <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="208"/>
       <source>Could not configure LUKS key file on partition %1.</source>
-      <translation type="unfinished"/>
+      <translation>विभाजन %1 हेतु LUKS कुंजी फ़ाइल विन्यस्त नहीं हो सकी।</translation>
     </message>
   </context>
   <context>
@@ -1755,7 +1756,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/machineid/MachineIdJob.cpp" line="46"/>
       <source>Generate machine-id.</source>
-      <translation>मशीन-आईडी उत्पन्न करना।</translation>
+      <translation>मशीन-आईडी उत्पन्न करें।</translation>
     </message>
     <message>
       <location filename="../src/modules/machineid/MachineIdJob.cpp" line="62"/>
@@ -1765,7 +1766,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/machineid/MachineIdJob.cpp" line="63"/>
       <source>No root mount point is set for MachineId.</source>
-      <translation type="unfinished"/>
+      <translation>मशीन-आईडी हेतु कोई रुट माउंट पॉइंट सेट नहीं है।</translation>
     </message>
   </context>
   <context>
@@ -1779,92 +1780,92 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="64"/>
       <source>Office software</source>
-      <translation type="unfinished"/>
+      <translation>ऑफिस सॉफ्टवेयर</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="65"/>
       <source>Office package</source>
-      <translation type="unfinished"/>
+      <translation>ऑफिस पैकेज</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="66"/>
       <source>Browser software</source>
-      <translation type="unfinished"/>
+      <translation>ब्राउज़र सॉफ्टवेयर</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="67"/>
       <source>Browser package</source>
-      <translation type="unfinished"/>
+      <translation>ब्राउज़र पैकेज</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="68"/>
       <source>Web browser</source>
-      <translation type="unfinished"/>
+      <translation>वेब ब्राउज़र</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="69"/>
       <source>Kernel</source>
-      <translation type="unfinished"/>
+      <translation>कर्नेल</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="70"/>
       <source>Services</source>
-      <translation type="unfinished"/>
+      <translation>सेवाएँ</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="71"/>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>लॉगिन</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="72"/>
       <source>Desktop</source>
-      <translation type="unfinished"/>
+      <translation>डेस्कटॉप</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="73"/>
       <source>Applications</source>
-      <translation type="unfinished"/>
+      <translation>अनुप्रयोग</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="74"/>
       <source>Communication</source>
-      <translation type="unfinished"/>
+      <translation>संचार</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="75"/>
       <source>Development</source>
-      <translation type="unfinished"/>
+      <translation>सॉफ्टवेयर विकास</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="76"/>
       <source>Office</source>
-      <translation type="unfinished"/>
+      <translation>ऑफिस</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="77"/>
       <source>Multimedia</source>
-      <translation type="unfinished"/>
+      <translation>मल्टीमीडिया</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="78"/>
       <source>Internet</source>
-      <translation type="unfinished"/>
+      <translation>इंटरनेट</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="79"/>
       <source>Theming</source>
-      <translation type="unfinished"/>
+      <translation>थीम</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="80"/>
       <source>Gaming</source>
-      <translation type="unfinished"/>
+      <translation>खेल</translation>
     </message>
     <message>
       <location filename="../src/modules/netinstall/NetInstallViewStep.cpp" line="81"/>
       <source>Utilities</source>
-      <translation type="unfinished"/>
+      <translation>साधन</translation>
     </message>
   </context>
   <context>
@@ -1872,7 +1873,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/notesqml/NotesQmlViewStep.cpp" line="34"/>
       <source>Notes</source>
-      <translation type="unfinished"/>
+      <translation>नोट्स</translation>
     </message>
   </context>
   <context>
@@ -1911,17 +1912,17 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="57"/>
       <source>Password is too short</source>
-      <translation>कूटशब्द काफ़ी छोटा है</translation>
+      <translation>कूटशब्द बहुत छोटा है</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="73"/>
       <source>Password is too long</source>
-      <translation>कूटशब्द काफ़ी लंबा है</translation>
+      <translation>कूटशब्द बहुत लंबा है</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="149"/>
       <source>Password is too weak</source>
-      <translation>कूटशब्द काफ़ी कमज़ोर है</translation>
+      <translation>कूटशब्द बहुत कमज़ोर है</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="157"/>
@@ -2016,7 +2017,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="213"/>
       <source>The password is too short</source>
-      <translation>कूटशब्द काफ़ी छोटा है</translation>
+      <translation>कूटशब्द बहुत छोटा है</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="215"/>
@@ -2076,7 +2077,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="254"/>
       <source>Password generation failed - required entropy too low for settings</source>
-      <translation>कूटशब्द बनाना विफल रहा - सेटिंग्स के लिए आवश्यक एन्ट्रापी काफ़ी कम है</translation>
+      <translation>कूटशब्द बनाना विफल रहा - सेटिंग्स के लिए आवश्यक entropy बहुत कम है</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="260"/>
@@ -2151,7 +2152,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="581"/>
       <source>Password is empty</source>
-      <translation>पासवर्ड खाली है</translation>
+      <translation>कूटशब्द रिक्त है</translation>
     </message>
   </context>
   <context>
@@ -2164,7 +2165,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/packagechooser/page_package.ui" line="40"/>
       <source>Product Name</source>
-      <translation>उत्पाद का नाम​</translation>
+      <translation>वस्तु का नाम</translation>
     </message>
     <message>
       <location filename="../src/modules/packagechooser/page_package.ui" line="53"/>
@@ -2174,7 +2175,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/packagechooser/page_package.ui" line="69"/>
       <source>Long Product Description</source>
-      <translation> लंबा उत्पाद विवरण</translation>
+      <translation>वस्तु का विस्तृत विवरण</translation>
     </message>
     <message>
       <location filename="../src/modules/packagechooser/PackageChooserPage.cpp" line="34"/>
@@ -2184,7 +2185,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/packagechooser/PackageChooserPage.cpp" line="35"/>
       <source>Please pick a product from the list. The selected product will be installed.</source>
-      <translation>कृप्या सूची से उत्पाद का चुनाव करें। चयनित उत्पाद इंस्टॉल किया जायेगा।</translation>
+      <translation>सूची में से वस्तु विशेष का चयन करें। चयनित वस्तु इंस्टॉल कर दी जाएगी।</translation>
     </message>
   </context>
   <context>
@@ -2241,7 +2242,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="51"/>
       <source>Your Full Name</source>
-      <translation>आपका पूरा नाम​</translation>
+      <translation>आपके पूरा नाम</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="120"/>
@@ -2266,18 +2267,18 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="246"/>
       <source>Computer Name</source>
-      <translation>कंप्यूटर का नाम​</translation>
+      <translation>कंप्यूटर का नाम</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="321"/>
       <source>Choose a password to keep your account safe.</source>
-      <translation>अपना अकाउंट सुरक्षित रखने हेतु कूटशब्द चुनें।</translation>
+      <translation>अपना अकाउंट सुरक्षित रखने के लिए पासवर्ड चुनें ।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="345"/>
       <location filename="../src/modules/users/page_usersetup.ui" line="370"/>
       <source>&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.&lt;/small&gt;</source>
-      <translation>&lt;small&gt;एक ही कूटशब्द दो बार दर्ज़ करें, ताकि उसे टाइप त्रुटि के लिए जांचा जा सके। एक उचित कूटशब्द में अक्षर, अंक व विराम चिन्हों का मेल होता है, उसमें कम-से-कम आठ अक्षर होने चाहिए, और उसे नियमित अंतराल पर बदलते रहना चाहिए।&lt;/small&gt;</translation>
+      <translation>&lt;small&gt;एक ही कूटशब्द दो बार दर्ज़ करें, ताकि उसे टाइप त्रुटि के लिए जांचा जा सके । एक अच्छे कूटशब्द में अक्षर, अंक व विराम चिन्हों का मेल होता है, उसमें कम-से-कम आठ अक्षर होने चाहिए, और उसे नियमित अंतराल पर बदलते रहना चाहिए।&lt;/small&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="351"/>
@@ -2289,22 +2290,22 @@ The installer will quit and all changes will be lost.</source>
       <location filename="../src/modules/users/page_usersetup.ui" line="376"/>
       <location filename="../src/modules/users/page_usersetup.ui" line="546"/>
       <source>Repeat Password</source>
-      <translation>कूटशब्द दोबारा दर्ज करें</translation>
+      <translation>कूटशब्द पुनः दर्ज करें</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="451"/>
       <source>When this box is checked, password-strength checking is done and you will not be able to use a weak password.</source>
-      <translation>डब्बे को चिह्नित करने पर पासवर्ड की मज़बूती की जांच होगी ओर आप कमज़ोर पासवर्ड उपयोग नही कर पाएँगे।</translation>
+      <translation>यह बॉक्स टिक करने के परिणाम स्वरुप कूटशब्द-क्षमता की जाँच होगी व आप कमज़ोर कूटशब्द उपयोग नहीं कर पाएंगे।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="454"/>
       <source>Require strong passwords.</source>
-      <translation>मज़बूत पासवर्डस की आवश्यकता।</translation>
+      <translation>मज़बूत कूटशब्द आवश्यक हैं।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="461"/>
       <source>Log in automatically without asking for the password.</source>
-      <translation>कूटशब्द पूछे बिना स्वतः लॉग इन करें।</translation>
+      <translation>कूटशब्द बिना पूछे ही स्वतः लॉग इन करें।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="468"/>
@@ -2314,7 +2315,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="491"/>
       <source>Choose a password for the administrator account.</source>
-      <translation>प्रबंधक अकाउंट हेतु कूटशब्द चुनें।</translation>
+      <translation>प्रबंधक अकाउंट के लिए कूटशब्द चुनें।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="515"/>
@@ -2373,7 +2374,7 @@ The installer will quit and all changes will be lost.</source>
       <location filename="../src/modules/partition/core/PartitionModel.cpp" line="168"/>
       <location filename="../src/modules/partition/core/PartitionModel.cpp" line="208"/>
       <source>Free Space</source>
-      <translation>रिक्त स्पेस</translation>
+      <translation>खाली स्पेस</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/core/PartitionModel.cpp" line="172"/>
@@ -2412,7 +2413,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/PartitionPage.ui" line="22"/>
       <source>Storage de&amp;vice:</source>
-      <translation>स्टोरेज डिवाइस (&amp;v):</translation>
+      <translation>डिवाइस (&amp;v):</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionPage.ui" line="51"/>
@@ -2545,7 +2546,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="266"/>
       <source>After:</source>
-      <translation>बाद में :</translation>
+      <translation>बाद में:</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="432"/>
@@ -2555,12 +2556,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="433"/>
       <source>An EFI system partition is necessary to start %1.&lt;br/&gt;&lt;br/&gt;To configure an EFI system partition, go back and select or create a FAT32 filesystem with the &lt;strong&gt;%3&lt;/strong&gt; flag enabled and mount point &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;&lt;br/&gt;You can continue without setting up an EFI system partition but your system may fail to start.</source>
-      <translation type="unfinished"/>
+      <translation>%1 आरंभ करने हेतु EFI सिस्टम विभाजन ज़रूरी है।&lt;br/&gt;&lt;br/&gt;EFI सिस्टम विभाजन को विन्यस्त करने के लिए, वापस जाएँ और चुनें या बनाएँ एक FAT32 फ़ाइल सिस्टम जिस पर &lt;strong&gt;%3&lt;/strong&gt; flag चालू हो व माउंट पॉइंट &lt;strong&gt;%2&lt;/strong&gt;हो।&lt;br/&gt;&lt;br/&gt;आप बिना सेट करें भी आगे बढ़ सकते है पर सिस्टम चालू नहीं होगा।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="447"/>
       <source>An EFI system partition is necessary to start %1.&lt;br/&gt;&lt;br/&gt;A partition was configured with mount point &lt;strong&gt;%2&lt;/strong&gt; but its &lt;strong&gt;%3&lt;/strong&gt; flag is not set.&lt;br/&gt;To set the flag, go back and edit the partition.&lt;br/&gt;&lt;br/&gt;You can continue without setting the flag but your system may fail to start.</source>
-      <translation type="unfinished"/>
+      <translation>%1 को शुरू करने हेतु EFI सिस्टम विभाजन ज़रूरी है।&lt;br/&gt;&lt;br/&gt;विभाजन को माउंट पॉइंट &lt;strong&gt;%2&lt;/strong&gt; के साथ विन्यस्त किया गया परंतु उसका &lt;strong&gt;%3&lt;/strong&gt; फ्लैग सेट नहीं था।&lt;br/&gt; फ्लैग सेट करने के लिए, वापस जाएँ और विभाजन को edit करें।&lt;br/&gt;&lt;br/&gt;आप बिना सेट करें भी आगे बढ़ सकते है पर सिस्टम चालू नहीं होगा।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="446"/>
@@ -2570,12 +2571,12 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="473"/>
       <source>Option to use GPT on BIOS</source>
-      <translation type="unfinished"/>
+      <translation>BIOS पर GPT उपयोग करने के लिए विकल्प</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="474"/>
       <source>A GPT partition table is the best option for all systems. This installer supports such a setup for BIOS systems too.&lt;br/&gt;&lt;br/&gt;To configure a GPT partition table on BIOS, (if not done so already) go back and set the partition table to GPT, next create a 8 MB unformatted partition with the &lt;strong&gt;bios_grub&lt;/strong&gt; flag enabled.&lt;br/&gt;&lt;br/&gt;An unformatted 8 MB partition is necessary to start %1 on a BIOS system with GPT.</source>
-      <translation type="unfinished"/>
+      <translation>GPT विभाजन तालिका सभी सिस्टम हेतु सबसे उत्तम विकल्प है। यह इंस्टॉलर BIOS सिस्टम के सेटअप को भी समर्थन करता है। &lt;br/&gt;&lt;br/&gt;BIOS पर GPT विभाजन तालिका को विन्यस्त करने हेतु, (अगर अब तक नहीं करा है तो) वापस जाकर विभाजन तालिका GPT पर सेट करें, फिर एक 8 MB का बिना फॉर्मेट हुआ विभाजन बनाए जिस पर &lt;strong&gt;bios_grub&lt;/strong&gt; का flag हो।&lt;br/&gt;&lt;br/&gt;यह बिना फॉर्मेट हुआ 8 MB का विभाजन %1 को BIOS सिस्टम पर GPT के साथ शुरू करने के लिए आवश्यक है।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="502"/>
@@ -2595,7 +2596,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/gui/PartitionViewStep.cpp" line="721"/>
       <source>There are no partitions to install on.</source>
-      <translation type="unfinished"/>
+      <translation>इंस्टॉल हेतु कोई विभाजन नहीं हैं।</translation>
     </message>
   </context>
   <context>
@@ -2671,7 +2672,7 @@ There was no output from the command.</source>
 Output:
 </source>
       <translation>
-आउटपुट :
+आउटपुट:
 </translation>
     </message>
     <message>
@@ -2774,27 +2775,27 @@ Output:
       <location filename="../src/modules/machineid/Workers.cpp" line="85"/>
       <location filename="../src/modules/machineid/Workers.cpp" line="102"/>
       <source>File not found</source>
-      <translation>फाइल नहीं मिली</translation>
+      <translation>फ़ाइल नहीं मिली</translation>
     </message>
     <message>
       <location filename="../src/modules/machineid/Workers.cpp" line="74"/>
       <source>Path &lt;pre&gt;%1&lt;/pre&gt; must be an absolute path.</source>
-      <translation type="unfinished"/>
+      <translation>फ़ाइल पथ &lt;pre&gt;%1&lt;/pre&gt; निरपेक्ष होना चाहिए।</translation>
     </message>
     <message>
       <location filename="../src/modules/machineid/Workers.cpp" line="103"/>
       <source>Could not create new random file &lt;pre&gt;%1&lt;/pre&gt;.</source>
-      <translation type="unfinished"/>
+      <translation>नवीन यादृच्छिक फ़ाइल &lt;pre&gt;%1&lt;/pre&gt;नहीं बनाई जा सकी।</translation>
     </message>
     <message>
       <location filename="../src/modules/packagechooser/PackageModel.cpp" line="79"/>
       <source>No product</source>
-      <translation>कोई उत्पाद नहीं</translation>
+      <translation>कोई वस्तु नहीं</translation>
     </message>
     <message>
       <location filename="../src/modules/packagechooser/PackageModel.cpp" line="87"/>
       <source>No description provided.</source>
-      <translation>कोई विवरण मौजूद नहीं</translation>
+      <translation>कोई विवरण प्रदान नहीं किया गया।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/PartitionDialogHelpers.cpp" line="47"/>
@@ -2844,7 +2845,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="139"/>
       <source>Select where to install %1.&lt;br/&gt;&lt;font color="red"&gt;Warning: &lt;/font&gt;this will delete all files on the selected partition.</source>
-      <translation>चुनें कि %1 को कहाँ इंस्टॉल करना है।&lt;br/&gt;&lt;font color="red"&gt;चेतावनी : &lt;/font&gt; यह चयनित विभाजन पर मौजूद सभी फ़ाइलों को हटा देगा।</translation>
+      <translation>चुनें कि %1 को कहाँ इंस्टॉल करना है।&lt;br/&gt;&lt;font color="red"&gt;चेतावनी: &lt;/font&gt; यह चयनित विभाजन पर मौजूद सभी फ़ाइलों को हटा देगा।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="165"/>
@@ -2854,7 +2855,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="173"/>
       <source>%1 cannot be installed on empty space. Please select an existing partition.</source>
-      <translation>%1 को खाली स्पेस पर इंस्टॉल नहीं किया जा सकता। कृपया कोई मौजूदा विभाजन चुनें।</translation>
+      <translation>%1 को खाली स्पेस पर इंस्टॉल नहीं किया जा सकता।कृपया कोई मौजूदा विभाजन चुनें।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="183"/>
@@ -2884,7 +2885,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="232"/>
       <source>&lt;strong&gt;%4&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;The partition %1 is too small for %2. Please select a partition with capacity at least %3 GiB.</source>
-      <translation>&lt;strong&gt;%4&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;%2 के लिए विभाजन %1 काफ़ी छोटा है। कृपया कम-से-कम %3 GiB की क्षमता वाला कोई विभाजन चुनें।</translation>
+      <translation>&lt;strong&gt;%4&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;%2 के लिए विभाजन %1 बहुत छोटा है।कृपया कम-से-कम %3 GiB की क्षमता वाला कोई विभाजन चुनें ।</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="255"/>
@@ -2906,7 +2907,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="291"/>
       <source>EFI system partition:</source>
-      <translation>EFI सिस्टम विभाजन :</translation>
+      <translation>EFI सिस्टम विभाजन:</translation>
     </message>
   </context>
   <context>
@@ -3260,7 +3261,7 @@ Output:
     <message>
       <location filename="../src/modules/users/SetPasswordJob.cpp" line="106"/>
       <source>Cannot set password for user %1.</source>
-      <translation>उपयोक्ता %1 हेतु पासवर्ड सेट नहीं किया जा सकता।</translation>
+      <translation>उपयोक्ता %1 के लिए पासवर्ड सेट नहीं किया जा सकता।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/SetPasswordJob.cpp" line="107"/>
@@ -3298,12 +3299,12 @@ Output:
     <message>
       <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="86"/>
       <source>Cannot set timezone,</source>
-      <translation>समय क्षेत्र सेट नहीं हो सका,</translation>
+      <translation>समय क्षेत्र सेट नहीं हो सका।</translation>
     </message>
     <message>
       <location filename="../src/modules/locale/SetTimezoneJob.cpp" line="87"/>
       <source>Cannot open /etc/timezone for writing</source>
-      <translation>राइट करने हेतु /etc /timezone खोला नहीं जा सका</translation>
+      <translation>राइट करने हेतु /etc /timezone खोला नहीं जा सका।</translation>
     </message>
   </context>
   <context>
@@ -3462,32 +3463,32 @@ Output:
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="395"/>
       <source>Your username is too long.</source>
-      <translation>आपका उपयोक्ता नाम काफ़ी लंबा है।</translation>
+      <translation>आपका उपयोक्ता नाम बहुत लंबा है।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="402"/>
       <source>Your username must start with a lowercase letter or underscore.</source>
-      <translation type="unfinished"/>
+      <translation>आपके उपयोक्ता नाम का आरंभ lowercase अक्षर या अंडरस्कोर(_) से ही होना चाहिए।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="409"/>
       <source>Only lowercase letters, numbers, underscore and hyphen are allowed.</source>
-      <translation type="unfinished"/>
+      <translation>केवल lowercase अक्षर, अंक, अंडरस्कोर(_) व हाइफ़न(-) का उपयोग ही मान्य है।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="445"/>
       <source>Your hostname is too short.</source>
-      <translation>आपका होस्ट नाम काफ़ी छोटा है।</translation>
+      <translation>आपका होस्ट नाम बहुत छोटा है।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="450"/>
       <source>Your hostname is too long.</source>
-      <translation>आपका होस्ट नाम काफ़ी लंबा है।</translation>
+      <translation>आपका होस्ट नाम बहुत लंबा है।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="457"/>
       <source>Only letters, numbers, underscore and hyphen are allowed.</source>
-      <translation type="unfinished"/>
+      <translation>केवल अक्षर, अंक, अंडरस्कोर(_) व हाइफ़न(-) का उपयोग ही मान्य है।</translation>
     </message>
     <message>
       <location filename="../src/modules/users/UsersPage.cpp" line="474"/>
@@ -3508,12 +3509,12 @@ Output:
     <message>
       <location filename="../src/calamares/VariantModel.cpp" line="241"/>
       <source>Key</source>
-      <translation type="unfinished"/>
+      <translation>कुंजी</translation>
     </message>
     <message>
       <location filename="../src/calamares/VariantModel.cpp" line="245"/>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>मान</translation>
     </message>
   </context>
   <context>
@@ -3521,7 +3522,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="14"/>
       <source>Create Volume Group</source>
-      <translation>वॉल्यूम समूह बनाएँ</translation>
+      <translation>वॉल्यूम समूह बनाएं</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/VolumeGroupBaseDialog.ui" line="20"/>
@@ -3580,7 +3581,7 @@ Output:
       <location filename="../src/modules/welcome/WelcomePage.ui" line="75"/>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="94"/>
       <source>Select application and system language</source>
-      <translation>ऐप्लिकेशन व सिस्टम भाषा चुनें</translation>
+      <translation>अनुप्रयोग व सिस्टम भाषा चुनें</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="136"/>
@@ -3590,17 +3591,17 @@ Output:
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="146"/>
       <source>Open donations website</source>
-      <translation>दान करने की वेबसाइट खोलें</translation>
+      <translation>दान हेतु वेबसाइट खोलें</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="149"/>
       <source>&amp;Donate</source>
-      <translation>&amp;दान करें</translation>
+      <translation>दान करें (&amp;D)</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="159"/>
       <source>Open help and support website</source>
-      <translation>मदद व सहायता की वेबसाइट खोलें</translation>
+      <translation>सहायता हेतु वेबसाइट खोलें</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="162"/>
@@ -3620,7 +3621,7 @@ Output:
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="185"/>
       <source>Open release notes website</source>
-      <translation type="unfinished"/>
+      <translation>प्रकाशन नोट्स हेतु वेबसाइट खोलें</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.ui" line="188"/>
@@ -3665,7 +3666,7 @@ Output:
     <message>
       <location filename="../src/modules/welcome/WelcomePage.cpp" line="250"/>
       <source>&lt;h1&gt;%1&lt;/h1&gt;&lt;br/&gt;&lt;strong&gt;%2&lt;br/&gt;for %3&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Copyright 2014-2017 Teo Mrnjavac &amp;lt;teo@kde.org&amp;gt;&lt;br/&gt;Copyright 2017-2020 Adriaan de Groot &amp;lt;groot@kde.org&amp;gt;&lt;br/&gt;Thanks to &lt;a href="https://calamares.io/team/"&gt;the Calamares team&lt;/a&gt; and the &lt;a href="https://www.transifex.com/calamares/calamares/"&gt;Calamares translators team&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;&lt;a href="https://calamares.io/"&gt;Calamares&lt;/a&gt; development is sponsored by &lt;br/&gt;&lt;a href="http://www.blue-systems.com/"&gt;Blue Systems&lt;/a&gt; - Liberating Software.</source>
-      <translation type="unfinished"/>
+      <translation>&lt;h1&gt;%1&lt;/h1&gt;&lt;br/&gt;&lt;strong&gt;%2&lt;br/&gt;के लिए %3&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;प्रतिलिप्याधिकार 2014-2017 Teo Mrnjavac &amp;lt;teo@kde.org&amp;gt;&lt;br/&gt;प्रतिलिप्याधिकार 2017-2020 Adriaan de Groot &amp;lt;groot@kde.org&amp;gt;&lt;br/&gt;&lt;a href="https://calamares.io/team/"&gt;Calamares टीम&lt;/a&gt; व &lt;a href="https://www.transifex.com/calamares/calamares/"&gt;Calamares अनुवादक टीम&lt;/a&gt; का धन्यवाद।&lt;br/&gt;&lt;br/&gt;&lt;a href="https://calamares.io/"&gt;Calamares&lt;/a&gt; का विकास &lt;br/&gt;&lt;a href="http://www.blue-systems.com/"&gt;ब्लू सिस्टम्स&lt;/a&gt; - लिब्रेटिंग सॉफ्टवेयर द्वारा प्रायोजित है।</translation>
     </message>
   </context>
   <context>
@@ -3700,12 +3701,23 @@ Output:
                         development is sponsored by &lt;br/&gt;
                         &lt;a href='http://www.blue-systems.com/'&gt;Blue Systems&lt;/a&gt; - 
                         Liberating Software.</source>
-      <translation type="unfinished"/>
+      <translation>&lt;h1&gt;%1&lt;/h1&gt;&lt;br/&gt;
+                        &lt;strong&gt;%2&lt;br/&gt;
+                        के लिए %3&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;
+                        प्रतिलिप्याधिकार 2014-2017 Teo Mrnjavac &amp;lt;teo@kde.org&amp;gt;&lt;br/&gt;
+                        प्रतिलिप्याधिकार 2017-2020 Adriaan de Groot &amp;lt;groot@kde.org&amp;gt;&lt;br/&gt;
+                        &lt;a href='https://calamares.io/team/'&gt;the Calamares  टीम&lt;/a&gt; 
+                         व &lt;a href='https://www.transifex.com/calamares/calamares/'&gt;Calamares 
+                        अनुवादक टीम&lt;/a&gt;को धन्यवाद।&lt;br/&gt;&lt;br/&gt;
+                        &lt;a href='https://calamares.io/'&gt;Calamares&lt;/a&gt; 
+                         का विकास &lt;br/&gt;
+                        &lt;a href='http://www.blue-systems.com/'&gt;ब्लू सिस्टम्स&lt;/a&gt; - 
+                        लिब्रेटिंग सॉफ्टवेयर द्वारा प्रायोजित है।</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/about.qml" line="105"/>
       <source>Back</source>
-      <translation type="unfinished"/>
+      <translation>वापस</translation>
     </message>
   </context>
   <context>
@@ -3713,44 +3725,44 @@ Output:
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="25"/>
       <source>Keyboard Model</source>
-      <translation type="unfinished"/>
+      <translation>कुंजीपटल मॉडल</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="26"/>
       <source>Pick your preferred keyboard model or use the default one based on the detected hardware</source>
-      <translation type="unfinished"/>
+      <translation>अपना कुंजीपटल मॉडल चुनें या फिर हार्डवेयर आधारित डिफ़ॉल्ट मॉडल उपयोग करें</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="41"/>
       <source>Refresh</source>
-      <translation type="unfinished"/>
+      <translation>रिफ्रेश करें</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="51"/>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="163"/>
       <source>Layouts</source>
-      <translation type="unfinished"/>
+      <translation>अभिन्यास</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="79"/>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="139"/>
       <source>Keyboard Layout</source>
-      <translation type="unfinished"/>
+      <translation>कुंजीपटल अभिन्यास</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="101"/>
       <source>Models</source>
-      <translation type="unfinished"/>
+      <translation>मॉडल</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="109"/>
       <source>Variants</source>
-      <translation type="unfinished"/>
+      <translation>भिन्न रूप</translation>
     </message>
     <message>
       <location filename="../src/modules/keyboardq/keyboardq.qml" line="189"/>
       <source>Test your keyboard</source>
-      <translation type="unfinished"/>
+      <translation>अपना कुंजीपटल जाँचें</translation>
     </message>
   </context>
   <context>
@@ -3759,7 +3771,8 @@ Output:
       <location filename="../src/modules/notesqml/notesqml.qml" line="61"/>
       <source>&lt;h3&gt;%1&lt;/h3&gt;
             &lt;p&gt;These are example release notes.&lt;/p&gt;</source>
-      <translation type="unfinished"/>
+      <translation>&lt;h3&gt;%1&lt;/h3&gt;
+            &lt;p&gt;ये उदाहरण रिलीज़ नोट्स हैं।&lt;/p&gt;</translation>
     </message>
   </context>
   <context>
@@ -3787,12 +3800,32 @@ Output:
             &lt;/ul&gt;
 
             &lt;p&gt;The vertical scrollbar is adjustable, current width set to 10.&lt;/p&gt;</source>
-      <translation type="unfinished"/>
+      <translation>&lt;h3&gt;%1&lt;/h3&gt;
+            &lt;p&gt;यह एक उदाहरण QML फ़ाइल है, जो फ्लिक योग्य सामग्री युक्त रिच टेक्स्ट के विकल्प प्रदर्शित करती है।&lt;/p&gt;
+
+            &lt;p&gt;रिच टेक्स्ट के साथ QML एचटीएमएल टैग उपयोग कर सकता है, फ्लिक योग्य सामग्री टचस्क्रीन में उपयोगी होती है।&lt;/p&gt;
+
+            &lt;p&gt;&lt;b&gt;यह बोल्ड टेक्स्ट है&lt;/b&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;i&gt;यह तिरछा टेक्स्ट है&lt;/i&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;u&gt;यह रेखांकित टेक्स्ट है&lt;/u&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;center&gt;यह टेक्स्ट केंद्र-संरेखित होगा।&lt;/center&gt;&lt;/p&gt;
+            &lt;p&gt;&lt;s&gt;यह स्ट्राइकथ्रू है&lt;/s&gt;&lt;/p&gt;
+
+            &lt;p&gt;कोड उदाहरण :
+            &lt;code&gt;ls -l /home&lt;/code&gt;&lt;/p&gt;
+
+            &lt;p&gt;&lt;b&gt;सूचियाँ :&lt;/b&gt;&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;इंटेल सीपीयू सिस्टम&lt;/li&gt;
+                &lt;li&gt;एएमडी सीपीयू सिस्टम&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;p&gt;ऊर्ध्वाधर स्क्रॉलबार समायोज्य है, वर्तमान चौड़ाई 10 पर सेट है।&lt;/p&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/release_notes.qml" line="85"/>
       <source>Back</source>
-      <translation type="unfinished"/>
+      <translation>वापस</translation>
     </message>
   </context>
   <context>
@@ -3801,32 +3834,33 @@ Output:
       <location filename="../src/modules/welcomeq/welcomeq.qml" line="44"/>
       <source>&lt;h3&gt;Welcome to the %1 &lt;quote&gt;%2&lt;/quote&gt; installer&lt;/h3&gt;
             &lt;p&gt;This program will ask you some questions and set up %1 on your computer.&lt;/p&gt;</source>
-      <translation type="unfinished"/>
+      <translation>&lt;h3&gt;%1 &lt;quote&gt;%2&lt;/quote&gt;इंस्टॉलर में आपका स्वागत है&lt;/h3&gt;
+            &lt;p&gt;यह प्रोग्राम प्रश्नावली के माध्यम से आपके कंप्यूटर पर %1 को सेट करेगा।&lt;/p&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/welcomeq.qml" line="71"/>
       <source>About</source>
-      <translation type="unfinished"/>
+      <translation>बारे में</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/welcomeq.qml" line="85"/>
       <source>Support</source>
-      <translation type="unfinished"/>
+      <translation>सहायता</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/welcomeq.qml" line="96"/>
       <source>Known issues</source>
-      <translation type="unfinished"/>
+      <translation>ज्ञात समस्याएँ</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/welcomeq.qml" line="107"/>
       <source>Release notes</source>
-      <translation type="unfinished"/>
+      <translation>रिलीज़ नोट्स</translation>
     </message>
     <message>
       <location filename="../src/modules/welcomeq/welcomeq.qml" line="119"/>
       <source>Donate</source>
-      <translation type="unfinished"/>
+      <translation>दान करें</translation>
     </message>
   </context>
 </TS>

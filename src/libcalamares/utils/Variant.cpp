@@ -1,5 +1,5 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
- * 
+ *
  *   SPDX-FileCopyrightText: 2013-2016 Teo Mrnjavac <teo@kde.org>
  *   SPDX-FileCopyrightText: 2018 Adriaan de Groot <groot@kde.org>
  *
@@ -65,6 +65,20 @@ getString( const QVariantMap& map, const QString& key )
     return QString();
 }
 
+QStringList
+getStringList( const QVariantMap& map, const QString& key )
+{
+    if ( map.contains( key ) )
+    {
+        auto v = map.value( key );
+        if ( v.type() == QVariant::StringList )
+        {
+            return v.toStringList();
+        }
+    }
+    return QStringList();
+}
+
 qint64
 getInteger( const QVariantMap& map, const QString& key, qint64 d )
 {
@@ -72,14 +86,20 @@ getInteger( const QVariantMap& map, const QString& key, qint64 d )
     if ( map.contains( key ) )
     {
         auto v = map.value( key );
-        if ( v.type() == QVariant::Int )
-        {
-            result = v.toInt();
-        }
-        else if ( v.type() == QVariant::LongLong )
-        {
-            result = v.toLongLong();
-        }
+        result = v.toString().toLongLong(nullptr, 0);
+    }
+
+    return result;
+}
+
+quint64
+getUnsignedInteger( const QVariantMap& map, const QString& key, quint64 u )
+{
+    quint64 result = u;
+    if ( map.contains( key ) )
+    {
+        auto v = map.value( key );
+        result = v.toString().toULongLong(nullptr, 0);
     }
 
     return result;

@@ -1,5 +1,5 @@
 /* === This file is part of Calamares - <https://github.com/calamares> ===
- * 
+ *
  *   SPDX-FileCopyrightText: 2013-2016 Teo Mrnjavac <teo@kde.org>
  *   SPDX-FileCopyrightText: 2018 Adriaan de Groot <groot@kde.org>
  *
@@ -44,9 +44,19 @@ DLLEXPORT bool getBool( const QVariantMap& map, const QString& key, bool d );
 DLLEXPORT QString getString( const QVariantMap& map, const QString& key );
 
 /**
+ * Get a string list from a mapping; returns empty list if no value.
+ */
+DLLEXPORT QStringList getStringList( const QVariantMap& map, const QString& key );
+
+/**
  * Get an integer value from a mapping; returns @p d if no value.
  */
 DLLEXPORT qint64 getInteger( const QVariantMap& map, const QString& key, qint64 d );
+
+/**
+ * Get an unsigned integer value from a mapping; returns @p u if no value.
+ */
+DLLEXPORT quint64 getUnsignedInteger( const QVariantMap& map, const QString& key, quint64 u );
 
 /**
  * Get a double value from a mapping (integers are converted); returns @p d if no value.
