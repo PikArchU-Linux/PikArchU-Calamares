@@ -3,7 +3,7 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
-# 3.2.27 (unreleased) #
+# 3.2.28 (unreleased) #
 
 This release contains contributions from (alphabetically by first name):
  - No external contributors yet
@@ -13,6 +13,25 @@ This release contains contributions from (alphabetically by first name):
 
 ## Modules ##
  - No module changes yet
+
+
+# 3.2.27 (2020-07-11) #
+
+This release contains contributions from (alphabetically by first name):
+ - Gaël PORTAY
+ - Vitor Lopes (new! welcome!)
+
+## Core ##
+ - QML modules with no surrounding navigation -- this is basically a
+   special case for full-screen Calamares -- now have margins suitable
+   for full-screen use.
+ - PythonQt modules are increasingly on the way out.
+
+## Modules ##
+ - The Manjaro package manager *pamac* has been added to those supported by
+   the *packages* module.
+ - The *netinstall* module has had some minor UI tweaks.
+ - Partitioning now tries harder to avoid floppy drives.
 
 
 # 3.2.26.1 (2020-06-23) #
