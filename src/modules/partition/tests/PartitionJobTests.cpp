@@ -1,21 +1,12 @@
-/* === This file is part of Calamares - <https://github.com/calamares> ===
+/* === This file is part of Calamares - <https://calamares.io> ===
  *
- *   Copyright 2014, Aurélien Gâteau <agateau@kde.org>
- *   Copyright 2018, Philip Müller <philm@manjaro.org>
- *   Copyright 2017, 2019 Adriaan de Groot <groot@kde.org>
+ *   SPDX-FileCopyrightText: 2014 Aurélien Gâteau <agateau@kde.org>
+ *   SPDX-FileCopyrightText: 2018, Philip Müller <philm@manjaro.org>
+ *   SPDX-FileCopyrightText: 2017, 2019 Adriaan de Groot <groot@kde.org>
+ *   SPDX-License-Identifier: GPL-3.0-or-later
  *
- *   Calamares is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
+ *   Calamares is Free Software: see the License-Identifier above.
  *
- *   Calamares is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "PartitionJobTests.h"
@@ -224,7 +215,7 @@ PartitionJobTests::queuePartitionTableCreation( PartitionTable::TableType type )
 {
     auto job = new CreatePartitionTableJob( m_device.data(), type );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 }
 
 CreatePartitionJob*
@@ -276,7 +267,7 @@ PartitionJobTests::testCreatePartition()
     Partition* partition1 = job->partition();
     QVERIFY( partition1 );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 
     freePartition = firstFreePartition( m_device->partitionTable() );
     QVERIFY( freePartition );
@@ -284,7 +275,7 @@ PartitionJobTests::testCreatePartition()
     Partition* partition2 = job->partition();
     QVERIFY( partition2 );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 
     freePartition = firstFreePartition( m_device->partitionTable() );
     QVERIFY( freePartition );
@@ -292,7 +283,7 @@ PartitionJobTests::testCreatePartition()
     Partition* partition3 = job->partition();
     QVERIFY( partition3 );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 
     QVERIFY( m_runner.run() );
 
@@ -317,14 +308,14 @@ PartitionJobTests::testCreatePartitionExtended()
     Partition* partition1 = job->partition();
     QVERIFY( partition1 );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 
     freePartition = firstFreePartition( m_device->partitionTable() );
     QVERIFY( freePartition );
     job = newCreatePartitionJob(
         freePartition, PartitionRole( PartitionRole::Extended ), FileSystem::Extended, 10_MiB );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
     Partition* extendedPartition = job->partition();
 
     freePartition = firstFreePartition( extendedPartition );
@@ -333,7 +324,7 @@ PartitionJobTests::testCreatePartitionExtended()
     Partition* partition2 = job->partition();
     QVERIFY( partition2 );
     job->updatePreview();
-    m_queue.enqueue( job_ptr( job ) );
+    m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 
     QVERIFY( m_runner.run() );
 
@@ -395,7 +386,7 @@ PartitionJobTests::testResizePartition()
                                                                KPM_PARTITION_FLAG( None ) );
         CreatePartitionJob* job = new CreatePartitionJob( m_device.data(), partition );
         job->updatePreview();
-        m_queue.enqueue( job_ptr( job ) );
+        m_queue.enqueue( 1, JobList() << job_ptr( job ) );
 
         QVERIFY( m_runner.run() );
     }
@@ -419,7 +410,7 @@ PartitionJobTests::testResizePartition()
         // Resize
         ResizePartitionJob* job = new ResizePartitionJob( m_device.data(), partition, newFirst, newLast );
         job->updatePreview();
-        m_queue.enqueue( job_ptr( job ) );
+        m_queue.enqueue( 1, JobList() << job_ptr( job ) );
         QVERIFY( m_runner.run() );
 
         QCOMPARE( partition->firstSector(), newFirst );

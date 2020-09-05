@@ -1,21 +1,12 @@
-/* === This file is part of Calamares - <https://github.com/calamares> ===
+/* === This file is part of Calamares - <https://calamares.io> ===
  *
- *   Copyright 2014-2017, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2017-2019, Adriaan de Groot <groot@kde.org>
- *   Copyright 2019, Collabora Ltd <arnaud.ferraris@collabora.com>
+ *   SPDX-FileCopyrightText: 2014-2017 Teo Mrnjavac <teo@kde.org>
+ *   SPDX-FileCopyrightText: 2017-2019 Adriaan de Groot <groot@kde.org>
+ *   SPDX-FileCopyrightText: 2019 Collabora Ltd <arnaud.ferraris@collabora.com>
+ *   SPDX-License-Identifier: GPL-3.0-or-later
  *
- *   Calamares is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
+ *   Calamares is Free Software: see the License-Identifier above.
  *
- *   Calamares is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "PartitionActions.h"
@@ -257,8 +248,8 @@ doReplacePartition( PartitionCoreModule* core, Device* dev, Partition* partition
 
 namespace Choices
 {
-static const NamedEnumTable< SwapChoice >&
-nameTable()
+const NamedEnumTable< SwapChoice >&
+swapChoiceNames()
 {
     static const NamedEnumTable< SwapChoice > names { { QStringLiteral( "none" ), SwapChoice::NoSwap },
                                                       { QStringLiteral( "small" ), SwapChoice::SmallSwap },
@@ -270,17 +261,36 @@ nameTable()
 }
 
 SwapChoice
-nameToChoice( QString name, bool& ok )
+pickOne( const SwapChoiceSet& s )
 {
-    return nameTable().find( name, ok );
+    if ( s.count() == 0 )
+    {
+        return SwapChoice::NoSwap;
+    }
+    if ( s.count() == 1 )
+    {
+        return *( s.begin() );
+    }
+    if ( s.contains( SwapChoice::NoSwap ) )
+    {
+        return SwapChoice::NoSwap;
+    }
+    // Here, count > 1 but NoSwap is not a member.
+    return *( s.begin() );
 }
 
-QString
-choiceToName( SwapChoice c )
+const NamedEnumTable< InstallChoice >&
+installChoiceNames()
 {
-    bool ok = false;
-    return nameTable().find( c, ok );
+    static const NamedEnumTable< InstallChoice > names { { QStringLiteral( "none" ), InstallChoice::NoChoice },
+                                                         { QStringLiteral( "nochoice" ), InstallChoice::NoChoice },
+                                                         { QStringLiteral( "alongside" ), InstallChoice::Alongside },
+                                                         { QStringLiteral( "erase" ), InstallChoice::Erase },
+                                                         { QStringLiteral( "replace" ), InstallChoice::Replace },
+                                                         { QStringLiteral( "manual" ), InstallChoice::Manual } };
+    return names;
 }
+
 
 }  // namespace Choices
 

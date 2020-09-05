@@ -1,3 +1,9 @@
+# === This file is part of Calamares - <https://calamares.io> ===
+#
+#   SPDX-FileCopyrightText: 2020 Adriaan de Groot <groot@kde.org>
+#   SPDX-License-Identifier: BSD-2-Clause
+#
+
 # When debugging the partitioning widget, or experimenting, you may
 # want to allow unsafe partitioning choices (e.g. doing things to the
 # current disk). Set DEBUG_PARTITION_UNSAFE to allow that (it turns off
@@ -56,6 +62,7 @@ if ( KPMcore_FOUND AND Qt5DBus_FOUND AND KF5CoreAddons_FOUND AND KF5Config_FOUND
         SOURCES
             core/BootLoaderModel.cpp
             core/ColorUtils.cpp
+            core/Config.cpp
             core/DeviceList.cpp
             core/DeviceModel.cpp
             core/KPMHelpers.cpp

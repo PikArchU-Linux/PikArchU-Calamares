@@ -1,21 +1,12 @@
-/* === This file is part of Calamares - <https://github.com/calamares> ===
+/* === This file is part of Calamares - <https://calamares.io> ===
  *
- *   Copyright 2014-2016, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2018-2019, Adriaan de Groot <groot@kde.org>
- *   Copyright 2019, Collabora Ltd
+ *   SPDX-FileCopyrightText: 2014-2016 Teo Mrnjavac <teo@kde.org>
+ *   SPDX-FileCopyrightText: 2018-2019 Adriaan de Groot <groot@kde.org>
+ *   SPDX-FileCopyrightText: 2019 Collabora Ltd
+ *   SPDX-License-Identifier: GPL-3.0-or-later
  *
- *   Calamares is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
+ *   Calamares is Free Software: see the License-Identifier above.
  *
- *   Calamares is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef CHOICEPAGE_H
@@ -42,11 +33,12 @@ namespace Calamares
 class PrettyRadioButton;
 }
 
+class Config;
+class DeviceInfoWidget;
 class PartitionBarsView;
 class PartitionSplitterWidget;
 class PartitionLabelsView;
 class PartitionCoreModule;
-class DeviceInfoWidget;
 
 class Device;
 
@@ -61,16 +53,9 @@ class ChoicePage : public QWidget, private Ui::ChoicePage
 {
     Q_OBJECT
 public:
-    enum InstallChoice
-    {
-        NoChoice,
-        Alongside,
-        Erase,
-        Replace,
-        Manual
-    };
+    using InstallChoice = PartitionActions::Choices::InstallChoice;
 
-    explicit ChoicePage( const SwapChoiceSet& swapChoices, QWidget* parent = nullptr );
+    explicit ChoicePage( Config* config, QWidget* parent = nullptr );
     virtual ~ChoicePage();
 
     /**
@@ -126,6 +111,7 @@ private slots:
     void onEraseSwapChoiceChanged();
 
 private:
+    bool calculateNextEnabled() const;
     void updateNextEnabled();
     void setupChoices();
     QComboBox* createBootloaderComboBox( QWidget* parentButton );
@@ -146,6 +132,7 @@ private:
     // Translations support
     void updateSwapChoicesTr( QComboBox* box );
 
+    Config* m_config;
     bool m_nextEnabled;
     PartitionCoreModule* m_core;
 
