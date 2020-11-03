@@ -3,7 +3,7 @@
 #
 # === This file is part of Calamares - <https://calamares.io> ===
 #
-#   SPDX-FileCopyrightText: 2014-2015,2019 Philip Müller <philm@manjaro.org>
+#   SPDX-FileCopyrightText: 2014-2015,2019-2020 Philip Müller <philm@manjaro.org>
 #   SPDX-FileCopyrightText: 2015-2017 Teo Mrnjavac <teo@kde.org>
 #   SPDX-FileCopyrightText: 2017 Alf Gaida <agaida@siduction.org>
 #   SPDX-FileCopyrightText: 2017 2019, Adriaan de Groot <groot@kde.org>
@@ -147,7 +147,7 @@ def modify_grub_default(partitions, root_mount_point, distributor):
     if cryptdevice_params:
         kernel_params.extend(cryptdevice_params)
 
-    if use_splash and not os.path.exists(os.path.join(root_mount_point, "usr/bin/grub-set-bootflag")):
+    if use_splash:
         kernel_params.append(use_splash)
 
     if os.path.exists(os.path.join(root_mount_point, "usr/lib/libapparmor.so")):
