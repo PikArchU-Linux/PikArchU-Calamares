@@ -621,7 +621,7 @@ Instalacijski program će izaći i sve promjene će biti izgubljene.</translatio
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1448"/>
       <source>This storage device already has an operating system on it, but the partition table &lt;strong&gt;%1&lt;/strong&gt; is different from the needed &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;</source>
-      <translation type="unfinished"/>
+      <translation>Ovaj uređaj za pohranu već ima operativni sustav, ali njegova particijska tablica &lt;strong&gt;%1&lt;/strong&gt; razlikuje se od potrebne &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1471"/>
@@ -3067,12 +3067,12 @@ Postavljanje se može nastaviti, ali neke će značajke možda biti onemogućene
     <message>
       <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="186"/>
       <source>The filesystem %1 could not be found in this system, and cannot be resized.</source>
-      <translation>Datotečni sustav % 1 nije moguće pronaći na ovom sustavu i ne može mu se promijeniti veličina.</translation>
+      <translation>Datotečni sustav %1 nije moguće pronaći na ovom sustavu i ne može mu se promijeniti veličina.</translation>
     </message>
     <message>
       <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="187"/>
       <source>The device %1 could not be found in this system, and cannot be resized.</source>
-      <translation>Uređaj % 1 nije moguće pronaći na ovom sustavu i ne može mu se promijeniti veličina.</translation>
+      <translation>Uređaj %1 nije moguće pronaći na ovom sustavu i ne može mu se promijeniti veličina.</translation>
     </message>
     <message>
       <location filename="../src/modules/fsresizer/ResizeFSJob.cpp" line="195"/>
