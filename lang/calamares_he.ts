@@ -145,7 +145,7 @@
     <message>
       <location filename="../src/libcalamares/JobQueue.cpp" line="196"/>
       <source>Done</source>
-      <translation>בוצע</translation>
+      <translation>סיום</translation>
     </message>
   </context>
   <context>
@@ -495,7 +495,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/calamares/CalamaresWindow.cpp" line="305"/>
       <source>%1 Installer</source>
-      <translation>תכנית התקנת %1</translation>
+      <translation>אשף התקנת %1</translation>
     </message>
   </context>
   <context>
@@ -514,149 +514,149 @@ The installer will quit and all changes will be lost.</source>
       <translation>Form</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="126"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="120"/>
       <source>Select storage de&amp;vice:</source>
       <translation>בחירת התקן א&amp;חסון:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="127"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="963"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1008"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1098"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="121"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="957"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1002"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1092"/>
       <source>Current:</source>
       <translation>נוכחי:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="128"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="122"/>
       <source>After:</source>
       <translation>לאחר:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="305"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="299"/>
       <source>&lt;strong&gt;Manual partitioning&lt;/strong&gt;&lt;br/&gt;You can create or resize partitions yourself.</source>
       <translation>&lt;strong&gt;הגדרת מחיצות באופן ידני&lt;/strong&gt;&lt;br/&gt;ניתן ליצור או לשנות את גודל המחיצות בעצמך.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="828"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="822"/>
       <source>Reuse %1 as home partition for %2.</source>
-      <translation>להשתמש ב־%1 כמחיצת הבית (home) עבור %2.</translation>
+      <translation>שימוש ב־%1 כמחיצת הבית (home) עבור %2.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="964"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="958"/>
       <source>&lt;strong&gt;Select a partition to shrink, then drag the bottom bar to resize&lt;/strong&gt;</source>
       <translation>&lt;strong&gt;ראשית יש לבחור מחיצה לכיווץ, לאחר מכן לגרור את הסרגל התחתון כדי לשנות את גודלה&lt;/strong&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="981"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="975"/>
       <source>%1 will be shrunk to %2MiB and a new %3MiB partition will be created for %4.</source>
       <translation>%1 תכווץ לכדי %2MiB ותיווצר מחיצה חדשה בגודל %3MiB עבור %4.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1037"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1031"/>
       <source>Boot loader location:</source>
       <translation>מיקום מנהל אתחול המערכת:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1089"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1083"/>
       <source>&lt;strong&gt;Select a partition to install on&lt;/strong&gt;</source>
       <translation>&lt;strong&gt;נא לבחור מחיצה כדי להתקין עליה&lt;/strong&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1148"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1142"/>
       <source>An EFI system partition cannot be found anywhere on this system. Please go back and use manual partitioning to set up %1.</source>
       <translation>במערכת זו לא נמצאה מחיצת מערכת EFI. נא לחזור ולהשתמש ביצירת מחיצות באופן ידני כדי להגדיר את %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1156"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1150"/>
       <source>The EFI system partition at %1 will be used for starting %2.</source>
-      <translation>מחיצת מערכת ה־EFI שב־%1 תשמש עבור טעינת %2.</translation>
+      <translation>מחיצת מערכת EFI שב־%1 תשמש לטעינת %2.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1164"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1158"/>
       <source>EFI system partition:</source>
       <translation>מחיצת מערכת EFI:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1297"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1291"/>
       <source>This storage device does not seem to have an operating system on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>לא נמצאה מערכת הפעלה על התקן אחסון זה. מה ברצונך לעשות?&lt;br/&gt; ניתן לסקור ולאשר את בחירתך לפני ששינויים יתבצעו על התקן האחסון.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1302"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1339"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1361"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1386"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1296"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1333"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1355"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1380"/>
       <source>&lt;strong&gt;Erase disk&lt;/strong&gt;&lt;br/&gt;This will &lt;font color="red"&gt;delete&lt;/font&gt; all data currently present on the selected storage device.</source>
       <translation>&lt;strong&gt;מחיקת כונן&lt;/strong&gt;&lt;br/&gt; פעולה זו &lt;font color="red"&gt;תמחק&lt;/font&gt; את כל המידע השמור על התקן האחסון הנבחר.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1306"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1335"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1357"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1382"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1300"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1329"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1351"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1376"/>
       <source>&lt;strong&gt;Install alongside&lt;/strong&gt;&lt;br/&gt;The installer will shrink a partition to make room for %1.</source>
       <translation>&lt;strong&gt;התקנה לצד&lt;/strong&gt;&lt;br/&gt; אשף ההתקנה יכווץ מחיצה כדי לפנות מקום לטובת %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1310"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1344"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1365"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1390"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1304"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1338"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1359"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1384"/>
       <source>&lt;strong&gt;Replace a partition&lt;/strong&gt;&lt;br/&gt;Replaces a partition with %1.</source>
       <translation>&lt;strong&gt;החלפת מחיצה&lt;/strong&gt;&lt;br/&gt; ביצוע החלפה של המחיצה ב־%1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1329"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1323"/>
       <source>This storage device has %1 on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>בהתקן אחסון זה נמצאה %1. מה ברצונך לעשות?&lt;br/&gt; ניתן לסקור ולאשר את בחירתך לפני ששינויים יתבצעו על התקן האחסון.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1352"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1346"/>
       <source>This storage device already has an operating system on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>כבר קיימת מערכת הפעלה על התקן האחסון הזה. כיצד להמשיך?&lt;br/&gt; ניתן לסקור ולאשר את בחירתך לפני ששינויים יתבצעו על התקן האחסון.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1377"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1371"/>
       <source>This storage device has multiple operating systems on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>ישנן מגוון מערכות הפעלה על התקן אחסון זה. איך להמשיך? &lt;br/&gt;ניתן לסקור ולאשר את בחירתך לפני ששינויים יתבצעו על התקן האחסון.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1449"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1443"/>
       <source>This storage device already has an operating system on it, but the partition table &lt;strong&gt;%1&lt;/strong&gt; is different from the needed &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;</source>
       <translation>בהתקן האחסון הזה כבר יש מערכת הפעלה אך טבלת המחיצות &lt;strong&gt;%1&lt;/strong&gt; שונה מהנדרשת &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1472"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1466"/>
       <source>This storage device has one of its partitions &lt;strong&gt;mounted&lt;/strong&gt;.</source>
       <translation>אחת המחיצות של התקן האחסון הזה &lt;strong&gt;מעוגנת&lt;/strong&gt;.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1477"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1471"/>
       <source>This storage device is a part of an &lt;strong&gt;inactive RAID&lt;/strong&gt; device.</source>
       <translation>התקן אחסון זה הוא חלק מהתקן &lt;strong&gt;RAID בלתי פעיל&lt;/strong&gt;.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1604"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1598"/>
       <source>No Swap</source>
       <translation>ללא החלפה</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1612"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1606"/>
       <source>Reuse Swap</source>
       <translation>שימוש מחדש בהחלפה</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1615"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1609"/>
       <source>Swap (no Hibernate)</source>
       <translation>החלפה (ללא תרדמת)</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1618"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1612"/>
       <source>Swap (with Hibernate)</source>
       <translation>החלפה (עם תרדמת)</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1621"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1615"/>
       <source>Swap to file</source>
       <translation>החלפה לקובץ</translation>
     </message>
@@ -814,49 +814,49 @@ The installer will quit and all changes will be lost.</source>
       <translation>&lt;h1&gt;ברוך בואך לתכנית התקנת %1&lt;/h1&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="200"/>
+      <location filename="../src/modules/users/Config.cpp" line="212"/>
       <source>Your username is too long.</source>
       <translation>שם המשתמש ארוך מדי.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="206"/>
+      <location filename="../src/modules/users/Config.cpp" line="218"/>
       <source>'%1' is not allowed as username.</source>
       <translation>אסור להשתמש ב־‚%1’ כשם משתמש.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="213"/>
+      <location filename="../src/modules/users/Config.cpp" line="225"/>
       <source>Your username must start with a lowercase letter or underscore.</source>
       <translation>שם המשתמש שלך חייב להתחיל באות קטנה או בקו תחתי.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="217"/>
+      <location filename="../src/modules/users/Config.cpp" line="229"/>
       <source>Only lowercase letters, numbers, underscore and hyphen are allowed.</source>
       <translation>מותר להשתמש רק באותיות קטנות, ספרות, קווים תחתיים ומינוסים.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="262"/>
+      <location filename="../src/modules/users/Config.cpp" line="274"/>
       <source>Your hostname is too short.</source>
       <translation>שם המחשב קצר מדי.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="266"/>
+      <location filename="../src/modules/users/Config.cpp" line="278"/>
       <source>Your hostname is too long.</source>
       <translation>שם המחשב ארוך מדי.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="272"/>
+      <location filename="../src/modules/users/Config.cpp" line="284"/>
       <source>'%1' is not allowed as hostname.</source>
       <translation>אסור להשתמש ב־‚%1’ כשם מארח.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="278"/>
+      <location filename="../src/modules/users/Config.cpp" line="290"/>
       <source>Only letters, numbers, underscore and hyphen are allowed.</source>
       <translation>מותר להשתמש רק באותיות, ספרות, קווים תחתיים ומינוסים.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="481"/>
+      <location filename="../src/modules/users/Config.cpp" line="527"/>
       <source>Your passwords do not match!</source>
-      <translation>הססמאות לא תואמות!</translation>
+      <translation>הסיסמאות לא תואמות!</translation>
     </message>
   </context>
   <context>
@@ -1032,19 +1032,15 @@ The installer will quit and all changes will be lost.</source>
       <translation>יצירת משתמש &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/CreateUserJob.cpp" line="50"/>
-      <source>Creating user %1.</source>
-      <translation>נוצר משתמש %1.</translation>
-    </message>
-    <message>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="126"/>
       <source>Preserving home directory</source>
       <translation>שימור תיקיית הבית</translation>
     </message>
     <message>
+      <location filename="../src/modules/users/CreateUserJob.cpp" line="50"/>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="143"/>
       <source>Creating user %1</source>
-      <translation>המשתמש %1 נוצר. {1?}</translation>
+      <translation>המשתמש %1 נוצר</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="151"/>
@@ -1117,17 +1113,17 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/jobs/DeletePartitionJob.cpp" line="38"/>
       <source>Delete partition &lt;strong&gt;%1&lt;/strong&gt;.</source>
-      <translation>מחק את מחיצה &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+      <translation>מחיקת המחיצה &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/jobs/DeletePartitionJob.cpp" line="45"/>
       <source>Deleting partition %1.</source>
-      <translation>מבצע מחיקה של מחיצה %1.</translation>
+      <translation>מחיקת המחיצה %1 מתבצעת.</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/jobs/DeletePartitionJob.cpp" line="56"/>
       <source>The installer failed to delete partition %1.</source>
-      <translation>תכנית ההתקנה כשלה במחיקת המחיצה %1.</translation>
+      <translation>כשל של תכנית ההתקנה במחיקת המחיצה %1.</translation>
     </message>
   </context>
   <context>
@@ -1181,17 +1177,17 @@ The installer will quit and all changes will be lost.</source>
   <context>
     <name>DracutLuksCfgJob</name>
     <message>
-      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="127"/>
+      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="117"/>
       <source>Write LUKS configuration for Dracut to %1</source>
       <translation>רשום הגדרות הצפנה LUKS עבור Dracut אל %1</translation>
     </message>
     <message>
-      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="131"/>
+      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="121"/>
       <source>Skip writing LUKS configuration for Dracut: "/" partition is not encrypted</source>
-      <translation>דלג רישום הגדרות הצפנה LUKS עבור Dracut: מחיצת "/" לא תוצפן.</translation>
+      <translation>דילוג על רישום הגדרת LUKS עבור Dracut: מחיצת "/" אינה מוצפנת</translation>
     </message>
     <message>
-      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="148"/>
+      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="138"/>
       <source>Failed to open %1</source>
       <translation>הפתיחה של %1 נכשלה.</translation>
     </message>
@@ -1326,7 +1322,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/jobs/FillGlobalStorageJob.cpp" line="209"/>
       <source>Setting up mount points.</source>
-      <translation>נקודות עיגון מוגדרות.</translation>
+      <translation>כעת בהגדרת נקודות העיגון.</translation>
     </message>
   </context>
   <context>
@@ -1415,7 +1411,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/partition/jobs/FormatPartitionJob.cpp" line="58"/>
       <source>Formatting partition %1 with file system %2.</source>
-      <translation>מאתחל מחיצה %1 עם מערכת קבצים %2.</translation>
+      <translation>כעת בפרמוט המחיצה %1 עם מערכת הקבצים %2.</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/jobs/FormatPartitionJob.cpp" line="72"/>
@@ -1765,30 +1761,30 @@ The installer will quit and all changes will be lost.</source>
       <translation>קובץ מפתח ה־LUKS מוגדר.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="145"/>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="153"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="168"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="176"/>
       <source>No partitions are defined.</source>
       <translation>לא הוגדרו מחיצות.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="181"/>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="188"/>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="196"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="211"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="218"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="226"/>
       <source>Encrypted rootfs setup error</source>
       <translation>שגיאת התקנת מחיצת שורש מוצפנת</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="182"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="212"/>
       <source>Root partition %1 is LUKS but no passphrase has been set.</source>
       <translation>מחיצת השורש %1 היא LUKS אבל לא הוגדרה מילת צופן.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="189"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="219"/>
       <source>Could not create LUKS key file for root partition %1.</source>
       <translation>לא ניתן ליצור קובץ מפתח LUKS למחיצת השורש %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="197"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="227"/>
       <source>Could not configure LUKS key file on partition %1.</source>
       <translation>לא ניתן להגדיר קובץ מפתח LUKS למחיצה %1.</translation>
     </message>
@@ -2001,17 +1997,17 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="51"/>
       <source>Password is too short</source>
-      <translation>הססמה קצרה מדי</translation>
+      <translation>הסיסמה קצרה מדי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="67"/>
       <source>Password is too long</source>
-      <translation>הססמה ארוכה מדי</translation>
+      <translation>הסיסמה ארוכה מדי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="188"/>
       <source>Password is too weak</source>
-      <translation>הססמה חלשה מדי</translation>
+      <translation>הסיסמה חלשה מדי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="196"/>
@@ -2026,182 +2022,182 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="201"/>
       <source>The password is the same as the old one</source>
-      <translation>הססמה הזו זהה לישנה</translation>
+      <translation>הסיסמה הזו זהה לישנה</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="203"/>
       <source>The password is a palindrome</source>
-      <translation>הססמה היא פלינדרום</translation>
+      <translation>הסיסמה היא פלינדרום</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="205"/>
       <source>The password differs with case changes only</source>
-      <translation>מורכבות הססמה טמונה בשינויי סוגי אותיות בלבד</translation>
+      <translation>מורכבות הסיסמה טמונה בשינויי סוגי אותיות בלבד</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="207"/>
       <source>The password is too similar to the old one</source>
-      <translation>הססמה דומה מדי לישנה</translation>
+      <translation>הסיסמה דומה מדי לישנה</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="209"/>
       <source>The password contains the user name in some form</source>
-      <translation>הססמה מכילה את שם המשתמש בצורה כלשהי</translation>
+      <translation>הסיסמה מכילה את שם המשתמש בצורה כלשהי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="211"/>
       <source>The password contains words from the real name of the user in some form</source>
-      <translation>הססמה מכילה מילים מהשם האמתי של המשתמש בצורה זו או אחרת</translation>
+      <translation>הסיסמה מכילה מילים מהשם האמתי של המשתמש בצורה זו או אחרת</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="214"/>
       <source>The password contains forbidden words in some form</source>
-      <translation>הססמה מכילה מילים אסורות בצורה כלשהי</translation>
+      <translation>הסיסמה מכילה מילים אסורות בצורה כלשהי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="221"/>
       <source>The password contains too few digits</source>
-      <translation>הססמה לא מכילה מספיק ספרות</translation>
+      <translation>הסיסמה לא מכילה מספיק ספרות</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="228"/>
       <source>The password contains too few uppercase letters</source>
-      <translation>הססמה מכילה מעט מדי אותיות גדולות</translation>
+      <translation>הסיסמה מכילה מעט מדי אותיות גדולות</translation>
+    </message>
+    <message numerus="yes">
+      <location filename="../src/modules/users/CheckPWQuality.cpp" line="232"/>
+      <source>The password contains fewer than %n lowercase letters</source>
+      <translation>
+        <numerusform>הסיסמה מכילה פחות מאות אחת קטנה</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n אותיות קטנות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n אותיות קטנות</numerusform>
+        <numerusform>הססמה מכילה פחות מ־%n אותיות קטנות</numerusform>
+      </translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="235"/>
       <source>The password contains too few lowercase letters</source>
-      <translation>הססמה אינה מכילה מספיק אותיות קטנות</translation>
+      <translation>הסיסמה אינה מכילה מספיק אותיות קטנות</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="242"/>
       <source>The password contains too few non-alphanumeric characters</source>
-      <translation>הססמה מכילה מעט מדי תווים שאינם אלפאנומריים</translation>
+      <translation>הסיסמה מכילה מעט מדי תווים שאינם אלפאנומריים</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="249"/>
       <source>The password is too short</source>
-      <translation>הססמה קצרה מדי</translation>
+      <translation>הסיסמה קצרה מדי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="258"/>
       <source>The password does not contain enough character classes</source>
-      <translation>הססמה לא מכילה מספיק סוגי תווים</translation>
+      <translation>הסיסמה לא מכילה מספיק סוגי תווים</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="265"/>
       <source>The password contains too many same characters consecutively</source>
-      <translation>הססמה מכילה יותר מדי תווים זהים ברצף</translation>
+      <translation>הסיסמה מכילה יותר מדי תווים זהים ברצף</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="275"/>
       <source>The password contains too many characters of the same class consecutively</source>
-      <translation>הססמה מכילה יותר מדי תווים מאותו הסוג ברצף</translation>
+      <translation>הסיסמה מכילה יותר מדי תווים מאותו הסוג ברצף</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="218"/>
       <source>The password contains fewer than %n digits</source>
       <translation>
-        <numerusform>הססמה מכילה פחות מספרה</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n ספרות</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n ספרות</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n ספרות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מספרה</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n ספרות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n ספרות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n ספרות</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="225"/>
       <source>The password contains fewer than %n uppercase letters</source>
       <translation>
-        <numerusform>הססמה מכילה פחות מאות גדולה אחת</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n אותיות גדולות</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n אותיות גדולות</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n אותיות גדולות</numerusform>
-      </translation>
-    </message>
-    <message numerus="yes">
-      <location filename="../src/modules/users/CheckPWQuality.cpp" line="232"/>
-      <source>The password contains fewer  than %n lowercase letters</source>
-      <translation>
-        <numerusform>הססמה מכילה פחות מאות קטנה אחת</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n אותיות קטנות</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n אותיות קטנות</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n אותיות קטנות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מאות גדולה אחת</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n אותיות גדולות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n אותיות גדולות</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n אותיות גדולות</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="239"/>
       <source>The password contains fewer than %n non-alphanumeric characters</source>
       <translation>
-        <numerusform>הססמה מכילה פחות מתו אחד שאינו אלפאנומרי</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n תווים שאינם אלפאנומריים</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n תווים שאינם אלפאנומריים</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n תווים שאינם אלפאנומריים</numerusform>
+        <numerusform>הסיסמה מכילה פחות מתו אחד שאינו אלפאנומרי</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n תווים שאינם אלפאנומריים</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n תווים שאינם אלפאנומריים</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n תווים שאינם אלפאנומריים</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="246"/>
       <source>The password is shorter than %n characters</source>
       <translation>
-        <numerusform>הססמה קצרה מתו אחד</numerusform>
-        <numerusform>הססמה קצרה מ־%n תווים</numerusform>
-        <numerusform>הססמה קצרה מ־%n תווים</numerusform>
-        <numerusform>הססמה קצרה מ־%n תווים</numerusform>
+        <numerusform>הסיסמה קצרה מתו אחד</numerusform>
+        <numerusform>הסיסמה קצרה מ־%n תווים</numerusform>
+        <numerusform>הסיסמה קצרה מ־%n תווים</numerusform>
+        <numerusform>הסיסמה קצרה מ־%n תווים</numerusform>
       </translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="251"/>
       <source>The password is a rotated version of the previous one</source>
-      <translation>הססמה היא גרסה מעורבבת של הקודמת</translation>
+      <translation>הסיסמה היא גרסה מעורבבת של הקודמת</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="255"/>
       <source>The password contains fewer than %n character classes</source>
       <translation>
-        <numerusform>הססמה מכילה פחות ממחלקת תווים אחת</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n מחלקות תווים</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n מחלקות תווים</numerusform>
-        <numerusform>הססמה מכילה פחות מ־%n מחלקות תווים</numerusform>
+        <numerusform>הסיסמה מכילה פחות ממחלקת תווים אחת</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n מחלקות תווים</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n מחלקות תווים</numerusform>
+        <numerusform>הסיסמה מכילה פחות מ־%n מחלקות תווים</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="262"/>
       <source>The password contains more than %n same characters consecutively</source>
       <translation>
-        <numerusform>הססמה מכילה למעלה מתו זהה ברצף</numerusform>
-        <numerusform>הססמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
-        <numerusform>הססמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
-        <numerusform>הססמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מתו זהה ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="269"/>
       <source>The password contains more than %n characters of the same class consecutively</source>
       <translation>
-        <numerusform>הססמה מכילה למעלה מתו אחד זהה ברצף</numerusform>
-        <numerusform>הססמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
-        <numerusform>הססמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
-        <numerusform>הססמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מתו אחד זהה ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
+        <numerusform>הסיסמה מכילה למעלה מ־%n תווים זהים ברצף</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="280"/>
       <source>The password contains monotonic sequence longer than %n characters</source>
       <translation>
-        <numerusform>הססמה מכילה רצף מונוטוני ארוך מתו אחד</numerusform>
-        <numerusform>הססמה מכילה רצף מונוטוני ארוך מ־%n תווים</numerusform>
-        <numerusform>הססמה מכילה רצף מונוטוני ארוך מ־%n תווים</numerusform>
-        <numerusform>הססמה מכילה רצף מונוטוני ארוך מ־%n תווים</numerusform>
+        <numerusform>הסיסמה מכילה רצף מונוטוני ארוך מתו אחד</numerusform>
+        <numerusform>הסיסמה מכילה רצף מונוטוני ארוך מ־%n תווים</numerusform>
+        <numerusform>הסיסמה מכילה רצף מונוטוני ארוך מ־%n תווים</numerusform>
+        <numerusform>הסיסמה מכילה רצף מונוטוני ארוך מ־%n תווים</numerusform>
       </translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="286"/>
       <source>The password contains too long of a monotonic character sequence</source>
-      <translation>הססמה מכילה רצף תווים מונוטוני ארוך מדי</translation>
+      <translation>הסיסמה מכילה רצף תווים מונוטוני ארוך מדי</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="289"/>
       <source>No password supplied</source>
-      <translation>לא צוינה ססמה</translation>
+      <translation>לא צוינה סיסמה</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="291"/>
@@ -2211,17 +2207,17 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="293"/>
       <source>Password generation failed - required entropy too low for settings</source>
-      <translation>יצירת הססמה נכשלה - רמת האקראיות הנדרשת נמוכה ביחס להגדרות</translation>
+      <translation>יצירת הסיסמה נכשלה - רמת האקראיות הנדרשת נמוכה ביחס להגדרות</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="298"/>
       <source>The password fails the dictionary check - %1</source>
-      <translation>הססמה נכשלה במבחן המילון - %1</translation>
+      <translation>הסיסמה נכשלה במבחן המילון - %1</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="301"/>
       <source>The password fails the dictionary check</source>
-      <translation>הססמה נכשלה במבחן המילון</translation>
+      <translation>הסיסמה נכשלה במבחן המילון</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="305"/>
@@ -2284,9 +2280,9 @@ The installer will quit and all changes will be lost.</source>
       <translation>שגיאה לא ידועה</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="729"/>
+      <location filename="../src/modules/users/Config.cpp" line="775"/>
       <source>Password is empty</source>
-      <translation>הססמה ריקה</translation>
+      <translation>שדה הסיסמה ריק</translation>
     </message>
   </context>
   <context>
@@ -2406,56 +2402,56 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="325"/>
       <source>Choose a password to keep your account safe.</source>
-      <translation>נא לבחור ססמה להגנה על חשבונך.</translation>
+      <translation>נא לבחור סיסמה להגנה על חשבונך.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="349"/>
       <location filename="../src/modules/users/page_usersetup.ui" line="374"/>
       <source>&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.&lt;/small&gt;</source>
-      <translation>&lt;small&gt;יש להקליד את אותה הססמה פעמיים כדי שניתן יהיה לבדוק שגיאות הקלדה. ססמה טובה אמורה להכיל שילוב של אותיות, מספרים וסימני פיסוק, להיות באורך של שמונה תווים לפחות ויש להחליף אותה במרווחי זמן קבועים.&lt;/small&gt;</translation>
+      <translation>&lt;small&gt;יש להקליד את אותה הסיסמה פעמיים כדי שניתן יהיה לבדוק שגיאות הקלדה. סיסמה טובה אמורה להכיל שילוב של אותיות, מספרים וסימני פיסוק, להיות באורך של שמונה תווים לפחות ויש להחליף אותה במרווחי זמן קבועים.&lt;/small&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="355"/>
       <location filename="../src/modules/users/page_usersetup.ui" line="525"/>
       <source>Password</source>
-      <translation>ססמה</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="380"/>
       <location filename="../src/modules/users/page_usersetup.ui" line="550"/>
       <source>Repeat Password</source>
-      <translation>חזרה על הססמה</translation>
+      <translation>חזרה על הסיסמה</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="455"/>
       <source>When this box is checked, password-strength checking is done and you will not be able to use a weak password.</source>
-      <translation>כשתיבה זו מסומנת, בדיקת אורך ססמה מתבצעת ולא תהיה לך אפשרות להשתמש בססמה חלשה.</translation>
+      <translation>כשתיבה זו מסומנת, בדיקת אורך סיסמה מתבצעת ולא תהיה לך אפשרות להשתמש בסיסמה חלשה.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="458"/>
       <source>Require strong passwords.</source>
-      <translation>לדרוש ססמאות חזקות.</translation>
+      <translation>לדרוש סיסמאות חזקות.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="465"/>
       <source>Log in automatically without asking for the password.</source>
-      <translation>כניסה אוטומטית מבלי לבקש ססמה.</translation>
+      <translation>כניסה אוטומטית מבלי להישאל על הסיסמה.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="472"/>
       <source>Use the same password for the administrator account.</source>
-      <translation>להשתמש באותה הססמה עבור חשבון המנהל.</translation>
+      <translation>להשתמש באותה הסיסמה עבור חשבון המנהל.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="495"/>
       <source>Choose a password for the administrator account.</source>
-      <translation>בחירת ססמה עבור חשבון המנהל.</translation>
+      <translation>בחירת סיסמה לחשבון המנהל.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/page_usersetup.ui" line="519"/>
       <location filename="../src/modules/users/page_usersetup.ui" line="544"/>
       <source>&lt;small&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/small&gt;</source>
-      <translation>&lt;small&gt;יש להקליד את אותה הססמה פעמיים כדי לאפשר זיהוי של שגיאות הקלדה.&lt;/small&gt;</translation>
+      <translation>&lt;small&gt;יש להקליד את אותה הסיסמה פעמיים כדי לאפשר זיהוי של שגיאות הקלדה.&lt;/small&gt;</translation>
     </message>
   </context>
   <context>
@@ -2508,7 +2504,7 @@ The installer will quit and all changes will be lost.</source>
       <location filename="../src/modules/partition/core/PartitionModel.cpp" line="159"/>
       <location filename="../src/modules/partition/core/PartitionModel.cpp" line="199"/>
       <source>Free Space</source>
-      <translation>זכרון פנוי</translation>
+      <translation>שטח פנוי</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/core/PartitionModel.cpp" line="163"/>
@@ -2736,13 +2732,13 @@ The installer will quit and all changes will be lost.</source>
   <context>
     <name>PlasmaLnfJob</name>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="30"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="33"/>
       <source>Plasma Look-and-Feel Job</source>
       <translation>משימת מראה ותחושה של Plasma</translation>
     </message>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="62"/>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="63"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="57"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="58"/>
       <source>Could not select KDE Plasma Look-and-Feel package</source>
       <translation>לא ניתן לבחור את חבילת המראה והתחושה של KDE Plasma.</translation>
     </message>
@@ -2755,12 +2751,12 @@ The installer will quit and all changes will be lost.</source>
       <translation>Form</translation>
     </message>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="61"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="79"/>
       <source>Please choose a look-and-feel for the KDE Plasma Desktop. You can also skip this step and configure the look-and-feel once the system is set up. Clicking on a look-and-feel selection will give you a live preview of that look-and-feel.</source>
       <translation>נא לבחור מראה ותחושה לשולחן העבודה KDE Plasma. ניתן גם לדלג על השלב הזה ולהגדיר את המראה והתחושה לאחר סיום התקנת המערכת. לחיצה על בחירת מראה ותחושה תעניק לך תצוגה מקדימה בזמן אמת של המראה והתחושה שנבחרו.</translation>
     </message>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="66"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="84"/>
       <source>Please choose a look-and-feel for the KDE Plasma Desktop. You can also skip this step and configure the look-and-feel once the system is installed. Clicking on a look-and-feel selection will give you a live preview of that look-and-feel.</source>
       <translation>נא לבחור מראה ותחושה עבור שולחן העבודה KDE Plasma. ניתן גם לדלג על השלב הזה ולהגדיר מראה ותחושה לאחר הקמת המערכת. בחירה בתצורת מראה ותחושה תעניק לך תצוגה מקדימה חיה של אותה התצורה.</translation>
     </message>
@@ -2768,7 +2764,7 @@ The installer will quit and all changes will be lost.</source>
   <context>
     <name>PlasmaLnfViewStep</name>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfViewStep.cpp" line="61"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfViewStep.cpp" line="43"/>
       <source>Look-and-Feel</source>
       <translation>מראה ותחושה</translation>
     </message>
@@ -2935,7 +2931,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/PartitionLabelsView.cpp" line="41"/>
       <source>Unpartitioned space or unknown partition table</source>
-      <translation>הזכרון לא מחולק למחיצות או שטבלת המחיצות אינה מוכרת</translation>
+      <translation>השטח לא מחולק למחיצות או שטבלת המחיצות אינה מוכרת</translation>
     </message>
   </context>
   <context>
@@ -2995,7 +2991,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="157"/>
       <source>%1 cannot be installed on empty space. Please select an existing partition.</source>
-      <translation>לא ניתן להתקין את %1 על זכרון ריק. אנא בחר מחיצה קיימת.</translation>
+      <translation>לא ניתן להתקין את %1 על שטח ריק. נא לבחור מחיצה קיימת.</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/ReplaceWidget.cpp" line="167"/>
@@ -3255,7 +3251,7 @@ Output:
     <message>
       <location filename="../src/modules/users/SetHostNameJob.cpp" line="51"/>
       <source>Setting hostname %1.</source>
-      <translation>שם העמדה %1 מוגדר.</translation>
+      <translation>כעת בהגדרת שם המארח %1.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/SetHostNameJob.cpp" line="122"/>
@@ -3345,7 +3341,7 @@ Output:
     <message>
       <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="96"/>
       <source>Flag new partition as &lt;strong&gt;%1&lt;/strong&gt;.</source>
-      <translation>סמן מחיצה חדשה כ &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+      <translation>סימון המחיצה החדשה בתור &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/jobs/SetPartitionFlagsJob.cpp" line="108"/>
@@ -3393,7 +3389,7 @@ Output:
     <message>
       <location filename="../src/modules/users/SetPasswordJob.cpp" line="47"/>
       <source>Setting password for user %1.</source>
-      <translation>מגדיר סיסמה עבור משתמש %1.</translation>
+      <translation>כעת בהגדרת הסיסמה למשתמש %1.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/SetPasswordJob.cpp" line="81"/>
@@ -3640,7 +3636,7 @@ Output:
     <message>
       <location filename="../src/modules/tracking/page_trackingstep.ui" line="275"/>
       <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href="placeholder"&gt;&lt;span style=" text-decoration: underline; color:#2980b9;"&gt;Click here for more information about user feedback&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href="placeholder"&gt;&lt;span style=" text-decoration: underline; color:#2980b9;"&gt;לחץ כאן למידע נוסף אודות משוב מצד המשתמש&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+      <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href="placeholder"&gt;&lt;span style=" text-decoration: underline; color:#2980b9;"&gt;יש ללחוץ כאן למידע נוסף על המשוב מצד המשתמשים&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/tracking/TrackingPage.cpp" line="86"/>
@@ -4069,7 +4065,7 @@ Output:
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="59"/>
       <source>Your Full Name</source>
-      <translation>שם המלא</translation>
+      <translation>שמך המלא</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="80"/>
@@ -4104,67 +4100,67 @@ Output:
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="155"/>
       <source>Choose a password to keep your account safe.</source>
-      <translation>נא לבחור ססמה להגנה על חשבונך.</translation>
+      <translation>נא לבחור סיסמה להגנה על חשבונך.</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="166"/>
       <source>Password</source>
-      <translation>ססמה</translation>
+      <translation>סיסמה</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="185"/>
       <source>Repeat Password</source>
-      <translation>חזרה על הססמה</translation>
+      <translation>חזרה על הסיסמה</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="204"/>
       <source>Enter the same password twice, so that it can be checked for typing errors. A good password will contain a mixture of letters, numbers and punctuation, should be at least eight characters long, and should be changed at regular intervals.</source>
-      <translation>יש להקליד את אותה הססמה פעמיים כדי שניתן יהיה לבדוק שגיאות הקלדה. ססמה טובה אמורה להכיל שילוב של אותיות, מספרים וסימני פיסוק, להיות באורך של שמונה תווים לפחות ויש להחליף אותה במרווחי זמן קבועים.</translation>
+      <translation>יש להקליד את אותה הסיסמה פעמיים כדי שניתן יהיה לבדוק שגיאות הקלדה. סיסמה טובה אמורה להכיל שילוב של אותיות, מספרים וסימני פיסוק, להיות באורך של שמונה תווים לפחות ויש להחליף אותה במרווחי זמן קבועים.</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="216"/>
       <source>Validate passwords quality</source>
-      <translation>אימות איכות הססמאות</translation>
+      <translation>אימות איכות הסיסמאות</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="226"/>
       <source>When this box is checked, password-strength checking is done and you will not be able to use a weak password.</source>
-      <translation>כשתיבה זו מסומנת, בדיקת אורך ססמה מתבצעת ולא תהיה לך אפשרות להשתמש בססמה חלשה.</translation>
+      <translation>כשתיבה זו מסומנת, בדיקת אורך סיסמה מתבצעת ולא תהיה לך אפשרות להשתמש בסיסמה חלשה.</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="234"/>
       <source>Log in automatically without asking for the password</source>
-      <translation>להיכנס אוטומטית מבלי לבקש ססמה</translation>
+      <translation>להיכנס אוטומטית מבלי לבקש סיסמה</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="243"/>
       <source>Reuse user password as root password</source>
-      <translation>להשתמש בססמת המשתמש גם עבור משתמש העל (root)</translation>
+      <translation>להשתמש בסיסמת המשתמש גם בשביל משתמש העל (root)</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="253"/>
       <source>Use the same password for the administrator account.</source>
-      <translation>להשתמש באותה הססמה עבור חשבון המנהל.</translation>
+      <translation>להשתמש באותה הסיסמה בשביל חשבון המנהל.</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="268"/>
       <source>Choose a root password to keep your account safe.</source>
-      <translation>נא לבחור ססמה למשתמש העל (root) כדי להגן על החשבון הזה.</translation>
+      <translation>נא לבחור סיסמה למשתמש העל (root) כדי להגן על חשבונך.</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="279"/>
       <source>Root Password</source>
-      <translation>ססמת משתמש על (root)</translation>
+      <translation>סיסמה למשתמש העל (root)</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="298"/>
       <source>Repeat Root Password</source>
-      <translation>נא לחזור על ססמת משתמש העל</translation>
+      <translation>נא לחזור על סיסמת משתמש העל</translation>
     </message>
     <message>
       <location filename="../src/modules/usersq/usersq.qml" line="318"/>
       <source>Enter the same password twice, so that it can be checked for typing errors.</source>
-      <translation>נא להקליד את הססמה פעמיים כדי לאפשר זיהוי של שגיאות הקלדה.</translation>
+      <translation>נא להקליד את הסיסמה פעמיים כדי לאפשר זיהוי של שגיאות הקלדה.</translation>
     </message>
   </context>
   <context>

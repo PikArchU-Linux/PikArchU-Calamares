@@ -11,12 +11,12 @@
     <message>
       <location filename="../src/modules/partition/gui/BootInfoWidget.cpp" line="72"/>
       <source>This system was started with an &lt;strong&gt;EFI&lt;/strong&gt; boot environment.&lt;br&gt;&lt;br&gt;To configure startup from an EFI environment, this installer must deploy a boot loader application, like &lt;strong&gt;GRUB&lt;/strong&gt; or &lt;strong&gt;systemd-boot&lt;/strong&gt; on an &lt;strong&gt;EFI System Partition&lt;/strong&gt;. This is automatic, unless you choose manual partitioning, in which case you must choose it or create it on your own.</source>
-      <translation>Гэтая сістэма выкарыстоўвае асяроддзе загрузкі &lt;strong&gt;EFI&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;Каб наладзіць запуск з EFI, усталёўшчык выкарыстоўвае праграму &lt;strong&gt;GRUB&lt;/strong&gt; альбо &lt;strong&gt;systemd-boot&lt;/strong&gt; на &lt;strong&gt;Сістэмным раздзеле EFI&lt;/strong&gt;. Працэс аўтаматызаваны, але вы можаце абраць ручны рэжым, у якім зможаце абраць ці стварыць раздзел.</translation>
+      <translation>Гэтая сістэма выкарыстоўвае асяроддзе загрузкі &lt;strong&gt;EFI&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;Каб наладзіць запуск з EFI, сродак усталёўкі выкарыстоўвае праграму &lt;strong&gt;GRUB&lt;/strong&gt; альбо &lt;strong&gt;systemd-boot&lt;/strong&gt; на &lt;strong&gt;Сістэмным раздзеле EFI&lt;/strong&gt;. Працэс аўтаматызаваны, але вы можаце абраць ручны рэжым, у якім зможаце абраць ці стварыць раздзел.</translation>
     </message>
     <message>
       <location filename="../src/modules/partition/gui/BootInfoWidget.cpp" line="84"/>
       <source>This system was started with a &lt;strong&gt;BIOS&lt;/strong&gt; boot environment.&lt;br&gt;&lt;br&gt;To configure startup from a BIOS environment, this installer must install a boot loader, like &lt;strong&gt;GRUB&lt;/strong&gt;, either at the beginning of a partition or on the &lt;strong&gt;Master Boot Record&lt;/strong&gt; near the beginning of the partition table (preferred). This is automatic, unless you choose manual partitioning, in which case you must set it up on your own.</source>
-      <translation>Сістэма запушчаная ў працоўным асяроддзі &lt;strong&gt;BIOS&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;Каб наладзіць запуск з BIOS, усталёўшчыку неабходна ўсталяваць загрузчык &lt;strong&gt;GRUB&lt;/strong&gt;, альбо ў пачатку раздзела, альбо ў &lt;strong&gt;Галоўны загрузачны запіс. (MBR)&lt;/strong&gt;, які прадвызначана знаходзіцца ў пачатку табліцы раздзелаў. Працэс аўтаматычны, але вы можаце перайсці ў ручны рэжым, дзе зможаце наладзіць гэта ўласнаручна.</translation>
+      <translation>Сістэма запушчаная ў працоўным асяроддзі &lt;strong&gt;BIOS&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;Каб наладзіць запуск з BIOS, сродку ўсталёўкі неабходна ўсталяваць загрузчык &lt;strong&gt;GRUB&lt;/strong&gt;, альбо ў пачатку раздзела, альбо ў &lt;strong&gt;Галоўны загрузачны запіс. (MBR)&lt;/strong&gt;, які прадвызначана знаходзіцца ў пачатку табліцы раздзелаў. Працэс аўтаматычны, але вы можаце перайсці ў ручны рэжым, дзе зможаце наладзіць гэта ўласнаручна.</translation>
     </message>
   </context>
   <context>
@@ -427,7 +427,7 @@ The setup program will quit and all changes will be lost.</source>
       <location filename="../src/libcalamaresui/ViewManager.cpp" line="514"/>
       <source>Do you really want to cancel the current install process?
 The installer will quit and all changes will be lost.</source>
-      <translation>Сапраўды хочаце скасаваць працэс усталёўкі? Усталёўшчык спыніць працу, а ўсе змены страцяцца.</translation>
+      <translation>Сапраўды хочаце скасаваць працэс усталёўкі? Праграма спыніць працу, а ўсе змены страцяцца.</translation>
     </message>
   </context>
   <context>
@@ -512,149 +512,149 @@ The installer will quit and all changes will be lost.</source>
       <translation>Форма</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="126"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="120"/>
       <source>Select storage de&amp;vice:</source>
       <translation>Абраць &amp;прыладу захоўвання:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="127"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="963"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1008"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1098"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="121"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="957"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1002"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1092"/>
       <source>Current:</source>
       <translation>Бягучы:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="128"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="122"/>
       <source>After:</source>
       <translation>Пасля:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="305"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="299"/>
       <source>&lt;strong&gt;Manual partitioning&lt;/strong&gt;&lt;br/&gt;You can create or resize partitions yourself.</source>
       <translation>&lt;strong&gt;Уласнаручная разметка&lt;/strong&gt;&lt;br/&gt;Вы можаце самастойна ствараць раздзелы або змяняць іх памеры.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="828"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="822"/>
       <source>Reuse %1 as home partition for %2.</source>
       <translation>Выкарыстаць %1 як хатні раздзел для %2.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="964"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="958"/>
       <source>&lt;strong&gt;Select a partition to shrink, then drag the bottom bar to resize&lt;/strong&gt;</source>
       <translation>&lt;strong&gt;Абярыце раздзел для памяншэння і цягніце паўзунок, каб змяніць памер&lt;/strong&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="981"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="975"/>
       <source>%1 will be shrunk to %2MiB and a new %3MiB partition will be created for %4.</source>
       <translation>%1 будзе паменшаны да %2MiB і новы раздзел %3MiB будзе створаны для %4.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1037"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1031"/>
       <source>Boot loader location:</source>
       <translation>Размяшчэнне загрузчыка:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1089"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1083"/>
       <source>&lt;strong&gt;Select a partition to install on&lt;/strong&gt;</source>
       <translation>&lt;strong&gt;Абярыце раздзел для ўсталёўкі &lt;/strong&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1148"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1142"/>
       <source>An EFI system partition cannot be found anywhere on this system. Please go back and use manual partitioning to set up %1.</source>
       <translation>Не выяўлена сістэмнага раздзела EFI. Калі ласка, вярніцеся назад і зрабіце разметку %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1156"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1150"/>
       <source>The EFI system partition at %1 will be used for starting %2.</source>
       <translation>Сістэмны раздзел EFI на %1 будзе выкарыстаны для запуску %2.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1164"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1158"/>
       <source>EFI system partition:</source>
       <translation>Сістэмны раздзел EFI:</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1297"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1291"/>
       <source>This storage device does not seem to have an operating system on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>Здаецца, на гэтай прыладзе няма аперацыйнай сістэмы. Што будзеце рабіць?&lt;br/&gt;Вы зможаце змяніць альбо пацвердзіць свой выбар да таго як на прыладзе ўжывуцца змены.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1302"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1339"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1361"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1386"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1296"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1333"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1355"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1380"/>
       <source>&lt;strong&gt;Erase disk&lt;/strong&gt;&lt;br/&gt;This will &lt;font color="red"&gt;delete&lt;/font&gt; all data currently present on the selected storage device.</source>
       <translation>&lt;strong&gt;Сцерці дыск&lt;/strong&gt;&lt;br/&gt;Гэта &lt;font color="red"&gt;выдаліць&lt;/font&gt; усе даныя на абранай прыладзе.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1306"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1335"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1357"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1382"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1300"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1329"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1351"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1376"/>
       <source>&lt;strong&gt;Install alongside&lt;/strong&gt;&lt;br/&gt;The installer will shrink a partition to make room for %1.</source>
       <translation>&lt;strong&gt;Усталяваць побач&lt;/strong&gt;&lt;br/&gt;Праграма ўсталёўкі паменшыць раздзел, каб вызваліць месца для %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1310"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1344"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1365"/>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1390"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1304"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1338"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1359"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1384"/>
       <source>&lt;strong&gt;Replace a partition&lt;/strong&gt;&lt;br/&gt;Replaces a partition with %1.</source>
       <translation>&lt;strong&gt;Замяніць раздзел &lt;/strong&gt;&lt;br/&gt;Заменіць раздзел на %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1329"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1323"/>
       <source>This storage device has %1 on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>На гэтай прыладзе ёсць %1. Што будзеце рабіць?&lt;br/&gt;Вы зможаце змяніць альбо пацвердзіць свой выбар да таго як на прыладзе ўжывуцца змены.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1352"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1346"/>
       <source>This storage device already has an operating system on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>На гэтай прыладзе ўжо ёсць аперацыйная сістэма. Што будзеце рабіць?&lt;br/&gt;Вы зможаце змяніць альбо пацвердзіць свой выбар да таго як на прыладзе ўжывуцца змены.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1377"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1371"/>
       <source>This storage device has multiple operating systems on it. What would you like to do?&lt;br/&gt;You will be able to review and confirm your choices before any change is made to the storage device.</source>
       <translation>На гэтай прыладзе ўжо ёсць некалькі аперацыйных сістэм. Што будзеце рабіць?&lt;br/&gt;Вы зможаце змяніць альбо пацвердзіць свой выбар да таго як на прыладзе ўжывуцца змены.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1449"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1443"/>
       <source>This storage device already has an operating system on it, but the partition table &lt;strong&gt;%1&lt;/strong&gt; is different from the needed &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;</source>
       <translation>На гэтай прыладзе ўжо ўсталяваная аперацыйная сістэма, але табліца раздзелаў &lt;strong&gt;%1&lt;/strong&gt; не такая, як патрэбна &lt;strong&gt;%2&lt;/strong&gt;.&lt;br/&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1472"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1466"/>
       <source>This storage device has one of its partitions &lt;strong&gt;mounted&lt;/strong&gt;.</source>
       <translation>Адзін з раздзелаў гэтай назапашвальнай прылады&lt;strong&gt;прымантаваны&lt;/strong&gt;.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1477"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1471"/>
       <source>This storage device is a part of an &lt;strong&gt;inactive RAID&lt;/strong&gt; device.</source>
       <translation>Гэтая назапашвальная прылада ёсць часткай&lt;strong&gt;неактыўнага RAID&lt;/strong&gt;.</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1604"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1598"/>
       <source>No Swap</source>
       <translation>Без раздзела падпампоўкі</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1612"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1606"/>
       <source>Reuse Swap</source>
       <translation>Выкарыстаць існы раздзел падпампоўкі</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1615"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1609"/>
       <source>Swap (no Hibernate)</source>
       <translation>Раздзел падпампоўкі (без усыплення)</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1618"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1612"/>
       <source>Swap (with Hibernate)</source>
       <translation>Раздзел падпампоўкі (з усыпленнем)</translation>
     </message>
     <message>
-      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1621"/>
+      <location filename="../src/modules/partition/gui/ChoicePage.cpp" line="1615"/>
       <source>Swap to file</source>
       <translation>Раздзел падпампоўкі ў файле</translation>
     </message>
@@ -711,7 +711,7 @@ The installer will quit and all changes will be lost.</source>
     <message>
       <location filename="../src/libcalamares/utils/CommandList.cpp" line="143"/>
       <source>The command runs in the host environment and needs to know the root path, but no rootMountPoint is defined.</source>
-      <translation>Загад выконваецца ў асяроддзі ўсталёўшчыка. Яму неабходна ведаць шлях да каранёвага раздзела, але rootMountPoint не вызначаны.</translation>
+      <translation>Загад выконваецца ў асяроддзі праграмы для ўсталёўкі. Яму неабходна ведаць шлях да каранёвага раздзела, але rootMountPoint не вызначаны.</translation>
     </message>
     <message>
       <location filename="../src/libcalamares/utils/CommandList.cpp" line="156"/>
@@ -812,47 +812,47 @@ The installer will quit and all changes will be lost.</source>
       <translation>&lt;h1&gt;Вітаем у праграме ўсталёўкі %1&lt;/h1&gt;</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="200"/>
+      <location filename="../src/modules/users/Config.cpp" line="212"/>
       <source>Your username is too long.</source>
       <translation>Імя карыстальніка занадта доўгае.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="206"/>
+      <location filename="../src/modules/users/Config.cpp" line="218"/>
       <source>'%1' is not allowed as username.</source>
       <translation>'%1' немагчыма выкарыстаць як імя карыстальніка.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="213"/>
+      <location filename="../src/modules/users/Config.cpp" line="225"/>
       <source>Your username must start with a lowercase letter or underscore.</source>
       <translation>Імя карыстальніка павінна пачынацца з малой літары альбо сімвала падкрэслівання.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="217"/>
+      <location filename="../src/modules/users/Config.cpp" line="229"/>
       <source>Only lowercase letters, numbers, underscore and hyphen are allowed.</source>
       <translation>Дазваляюцца толькі літары, лічбы, знакі падкрэслівання, працяжнікі.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="262"/>
+      <location filename="../src/modules/users/Config.cpp" line="274"/>
       <source>Your hostname is too short.</source>
       <translation>Назва вашага камп’ютара занадта кароткая.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="266"/>
+      <location filename="../src/modules/users/Config.cpp" line="278"/>
       <source>Your hostname is too long.</source>
       <translation>Назва вашага камп’ютара занадта доўгая.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="272"/>
+      <location filename="../src/modules/users/Config.cpp" line="284"/>
       <source>'%1' is not allowed as hostname.</source>
       <translation>'%1' немагчыма выкарыстаць як назву хоста.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="278"/>
+      <location filename="../src/modules/users/Config.cpp" line="290"/>
       <source>Only letters, numbers, underscore and hyphen are allowed.</source>
       <translation>Толькі літары, лічбы, знакі падкрэслівання, працяжнікі.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="481"/>
+      <location filename="../src/modules/users/Config.cpp" line="527"/>
       <source>Your passwords do not match!</source>
       <translation>Вашыя паролі не супадаюць!</translation>
     </message>
@@ -1030,29 +1030,25 @@ The installer will quit and all changes will be lost.</source>
       <translation>Стварыць карыстальніка &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/CreateUserJob.cpp" line="50"/>
-      <source>Creating user %1.</source>
-      <translation>Стварэнне карыстальніка %1.</translation>
-    </message>
-    <message>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="126"/>
       <source>Preserving home directory</source>
-      <translation type="unfinished"/>
+      <translation>Захаванне хатняга каталога</translation>
     </message>
     <message>
+      <location filename="../src/modules/users/CreateUserJob.cpp" line="50"/>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="143"/>
       <source>Creating user %1</source>
-      <translation type="unfinished"/>
+      <translation>Стварэнне карыстальніка %1</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="151"/>
       <source>Configuring user %1</source>
-      <translation type="unfinished"/>
+      <translation>Наладка карыстальніка %1</translation>
     </message>
     <message>
       <location filename="../src/modules/users/CreateUserJob.cpp" line="159"/>
       <source>Setting file permissions</source>
-      <translation type="unfinished"/>
+      <translation>Наладка правоў доступу да файлаў</translation>
     </message>
   </context>
   <context>
@@ -1179,17 +1175,17 @@ The installer will quit and all changes will be lost.</source>
   <context>
     <name>DracutLuksCfgJob</name>
     <message>
-      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="127"/>
+      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="117"/>
       <source>Write LUKS configuration for Dracut to %1</source>
       <translation>Запісаць канфігурацыю LUKS для Dracut у %1</translation>
     </message>
     <message>
-      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="131"/>
+      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="121"/>
       <source>Skip writing LUKS configuration for Dracut: "/" partition is not encrypted</source>
       <translation>Прамінуць запіс канфігурацыі LUKS для Dracut: "/" раздзел не зашыфраваны</translation>
     </message>
     <message>
-      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="148"/>
+      <location filename="../src/modules/dracutlukscfg/DracutLuksCfgJob.cpp" line="138"/>
       <source>Failed to open %1</source>
       <translation>Не атрымалася адкрыць %1</translation>
     </message>
@@ -1763,30 +1759,30 @@ The installer will quit and all changes will be lost.</source>
       <translation>Наладка файла ключа LUKS.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="145"/>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="153"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="168"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="176"/>
       <source>No partitions are defined.</source>
       <translation>Раздзелаў не вызначана.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="181"/>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="188"/>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="196"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="211"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="218"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="226"/>
       <source>Encrypted rootfs setup error</source>
       <translation>Не атрымалася зашыфраваць rootfs</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="182"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="212"/>
       <source>Root partition %1 is LUKS but no passphrase has been set.</source>
       <translation>Каранёвы раздзел %1 зашыфраваны як LUKS, але парольная фраза не была вызначаная.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="189"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="219"/>
       <source>Could not create LUKS key file for root partition %1.</source>
       <translation>Не атрымалася стварыць файл ключа LUKS для каранёвага раздзела %1.</translation>
     </message>
     <message>
-      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="197"/>
+      <location filename="../src/modules/luksbootkeyfile/LuksBootKeyFileJob.cpp" line="227"/>
       <source>Could not configure LUKS key file on partition %1.</source>
       <translation>Не атрымалася наладзіць файл ключа LUKS на каранёвым раздзеле %1.</translation>
     </message>
@@ -2066,6 +2062,16 @@ The installer will quit and all changes will be lost.</source>
       <source>The password contains too few uppercase letters</source>
       <translation>У паролі занадта мала вялікіх літар</translation>
     </message>
+    <message numerus="yes">
+      <location filename="../src/modules/users/CheckPWQuality.cpp" line="232"/>
+      <source>The password contains fewer than %n lowercase letters</source>
+      <translation>
+        <numerusform>У паролі менш %n малой літары</numerusform>
+        <numerusform>У паролі менш %n малых літар</numerusform>
+        <numerusform>У паролі менш %n малых літар</numerusform>
+        <numerusform>У паролі менш %n малых літар</numerusform>
+      </translation>
+    </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="235"/>
       <source>The password contains too few lowercase letters</source>
@@ -2099,96 +2105,86 @@ The installer will quit and all changes will be lost.</source>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="218"/>
       <source>The password contains fewer than %n digits</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>Пароль змяшчае менш %n лічбы</numerusform>
+        <numerusform>Пароль змяшчае менш %n лічбаў</numerusform>
+        <numerusform>Пароль змяшчае менш %n лічбаў</numerusform>
+        <numerusform>Пароль змяшчае менш %n лічбаў</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="225"/>
       <source>The password contains fewer than %n uppercase letters</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-      </translation>
-    </message>
-    <message numerus="yes">
-      <location filename="../src/modules/users/CheckPWQuality.cpp" line="232"/>
-      <source>The password contains fewer  than %n lowercase letters</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>У паролі менш %n вялікай літары</numerusform>
+        <numerusform>У паролі менш %n вялікіх літар</numerusform>
+        <numerusform>У паролі менш %n вялікіх літар</numerusform>
+        <numerusform>У паролі менш %n вялікіх літар</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="239"/>
       <source>The password contains fewer than %n non-alphanumeric characters</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>У паролі менш %n адмысловага знака</numerusform>
+        <numerusform>У паролі менш %n адмысловых знакаў</numerusform>
+        <numerusform>У паролі менш %n адмысловых знакаў</numerusform>
+        <numerusform>У паролі менш %n адмысловых знакаў</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="246"/>
       <source>The password is shorter than %n characters</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>Пароль карацейшы за %n знак</numerusform>
+        <numerusform>Пароль карацейшы за %n знакі</numerusform>
+        <numerusform>Пароль карацейшы за %n знакаў</numerusform>
+        <numerusform>Пароль карацейшы за %n знакаў</numerusform>
       </translation>
     </message>
     <message>
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="251"/>
       <source>The password is a rotated version of the previous one</source>
-      <translation type="unfinished"/>
+      <translation>Пароль ёсць адваротнай версіяй мінулага</translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="255"/>
       <source>The password contains fewer than %n character classes</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>Пароль змяшчае менш %n класа сімвалаў</numerusform>
+        <numerusform>Пароль змяшчае менш %n класаў сімвалаў</numerusform>
+        <numerusform>Пароль змяшчае менш %n класаў сімвалаў</numerusform>
+        <numerusform>Пароль змяшчае менш %n класаў сімвалаў</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="262"/>
       <source>The password contains more than %n same characters consecutively</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>Пароль змяшчае больш за %n аднолькавы паслядоўны знак</numerusform>
+        <numerusform>Пароль змяшчае больш за %n аднолькавыя паслядоўныя знакі</numerusform>
+        <numerusform>Пароль змяшчае больш за %n аднолькавых паслядоўных знакаў</numerusform>
+        <numerusform>Пароль змяшчае больш за %n аднолькавых паслядоўных знакаў</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="269"/>
       <source>The password contains more than %n characters of the same class consecutively</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>Пароль змяшчае больш за %n паслядоўны знак таго ж класа</numerusform>
+        <numerusform>Пароль змяшчае больш за %n паслядоўныя знакі таго ж класа</numerusform>
+        <numerusform>Пароль змяшчае больш за %n паслядоўных знакаў таго ж класа</numerusform>
+        <numerusform>Пароль змяшчае больш за %n паслядоўных знакаў таго ж класа</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <location filename="../src/modules/users/CheckPWQuality.cpp" line="280"/>
       <source>The password contains monotonic sequence longer than %n characters</source>
-      <translation type="unfinished">
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
-        <numerusform/>
+      <translation>
+        <numerusform>Пароль змяшчае аднастайную паслядоўнасць, даўжэйшую за %n знак</numerusform>
+        <numerusform>Пароль змяшчае аднастайную паслядоўнасць, даўжэйшую за %n знакі</numerusform>
+        <numerusform>Пароль змяшчае аднастайную паслядоўнасць, даўжэйшую за %n знакаў</numerusform>
+        <numerusform>Пароль змяшчае аднастайную паслядоўнасць, даўжэйшую за %n знакаў</numerusform>
       </translation>
     </message>
     <message>
@@ -2282,7 +2278,7 @@ The installer will quit and all changes will be lost.</source>
       <translation>Невядомая памылка</translation>
     </message>
     <message>
-      <location filename="../src/modules/users/Config.cpp" line="729"/>
+      <location filename="../src/modules/users/Config.cpp" line="775"/>
       <source>Password is empty</source>
       <translation>Пароль пусты</translation>
     </message>
@@ -2734,13 +2730,13 @@ The installer will quit and all changes will be lost.</source>
   <context>
     <name>PlasmaLnfJob</name>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="30"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="33"/>
       <source>Plasma Look-and-Feel Job</source>
       <translation>Plasma Look-and-Feel</translation>
     </message>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="62"/>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="63"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="57"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfJob.cpp" line="58"/>
       <source>Could not select KDE Plasma Look-and-Feel package</source>
       <translation>Не атрымалася абраць пакунак KDE Plasma Look-and-Feel</translation>
     </message>
@@ -2753,12 +2749,12 @@ The installer will quit and all changes will be lost.</source>
       <translation>Форма</translation>
     </message>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="61"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="79"/>
       <source>Please choose a look-and-feel for the KDE Plasma Desktop. You can also skip this step and configure the look-and-feel once the system is set up. Clicking on a look-and-feel selection will give you a live preview of that look-and-feel.</source>
       <translation>Калі ласка, абярыце "look-and-feel" для працоўнага асяроддзя KDE Plasma. Вы можаце мінуць гэты крок і наладзіць выгляд і паводзіны пасля завяршэння ўсталёўкі сістэмы. Калі пстрыкнуць па "look-and-feel", то можна паглядзець як выглядае гэты стыль.</translation>
     </message>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="66"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfPage.cpp" line="84"/>
       <source>Please choose a look-and-feel for the KDE Plasma Desktop. You can also skip this step and configure the look-and-feel once the system is installed. Clicking on a look-and-feel selection will give you a live preview of that look-and-feel.</source>
       <translation>Калі ласка, абярыце "look-and-feel" для працоўнага асяроддзя KDE Plasma. Вы можаце мінуць гэты крок і наладзіць выгляд і паводзіны пасля завяршэння ўсталёўкі сістэмы. Калі пстрыкнуць па "look-and-feel", то можна паглядзець як выглядае гэты стыль.</translation>
     </message>
@@ -2766,7 +2762,7 @@ The installer will quit and all changes will be lost.</source>
   <context>
     <name>PlasmaLnfViewStep</name>
     <message>
-      <location filename="../src/modules/plasmalnf/PlasmaLnfViewStep.cpp" line="61"/>
+      <location filename="../src/modules/plasmalnf/PlasmaLnfViewStep.cpp" line="43"/>
       <source>Look-and-Feel</source>
       <translation>Выгляд</translation>
     </message>
@@ -3467,18 +3463,18 @@ Output:
     <message>
       <location filename="../src/modules/users/MiscJobs.cpp" line="166"/>
       <source>Preparing groups.</source>
-      <translation type="unfinished"/>
+      <translation>Падрыхтоўка групаў.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/MiscJobs.cpp" line="178"/>
       <location filename="../src/modules/users/MiscJobs.cpp" line="183"/>
       <source>Could not create groups in target system</source>
-      <translation type="unfinished"/>
+      <translation>Не атрымалася стварыць групы ў мэтавай сістэме</translation>
     </message>
     <message>
       <location filename="../src/modules/users/MiscJobs.cpp" line="184"/>
       <source>These groups are missing in the target system: %1</source>
-      <translation type="unfinished"/>
+      <translation>Наступныя групы адсутнічаюць у мэтавай сістэме: %1</translation>
     </message>
   </context>
   <context>
@@ -3486,7 +3482,7 @@ Output:
     <message>
       <location filename="../src/modules/users/MiscJobs.cpp" line="33"/>
       <source>Configure &lt;pre&gt;sudo&lt;/pre&gt; users.</source>
-      <translation type="unfinished"/>
+      <translation>Наладка &lt;pre&gt;суперкарыстальнікаў&lt;/pre&gt;.</translation>
     </message>
     <message>
       <location filename="../src/modules/users/MiscJobs.cpp" line="55"/>
@@ -3837,7 +3833,7 @@ Output:
     <message>
       <location filename="../src/modules/welcome/WelcomePage.cpp" line="222"/>
       <source>&lt;h1&gt;Welcome to the Calamares installer for %1.&lt;/h1&gt;</source>
-      <translation>&lt;h1&gt;Вітаем ва ўсталёўшчыку Calamares для %1.&lt;/h1&gt;</translation>
+      <translation>&lt;h1&gt;Вітаем у Calamares для %1.&lt;/h1&gt;</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.cpp" line="223"/>
@@ -3857,7 +3853,7 @@ Output:
     <message>
       <location filename="../src/modules/welcome/WelcomePage.cpp" line="235"/>
       <source>About %1 installer</source>
-      <translation>Пра ўсталёўшчык %1</translation>
+      <translation>Пра %1</translation>
     </message>
     <message>
       <location filename="../src/modules/welcome/WelcomePage.cpp" line="238"/>

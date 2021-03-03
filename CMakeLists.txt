@@ -41,8 +41,14 @@
 # TODO:3.3: Require CMake 3.12
 cmake_minimum_required( VERSION 3.3 FATAL_ERROR )
 project( CALAMARES
+<<<<<<< HEAD
     VERSION 3.2.34
     LANGUAGES C CXX )
+=======
+    VERSION 3.2.38
+    LANGUAGES C CXX
+)
+>>>>>>> 1496173b2c1aceaadf7ec4af63ea5b611b7d37fd
 
 set( CALAMARES_VERSION_RC 0 )  # Set to 0 during release cycle, 1 during development
 
@@ -141,10 +147,9 @@ set( CALAMARES_DESCRIPTION_SUMMARY
 #       `txstats.py -e`. See also
 #
 # Total 71 languages
-set( _tx_complete az az_AZ be ca cs_CZ da de fi_FI fur he hi hr ja
-    pt_BR sq sv tg uk vi zh_TW )
-set( _tx_good as ast es fa fr hu it_IT ko lt ml nl pt_PT ru sk
-    tr_TR zh_CN )
+set( _tx_complete az ca fi_FI fur he hr ja lt sq uk zh_CN zh_TW )
+set( _tx_good as ast az_AZ be cs_CZ da de es fa fr hi hu it_IT ko
+    ml nl pt_BR pt_PT ru sk sv tg tr_TR vi )
 set( _tx_ok ar bg bn el en_GB es_MX es_PR et eu gl id is mr nb pl
     ro sl sr sr@latin th )
 set( _tx_incomplete ca@valencia eo fr_CH gu ie kk kn lo lv mk ne_NP
@@ -194,7 +199,7 @@ include( CMakeColors )
 set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_FLAGS                "${CMAKE_CXX_FLAGS} -Wall -Werror=return-type" )
-set( CMAKE_CXX_FLAGS_DEBUG          "-g ${CMAKE_CXX_FLAGS_DEBUG}" )
+set( CMAKE_CXX_FLAGS_DEBUG          "-Og -g ${CMAKE_CXX_FLAGS_DEBUG}" )
 set( CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG" )
 set( CMAKE_CXX_FLAGS_RELEASE        "-O3 -DNDEBUG" )
 set( CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g" )
@@ -202,7 +207,7 @@ set( CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g" )
 set( CMAKE_C_STANDARD 99 )
 set( CMAKE_C_STANDARD_REQUIRED ON )
 set( CMAKE_C_FLAGS                  "${CMAKE_C_FLAGS} -Wall" )
-set( CMAKE_C_FLAGS_DEBUG            "-g" )
+set( CMAKE_C_FLAGS_DEBUG            "-Og -g" )
 set( CMAKE_C_FLAGS_MINSIZEREL       "-Os -DNDEBUG" )
 set( CMAKE_C_FLAGS_RELEASE          "-O4 -DNDEBUG" )
 set( CMAKE_C_FLAGS_RELWITHDEBINFO   "-O2 -g" )
@@ -229,6 +234,10 @@ if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
     )
         string( APPEND CMAKE_CXX_FLAGS " ${CLANG_WARNINGS}" )
     endforeach()
+
+    # The dwarf-debugging flags are slightly different, too
+    string( APPEND CMAKE_CXX_FLAGS_DEBUG " -gdwarf" )
+    string( APPEND CMAKE_C_FLAGS_DEBUG " -gdwarf" )
 
     # Third-party code where we don't care so much about compiler warnings
     # (because it's uncomfortable to patch) get different flags; use
@@ -686,3 +695,16 @@ feature_summary(
     DESCRIPTION "The following REQUIRED packages were not found:"
     QUIET_ON_EMPTY
 )
+
+### PACKAGING
+#
+# Note: most distro's will do distro-specific packaging rather than
+#       using CPack, and this duplicates information in the AppStream, too.
+# TODO:3.3 With newer CMake, move HOMEPAGE_URL to the project()call
+set(CPACK_PACKAGE_VENDOR calamares)
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A Linux system installer")
+set(CPACK_PACKAGE_DESCRIPTION "Calamares is a Linux system installer, intended for Linux distributions to use on their ISOs and other bootable media to install the distribution to the end-user's computer. Calamares can also be used as an OEM configuration tool. It is modular, extensible and highly-configurable for Linux distributions from all five major Linux families.")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://calamares.io")
+set(CPACK_PACKAGE_ICON "data/images/squid.png")
+
+include(CPack)

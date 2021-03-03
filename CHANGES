@@ -7,7 +7,7 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
-# 3.2.35(unreleased) #
+# 3.2.38 (unreleased) #
 
 This release contains contributions from (alphabetically by first name):
  - No external contributors yet
@@ -17,6 +17,107 @@ This release contains contributions from (alphabetically by first name):
 
 ## Modules ##
  - No module changes yet
+
+
+# 3.2.37 (2021-02-23) #
+
+This release contains contributions from (alphabetically by first name):
+ - benne-dee
+
+## Core ##
+ - Calamares has a table of 'best guess' languages for each country
+   and when GeoIP is enabled, it will automatically select that
+   country's language as default -- the user can of course pick
+   a different one. The 'best guess' is based on Unicode / ISO
+   data, which is sometimes dubious. Based on some personal notes,
+   the 'best guess' language for Belarus has been changed to Russian.
+ - Calamares has a table of 'best guess' keyboard mappings,
+   allowing native language input. However, usernames and
+   passwords should be in US-ASCII (this is a limitation of
+   the login system -- **some** parts of the system will support
+   non-ASCII input, but it's better safe than sorry).
+   Add Greek to the list of languages that needs US-ASCII
+   in addition to native input.
+ - The CI infrastructure now builds Calamares and Calamares-extensions
+   on a nightly basis.
+
+## Modules ##
+ - The *netinstall* module has a YAML schema, allowing packagers
+   to validate and verify their netinstall configurations before
+   shipping an ISO (or writing bug reports). Thanks benne-dee.
+ - The *finished* module has been heavily refactored, opening
+   the way to a QML-based version of the same module. This is
+   also preparatory work for allowing packagers (e.g. PostmarketOS)
+   to customize the messages on the finished page.
+
+
+# 3.2.36 (2021-02-03) #
+
+This release contains contributions from (alphabetically by first name):
+ - Anubhav Choudhary
+ - benne-dee
+ - Gaël PORTAY
+ - Jonas Strassel
+ - Kevin Kofler
+ - Matti Hyttinen
+ - Neal Gompa
+
+## Core ##
+ - It is now possible to hide the *next* and *back* buttons during
+   the "exec" phase of installation. Thanks Anubhav.
+ - The Calamares CI has migrated to GitHub actions. Thanks Jonas.
+
+## Modules ##
+ - *bootloader* now uses the current file names for the UEFI Secure Boot
+   shim instead of obsolete ones.
+ - The *mount* module creates swap in its own subvolume, if btrfs is used.
+   Thanks Matti.
+ - *partition* includes more information about what it will do, including
+   GPT partition types (in human-readable format, if possible). Thanks Gaël.
+ - Some edge-cases with overlay filesystems have been resolved in the
+   *partition* module. Thanks Gaël.
+ - During the creation of filesystems and partitions, automounting is
+   turned off (if DBus is available, and the host system supports
+   KDE Solid automount control). This should reduce the number of
+   failed installations if automount grabs partitions while they are
+   being created. The code is prepared to handle other ways to control
+   automount-behavior as well.
+
+
+# 3.2.35.1 (2020-12-07) #
+
+This release contains contributions from (alphabetically by first name):
+ - Anubhav Choudhary
+ - Matti Hyttinen
+
+Some strange string artifacts appeared, leading to `{1?}` being
+displayed in various user-facing messages. These have been removed
+and the translations updated.
+
+## Modules ##
+ - The *initcpiocfg* module would sometimes configure the system to ask
+   for a passphrase, when none is needed.
+
+
+# 3.2.35 (2020-11-30) #
+
+This release contains contributions from (alphabetically by first name):
+ - Clarissa Borges
+ - Matti Hyttinen
+
+A new kind of issue template has been added for Calamares,
+for reporting (and adding tests for) usability issues. Thanks
+to Clarissa for leading that effort.
+
+## Core ##
+ - No core changes yet
+
+## Modules ##
+ - The *partition* module now supports a not-full-disk-encryption setup,
+   where `/boot` is not encrypted, but the rest of the system is.
+ - The *plasmalnf* module has been substantially rewritten, so that it
+   can support a QML version of the module in future. The UI has changed
+   a little, and now displays more themes than before.
 
 
 # 3.2.34 (2020-11-16) #
