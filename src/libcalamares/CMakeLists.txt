@@ -48,14 +48,19 @@ set( libSources
     locale/TranslatableString.cpp
 
     # Modules
+    modulesystem/Config.cpp
     modulesystem/Descriptor.cpp
     modulesystem/InstanceKey.cpp
     modulesystem/Module.cpp
+    modulesystem/Preset.cpp
     modulesystem/RequirementsChecker.cpp
     modulesystem/RequirementsModel.cpp
 
     # Network service
     network/Manager.cpp
+
+    # Packages service
+    packages/Globals.cpp
 
     # Partition service
     partition/Mount.cpp
@@ -224,6 +229,12 @@ calamares_add_test(
     libcalamaresnetworktest
     SOURCES
         network/Tests.cpp
+)
+
+calamares_add_test(
+    libcalamarespackagestest
+    SOURCES
+        packages/Tests.cpp
 )
 
 calamares_add_test(

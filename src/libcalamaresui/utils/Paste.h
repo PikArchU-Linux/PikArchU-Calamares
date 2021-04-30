@@ -10,21 +10,34 @@
 #ifndef UTILS_PASTE_H
 #define UTILS_PASTE_H
 
-#include<QStringList>
+#include <QString>
 
 class QObject;
-class QString;
+class QWidget;
 
 namespace CalamaresUtils
 {
-
+namespace Paste
+{
 /** @brief Send the current log file to a pastebin
  *
  * Returns the (string) URL that the pastebin gives us.
  */
-QString ficheLogUpload( QObject* parent );
+QString doLogUpload( QObject* parent );
 
-extern QStringList UploadServersList;
+/** @brief Send the current log file to a pastebin
+ *
+ * As doLogUpload(), but also sets the clipboard and displays
+ * a message saying it's been done.
+ */
+QString doLogUploadUI( QWidget* parent );
+
+/** @brief Is paste enabled?
+ *
+ * Checks the branding instance if paste can be done.
+ */
+bool isEnabled();
+}  // namespace Paste
 
 }  // namespace CalamaresUtils
 
