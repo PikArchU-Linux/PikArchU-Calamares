@@ -11,48 +11,32 @@
  *
  */
 
-#include "gui/PartitionViewStep.h"
+#include "PartitionViewStep.h"
 
-#include "core/Config.h"
+#include "Config.h"
+#include "core/BootLoaderModel.h"
 #include "core/DeviceModel.h"
-#include "core/KPMHelpers.h"
-#include "core/OsproberEntry.h"
-#include "core/PartUtils.h"
-#include "core/PartitionActions.h"
 #include "core/PartitionCoreModule.h"
-#include "core/PartitionModel.h"
 #include "gui/ChoicePage.h"
 #include "gui/PartitionBarsView.h"
 #include "gui/PartitionLabelsView.h"
 #include "gui/PartitionPage.h"
 
 #include "Branding.h"
-#include "CalamaresVersion.h"
 #include "GlobalStorage.h"
-#include "Job.h"
 #include "JobQueue.h"
 #include "utils/CalamaresUtilsGui.h"
 #include "utils/Logger.h"
-#include "utils/NamedEnum.h"
 #include "utils/QtCompat.h"
 #include "utils/Retranslator.h"
 #include "utils/Variant.h"
 #include "widgets/WaitingWidget.h"
 
-
-#include <kpmcore/core/device.h>
 #include <kpmcore/core/partition.h>
-#include <kpmcore/fs/filesystem.h>
 
-#include <QApplication>
-#include <QDir>
 #include <QFormLayout>
-#include <QFutureWatcher>
-#include <QLabel>
 #include <QMessageBox>
-#include <QProcess>
 #include <QStackedWidget>
-#include <QTimer>
 #include <QtConcurrent/QtConcurrent>
 
 PartitionViewStep::PartitionViewStep( QObject* parent )
@@ -343,7 +327,7 @@ PartitionViewStep::isNextEnabled() const
 void
 PartitionViewStep::nextPossiblyChanged( bool )
 {
-    emit nextStatusChanged( isNextEnabled() );
+    Q_EMIT nextStatusChanged( isNextEnabled() );
 }
 
 bool
@@ -384,7 +368,7 @@ PartitionViewStep::isAtEnd() const
 void
 PartitionViewStep::onActivate()
 {
-    m_config->updateGlobalStorage();
+    m_config->fillGSSecondaryConfiguration();
 
     // if we're coming back to PVS from the next VS
     if ( m_widget->currentWidget() == m_choicePage && m_config->installChoice() == Config::InstallChoice::Alongside )
@@ -395,6 +379,44 @@ PartitionViewStep::onActivate()
     }
 }
 
+static bool
+shouldWarnForGPTOnBIOS( const PartitionCoreModule* core )
+{
+    if ( PartUtils::isEfiSystem() )
+    {
+        return false;
+    }
+
+    auto [ r, device ] = core->bootLoaderModel()->findBootLoader( core->bootLoaderInstallPath() );
+    Q_UNUSED( r );
+    if ( device )
+    {
+        auto* table = device->partitionTable();
+        cDebug() << "Found device for bootloader" << device->deviceNode();
+        if ( table && table->type() == PartitionTable::TableType::gpt )
+        {
+            // So this is a BIOS system, and the bootloader will be installed on a GPT system
+            for ( const auto& partition : qAsConst( table->children() ) )
+            {
+                using CalamaresUtils::Units::operator""_MiB;
+                if ( ( partition->activeFlags() & KPM_PARTITION_FLAG( BiosGrub ) )
+                     && ( partition->fileSystem().type() == FileSystem::Unformatted )
+                     && ( partition->capacity() >= 8_MiB ) )
+                {
+                    cDebug() << Logger::SubEntry << "Partition" << partition->devicePath() << partition->partitionPath()
+                             << "is a suitable bios_grub partition";
+                    return false;
+                }
+            }
+        }
+        cDebug() << Logger::SubEntry << "No suitable partition for bios_grub found";
+    }
+    else
+    {
+        cDebug() << "Found no device for" << core->bootLoaderInstallPath();
+    }
+    return true;
+}
 
 void
 PartitionViewStep::onLeave()
@@ -410,19 +432,20 @@ PartitionViewStep::onLeave()
     {
         if ( PartUtils::isEfiSystem() )
         {
-            QString espMountPoint
+            const QString espMountPoint
                 = Calamares::JobQueue::instance()->globalStorage()->value( "efiSystemPartition" ).toString();
+            const QString espFlagName = PartitionTable::flagName(
 #ifdef WITH_KPMCORE4API
-            auto espFlag = PartitionTable::Flag::Boot;
+                PartitionTable::Flag::Boot
 #else
-            auto espFlag = PartitionTable::FlagEsp;
+                PartitionTable::FlagEsp
 #endif
-            QString espFlagName = PartitionTable::flagName( espFlag );
+                                                        );
             Partition* esp = m_core->findPartitionByMountPoint( espMountPoint );
 
             QString message;
             QString description;
-            if ( !esp )
+            if ( !esp || ( esp && !PartUtils::isEfiFilesystemSuitable( esp ) ) )
             {
                 message = tr( "No EFI system partition configured" );
                 description = tr( "An EFI system partition is necessary to start %1."
@@ -462,24 +485,25 @@ PartitionViewStep::onLeave()
         {
 
             cDebug() << "device: BIOS";
-            // TODO: this *always* warns, which might be annoying, so it'd be
-            //       best to find a way to detect that bios_grub partition.
 
-            QString message = tr( "Option to use GPT on BIOS" );
-            QString description = tr( "A GPT partition table is the best option for all "
-                                      "systems. This installer supports such a setup for "
-                                      "BIOS systems too."
-                                      "<br/><br/>"
-                                      "To configure a GPT partition table on BIOS, "
-                                      "(if not done so already) go back "
-                                      "and set the partition table to GPT, next create a 8 MB "
-                                      "unformatted partition with the "
-                                      "<strong>bios_grub</strong> flag enabled.<br/><br/>"
-                                      "An unformatted 8 MB partition is necessary "
-                                      "to start %1 on a BIOS system with GPT." )
-                                      .arg( branding->shortProductName() );
+            if ( shouldWarnForGPTOnBIOS( m_core ) )
+            {
+                QString message = tr( "Option to use GPT on BIOS" );
+                QString description = tr( "A GPT partition table is the best option for all "
+                                          "systems. This installer supports such a setup for "
+                                          "BIOS systems too."
+                                          "<br/><br/>"
+                                          "To configure a GPT partition table on BIOS, "
+                                          "(if not done so already) go back "
+                                          "and set the partition table to GPT, next create a 8 MB "
+                                          "unformatted partition with the "
+                                          "<strong>bios_grub</strong> flag enabled.<br/><br/>"
+                                          "An unformatted 8 MB partition is necessary "
+                                          "to start %1 on a BIOS system with GPT." )
+                                          .arg( branding->shortProductName() );
 
-            QMessageBox::information( m_manualPartitionPage, message, description );
+                QMessageBox::information( m_manualPartitionPage, message, description );
+            }
         }
 
         Partition* root_p = m_core->findPartitionByMountPoint( "/" );
@@ -523,25 +547,6 @@ PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )
     // Copy the efiSystemPartition setting to the global storage. It is needed not only in
     // the EraseDiskPage, but also in the bootloader configuration modules (grub, bootloader).
     Calamares::GlobalStorage* gs = Calamares::JobQueue::instance()->globalStorage();
-    QString efiSP = CalamaresUtils::getString( configurationMap, "efiSystemPartition", QStringLiteral( "/boot/efi" ) );
-    gs->insert( "efiSystemPartition", efiSP );
-
-    // Set up firmwareType global storage entry. This is used, e.g. by the bootloader module.
-    QString firmwareType( PartUtils::isEfiSystem() ? QStringLiteral( "efi" ) : QStringLiteral( "bios" ) );
-    cDebug() << "Setting firmwareType to" << firmwareType;
-    gs->insert( "firmwareType", firmwareType );
-
-    // Read and parse key efiSystemPartitionSize
-    if ( configurationMap.contains( "efiSystemPartitionSize" ) )
-    {
-        gs->insert( "efiSystemPartitionSize", CalamaresUtils::getString( configurationMap, "efiSystemPartitionSize" ) );
-    }
-
-    // Read and parse key efiSystemPartitionName
-    if ( configurationMap.contains( "efiSystemPartitionName" ) )
-    {
-        gs->insert( "efiSystemPartitionName", CalamaresUtils::getString( configurationMap, "efiSystemPartitionName" ) );
-    }
 
     // Read and parse key swapPartitionName
     if ( configurationMap.contains( "swapPartitionName" ) )
@@ -556,30 +561,6 @@ PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )
                 CalamaresUtils::getBool( configurationMap, "alwaysShowPartitionLabels", true ) );
     gs->insert( "enableLuksAutomatedPartitioning",
                 CalamaresUtils::getBool( configurationMap, "enableLuksAutomatedPartitioning", true ) );
-
-    // The defaultFileSystemType setting needs a bit more processing,
-    // as we want to cover various cases (such as different cases)
-    QString fsName = CalamaresUtils::getString( configurationMap, "defaultFileSystemType" );
-    FileSystem::Type fsType;
-    if ( fsName.isEmpty() )
-    {
-        cWarning() << "Partition-module setting *defaultFileSystemType* is missing, will use ext4";
-    }
-    QString fsRealName = PartUtils::findFS( fsName, &fsType );
-    if ( fsRealName == fsName )
-    {
-        cDebug() << "Partition-module setting *defaultFileSystemType*" << fsRealName;
-    }
-    else if ( fsType != FileSystem::Unknown )
-    {
-        cWarning() << "Partition-module setting *defaultFileSystemType* changed" << fsRealName;
-    }
-    else
-    {
-        cWarning() << "Partition-module setting *defaultFileSystemType* is bad (" << fsName << ") using" << fsRealName
-                   << "instead.";
-    }
-    gs->insert( "defaultFileSystemType", fsRealName );
 
     QString partitionTableName = CalamaresUtils::getString( configurationMap, "defaultPartitionTableType" );
     if ( partitionTableName.isEmpty() )
@@ -602,7 +583,7 @@ PartitionViewStep::setConfigurationMap( const QVariantMap& configurationMap )
     QFuture< void > future = QtConcurrent::run( this, &PartitionViewStep::initPartitionCoreModule );
     m_future->setFuture( future );
 
-    m_core->initLayout( fsType == FileSystem::Unknown ? FileSystem::Ext4 : fsType,
+    m_core->initLayout( m_config->defaultFsType(),
                         configurationMap.value( "partitionLayout" ).toList() );
 }
 

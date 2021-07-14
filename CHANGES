@@ -7,6 +7,61 @@ contributors are listed. Note that Calamares does not have a historical
 changelog -- this log starts with version 3.2.0. The release notes on the
 website will have to do for older versions.
 
+# 3.2.40 (2021-07-14) #
+
+This release contains contributions from (alphabetically by first name):
+ - Anke Boersma
+ - Anubhav Choudhary (SoK success!)
+ - Emmanuel Arias (new contributor! welcome!)
+ - Erik Dubois
+ - Jerrod Frost (new contributor! welcome!)
+ - Jia Chao (new contributor! welcome!)
+ - Joe Kamprad
+ - Lisa Vitolo (blast from the past!)
+ - Omer I.S. (new contributor! welcome!)
+
+In project news, chat (instant-messaging) communications has largely
+moved to Matrix and Libera.Chat. CI notifications -- issues and build
+results -- are sent to Matrix only.
+
+## Core ##
+ - The CMake modules for consumption by external modules (e.g. the
+   calamares-extensions repository, but also any other modules built
+   by distro's for internal use) now support consistent skip-module
+   behavior and reporting. #1641 (one tiny part of this change)
+ - In global storage, the *filesystem_use* key now has an API in
+   libcalamares to systematically mark filesystem (types) as "in use"
+   or not. This, in turn, means that modules can depend on that information
+   for other work (e.g. removing drivers for unused filesystems). #1635
+ - The "upload log file" now has a configurable log-file-size. (Thanks Anubhav)
+
+## Modules ##
+ - *bootloader* can now install an aarch64 (ARM) compatible EFI GRUB. (Thanks Jia)
+ - *displaymanager* example configuration has been shuffled around a bit,
+   for better results when the live image is running XFCE. Also lists
+   more potential display managers. #1205 (Thanks Erik)
+ - *keyboard* now switches on an alternate `en_US` keyboard layout when
+   Arabic or Hebrew is selected as primary layout. (Thanks Omer)
+ - *localeq* now has a fully functional offline option (alongside the default
+   interactive map option, which requires internet).
+ - The *netinstall* module can now fall back to alternative URLs when
+   loading groups data. The first URL to yield a non-empty groups
+   collection is accepted. No changes are needed in the configuration. #1673
+ - *packagechooser* can now integrate with the *packages* module; that
+   means you can specify package names to install for a given selection,
+   and the regular package-installation mechanism will take care of it.
+   Legacy configurations that use *contextualprocess* are still supported.
+   See the `packagechooser.conf` file for details. #1550
+ - A long-neglected pull request from Lisa Vitolo for the *partition*
+   module -- allowing to set filesystem labels during manual partitioning --
+   has been revived and merged.
+ - The *partition* manager has had a long-standing bug with partition-flags
+   and manual partitioning resolved. This may help resolve some installation
+   issues on UEFI systems. #1724
+ - *usersq* is further implemented and can now be used for a successful install.
+   Not all warning messages available in the regular users module are implemented.
+
+
 # 3.2.39.3 (2021-04-14) #
 
 A minor bugfix tweak release. Since this contains yet **another**

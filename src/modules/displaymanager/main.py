@@ -195,6 +195,10 @@ desktop_environments = [
     DesktopEnvironment('/usr/bin/dwm', 'dwm'),
     DesktopEnvironment('/usr/bin/jwm', 'jwm'),
     DesktopEnvironment('/usr/bin/icewm-session', 'icewm-session'),
+    DesktopEnvironment('/usr/bin/fvwm3', 'fvwm3'),
+    DesktopEnvironment('/usr/bin/sway', 'sway'),
+    DesktopEnvironment('/usr/bin/ukui-session', 'ukui'),
+    DesktopEnvironment('/usr/bin/cutefish-session', 'cutefish-xsession'),    
 ]
 
 

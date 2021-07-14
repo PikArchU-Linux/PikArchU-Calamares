@@ -24,6 +24,10 @@
 
 class DeviceModel;
 class Partition;
+namespace Logger
+{
+class Once;
+}
 
 namespace PartUtils
 {
@@ -41,26 +45,29 @@ QString convenienceName( const Partition* const candidate );
  * @brief canBeReplaced checks whether the given Partition satisfies the criteria
  * for replacing it with the new OS.
  * @param candidate the candidate partition to replace.
+ * @param o applied to debug-logging.
  * @return true if the criteria are met, otherwise false.
  */
-bool canBeReplaced( Partition* candidate );
+bool canBeReplaced( Partition* candidate, const Logger::Once& o );
 
 /**
  * @brief canBeReplaced checks whether the given Partition satisfies the criteria
  * for resizing (shrinking) it to make room for a new OS.
  * @param candidate the candidate partition to resize.
+ * @param o applied to debug-logging.
  * @return true if the criteria are met, otherwise false.
  */
-bool canBeResized( Partition* candidate );
+bool canBeResized( Partition* candidate, const Logger::Once& o );
 
 /**
  * @brief canBeReplaced checks whether the given Partition satisfies the criteria
  * for resizing (shrinking) it to make room for a new OS.
  * @param dm the DeviceModel instance.
  * @param partitionPath the device path of the candidate partition to resize.
+ * @param o applied to debug-logging.
  * @return true if the criteria are met, otherwise false.
  */
-bool canBeResized( DeviceModel* dm, const QString& partitionPath );
+bool canBeResized( DeviceModel* dm, const QString& partitionPath, const Logger::Once& o );
 
 /**
  * @brief runOsprober executes os-prober, parses the output and writes relevant
@@ -76,6 +83,12 @@ OsproberEntryList runOsprober( DeviceModel* dm );
 bool isEfiSystem();
 
 /**
+ * @brief Is the @p partition suitable as an EFI boot partition?
+ * Checks for filesystem type (FAT32) and size (300MiB at least).
+ */
+bool isEfiFilesystemSuitable( const Partition* candidate );
+
+/**
  * @brief Is the given @p partition bootable in EFI? Depending on
  * the partition table layout, this may mean different flags.
  */
@@ -84,11 +97,13 @@ bool isEfiBootable( const Partition* candidate );
 /** @brief translate @p fsName into a recognized name and type
  *
  * Makes several attempts to translate the string into a
- * name that KPMCore will recognize.
+ * name that KPMCore will recognize. Returns the canonical
+ * filesystem name (e.g. asking for "EXT4" will return "ext4").
+ *
  * The corresponding filesystem type is stored in @p fsType, and
  * its value is FileSystem::Unknown if @p fsName is not recognized.
  */
-QString findFS( QString fsName, FileSystem::Type* fsType );
+QString canonicalFilesystemName( const QString& fsName, FileSystem::Type* fsType );
 
 }  // namespace PartUtils
 
