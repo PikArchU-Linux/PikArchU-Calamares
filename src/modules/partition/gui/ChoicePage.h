@@ -101,6 +101,8 @@ private slots:
     /// @brief Calls onActionChanged() as needed.
     void onEraseSwapChoiceChanged();
 
+    void retranslate();
+
 private:
     bool calculateNextEnabled() const;
     void updateNextEnabled();
@@ -122,7 +124,8 @@ private:
     void setupEfiSystemPartitionSelector();
 
     // Translations support
-    void updateSwapChoicesTr( QComboBox* box );
+    void updateSwapChoicesTr();
+    void updateChoiceButtonsTr();
 
     Config* m_config;
     bool m_nextEnabled;

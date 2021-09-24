@@ -19,18 +19,25 @@ import QtGraphicalEffects 1.0
 import QtQuick.Window 2.3
 
 Kirigami.ScrollablePage {
+    // You can hard-code a color here, or bind to a Kirigami theme color,
+    // or use a color from Calamares branding, or ..
+    readonly property color unfilledFieldColor: "#FBFBFB" //Kirigami.Theme.backgroundColor
+    readonly property color positiveFieldColor: "#F0FFF0" //Kirigami.Theme.positiveBackgroundColor
+    readonly property color negativeFieldColor: "#EBCED1" //Kirigami.Theme.negativeBackgroundColor
+    readonly property color unfilledFieldOutlineColor: "#F1F1F1"
+    readonly property color positiveFieldOutlineColor: "#DCFFDC"
+    readonly property color negativeFieldOutlineColor: "#BE5F68"
+    readonly property color headerTextColor: "#1F1F1F"
+    readonly property color commentsColor: "#6D6D6D"
 
     width: parent.width
     height: parent.height
-
-    Kirigami.Theme.backgroundColor: "#EFF0F1"
-    Kirigami.Theme.textColor: "#1F1F1F"
 
     header: Kirigami.Heading {
         Layout.fillWidth: true
         height: 50
         horizontalAlignment: Qt.AlignHCenter
-        color: Kirigami.Theme.textColor
+        color: headerTextColor
         font.weight: Font.Medium
         font.pointSize: 12
         text: qsTr("Pick your user name and credentials to login and perform admin tasks")
@@ -57,8 +64,10 @@ Kirigami.ScrollablePage {
                 text: config.fullName
                 onTextChanged: config.setFullName(text)
 
-                palette.base: _userNameField.text.length ? "#f0fff0" : "#FBFBFB"
-                palette.highlight : _userNameField.text.length ? "#dcffdc" : "#FBFBFB"
+                palette.base: _userNameField.text.length
+                    ? positiveFieldColor : unfilledFieldColor
+                palette.highlight : _userNameField.text.length
+                    ? positiveFieldOutlineColor : unfilledFieldOutlineColor
             }
         }
 
@@ -89,8 +98,17 @@ Kirigami.ScrollablePage {
                 palette.base: _userLoginField.text.length
                     ? ( acceptableInput
                     ? ( _userLoginField.text === "root"
-                    ? "#ffdae0" : "#f0fff0" ) : "#ffdae0" ) : "#FBFBFB"
-                palette.highlight : _userLoginField.text.length ? "#dcffdc" : "#FBFBFB"
+                    ? negativeFieldColor
+                    : positiveFieldColor )
+                    : negativeFieldColor )
+                    : unfilledFieldColor
+                palette.highlight : _userLoginField.text.length
+                    ? ( acceptableInput
+                    ? ( _userLoginField.text === "root"
+                    ? negativeFieldOutlineColor
+                    : positiveFieldOutlineColor )
+                    : negativeFieldOutlineColor )
+                    : unfilledFieldOutlineColor
             }
 
             Label {
@@ -98,7 +116,7 @@ Kirigami.ScrollablePage {
                 text: qsTr("If more than one person will use this computer, you can create multiple accounts after installation.")
                 font.weight: Font.Thin
                 font.pointSize: 8
-                color: "#6D6D6D"
+                color: commentsColor
             }
         }
 
@@ -143,10 +161,16 @@ Kirigami.ScrollablePage {
 
                 palette.base: _hostName.text.length
                     ? ( acceptableInput
-                    ? ( _hostName.text === "localhost" ? "#ffdae0" : "#f0fff0" )
-                    : "#ffdae0")
-                    : "#FBFBFB"
-                palette.highlight : _hostName.text.length ? "#dcffdc" : "#FBFBFB"
+                    ? ( _hostName.text === "localhost"
+                    ? negativeFieldColor : positiveFieldColor )
+                    : negativeFieldColor)
+                    : unfilledFieldColor
+                palette.highlight : _hostName.text.length
+                    ? ( acceptableInput
+                    ? ( _hostName.text === "localhost"
+                    ? negativeFieldOutlineColor : positiveFieldOutlineColor )
+                    : negativeFieldOutlineColor)
+                    : unfilledFieldOutlineColor
             }
 
             Label {
@@ -154,7 +178,7 @@ Kirigami.ScrollablePage {
                 text: qsTr("This name will be used if you make the computer visible to others on a network.")
                 font.weight: Font.Thin
                 font.pointSize: 8
-                color: "#6D6D6D"
+                color: commentsColor
             }
         }
 
@@ -194,8 +218,10 @@ Kirigami.ScrollablePage {
                     text: config.userPassword
                     onTextChanged: config.setUserPassword(text)
 
-                    palette.base: _passwordField.text.length ? "#f0fff0" : "#FBFBFB"
-                    palette.highlight : _passwordField.text.length ? "#dcffdc" : "#FBFBFB"
+                    palette.base: _passwordField.text.length
+                        ? positiveFieldColor : unfilledFieldColor
+                    palette.highlight : _passwordField.text.length
+                        ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
                     echoMode: TextInput.Password
                     passwordMaskDelay: 300
@@ -217,9 +243,12 @@ Kirigami.ScrollablePage {
 
                     palette.base: _verificationPasswordField.text.length
                         ? ( _passwordField.text === _verificationPasswordField.text
-                        ? "#f0fff0" : "#ffdae0" )
-                        : "#FBFBFB"
-                    palette.highlight : _verificationPasswordField.text.length ? "#dcffdc" : "#FBFBFB"
+                        ? positiveFieldColor : negativeFieldColor )
+                        : unfilledFieldColor
+                    palette.highlight : _verificationPasswordField.text.length
+                        ? ( _passwordField.text === _verificationPasswordField.text
+                        ? positiveFieldOutlineColor : negativeFieldOutlineColor )
+                        : unfilledFieldOutlineColor
 
                     echoMode: TextInput.Password
                     passwordMaskDelay: 300
@@ -233,7 +262,7 @@ Kirigami.ScrollablePage {
                 font.weight: Font.Thin
                 font.pointSize: 8
                 wrapMode: Text.WordWrap
-                color: "#6D6D6D"
+                color: commentsColor
             }
         }
 
@@ -272,7 +301,7 @@ Kirigami.ScrollablePage {
             text: qsTr("Use the same password for the administrator account.")
             font.weight: Font.Thin
             font.pointSize: 8
-            color: "#6D6D6D"
+            color: commentsColor
         }
 
         Column {
@@ -297,8 +326,10 @@ Kirigami.ScrollablePage {
 
                     onTextChanged: config.setRootPassword(text)
 
-                    palette.base: _rootPasswordField.text.length ? "#f0fff0" : "#FBFBFB"
-                    palette.highlight : _rootPasswordField.text.length ? "#dcffdc" : "#FBFBFB"
+                    palette.base: _rootPasswordField.text.length
+                        ? positiveFieldColor : unfilledFieldColor
+                    palette.highlight : _rootPasswordField.text.length
+                        ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
                     echoMode: TextInput.Password
                     passwordMaskDelay: 300
@@ -313,15 +344,17 @@ Kirigami.ScrollablePage {
 
                     onTextChanged: _rootPasswordField.text === _verificationRootPasswordField.text
                         ? ( config.setRootPasswordSecondary(text),
-                        rootPassMessage.visible = false,
-                        rootValidityMessage.visible = true )
-                        : ( rootPassMessage.visible = true,
-                        rootValidityMessage.visible = false )
+                        rootPassMessage.visible = false,rootValidityMessage.visible = true )
+                        : ( rootPassMessage.visible = true,rootValidityMessage.visible = false )
 
                     palette.base: _verificationRootPasswordField.text.length
                         ? ( _rootPasswordField.text === _verificationRootPasswordField.text
-                        ? "#f0fff0" : "#ffdae0") : "#FBFBFB"
-                    palette.highlight : _verificationRootPasswordField.text.length ? "#dcffdc" : "#FBFBFB"
+                        ? positiveFieldColor : negativeFieldColor)
+                        : unfilledFieldColor
+                    palette.highlight : _verificationRootPasswordField.text.length
+                        ? ( _rootPasswordField.text === _verificationRootPasswordField.text
+                        ? positiveFieldOutlineColor : negativeFieldOutlineColor)
+                        : unfilledFieldOutlineColor
 
                     echoMode: TextInput.Password
                     passwordMaskDelay: 300
@@ -335,7 +368,7 @@ Kirigami.ScrollablePage {
                 text: qsTr("Enter the same password twice, so that it can be checked for typing errors.")
                 font.weight: Font.Thin
                 font.pointSize: 8
-                color: "#6D6D6D"
+                color: commentsColor
             }
         }
 
@@ -383,7 +416,7 @@ Kirigami.ScrollablePage {
             text: qsTr("When this box is checked, password-strength checking is done and you will not be able to use a weak password.")
             font.weight: Font.Thin
             font.pointSize: 8
-            color: "#6D6D6D"
+            color: commentsColor
         }
     }
 }
