@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-08 13:31+0200\n"
+"POT-Creation-Date: 2021-09-22 11:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,8 +26,8 @@ msgstr "Configure GRUB."
 msgid "Mounting partitions."
 msgstr "Mounting partitions."
 
-#: src/modules/mount/main.py:144 src/modules/initcpiocfg/main.py:197
-#: src/modules/initcpiocfg/main.py:201
+#: src/modules/mount/main.py:144 src/modules/initcpiocfg/main.py:227
+#: src/modules/initcpiocfg/main.py:231
 #: src/modules/luksopenswaphookcfg/main.py:86
 #: src/modules/luksopenswaphookcfg/main.py:90 src/modules/rawfs/main.py:164
 #: src/modules/initramfscfg/main.py:85 src/modules/initramfscfg/main.py:89
@@ -38,7 +38,7 @@ msgstr "Mounting partitions."
 msgid "Configuration Error"
 msgstr "Configuration Error"
 
-#: src/modules/mount/main.py:145 src/modules/initcpiocfg/main.py:198
+#: src/modules/mount/main.py:145 src/modules/initcpiocfg/main.py:228
 #: src/modules/luksopenswaphookcfg/main.py:87 src/modules/rawfs/main.py:165
 #: src/modules/initramfscfg/main.py:86 src/modules/openrcdmcryptcfg/main.py:73
 #: src/modules/fstab/main.py:356
@@ -210,7 +210,7 @@ msgstr "Display manager configuration was incomplete"
 msgid "Configuring mkinitcpio."
 msgstr "Configuring mkinitcpio."
 
-#: src/modules/initcpiocfg/main.py:202
+#: src/modules/initcpiocfg/main.py:232
 #: src/modules/luksopenswaphookcfg/main.py:91
 #: src/modules/initramfscfg/main.py:90 src/modules/openrcdmcryptcfg/main.py:77
 #: src/modules/fstab/main.py:362 src/modules/localecfg/main.py:136
