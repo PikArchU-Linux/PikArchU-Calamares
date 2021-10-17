@@ -3,7 +3,7 @@
 #
 # === This file is part of Calamares - <http://github.com/calamares> ===
 #
-#   Copyright 2014 - 2019, Philip Müller <philm@manjaro.org>
+#   Copyright 2014 - 2021, Philip Müller <philm@manjaro.org>
 #   Copyright 2016, Artoo <artoo@manjaro.org>
 #
 #   Calamares is free software: you can redistribute it and/or modify
@@ -21,6 +21,7 @@
 
 import libcalamares
 import subprocess
+import os
 
 from shutil import copy2
 from distutils.dir_util import copy_tree
@@ -49,6 +50,13 @@ class ConfigController:
 
     def terminate(self, proc):
         target_env_call(['killall', '-9', proc])
+
+    def remove_symlink(self, target):
+        for root, dirs, files in os.walk("/" + target):
+            for filename in files:
+                path = os.path.join(root, filename)
+                if os.path.islink(path):
+                    os.unlink(path)       
 
     def copy_file(self, file):
         if exists("/" + file):
@@ -96,9 +104,8 @@ class ConfigController:
         elif cpu_ucode == "GenuineIntel":
             self.remove_pkg("amd-ucode", "boot/amd-ucode.img")
 
-        # Remove calamares
-        self.remove_pkg("calamares", "usr/bin/calamares")
-        self.remove_pkg("calamares-git", "usr/bin/calamares")
+        # Remove symlinks before copying   
+        self.remove_symlink('root')
 
         # Copy skel to root
         self.copy_folder('etc/skel', 'root')
@@ -132,6 +139,10 @@ class ConfigController:
             self.umount("opt/mhwd")
             self.rmdir("opt/mhwd")
             self.umount("etc/resolv.conf")
+
+        # Remove calamares
+        self.remove_pkg("calamares", "usr/bin/calamares")
+        self.remove_pkg("calamares-git", "usr/bin/calamares")
 
         return None
 
