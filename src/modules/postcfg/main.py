@@ -56,7 +56,11 @@ class ConfigController:
             for filename in files:
                 path = os.path.join(root, filename)
                 if os.path.islink(path):
-                    os.unlink(path)       
+                    os.unlink(path)
+            for folder in dirs:
+                path = os.path.join(root, folder)
+                if os.path.islink(path):
+                    os.unlink(path)  
 
     def copy_file(self, file):
         if exists("/" + file):
