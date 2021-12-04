@@ -41,11 +41,14 @@
 # TODO:3.3: Require CMake 3.12
 cmake_minimum_required( VERSION 3.3 FATAL_ERROR )
 project( CALAMARES
-    VERSION 3.2.45
+    VERSION 3.2.48
     LANGUAGES C CXX
 )
 
 set( CALAMARES_VERSION_RC 0 )  # Set to 0 during release cycle, 1 during development
+if( CALAMARES_VERSION_RC EQUAL 1 AND CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR )
+    message( FATAL_ERROR "Do not build development versions in the source-directory." )
+endif()
 
 ### OPTIONS
 #
@@ -133,12 +136,12 @@ set( CALAMARES_DESCRIPTION_SUMMARY
 #       `txstats.py -e`. See also
 #
 # Total 81 languages
-set( _tx_complete az az_AZ ca cs_CZ fi_FI he hi hr ja ko lt pt_BR
-    pt_PT sq sv tr_TR uk zh_CN zh_TW )
-set( _tx_good as be ca@valencia da de fr fur it_IT ml nl ru sk tg
-    vi )
-set( _tx_ok ar ast bg bn el en_GB es es_MX et eu fa gl hu id is mr
-    nb pl ro si sl sr sr@latin th )
+set( _tx_complete az az_AZ ca de fa fi_FI he hr ja ko lt pt_PT si
+    sq tr_TR uk zh_TW )
+set( _tx_good as be ca@valencia cs_CZ da fr fur hi it_IT ml nl
+    pt_BR ru sk sv tg vi zh_CN )
+set( _tx_ok ar ast bg bn el en_GB es es_MX et eu gl hu id is mr nb
+    pl ro sl sr sr@latin th )
 set( _tx_incomplete en_HK en_IN eo es_PE es_PR fr_CH gu hi_IN id_ID
     ie kk kn ko_KR lo lv mk ne ne_NP te te_IN ur zh zh_HK )
 

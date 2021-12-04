@@ -17,7 +17,9 @@
 #include "utils/CalamaresUtilsSystem.h"
 #include "utils/Logger.h"
 #include "utils/RAII.h"
+#include "utils/Runner.h"
 #include "utils/String.h"
+#include "utils/Yaml.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -138,18 +140,43 @@ check_target_env_output( const bp::list& args, const std::string& stdin, int tim
 }
 
 static const char output_prefix[] = "[PYTHON JOB]:";
+static inline void
+log_action( unsigned int level, const std::string& s )
+{
+    Logger::CDebug( level ) << output_prefix << QString::fromStdString( s );
+}
 
 void
 debug( const std::string& s )
 {
-    Logger::CDebug( Logger::LOGDEBUG ) << output_prefix << QString::fromStdString( s );
+    log_action( Logger::LOGDEBUG, s );
 }
 
 void
 warning( const std::string& s )
 {
-    Logger::CDebug( Logger::LOGWARNING ) << output_prefix << QString::fromStdString( s );
+    log_action( Logger::LOGWARNING, s );
 }
+
+void
+error( const std::string& s )
+{
+    log_action( Logger::LOGERROR, s );
+}
+
+boost::python::dict
+load_yaml( const std::string& path )
+{
+    const QString filePath = QString::fromStdString( path );
+    bool ok = false;
+    auto map = CalamaresUtils::loadYaml( filePath, &ok );
+    if ( !ok )
+    {
+        cWarning() << "Loading YAML from" << filePath << "failed.";
+    }
+    return variantMapToPyDict( map );
+}
+
 
 PythonJobInterface::PythonJobInterface( Calamares::PythonJob* parent )
     : m_parent( parent )
@@ -170,6 +197,68 @@ PythonJobInterface::setprogress( qreal progress )
         m_parent->emitProgress( progress );
     }
 }
+
+static inline int
+_process_output( Calamares::Utils::RunLocation location,
+                 const boost::python::list& args,
+                 const boost::python::object& callback,
+                 const std::string& stdin,
+                 int timeout )
+{
+    Calamares::Utils::Runner r( _bp_list_to_qstringlist( args ) );
+    r.setLocation( location );
+    if ( !callback.is_none() )
+    {
+        bp::extract< bp::list > x( callback );
+        if ( x.check() )
+        {
+            QObject::connect( &r, &decltype( r )::output, [cb = callback.attr( "append" )]( const QString& s ) {
+                cb( s.toStdString() );
+            } );
+        }
+        else
+        {
+            QObject::connect(
+                &r, &decltype( r )::output, [&callback]( const QString& s ) { callback( s.toStdString() ); } );
+        }
+        r.enableOutputProcessing();
+    }
+    if ( !stdin.empty() )
+    {
+        r.setInput( QString::fromStdString( stdin ) );
+    }
+    if ( timeout > 0 )
+    {
+        r.setTimeout( std::chrono::seconds( timeout ) );
+    }
+
+    auto result = r.run();
+
+    if ( result.getExitCode() )
+    {
+        return _handle_check_target_env_call_error( result, r.executable() );
+    }
+    return 0;
+}
+
+int
+target_env_process_output( const boost::python::list& args,
+                           const boost::python::object& callback,
+                           const std::string& stdin,
+                           int timeout )
+{
+    return _process_output( Calamares::Utils::RunLocation::RunInTarget, args, callback, stdin, timeout );
+}
+
+int
+host_env_process_output( const boost::python::list& args,
+                         const boost::python::object& callback,
+                         const std::string& stdin,
+                         int timeout )
+{
+    return _process_output( Calamares::Utils::RunLocation::RunInHost, args, callback, stdin, timeout );
+}
+
 
 std::string
 obscure( const std::string& string )
