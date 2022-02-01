@@ -157,9 +157,11 @@ getLVMVolumes()
         QStringList lvscanLines = QString::fromLocal8Bit( process.readAllStandardOutput() ).split( '\n' );
         // Get the second column (`value(1)`) sinec that is the device name,
         // remove quoting.
-        std::transform( lvscanLines.begin(), lvscanLines.end(), lvscanLines.begin(), []( const QString& lvscanLine ) {
-            return lvscanLine.simplified().split( ' ' ).value( 1 ).replace( '\'', "" );
-        } );
+        std::transform( lvscanLines.begin(),
+                        lvscanLines.end(),
+                        lvscanLines.begin(),
+                        []( const QString& lvscanLine )
+                        { return lvscanLine.simplified().split( ' ' ).value( 1 ).replace( '\'', "" ); } );
         return lvscanLines;
     }
     else
@@ -243,14 +245,8 @@ public:
     }
 
 private:
-#if ( QT_VERSION < QT_VERSION_CHECK( 5, 15, 0 ) )
-    // TODO: 3.3 remove because newer Qt does support constness
     const char* m_message = nullptr;
     QString m_path;
-#else
-    const char* const m_message = nullptr;
-    QString const m_path;
-#endif
 };
 
 STATICTEST inline QDebug&

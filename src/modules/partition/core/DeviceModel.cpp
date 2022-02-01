@@ -8,18 +8,16 @@
  *   Calamares is Free Software: see the License-Identifier above.
  *
  */
-#include "core/DeviceModel.h"
+#include "DeviceModel.h"
 
 #include "core/PartitionModel.h"
+#include "core/SizeUtils.h"
 
 #include "utils/CalamaresUtilsGui.h"
 #include "utils/Logger.h"
 
 // KPMcore
 #include <kpmcore/core/device.h>
-
-// KF5
-#include <KFormat>
 
 #include <QIcon>
 #include <QStandardItemModel>
@@ -30,9 +28,9 @@
 static void
 sortDevices( DeviceModel::DeviceList& l )
 {
-    std::sort( l.begin(), l.end(), []( const Device* dev1, const Device* dev2 ) {
-        return dev1->deviceNode() < dev2->deviceNode();
-    } );
+    std::sort( l.begin(),
+               l.end(),
+               []( const Device* dev1, const Device* dev2 ) { return dev1->deviceNode() < dev2->deviceNode(); } );
 }
 
 DeviceModel::DeviceModel( QObject* parent )
@@ -83,7 +81,7 @@ DeviceModel::data( const QModelIndex& index, int role ) const
                 //: device[name] - size[number] (device-node[name])
                 return tr( "%1 - %2 (%3)" )
                     .arg( device->name() )
-                    .arg( KFormat().formatByteSize( device->capacity() ) )
+                    .arg( formatByteSize( device->capacity() ) )
                     .arg( device->deviceNode() );
             }
             else

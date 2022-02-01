@@ -46,9 +46,10 @@ ReplaceWidget::ReplaceWidget( PartitionCoreModule* core, QComboBox* devicesCombo
     m_ui->bootStatusLabel->clear();
 
     updateFromCurrentDevice( devicesComboBox );
-    connect( devicesComboBox, &QComboBox::currentTextChanged, this, [=]( const QString& /* text */ ) {
-        updateFromCurrentDevice( devicesComboBox );
-    } );
+    connect( devicesComboBox,
+             &QComboBox::currentTextChanged,
+             this,
+             [ = ]( const QString& /* text */ ) { updateFromCurrentDevice( devicesComboBox ); } );
 
     CALAMARES_RETRANSLATE( onPartitionSelected(); );
 }
@@ -212,7 +213,8 @@ ReplaceWidget::onPartitionSelected()
             }
         }
 
-        if ( partition->capacity() < requiredSpaceB )
+        // The loss of precision is ok; we're not going to fall over from a single byte
+        if ( static_cast< double >( partition->capacity() ) < requiredSpaceB )
         {
             updateStatus( CalamaresUtils::Fail,
                           tr( "<strong>%4</strong><br/><br/>"

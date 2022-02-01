@@ -10,9 +10,8 @@
 #include "VolumeGroupBaseDialog.h"
 #include "ui_VolumeGroupBaseDialog.h"
 
+#include "core/SizeUtils.h"
 #include "gui/ListPhysicalVolumeWidgetItem.h"
-
-#include <kpmcore/util/capacity.h>
 
 #include <QComboBox>
 #include <QDialogButtonBox>
@@ -46,17 +45,25 @@ VolumeGroupBaseDialog::VolumeGroupBaseDialog( QString& vgName, QVector< const Pa
     updateOkButton();
     updateTotalSize();
 
-    connect( ui->pvList, &QListWidget::itemChanged, this, [&]( QListWidgetItem* ) {
-        updateTotalSize();
-        updateOkButton();
-    } );
+    connect( ui->pvList,
+             &QListWidget::itemChanged,
+             this,
+             [ & ]( QListWidgetItem* )
+             {
+                 updateTotalSize();
+                 updateOkButton();
+             } );
 
-    connect( ui->peSize, qOverload< int >( &QSpinBox::valueChanged ), this, [&]( int ) {
-        updateTotalSectors();
-        updateOkButton();
-    } );
+    connect( ui->peSize,
+             qOverload< int >( &QSpinBox::valueChanged ),
+             this,
+             [ & ]( int )
+             {
+                 updateTotalSectors();
+                 updateOkButton();
+             } );
 
-    connect( ui->vgName, &QLineEdit::textChanged, this, [&]( const QString& ) { updateOkButton(); } );
+    connect( ui->vgName, &QLineEdit::textChanged, this, [ & ]( const QString& ) { updateOkButton(); } );
 }
 
 VolumeGroupBaseDialog::~VolumeGroupBaseDialog()
@@ -100,7 +107,7 @@ VolumeGroupBaseDialog::setUsedSizeValue( qint64 usedSize )
 {
     m_usedSizeValue = usedSize;
 
-    ui->usedSize->setText( Capacity::formatByteSize( m_usedSizeValue ) );
+    ui->usedSize->setText( formatByteSize( m_usedSizeValue ) );
 }
 
 void
@@ -121,7 +128,7 @@ VolumeGroupBaseDialog::updateTotalSize()
                 % ( ui->peSize->value() * Capacity::unitFactor( Capacity::Unit::Byte, Capacity::Unit::MiB ) );
     }
 
-    ui->totalSize->setText( Capacity::formatByteSize( m_totalSizeValue ) );
+    ui->totalSize->setText( formatByteSize( m_totalSizeValue ) );
 
     updateTotalSectors();
 }
