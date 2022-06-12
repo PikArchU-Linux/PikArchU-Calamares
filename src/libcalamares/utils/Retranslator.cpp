@@ -80,14 +80,20 @@ BrandingLoader::tryLoad( QTranslator* translator )
     {
         return false;
     }
+    // This is working backwards against m_prefix containing both
+    // a path and a branding-name. Split it in path + branding-name.
+    const int lastDirSeparator = m_prefix.lastIndexOf( QDir::separator() );
     QString brandingTranslationsDirPath( m_prefix );
-    brandingTranslationsDirPath.truncate( m_prefix.lastIndexOf( QDir::separator() ) );
-    QDir brandingTranslationsDir( brandingTranslationsDirPath );
-    if ( brandingTranslationsDir.exists() )
+    brandingTranslationsDirPath.truncate( lastDirSeparator );
+    QString filenameBase( m_prefix );
+    filenameBase.remove( 0, lastDirSeparator + 1 );
+
+
+    if ( QDir( brandingTranslationsDirPath ).exists() )
     {
-        QString filenameBase( m_prefix );
-        filenameBase.remove( 0, m_prefix.lastIndexOf( QDir::separator() ) + 1 );
-        if ( translator->load( m_localeName, filenameBase, "_", brandingTranslationsDir.absolutePath() ) )
+        const QString fileName = QStringLiteral( "%1_%2" ).arg( filenameBase, m_localeName );
+        cDebug() << Logger::SubEntry << "Loading" << fileName << "from" << brandingTranslationsDirPath;
+        if ( translator->load( fileName, brandingTranslationsDirPath ) )
         {
             cDebug() << Logger::SubEntry << "Branding using locale:" << m_localeName;
             return true;
@@ -184,8 +190,7 @@ installTranslator( const CalamaresUtils::Locale::Translation::Id& locale, const 
 void
 installTranslator()
 {
-    // Just wrap it up like an Id
-    installTranslator( { QLocale::system().name() }, QString() );
+    installTranslator( CalamaresUtils::Locale::Translation().id(), QString() );
 }
 
 CalamaresUtils::Locale::Translation::Id

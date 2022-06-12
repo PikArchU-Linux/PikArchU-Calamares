@@ -17,6 +17,7 @@
 #include "GlobalStorage.h"
 #include "JobQueue.h"
 
+#include <QRegularExpression>
 #include <QDir>
 
 LuksBootKeyFileJob::LuksBootKeyFileJob( QObject* parent )
@@ -136,6 +137,28 @@ generateTargetKeyfile()
 static bool
 setupLuks( const LuksDevice& d )
 {
+    // Sometimes this error is thrown: "All key slots full"
+    // luksAddKey will fail. So, remove the first slot to make room
+    auto luks_dump = CalamaresUtils::System::instance()->targetEnvCommand(
+        { "cryptsetup", "luksDump", d.device }, QString(), QString(), std::chrono::seconds( 5 ) );
+    if ( luks_dump.getExitCode() == 0 )
+    {
+        QRegularExpression re( QStringLiteral( R"(\d+:\s*enabled)" ), QRegularExpression::CaseInsensitiveOption );
+        int count = luks_dump.getOutput().count(re);
+        cDebug() << "Luks Dump slot count: " << count;
+        if ( count >= 7 )
+        {
+            auto r = CalamaresUtils::System::instance()->targetEnvCommand(
+                { "cryptsetup", "luksKillSlot", d.device, "1" }, QString(), d.passphrase, std::chrono::seconds( 60 ) );
+            if ( r.getExitCode() != 0 )
+            {
+                cWarning() << "Could not kill a slot to make room on" << d.device << ':' << r.getOutput() << "(exit code"
+                   << r.getExitCode() << ')';
+                return false;
+            }
+        }
+    }
+
     // Adding the key can take some times, measured around 15 seconds with
     // a HDD (spinning rust) and a slow-ish computer. Give it a minute.
     auto r = CalamaresUtils::System::instance()->targetEnvCommand(
@@ -150,26 +173,50 @@ setupLuks( const LuksDevice& d )
 }
 
 static QVariantList
-partitions()
+partitionsFromGlobalStorage()
 {
     Calamares::GlobalStorage* globalStorage = Calamares::JobQueue::instance()->globalStorage();
     return globalStorage->value( QStringLiteral( "partitions" ) ).toList();
 }
 
-static bool
+/// Checks if the partition (represented by @p map) mounts to the given @p path
+STATICTEST bool
+hasMountPoint( const QVariantMap& map, const QString& path )
+{
+    const auto v = map.value( QStringLiteral( "mountPoint" ) );
+    return v.isValid() && QDir::cleanPath( v.toString() ) == path;
+}
+
+STATICTEST bool
+isEncrypted( const QVariantMap& map )
+{
+    return map.contains( QStringLiteral( "luksMapperName" ) );
+}
+
+/// Checks for any partition satisfying @p pred
+STATICTEST bool
+anyPartition( bool ( *pred )( const QVariantMap& ) )
+{
+    const auto partitions = partitionsFromGlobalStorage();
+    return std::find_if( partitions.cbegin(),
+                         partitions.cend(),
+                         [ &pred ]( const QVariant& partitionVariant ) { return pred( partitionVariant.toMap() ); } )
+        != partitions.cend();
+}
+
+STATICTEST bool
 hasUnencryptedSeparateBoot()
 {
-    const QVariantList partitions = ::partitions();
-    for ( const QVariant& partition : partitions )
-    {
-        QVariantMap partitionMap = partition.toMap();
-        QString mountPoint = partitionMap.value( QStringLiteral( "mountPoint" ) ).toString();
-        if ( QDir::cleanPath( mountPoint ) == QStringLiteral( "/boot" ) )
-        {
-            return !partitionMap.contains( QStringLiteral( "luksMapperName" ) );
-        }
-    }
-    return false;
+    return anyPartition(
+        []( const QVariantMap& partition )
+        { return hasMountPoint( partition, QStringLiteral( "/boot" ) ) && !isEncrypted( partition ); } );
+}
+
+STATICTEST bool
+hasEncryptedRoot()
+{
+    return anyPartition( []( const QVariantMap& partition )
+                         { return hasMountPoint( partition, QStringLiteral( "/" ) ) && isEncrypted( partition ); } );
 }
 
 Calamares::JobResult
@@ -218,7 +265,8 @@ LuksBootKeyFileJob::exec()
     }
 
     // /boot partition is not encrypted, keyfile must not be used
-    if ( hasUnencryptedSeparateBoot() )
+    // But only if root partition is not encrypted
+    if ( hasUnencryptedSeparateBoot() && !hasEncryptedRoot() )
     {
         cDebug() << Logger::SubEntry << "/boot partition is not encrypted, skipping keyfile creation.";
         return Calamares::JobResult::ok();
@@ -241,6 +289,12 @@ LuksBootKeyFileJob::exec()
 
     for ( const auto& d : s.devices )
     {
+        // Skip setupLuks for root partition if system has an unencrypted /boot
+        if ( d.isRoot && hasUnencryptedSeparateBoot() )
+        {
+            continue;
+        }
+
         if ( !setupLuks( d ) )
             return Calamares::JobResult::error(
                 tr( "Encrypted rootfs setup error" ),

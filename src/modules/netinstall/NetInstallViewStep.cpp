@@ -1,4 +1,5 @@
-/*
+/* === This file is part of Calamares - <https://calamares.io> ===
+ *
  *   SPDX-FileCopyrightText: 2016 Luca Giambonini <almack@chakraos.org>
  *   SPDX-FileCopyrightText: 2016 Lisa Vitolo <shainer@chakraos.org>
  *   SPDX-FileCopyrightText: 2017 Kyle Robbertze  <krobbertze@gmail.com>
@@ -52,19 +53,19 @@ NetInstallViewStep::prettyName() const
     tr( "Browser software" );
     tr( "Browser package" );
     tr( "Web browser" );
-    tr( "Kernel" );
-    tr( "Services" );
-    tr( "Login" );
-    tr( "Desktop" );
+    tr( "Kernel", "label for netinstall module, Linux kernel" );
+    tr( "Services", "label for netinstall module, system services" );
+    tr( "Login", "label for netinstall module, choose login manager" );
+    tr( "Desktop", "label for netinstall module, choose desktop environment" );
     tr( "Applications" );
-    tr( "Communication" );
-    tr( "Development" );
-    tr( "Office" );
-    tr( "Multimedia" );
-    tr( "Internet" );
-    tr( "Theming" );
-    tr( "Gaming" );
-    tr( "Utilities" );
+    tr( "Communication", "label for netinstall module" );
+    tr( "Development", "label for netinstall module" );
+    tr( "Office", "label for netinstall module" );
+    tr( "Multimedia", "label for netinstall module" );
+    tr( "Internet", "label for netinstall module" );
+    tr( "Theming", "label for netinstall module" );
+    tr( "Gaming", "label for netinstall module" );
+    tr( "Utilities", "label for netinstall module" );
 #endif
 }
 

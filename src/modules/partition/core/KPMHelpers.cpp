@@ -20,8 +20,10 @@
 #include <kpmcore/backend/corebackendmanager.h>
 #include <kpmcore/core/device.h>
 #include <kpmcore/core/partition.h>
+#include <kpmcore/fs/filesystem.h>
 #include <kpmcore/fs/filesystemfactory.h>
 #include <kpmcore/fs/luks.h>
+#include <kpmcore/util/externalcommand.h>
 
 using CalamaresUtils::Partition::PartitionIterator;
 
@@ -32,11 +34,15 @@ Partition*
 findPartitionByMountPoint( const QList< Device* >& devices, const QString& mountPoint )
 {
     for ( auto device : devices )
+    {
         for ( auto it = PartitionIterator::begin( device ); it != PartitionIterator::end( device ); ++it )
+        {
             if ( PartitionInfo::mountPoint( *it ) == mountPoint )
             {
                 return *it;
             }
+        }
+    }
     return nullptr;
 }
 
@@ -125,6 +131,107 @@ clonePartition( Device* device, Partition* partition )
                           fs->lastSector(),
                           partition->partitionPath(),
                           partition->activeFlags() );
+}
+
+#ifndef WITH_KPMCORE4API
+// This function was added in KPMCore 4, implementation copied from src/fs/luks.cpp
+/*
+    SPDX-FileCopyrightText: 2010 Volker Lanz <vl@fidra.de>
+    SPDX-FileCopyrightText: 2012-2019 Andrius Štikonas <andrius@stikonas.eu>
+    SPDX-FileCopyrightText: 2015-2016 Teo Mrnjavac <teo@kde.org>
+    SPDX-FileCopyrightText: 2016 Chantara Tith <tith.chantara@gmail.com>
+    SPDX-FileCopyrightText: 2017 Christian Morlok <christianmorlok@gmail.com>
+    SPDX-FileCopyrightText: 2018 Caio Jordão Carvalho <caiojcarvalho@gmail.com>
+    SPDX-FileCopyrightText: 2020 Arnaud Ferraris <arnaud.ferraris@collabora.com>
+    SPDX-FileCopyrightText: 2020 Gaël PORTAY <gael.portay@collabora.com>
+
+    SPDX-License-Identifier: GPL-3.0-or-later
+*/
+static bool
+testPassphrase( FS::luks* fs, const QString& deviceNode, const QString& passphrase )
+{
+    ExternalCommand cmd( QStringLiteral( "cryptsetup" ),
+                         { QStringLiteral( "open" ),
+                           QStringLiteral( "--tries" ),
+                           QStringLiteral( "1" ),
+                           QStringLiteral( "--test-passphrase" ),
+                           deviceNode } );
+    if ( cmd.write( passphrase.toLocal8Bit() + '\n' ) && cmd.start( -1 ) && cmd.exitCode() == 0 )
+    {
+        return true;
+    }
+
+    return false;
+}
+#else
+static bool
+testPassphrase( FS::luks* fs, const QString& deviceNode, const QString& passphrase )
+{
+    return fs->testPassphrase( deviceNode, passphrase );
+}
+#endif
+
+// Adapted from src/fs/luks.cpp cryptOpen which always opens a dialog to ask for a passphrase
+SavePassphraseValue
+savePassphrase( Partition* partition, const QString& passphrase )
+{
+
+    if ( passphrase.isEmpty() )
+    {
+        return SavePassphraseValue::EmptyPassphrase;
+    }
+
+    if ( partition->fileSystem().type() != FileSystem::Luks )
+    {
+        return SavePassphraseValue::NotLuksPartition;
+    }
+
+    FS::luks* luksFs = dynamic_cast< FS::luks* >( &partition->fileSystem() );
+    const QString deviceNode = partition->partitionPath();
+
+    // Test the given passphrase
+    if ( !testPassphrase( luksFs, deviceNode, passphrase ) )
+    {
+        return SavePassphraseValue::IncorrectPassphrase;
+    }
+
+    if ( luksFs->isCryptOpen() )
+    {
+        if ( !luksFs->mapperName().isEmpty() )
+        {
+            return SavePassphraseValue::NoError;
+        }
+        else
+        {
+            cDebug() << Logger::SubEntry << "No mapper node found";
+            luksFs->setCryptOpen( false );
+        }
+    }
+
+    ExternalCommand openCmd( QStringLiteral( "cryptsetup" ),
+                             { QStringLiteral( "open" ), deviceNode, luksFs->suggestedMapperName( deviceNode ) } );
+    if ( !( openCmd.write( passphrase.toLocal8Bit() + '\n' ) && openCmd.start( -1 ) && openCmd.exitCode() == 0 ) )
+    {
+        cWarning() << Logger::SubEntry << openCmd.exitCode() << ": cryptsetup command failed";
+        return SavePassphraseValue::CryptsetupError;
+    }
+
+    // Save the existing passphrase
+    luksFs->setPassphrase( passphrase );
+    luksFs->scan( deviceNode );
+    if ( luksFs->mapperName().isEmpty() )
+    {
+        return SavePassphraseValue::NoMapperNode;
+    }
+
+    luksFs->loadInnerFileSystem( luksFs->mapperName() );
+    luksFs->setCryptOpen( luksFs->innerFS() != nullptr );
+    if ( !luksFs->isCryptOpen() )
+    {
+        return SavePassphraseValue::DeviceNotDecrypted;
+    }
+
+    return SavePassphraseValue::NoError;
 }
 
 Calamares::JobResult

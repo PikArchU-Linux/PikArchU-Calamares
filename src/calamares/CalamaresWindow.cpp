@@ -130,15 +130,37 @@ getWidgetSidebar( Calamares::DebugWindowManager* debug,
     tv->setFocusPolicy( Qt::NoFocus );
     sideLayout->addWidget( tv );
 
+    QHBoxLayout* extraButtons = new QHBoxLayout;
+    sideLayout->addLayout( extraButtons );
+
+    const int defaultFontHeight = CalamaresUtils::defaultFontHeight();
+
+    if ( /* About-Calamares Button enabled */ true )
+    {
+        QPushButton* aboutDialog = new QPushButton;
+        aboutDialog->setObjectName( "aboutDialogButton" );
+        aboutDialog->setIcon( CalamaresUtils::defaultPixmap( CalamaresUtils::Information,
+                                                             CalamaresUtils::Original,
+                                                             2 * QSize( defaultFontHeight, defaultFontHeight ) ) );
+        CALAMARES_RETRANSLATE_FOR(
+            aboutDialog,
+            aboutDialog->setToolTip( QCoreApplication::translate( CalamaresWindow::staticMetaObject.className(),
+                                                                  "Show information about Calamares" ) ); );
+        extraButtons->addWidget( aboutDialog );
+        aboutDialog->setFlat( true );
+        aboutDialog->setCheckable( true );
+        QObject::connect( aboutDialog, &QPushButton::clicked, debug, &Calamares::DebugWindowManager::about );
+    }
     if ( debug && debug->enabled() )
     {
         QPushButton* debugWindowBtn = new QPushButton;
         debugWindowBtn->setObjectName( "debugButton" );
-        CALAMARES_RETRANSLATE_FOR(
-            debugWindowBtn,
-            debugWindowBtn->setText( QCoreApplication::translate( CalamaresWindow::staticMetaObject.className(),
-                                                                  "Show debug information" ) ); );
-        sideLayout->addWidget( debugWindowBtn );
+        debugWindowBtn->setIcon( CalamaresUtils::defaultPixmap(
+            CalamaresUtils::Bugs, CalamaresUtils::Original, 2 * QSize( defaultFontHeight, defaultFontHeight ) ) );
+        CALAMARES_RETRANSLATE_FOR( debugWindowBtn,
+                                   debugWindowBtn->setToolTip( QCoreApplication::translate(
+                                       CalamaresWindow::staticMetaObject.className(), "Show debug information" ) ); );
+        extraButtons->addWidget( debugWindowBtn );
         debugWindowBtn->setFlat( true );
         debugWindowBtn->setCheckable( true );
         QObject::connect( debugWindowBtn, &QPushButton::clicked, debug, &Calamares::DebugWindowManager::show );
@@ -173,7 +195,7 @@ getWidgetNavigation( Calamares::DebugWindowManager*,
         QObject::connect( viewManager, &Calamares::ViewManager::backEnabledChanged, back, &QPushButton::setEnabled );
         QObject::connect( viewManager, &Calamares::ViewManager::backLabelChanged, back, &QPushButton::setText );
         QObject::connect(
-            viewManager, &Calamares::ViewManager::backIconChanged, [=]( QString n ) { setButtonIcon( back, n ); } );
+            viewManager, &Calamares::ViewManager::backIconChanged, [ = ]( QString n ) { setButtonIcon( back, n ); } );
         QObject::connect(
             viewManager, &Calamares::ViewManager::backAndNextVisibleChanged, back, &QPushButton::setVisible );
         bottomLayout->addWidget( back );
@@ -189,7 +211,7 @@ getWidgetNavigation( Calamares::DebugWindowManager*,
         QObject::connect( viewManager, &Calamares::ViewManager::nextEnabledChanged, next, &QPushButton::setEnabled );
         QObject::connect( viewManager, &Calamares::ViewManager::nextLabelChanged, next, &QPushButton::setText );
         QObject::connect(
-            viewManager, &Calamares::ViewManager::nextIconChanged, [=]( QString n ) { setButtonIcon( next, n ); } );
+            viewManager, &Calamares::ViewManager::nextIconChanged, [ = ]( QString n ) { setButtonIcon( next, n ); } );
         QObject::connect(
             viewManager, &Calamares::ViewManager::backAndNextVisibleChanged, next, &QPushButton::setVisible );
         bottomLayout->addWidget( next );
@@ -205,7 +227,7 @@ getWidgetNavigation( Calamares::DebugWindowManager*,
         QObject::connect( viewManager, &Calamares::ViewManager::quitEnabledChanged, quit, &QPushButton::setEnabled );
         QObject::connect( viewManager, &Calamares::ViewManager::quitLabelChanged, quit, &QPushButton::setText );
         QObject::connect(
-            viewManager, &Calamares::ViewManager::quitIconChanged, [=]( QString n ) { setButtonIcon( quit, n ); } );
+            viewManager, &Calamares::ViewManager::quitIconChanged, [ = ]( QString n ) { setButtonIcon( quit, n ); } );
         QObject::connect( viewManager, &Calamares::ViewManager::quitTooltipChanged, quit, &QPushButton::setToolTip );
         QObject::connect( viewManager, &Calamares::ViewManager::quitVisibleChanged, quit, &QPushButton::setVisible );
         bottomLayout->addWidget( quit );
