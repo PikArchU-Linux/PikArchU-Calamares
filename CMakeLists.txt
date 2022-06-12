@@ -41,11 +41,7 @@
 # TODO:3.3: Require CMake 3.12
 cmake_minimum_required( VERSION 3.3 FATAL_ERROR )
 project( CALAMARES
-<<<<<<< HEAD
-    VERSION 3.2.54
-=======
     VERSION 3.2.59
->>>>>>> 26cac052f58a1c38e723827d1773f0e805f4ee0d
     LANGUAGES C CXX
 )
 
