@@ -3,7 +3,7 @@
 #
 # === This file is part of Calamares - <https://calamares.io> ===
 #
-#   SPDX-FileCopyrightText: 2014-2018 Philip Müller <philm@manjaro.org>
+#   SPDX-FileCopyrightText: 2014-2022 Philip Müller <philm@manjaro.org>
 #   SPDX-FileCopyrightText: 2014-2015 Teo Mrnjavac <teo@kde.org>
 #   SPDX-FileCopyrightText: 2014 Kevin Kofler <kevin.kofler@chello.at>
 #   SPDX-FileCopyrightText: 2017 Alf Gaida <agaida@siduction.org>
@@ -163,6 +163,8 @@ class DesktopEnvironment:
 # /usr/local/bin) then the DE is assumed to be installed
 # and to use that .desktop filename.
 desktop_environments = [
+    DesktopEnvironment('/usr/bin/startplasmamobile', 'plasma-mobile'),  # KDE Plasma Mobile 5.26+
+    DesktopEnvironment('/usr/bin/kwinwrapper', 'plasma-mobile'),  # KDE Plasma Mobile
     DesktopEnvironment('/usr/bin/startplasma-x11', 'plasma'),  # KDE Plasma 5.17+
     DesktopEnvironment('/usr/bin/startkde', 'plasma'),  # KDE Plasma 5
     DesktopEnvironment('/usr/bin/startkde', 'kde-plasma'),  # KDE Plasma 4
