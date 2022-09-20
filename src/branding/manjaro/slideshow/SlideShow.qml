@@ -61,7 +61,7 @@ Item {
             },
             Slide {
                 title: qsTr("control panel")
-                body: qsTr("Settings manager, the same for every redaction you choose, will help you to install drivers, download missing translation and language packets, or update your kernel.")
+                body: qsTr("The control panel is a handy tool to install device drivers, download missing translations and language packages, it also helps in keeping your kernels up to date.")
             },
             Slide {
                 title: qsTr("thank you")
