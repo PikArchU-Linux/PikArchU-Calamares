@@ -54,8 +54,8 @@ Item {
                 body: qsTr("Accessible via command line or fast, beautiful graphical interface. Add or remove software with the greatest of ease.")
             },
             Slide {
-                title: qsTr("Control Panel")
-                body: qsTr("Settings manager, the same for every redaction you choose, will help you to install drivers, download missing translation and language packets, or update your kernel.")
+                title: qsTr("control panel")
+                body: qsTr("The control panel is a handy tool to install device drivers, download missing translations and language packages, it also helps in keeping your kernels up to date.")
             },
             Slide {
                 title: qsTr("Thank You")
