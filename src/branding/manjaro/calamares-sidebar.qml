@@ -129,8 +129,8 @@ Rectangle {
 
                 ShapePath {
                     scale: Qt.size((manjaroShape.width-1)/200, (manjaroShape.height-1)/200)
-                    // manjaro logo should always mantain branding guidelines
-                    fillColor: "#35bfa4"
+
+                    fillColor: systemPalette.highlight
                     strokeWidth: -1
                     PathSvg {
                         path: "M 14.28571,0 C 6.37556,0 0,6.375557 0,14.285714 V 185.71428 C 0,193.62444 6.37556,200 14.28571,200 H 57.14286 V 57.142856 h 71.42857 V 0 Z m 128.57144,0 v 200 h 42.85714 C 193.62445,200 200,193.62444 200,185.71428 V 14.285714 C 200,6.375557 193.62445,0 185.71429,0 Z M 71.42857,71.42857 V 200 h 57.14286 V 71.42857 Z m 0,0"
